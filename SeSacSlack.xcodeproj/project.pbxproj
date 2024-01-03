@@ -10,7 +10,6 @@
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
 		D654CA1D2B4435600054AD46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* ViewController.swift */; };
-		D654CA202B4435600054AD46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D654CA1E2B4435600054AD46 /* Main.storyboard */; };
 		D654CA222B4435610054AD46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D654CA212B4435610054AD46 /* Assets.xcassets */; };
 		D654CA252B4435610054AD46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D654CA232B4435610054AD46 /* LaunchScreen.storyboard */; };
 		D654CA302B4435610054AD46 /* SeSacSlackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA2F2B4435610054AD46 /* SeSacSlackTests.swift */; };
@@ -40,7 +39,6 @@
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D654CA1C2B4435600054AD46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D654CA1F2B4435600054AD46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D654CA212B4435610054AD46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D654CA242B4435610054AD46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D654CA262B4435610054AD46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				D654CA182B4435600054AD46 /* AppDelegate.swift */,
 				D654CA1A2B4435600054AD46 /* SceneDelegate.swift */,
 				D654CA1C2B4435600054AD46 /* ViewController.swift */,
-				D654CA1E2B4435600054AD46 /* Main.storyboard */,
 				D654CA212B4435610054AD46 /* Assets.xcassets */,
 				D654CA232B4435610054AD46 /* LaunchScreen.storyboard */,
 				D654CA262B4435610054AD46 /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				D654CA252B4435610054AD46 /* LaunchScreen.storyboard in Resources */,
 				D654CA222B4435610054AD46 /* Assets.xcassets in Resources */,
-				D654CA202B4435600054AD46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D654CA1E2B4435600054AD46 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D654CA1F2B4435600054AD46 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D654CA232B4435610054AD46 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,7 +435,6 @@
 				INFOPLIST_FILE = SeSacSlack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +462,6 @@
 				INFOPLIST_FILE = SeSacSlack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
