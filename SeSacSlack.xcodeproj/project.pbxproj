@@ -34,6 +34,8 @@
 		D654CA782B46CC0F0054AD46 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */; };
 		D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA7C2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift */; };
 		D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */; };
+		D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA842B470CDF0054AD46 /* AuthViewController.swift */; };
+		D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA862B470D450054AD46 /* SNSLoginButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		D654CA7C2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundTitleWhiteLabelButton.swift; sourceTree = "<group>"; };
 		D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D654CA842B470CDF0054AD46 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		D654CA862B470D450054AD46 /* SNSLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				D654CA7C2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift */,
+				D654CA862B470D450054AD46 /* SNSLoginButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -224,9 +229,26 @@
 		D654CA812B4709E00054AD46 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */,
+				D654CA832B470B9C0054AD46 /* Auth */,
+				D654CA822B470B790054AD46 /* OnBoarding */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D654CA822B470B790054AD46 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		D654CA832B470B9C0054AD46 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA842B470CDF0054AD46 /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
+				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
