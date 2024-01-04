@@ -136,10 +136,10 @@
 		D654CA172B4435600054AD46 /* SeSacSlack */ = {
 			isa = PBXGroup;
 			children = (
+				D654CA812B4709E00054AD46 /* View */,
 				D654CA702B463C010054AD46 /* Common */,
 				D654CA182B4435600054AD46 /* AppDelegate.swift */,
 				D654CA1A2B4435600054AD46 /* SceneDelegate.swift */,
-				D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */,
 				D654CA212B4435610054AD46 /* Assets.xcassets */,
 				D654CA232B4435610054AD46 /* LaunchScreen.storyboard */,
 				D654CA262B4435610054AD46 /* Info.plist */,
@@ -219,6 +219,14 @@
 				D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		D654CA812B4709E00054AD46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
