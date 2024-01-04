@@ -40,14 +40,13 @@ class OnBoardingViewController: UIViewController {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(39)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(24)
-            make.width.equalTo(345)
             make.height.equalTo(60)
         }
         iconImageView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(60)
+            make.top.equalTo(titleLabel.snp.bottom).offset(89)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(13)
-            make.height.equalTo(368)
-            make.width.equalTo(iconImageView.snp.height)
+            make.height.width.equalTo(368)
+
         }
         startButton.snp.makeConstraints { make in
             make.top.equalTo(iconImageView.snp.bottom).offset(153)
