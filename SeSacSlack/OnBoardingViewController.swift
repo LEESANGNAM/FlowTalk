@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-class OnBoardingViewController: UIViewController {
+class OnBoardingViewController: BaseViewController {
     let startButton = CustomBackgroundTitleButton(title: "시작하기", color: Colors.brandGreen.color)
     let titleLabel = {
         let view = UILabel()
@@ -26,17 +26,14 @@ class OnBoardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.brandWhite.color
-        setHierarchy()
-        setConstraion()
         // Do any additional setup after loading the view.
     }
-    private func setHierarchy() {
+    override func setHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(iconImageView)
         view.addSubview(startButton)
     }
-    private func setConstraion() {
+    override func setConstraint() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(39)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(24)
