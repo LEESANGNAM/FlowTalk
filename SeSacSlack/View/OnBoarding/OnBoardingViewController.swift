@@ -60,6 +60,17 @@ class OnBoardingViewController: BaseViewController {
     @objc
     private func startButtonTapped() {
         print("시작하기 버튼 탭")
+        let vc = AuthViewController()
+        
+        let custom = UISheetPresentationController.Detent.custom(identifier: .init("custom")) { _ in
+            return 270
+        }
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [custom]
+            sheet.prefersGrabberVisible = true
+        }
+        present(vc, animated: true)
     }
     
     

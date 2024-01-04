@@ -24,7 +24,7 @@ class AuthViewController: BaseViewController {
     
     override func setConstraint() {
         appleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(44)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(42)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(35)
             make.height.equalTo(44)
         }
@@ -42,7 +42,7 @@ class AuthViewController: BaseViewController {
             make.top.equalTo(emailLoginButton.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(35)
             make.height.equalTo(20)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-27)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-27)
         }
     }
 }
