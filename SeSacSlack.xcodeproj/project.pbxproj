@@ -31,6 +31,7 @@
 		D654CA6F2B45C1390054AD46 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA6E2B45C1390054AD46 /* Font.swift */; };
 		D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA722B463C210054AD46 /* UIColor+Extension.swift */; };
 		D654CA752B46C2110054AD46 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA742B46C2100054AD46 /* Icon.swift */; };
+		D654CA782B46CC0F0054AD46 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		D654CA6E2B45C1390054AD46 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		D654CA722B463C210054AD46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D654CA742B46C2100054AD46 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				D654CA6C2B45B3A00054AD46 /* Color.swift */,
 				D654CA6E2B45C1390054AD46 /* Font.swift */,
 				D654CA742B46C2100054AD46 /* Icon.swift */,
+				D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D654CA252B4435610054AD46 /* LaunchScreen.storyboard in Resources */,
+				D654CA782B46CC0F0054AD46 /* SF-Pro.ttf in Resources */,
 				D654CA222B4435610054AD46 /* Assets.xcassets in Resources */,
 				D654CA4D2B459A910054AD46 /* .gitIgnore in Resources */,
 			);

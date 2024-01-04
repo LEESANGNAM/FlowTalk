@@ -13,20 +13,52 @@ enum Font {
     case bodyBold
     case body
     case caption
-    
-    var font: UIFont {
+}
+
+extension Font {
+    private var size: CGFloat {
         switch self {
         case .title1:
-            return .boldSystemFont(ofSize: 22)
+            return 22
         case .title2:
-            return .boldSystemFont(ofSize: 14)
+            return 14
         case .bodyBold:
-            return .boldSystemFont(ofSize: 13)
+            return 13
         case .body:
-            return .systemFont(ofSize: 13)
+            return 13
         case .caption:
-            return .systemFont(ofSize: 12)
+            return 12
         }
     }
+    private var lineHeight: CGFloat {
+        switch self {
+        case .title1:
+            return 30
+        case .title2:
+            return 20
+        case .bodyBold, .body, .caption:
+            return 18
+        }
+    }
+    private var baseFont: UIFont {
+            switch self {
+            case .title1,.title2,.bodyBold:
+                return UIFont(name: "SFPro-Bold", size: size) ?? UIFont.systemFont(ofSize: size, weight: .bold)
+            case .body,.caption:
+                return UIFont(name: "SFPro-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
+            }
+        }
+    
+    func fontWithLineHeight() -> UIFont {
+          let paragraphStyle = NSMutableParagraphStyle()
+          paragraphStyle.minimumLineHeight = lineHeight
+          paragraphStyle.maximumLineHeight = lineHeight
+
+          let attributes: [NSAttributedString.Key: Any] = [
+              .font: baseFont,
+              .paragraphStyle: paragraphStyle
+          ]
+          return baseFont
+      }
 }
 
