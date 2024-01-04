@@ -30,6 +30,7 @@
 		D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA6C2B45B3A00054AD46 /* Color.swift */; };
 		D654CA6F2B45C1390054AD46 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA6E2B45C1390054AD46 /* Font.swift */; };
 		D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA722B463C210054AD46 /* UIColor+Extension.swift */; };
+		D654CA752B46C2110054AD46 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA742B46C2100054AD46 /* Icon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D654CA6C2B45B3A00054AD46 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D654CA6E2B45C1390054AD46 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		D654CA722B463C210054AD46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D654CA742B46C2100054AD46 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				D654CA6C2B45B3A00054AD46 /* Color.swift */,
 				D654CA6E2B45C1390054AD46 /* Font.swift */,
+				D654CA742B46C2100054AD46 /* Icon.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
+				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
