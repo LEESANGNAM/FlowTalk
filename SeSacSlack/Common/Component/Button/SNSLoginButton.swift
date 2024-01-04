@@ -9,11 +9,11 @@ import UIKit
 
 class SNSLoginButton: UIButton {
     
-    init(title: String, image: UIImage? = nil, titleColor: UIColor, backgroundColor: UIColor) {
+    init(title: String, icon: UIImage? = nil, titleColor: UIColor, backgroundColor: UIColor) {
         super.init(frame: .zero)
         self.setTitle(title, for: .normal)
         self.setTitleColor(titleColor, for: .normal)
-        self.setImage(image, for: .normal)
+        self.setImage(icon, for: .normal)
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = 8
     }
