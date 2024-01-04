@@ -11,9 +11,9 @@ class OnBoardingViewController: UIViewController {
     let startButton = CustomBackgroundTitleButton(title: "시작하기", color: Colors.brandGreen.color)
     let titleLabel = {
         let view = UILabel()
-        view.text = "새싹톡을 사용하면 어디서나 팀을 모을 수 있습니다."
-        view.font = Font.title1.font
-        view.numberOfLines = 2
+        view.text = "새싹톡을 사용하면 어디서나 \n 팀을 모을 수 있습니다."
+        view.font = Font.title1.fontWithLineHeight()
+        view.numberOfLines = 0
         view.textAlignment = .center
         return view
     }()
@@ -41,7 +41,7 @@ class OnBoardingViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(39)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(24)
             make.width.equalTo(345)
-//            make.height.equalTo(60)
+            make.height.equalTo(60)
         }
         iconImageView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(60)
