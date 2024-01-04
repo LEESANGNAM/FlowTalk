@@ -10,10 +10,10 @@ import UIKit
 
 class AuthViewController: BaseViewController {
     let appleLoginButton = SNSLoginButton(
-        title: "Apple로 계속하기", icon: Icon.apple.image, titleColor: Colors.brandWhite.color, backgroundColor: Colors.brandBlack.color)
-    let kakaoLoginButton = SNSLoginButton(title: "카카오톡으로 계속하기", icon: Icon.kakao.image, titleColor: Colors.brandBlack.color, backgroundColor: Colors.kakao.color)
-    let emailLoginButton = SNSLoginButton(title: "이메일로 계속하기", icon: Icon.email.image, titleColor: Colors.brandWhite.color, backgroundColor: Colors.brandGreen.color)
-    let signUpButton = SNSLoginButton(title: "또는 새롭게 회원가입 하기", titleColor: Colors.brandBlack.color, backgroundColor: Colors.backgroundPrimary.color)
+        icon: Icon.apple.image, title: "Apple로 계속하기", titleColor: Colors.brandWhite.color, backgroundColor: Colors.brandBlack.color)
+    let kakaoLoginButton = SNSLoginButton(icon: Icon.kakao.image, title: "카카오톡으로 계속하기", titleColor: Colors.brandBlack.color, backgroundColor: Colors.kakao.color)
+    let emailLoginButton = SNSLoginButton(icon: Icon.email.image, title: "이메일로 계속하기", titleColor: Colors.brandWhite.color, backgroundColor: Colors.brandGreen.color)
+    let signUpButton = SNSLoginButton(title: "또는",subtitle: " 새롭게 회원가입 하기", titleColor: Colors.brandBlack.color,subtitleColor: Colors.brandGreen.color, backgroundColor: Colors.backgroundPrimary.color)
     
     override func setHierarchy() {
         view.addSubview(appleLoginButton)
