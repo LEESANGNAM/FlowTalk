@@ -27,6 +27,9 @@
 		D654CA652B45A7BF0054AD46 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D654CA642B45A7BF0054AD46 /* Kingfisher */; };
 		D654CA682B45A7F90054AD46 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D654CA672B45A7F90054AD46 /* RxCocoa */; };
 		D654CA6A2B45A7F90054AD46 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D654CA692B45A7F90054AD46 /* RxSwift */; };
+		D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA6C2B45B3A00054AD46 /* Color.swift */; };
+		D654CA6F2B45C1390054AD46 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA6E2B45C1390054AD46 /* Font.swift */; };
+		D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA722B463C210054AD46 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		D654CA4C2B459A910054AD46 /* .gitIgnore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitIgnore; sourceTree = "<group>"; };
 		D654CA4E2B459FC00054AD46 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		D654CA4F2B459FCA0054AD46 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		D654CA6C2B45B3A00054AD46 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D654CA6E2B45C1390054AD46 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		D654CA722B463C210054AD46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		D654CA172B4435600054AD46 /* SeSacSlack */ = {
 			isa = PBXGroup;
 			children = (
+				D654CA702B463C010054AD46 /* Common */,
 				D654CA182B4435600054AD46 /* AppDelegate.swift */,
 				D654CA1A2B4435600054AD46 /* SceneDelegate.swift */,
 				D654CA1C2B4435600054AD46 /* ViewController.swift */,
@@ -150,6 +157,32 @@
 				D654CA3B2B4435610054AD46 /* SeSacSlackUITestsLaunchTests.swift */,
 			);
 			path = SeSacSlackUITests;
+			sourceTree = "<group>";
+		};
+		D654CA6B2B45AD220054AD46 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA6C2B45B3A00054AD46 /* Color.swift */,
+				D654CA6E2B45C1390054AD46 /* Font.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D654CA702B463C010054AD46 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA712B463C140054AD46 /* Extension */,
+				D654CA6B2B45AD220054AD46 /* Util */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D654CA712B463C140054AD46 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA722B463C210054AD46 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,10 +336,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* ViewController.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
+				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
+				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,8 +521,8 @@
 				INFOPLIST_FILE = SeSacSlack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,9 +530,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sangnam.SeSacSlack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -512,8 +551,8 @@
 				INFOPLIST_FILE = SeSacSlack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,9 +560,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sangnam.SeSacSlack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
