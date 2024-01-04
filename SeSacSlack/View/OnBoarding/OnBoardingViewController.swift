@@ -26,6 +26,7 @@ class OnBoardingViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStartButton()
         // Do any additional setup after loading the view.
     }
     override func setHierarchy() {
@@ -50,8 +51,18 @@ class OnBoardingViewController: BaseViewController {
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
             make.height.equalTo(44)
         }
-        
     }
+    
+    private func setStartButton() {
+        startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func startButtonTapped() {
+        print("시작하기 버튼 탭")
+    }
+    
+    
 
 }
 

@@ -24,6 +24,8 @@ enum Colors {
     case viewSeperator
     case alpha
     
+    case kakao
+    
     var color: UIColor {
         switch self {
         case .brandGreen:
@@ -48,6 +50,8 @@ enum Colors {
             return  UIColor(hexCode: "#ECECEC")
         case .alpha:
             return  UIColor(hexCode: "#00000080", alpha: 0.5)
+        case .kakao:
+            return UIColor(hexCode: "#FEE500")
         }
         
     }
