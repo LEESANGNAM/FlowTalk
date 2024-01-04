@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
-		D654CA1D2B4435600054AD46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* ViewController.swift */; };
+		D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */; };
 		D654CA222B4435610054AD46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D654CA212B4435610054AD46 /* Assets.xcassets */; };
 		D654CA252B4435610054AD46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D654CA232B4435610054AD46 /* LaunchScreen.storyboard */; };
 		D654CA302B4435610054AD46 /* SeSacSlackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA2F2B4435610054AD46 /* SeSacSlackTests.swift */; };
@@ -31,6 +31,7 @@
 		D654CA6F2B45C1390054AD46 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA6E2B45C1390054AD46 /* Font.swift */; };
 		D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA722B463C210054AD46 /* UIColor+Extension.swift */; };
 		D654CA752B46C2110054AD46 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA742B46C2100054AD46 /* Icon.swift */; };
+		D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA7C2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,7 @@
 		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D654CA1C2B4435600054AD46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		D654CA212B4435610054AD46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D654CA242B4435610054AD46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D654CA262B4435610054AD46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		D654CA6E2B45C1390054AD46 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		D654CA722B463C210054AD46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D654CA742B46C2100054AD46 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		D654CA7C2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundTitleWhiteLabelButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +135,7 @@
 				D654CA702B463C010054AD46 /* Common */,
 				D654CA182B4435600054AD46 /* AppDelegate.swift */,
 				D654CA1A2B4435600054AD46 /* SceneDelegate.swift */,
-				D654CA1C2B4435600054AD46 /* ViewController.swift */,
+				D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */,
 				D654CA212B4435610054AD46 /* Assets.xcassets */,
 				D654CA232B4435610054AD46 /* LaunchScreen.storyboard */,
 				D654CA262B4435610054AD46 /* Info.plist */,
@@ -174,6 +176,7 @@
 		D654CA702B463C010054AD46 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D654CA7A2B46DAE80054AD46 /* Component */,
 				D654CA712B463C140054AD46 /* Extension */,
 				D654CA6B2B45AD220054AD46 /* Util */,
 			);
@@ -186,6 +189,22 @@
 				D654CA722B463C210054AD46 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D654CA7A2B46DAE80054AD46 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA7B2B46DB490054AD46 /* Button */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		D654CA7B2B46DB490054AD46 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA7C2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +359,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
-				D654CA1D2B4435600054AD46 /* ViewController.swift in Sources */,
+				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
+				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
