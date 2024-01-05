@@ -21,6 +21,7 @@
 		D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D28C2B48797B0012CFC5 /* SignRepository.swift */; };
 		D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2902B487BB30012CFC5 /* DefaultSignRepository.swift */; };
 		D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2942B487D2E0012CFC5 /* SignUseCase.swift */; };
+		D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2982B487FF10012CFC5 /* SignUpViewModel.swift */; };
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
 		D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */; };
@@ -84,6 +85,7 @@
 		D616D28C2B48797B0012CFC5 /* SignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRepository.swift; sourceTree = "<group>"; };
 		D616D2902B487BB30012CFC5 /* DefaultSignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSignRepository.swift; sourceTree = "<group>"; };
 		D616D2942B487D2E0012CFC5 /* SignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUseCase.swift; sourceTree = "<group>"; };
+		D616D2982B487FF10012CFC5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,8 +150,8 @@
 		D616D2682B48335E0012CFC5 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				D616D2692B4833820012CFC5 /* SignUpView.swift */,
-				D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */,
+				D616D2972B487FDE0012CFC5 /* ViewModel */,
+				D654CA812B4709E00054AD46 /* View */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -281,6 +283,24 @@
 			path = Sign;
 			sourceTree = "<group>";
 		};
+		D616D2962B487F9F0012CFC5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2682B48335E0012CFC5 /* SignUp */,
+				D654CA832B470B9C0054AD46 /* Auth */,
+				D654CA822B470B790054AD46 /* OnBoarding */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D616D2972B487FDE0012CFC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2982B487FF10012CFC5 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D654CA0C2B4435600054AD46 = {
 			isa = PBXGroup;
 			children = (
@@ -304,9 +324,9 @@
 		D654CA172B4435600054AD46 /* SeSacSlack */ = {
 			isa = PBXGroup;
 			children = (
+				D616D2962B487F9F0012CFC5 /* Presentation */,
 				D616D2892B48792C0012CFC5 /* Domain */,
 				D616D2752B4854000012CFC5 /* Data */,
-				D654CA812B4709E00054AD46 /* View */,
 				D654CA702B463C010054AD46 /* Common */,
 				D654CA182B4435600054AD46 /* AppDelegate.swift */,
 				D654CA1A2B4435600054AD46 /* SceneDelegate.swift */,
@@ -398,9 +418,8 @@
 		D654CA812B4709E00054AD46 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D616D2682B48335E0012CFC5 /* SignUp */,
-				D654CA832B470B9C0054AD46 /* Auth */,
-				D654CA822B470B790054AD46 /* OnBoarding */,
+				D616D2692B4833820012CFC5 /* SignUpView.swift */,
+				D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,6 +605,7 @@
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
+				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
