@@ -18,6 +18,9 @@
 		D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */; };
 		D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */; };
 		D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */; };
+		D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D28C2B48797B0012CFC5 /* SignRepository.swift */; };
+		D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2902B487BB30012CFC5 /* DefaultSignRepository.swift */; };
+		D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2942B487D2E0012CFC5 /* SignUseCase.swift */; };
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
 		D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */; };
@@ -78,6 +81,9 @@
 		D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkErrorType.swift; sourceTree = "<group>"; };
 		D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorDTO.swift; sourceTree = "<group>"; };
 		D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationResponseDTO.swift; sourceTree = "<group>"; };
+		D616D28C2B48797B0012CFC5 /* SignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRepository.swift; sourceTree = "<group>"; };
+		D616D2902B487BB30012CFC5 /* DefaultSignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSignRepository.swift; sourceTree = "<group>"; };
+		D616D2942B487D2E0012CFC5 /* SignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUseCase.swift; sourceTree = "<group>"; };
 		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +173,7 @@
 		D616D2752B4854000012CFC5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D616D2792B4856730012CFC5 /* DTO */,
+				D616D28E2B487B620012CFC5 /* Repository */,
 				D616D2762B4854100012CFC5 /* Network */,
 			);
 			path = Data;
@@ -176,6 +182,7 @@
 		D616D2762B4854100012CFC5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D616D2792B4856730012CFC5 /* DTO */,
 				D616D2842B4862E00012CFC5 /* Error */,
 				D616D2772B48546C0012CFC5 /* Router.swift */,
 				D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */,
@@ -217,6 +224,63 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		D616D2892B48792C0012CFC5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2922B487CFC0012CFC5 /* UseCase */,
+				D616D28A2B4879330012CFC5 /* RepositoryInterface */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		D616D28A2B4879330012CFC5 /* RepositoryInterface */ = {
+			isa = PBXGroup;
+			children = (
+				D616D28B2B48794E0012CFC5 /* Sign */,
+			);
+			path = RepositoryInterface;
+			sourceTree = "<group>";
+		};
+		D616D28B2B48794E0012CFC5 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				D616D28C2B48797B0012CFC5 /* SignRepository.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		D616D28E2B487B620012CFC5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D616D28F2B487B700012CFC5 /* Sign */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D616D28F2B487B700012CFC5 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2902B487BB30012CFC5 /* DefaultSignRepository.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		D616D2922B487CFC0012CFC5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2932B487D0C0012CFC5 /* Sign */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		D616D2932B487D0C0012CFC5 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2942B487D2E0012CFC5 /* SignUseCase.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
 		D654CA0C2B4435600054AD46 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +304,7 @@
 		D654CA172B4435600054AD46 /* SeSacSlack */ = {
 			isa = PBXGroup;
 			children = (
+				D616D2892B48792C0012CFC5 /* Domain */,
 				D616D2752B4854000012CFC5 /* Data */,
 				D654CA812B4709E00054AD46 /* View */,
 				D654CA702B463C010054AD46 /* Common */,
@@ -524,13 +589,16 @@
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
+				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
+				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
+				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
