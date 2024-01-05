@@ -8,17 +8,17 @@
 import UIKit
 
 class SignUpView: BaseView {
-    lazy var emailLabel = createLabel("이메일")
-    lazy var nicknameLabel = createLabel("닉네임")
-    lazy var phoneNumLabel = createLabel("연락처")
-    lazy var passwordLabel = createLabel("비밀번호")
-    lazy var passwordCheckLabel = createLabel("비밀번호 확인")
+    lazy var emailLabel = CustomTitle2BlackLabel(text: "이메일")
+    lazy var nicknameLabel = CustomTitle2BlackLabel(text: "닉네임")
+    lazy var phoneNumLabel = CustomTitle2BlackLabel(text: "연락처")
+    lazy var passwordLabel = CustomTitle2BlackLabel(text: "비밀번호")
+    lazy var passwordCheckLabel = CustomTitle2BlackLabel(text: "비밀번호 확인")
     
-    lazy var emailTextField = createTextField("이메일을 입력하세요")
-    lazy var nicknameTextField = createTextField("닉네임을 입력하세요")
-    lazy var phoneNumTextField = createTextField("전화번호를 입력하세요")
-    lazy var passwordTextField = createTextField("비밀번호를을 입력하세요")
-    lazy var passwordCheckTextField = createTextField("비밀번호를 한번 더 입력하세요")
+    lazy var emailTextField = CustomPlaceHolderTextField("이메일을 입력하세요")
+    lazy var nicknameTextField = CustomPlaceHolderTextField("닉네임을 입력하세요")
+    lazy var phoneNumTextField = CustomPlaceHolderTextField("전화번호를 입력하세요")
+    lazy var passwordTextField = CustomPlaceHolderTextField("비밀번호를을 입력하세요")
+    lazy var passwordCheckTextField = CustomPlaceHolderTextField("비밀번호를 한번 더 입력하세요")
     
     let emailCheckButton = CustomBackgroundTitleButton(title: "중복확인", color: Colors.brandInactive.color)
     
@@ -120,34 +120,6 @@ class SignUpView: BaseView {
         }
        
         
-    }
-    
-    
-    
-    
-    private func createTextField(_ placeHolder: String) -> UITextField {
-        let view = UITextField()
-        let attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedString.Key.font: Font.body.fontWithLineHeight()])
-
-        view.attributedPlaceholder = attributedPlaceholder
-        view.backgroundColor = Colors.backgroundSecondar.color
-        view.layer.cornerRadius = 8
-        
-        
-        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: view.frame.height))
-        view.leftView = leftPaddingView
-        view.leftViewMode = .always
-        
-        
-        return view
-    }
-    
-    private func createLabel(_ text: String) -> UILabel {
-        let view = UILabel()
-        view.font = Font.title2.fontWithLineHeight()
-        view.text = text
-        view.tintColor = Colors.brandBlack.color
-        return view
     }
     
 }

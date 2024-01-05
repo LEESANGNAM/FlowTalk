@@ -10,6 +10,8 @@
 		D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2692B4833820012CFC5 /* SignUpView.swift */; };
 		D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */; };
 		D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D26D2B4833E00012CFC5 /* BaseView.swift */; };
+		D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */; };
+		D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */; };
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
 		D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */; };
@@ -62,6 +64,8 @@
 		D616D2692B4833820012CFC5 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D616D26D2B4833E00012CFC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceHolderTextField.swift; sourceTree = "<group>"; };
+		D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle2BlackLabel.swift; sourceTree = "<group>"; };
 		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,22 @@
 				D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		D616D26F2B4841720012CFC5 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		D616D2702B48417C0012CFC5 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		D654CA0C2B4435600054AD46 = {
@@ -219,6 +239,8 @@
 		D654CA7A2B46DAE80054AD46 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D616D2702B48417C0012CFC5 /* Label */,
+				D616D26F2B4841720012CFC5 /* TextField */,
 				D654CA7B2B46DB490054AD46 /* Button */,
 			);
 			path = Component;
@@ -421,9 +443,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
+				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
+				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
