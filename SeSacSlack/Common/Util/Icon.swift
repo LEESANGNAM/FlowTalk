@@ -19,6 +19,8 @@ enum Icon: String {
     
     case onboarding = "onboarding"
     
+    case close = "close"
+    
     var image: UIImage {
             return UIImage(named: self.rawValue)!
         }

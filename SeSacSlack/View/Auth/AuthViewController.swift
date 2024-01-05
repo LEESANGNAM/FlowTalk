@@ -15,6 +15,12 @@ class AuthViewController: BaseViewController {
     let emailLoginButton = SNSLoginButton(icon: Icon.email.image, title: "이메일로 계속하기", titleColor: Colors.brandWhite.color, backgroundColor: Colors.brandGreen.color)
     let signUpButton = SNSLoginButton(title: "또는",subtitle: " 새롭게 회원가입 하기", titleColor: Colors.brandBlack.color,subtitleColor: Colors.brandGreen.color, backgroundColor: Colors.backgroundPrimary.color)
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setSignUpButton()
+    }
+    
     override func setHierarchy() {
         view.addSubview(appleLoginButton)
         view.addSubview(kakaoLoginButton)
@@ -42,7 +48,26 @@ class AuthViewController: BaseViewController {
             make.top.equalTo(emailLoginButton.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(35)
             make.height.equalTo(20)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-27)
         }
     }
+}
+
+extension AuthViewController {
+    private func setSignUpButton(){
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func signUpButtonTapped() {
+        let vc = SignUpViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(nav, animated: true)
+    }
+    
 }
