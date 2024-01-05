@@ -6,12 +6,15 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 
 class SignUpViewController: BaseViewController {
     
     
     private let mainView = SignUpView()
+    
+    let disposeBag = DisposeBag()
     
     override func loadView() {
         view = mainView
@@ -20,6 +23,7 @@ class SignUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        test()
     }
     
     private func setNavigationBar() {
@@ -38,5 +42,39 @@ class SignUpViewController: BaseViewController {
             }
 
     }
+    
+    func test() {
+        mainView.emailCheckButton.addTarget(self, action: #selector(emailCheckButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func emailCheckButtonTapped() {
+        if let text = mainView.emailTextField.text {
+            let requstmodel = EmailValidationRequestDTO(email: text)
+            print("텍스트",text)
+            print("보내는모델",requstmodel)
+            let test =  NetWorkManager.shared.request(type: EmptyResponseDTO.self, api: .emailValid(requstmodel))
+            
+            test.subscribe(with: self) { owner, value in
+                print("값 가져옴")
+                print(value)
+            } onError: { owner, error in
+                print("에러임")
+                print(error)
+                if let networkError = error as? NetWorkErrorType {
+                    print("커스텀 에러임")
+                    print(networkError.message)
+                }
+            } onCompleted: { _ in
+                print("이메일 체크 완료")
+            } onDisposed: { _ in
+                print("이메일 체크 디스포즈")
+            }.disposed(by: disposeBag)
+
+        }
+        
+        
+    }
+    
     
 }

@@ -12,6 +12,12 @@
 		D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D26D2B4833E00012CFC5 /* BaseView.swift */; };
 		D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */; };
 		D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */; };
+		D616D2782B48546C0012CFC5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2772B48546C0012CFC5 /* Router.swift */; };
+		D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */; };
+		D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */; };
+		D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */; };
+		D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */; };
+		D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */; };
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
 		D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */; };
@@ -66,6 +72,12 @@
 		D616D26D2B4833E00012CFC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceHolderTextField.swift; sourceTree = "<group>"; };
 		D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle2BlackLabel.swift; sourceTree = "<group>"; };
+		D616D2772B48546C0012CFC5 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationRequestDTO.swift; sourceTree = "<group>"; };
+		D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
+		D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkErrorType.swift; sourceTree = "<group>"; };
+		D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorDTO.swift; sourceTree = "<group>"; };
+		D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationResponseDTO.swift; sourceTree = "<group>"; };
 		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +164,59 @@
 			path = Label;
 			sourceTree = "<group>";
 		};
+		D616D2752B4854000012CFC5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2792B4856730012CFC5 /* DTO */,
+				D616D2762B4854100012CFC5 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D616D2762B4854100012CFC5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2842B4862E00012CFC5 /* Error */,
+				D616D2772B48546C0012CFC5 /* Router.swift */,
+				D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D616D2792B4856730012CFC5 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				D616D27B2B4856980012CFC5 /* Response */,
+				D616D27A2B4856900012CFC5 /* Request */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		D616D27A2B4856900012CFC5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		D616D27B2B4856980012CFC5 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		D616D2842B4862E00012CFC5 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */,
+				D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		D654CA0C2B4435600054AD46 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +240,7 @@
 		D654CA172B4435600054AD46 /* SeSacSlack */ = {
 			isa = PBXGroup;
 			children = (
+				D616D2752B4854000012CFC5 /* Data */,
 				D654CA812B4709E00054AD46 /* View */,
 				D654CA702B463C010054AD46 /* Common */,
 				D654CA182B4435600054AD46 /* AppDelegate.swift */,
@@ -442,11 +508,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
+				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
+				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
+				D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
@@ -454,11 +524,13 @@
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
+				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
+				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
