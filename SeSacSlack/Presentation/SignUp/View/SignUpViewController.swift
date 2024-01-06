@@ -36,8 +36,9 @@ class SignUpViewController: BaseViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.emailCheck
+        output.emailValid
             .bind(with: self) { owner, value in
+                owner.mainView.emailCheckButton.isEnabled = value
                 owner.mainView.emailCheckButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
             }.disposed(by: disposeBag)
         
