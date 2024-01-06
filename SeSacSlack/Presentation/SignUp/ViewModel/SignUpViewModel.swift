@@ -13,7 +13,16 @@ class SignUpViewModel {
     private let signUseCase: SignUseCase
     var disposeBag =  DisposeBag()
     var emailText = ""
+    var nicknameText = ""
+    var phoneNumText = ""
+    var passwordText = ""
+    var passwordCheckText = ""
+    
     var emailCheck = BehaviorRelay(value: false)
+    var nicknameCheck = BehaviorRelay(value: false)
+    var passwordCheck = BehaviorRelay(value: false)
+    var passwordDoubleCheck = BehaviorRelay(value: false)
+    
     init(signUseCase: SignUseCase) {
         self.signUseCase = signUseCase
     }
@@ -21,14 +30,33 @@ class SignUpViewModel {
     struct Input {
         let emailCheckButtonTap: ControlEvent<Void>
         let emailTextFieldChange: ControlProperty<String>
+        let nicknameTextFieldChange: ControlProperty<String>
+        let phoneNumTextFieldChange: ControlProperty<String>
+        let passwordTextFieldChange: ControlProperty<String>
+        let passwordCheckTextFieldChange: ControlProperty<String>
+        let signupButtonTap: ControlEvent<Void>
     }
     
     struct Output {
         let emailValid: BehaviorRelay<Bool>
+        let textFieldFill: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
         let emailValid =  BehaviorRelay<Bool>(value: false)
+        let nicknameValid = BehaviorRelay(value: false)
+        let passwordValid = BehaviorRelay(value: false)
+        let passwordChaeckValid = BehaviorRelay(value: false)
+        
+        let textFieldFill = BehaviorRelay(value: false)
+        
+        Observable.combineLatest(emailValid, nicknameValid, passwordValid, passwordChaeckValid)
+            .map { email, nickname, password, confirmPassword in
+                    return email && nickname && password && confirmPassword
+                }
+            .bind(to: textFieldFill)
+            .disposed(by: disposeBag)
+        
         input.emailTextFieldChange
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
@@ -38,12 +66,38 @@ class SignUpViewModel {
                 emailValid.accept(isEmail)
             }.disposed(by: disposeBag)
         
+        input.nicknameTextFieldChange
+            .distinctUntilChanged()
+            .bind(with: self) { owner, text in
+                owner.nicknameText = text
+                let isNickname = owner.signUseCase.isNicknameValid(nickname: text)
+                nicknameValid.accept(isNickname)
+            }.disposed(by: disposeBag)
+
+        input.passwordTextFieldChange
+            .distinctUntilChanged()
+            .bind(with: self) { owner, text in
+                owner.passwordText = text
+                let isPassword = owner.signUseCase.isTextEmpty(text: text)
+                passwordValid.accept(isPassword)
+            }.disposed(by: disposeBag)
+
+        input.passwordCheckTextFieldChange
+            .distinctUntilChanged()
+            .bind(with: self) { owner, text in
+                owner.passwordCheckText = text
+                let isConfirmPassword = owner.signUseCase.isTextEmpty(text: text)
+                passwordChaeckValid.accept(isConfirmPassword)
+            }.disposed(by: disposeBag)
+        
+        
+        
         input.emailCheckButtonTap
             .flatMapLatest { [weak self] _ in
                 guard let self = self else { return Observable<EmptyResponseDTO>.empty()}
                 let email = self.emailText // 이메일 텍스트 가져오기
                 
-                guard self.signUseCase.isEmail(email: email) else {
+                guard self.signUseCase.isEmailValid(email: email) else {
                     print("이메일 유효하지않음")
                     self.emailCheck.accept(false)
                     return Observable.empty()
@@ -73,6 +127,11 @@ class SignUpViewModel {
             }
             .disposed(by: disposeBag)
         
+        input.signupButtonTap
+            .bind(with: self) { owner, _ in
+                print("가입하기 탭탭탭")
+            }.disposed(by: disposeBag)
+        
         //
         //        input.emailCheckButtonTap
         //            .bind(with: self) { owner, _ in
@@ -93,7 +152,7 @@ class SignUpViewModel {
         //            }.disposed(by: disposeBag)
         //
         
-        return Output(emailValid: emailValid)
+        return Output(emailValid: emailValid,textFieldFill: textFieldFill)
     }
     
     

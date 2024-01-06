@@ -32,14 +32,24 @@ class SignUpViewController: BaseViewController {
     private func bind() {
         let input = SignUpViewModel.Input(
             emailCheckButtonTap: mainView.emailCheckButton.rx.tap,
-            emailTextFieldChange: mainView.emailTextField.rx.text.orEmpty
-        )
+            emailTextFieldChange: mainView.emailTextField.rx.text.orEmpty,
+            nicknameTextFieldChange: mainView.nicknameTextField.rx.text.orEmpty,
+            phoneNumTextFieldChange: mainView.phoneNumTextField.rx.text.orEmpty,
+            passwordTextFieldChange: mainView.phoneNumTextField.rx.text.orEmpty,
+            passwordCheckTextFieldChange: mainView.passwordCheckTextField.rx.text.orEmpty,
+            signupButtonTap: mainView.signUpButton.rx.tap)
         let output = viewModel.transform(input: input)
         
         output.emailValid
             .bind(with: self) { owner, value in
                 owner.mainView.emailCheckButton.isEnabled = value
                 owner.mainView.emailCheckButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
+            }.disposed(by: disposeBag)
+        
+        output.textFieldFill
+            .bind(with: self) { owner, value in
+                owner.mainView.signUpButton.isEnabled = value
+                owner.mainView.signUpButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
             }.disposed(by: disposeBag)
         
         

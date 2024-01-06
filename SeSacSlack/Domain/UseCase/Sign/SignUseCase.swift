@@ -12,8 +12,10 @@ import RxCocoa
 
 protocol SignUseCase: AnyObject {
     func emailValidation(email: String) -> Observable<EmptyResponseDTO>
-    func isEmail(email: String) -> Bool
     func isTextEmpty(text: String) -> Bool
+
+    func isEmailValid(email: String) -> Bool
+    func isNicknameValid(nickname: String) -> Bool
 }
 
 final class DefaultSignUseCase: SignUseCase {
@@ -27,15 +29,20 @@ final class DefaultSignUseCase: SignUseCase {
     func emailValidation(email: String) -> Observable<EmptyResponseDTO> {
         return signReposiroty.emailVaildation(email: email)
     }
+    func isTextEmpty(text: String) -> Bool {
+        return !text.isEmpty
+    }
     
-    func isEmail(email: String) -> Bool {
+    func isEmailValid(email: String) -> Bool {
         // 이메일 유효성 검증 로직 추가
         let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$"#
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email) && email.hasSuffix(".com")
     }
     
-    func isTextEmpty(text: String) -> Bool {
-        return !text.isEmpty
-    }
+    func isNicknameValid(nickname: String) -> Bool {
+           return nickname.count >= 1 && nickname.count <= 30
+       }
+    
+    
 }
