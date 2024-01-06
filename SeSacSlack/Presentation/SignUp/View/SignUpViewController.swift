@@ -13,9 +13,13 @@ class SignUpViewController: BaseViewController {
     
     
     private let mainView = SignUpView()
-    
+    private let viewModel: SignUpViewModel
     let disposeBag = DisposeBag()
     
+    init(viewModel: SignUpViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
     override func loadView() {
         view = mainView
     }
@@ -23,9 +27,23 @@ class SignUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
-        test()
+        bind()
     }
-    
+    private func bind() {
+        let input = SignUpViewModel.Input(
+            emailCheckButtonTap: mainView.emailCheckButton.rx.tap,
+            emailTextFieldChange: mainView.emailTextField.rx.text.orEmpty
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.emailCheck
+            .bind(with: self) { owner, value in
+                owner.mainView.emailCheckButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
+            }.disposed(by: disposeBag)
+        
+        
+        
+    }
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))
         backButtonItem.tintColor = Colors.brandBlack.color
@@ -43,38 +61,6 @@ class SignUpViewController: BaseViewController {
 
     }
     
-    func test() {
-        mainView.emailCheckButton.addTarget(self, action: #selector(emailCheckButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc
-    func emailCheckButtonTapped() {
-        if let text = mainView.emailTextField.text {
-            let requstmodel = EmailValidationRequestDTO(email: text)
-            print("텍스트",text)
-            print("보내는모델",requstmodel)
-            let test =  NetWorkManager.shared.request(type: EmptyResponseDTO.self, api: .emailValid(requstmodel))
-            
-            test.subscribe(with: self) { owner, value in
-                print("값 가져옴")
-                print(value)
-            } onError: { owner, error in
-                print("에러임")
-                print(error)
-                if let networkError = error as? NetWorkErrorType {
-                    print("커스텀 에러임")
-                    print(networkError.message)
-                }
-            } onCompleted: { _ in
-                print("이메일 체크 완료")
-            } onDisposed: { _ in
-                print("이메일 체크 디스포즈")
-            }.disposed(by: disposeBag)
-
-        }
-        
-        
-    }
     
     
 }

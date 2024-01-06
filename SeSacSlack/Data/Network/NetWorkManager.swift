@@ -63,31 +63,6 @@ final class NetWorkManager {
                observer.onError(NetWorkErrorType.badRequest)
            }
         
-//            switch response.result {
-//            case .success(let data):
-//                do {
-//                    print("-----------------------------")
-//                    print("요청 데이터 용량",data)
-//                    
-//                    let dataResult = try JSONDecoder().decode(T.self, from: data)
-//                    observer.onNext(dataResult)
-//                    observer.onCompleted()
-//                } catch {
-//                    print("리스폰스 변환 실패")
-//                }
-//            case .failure(let error):
-//                do {
-//                    guard let data = response.data else { return }
-//                    let error = try JSONDecoder().decode(ResponseErrorDTO.self, from: data)
-//                    if  let errorType = NetWorkErrorType(rawValue: error.errorCode) {
-//                        observer.onError(errorType)
-//                    }
-//                } catch {
-//                    print("에러 변환 실패")
-//                }
-//                print(error)
-//                observer.onError(error)
-//            }
         }
     
 }

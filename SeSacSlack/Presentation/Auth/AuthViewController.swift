@@ -59,7 +59,13 @@ extension AuthViewController {
     
     @objc
     private func signUpButtonTapped() {
-        let vc = SignUpViewController()
+        let vc = SignUpViewController(
+            viewModel: SignUpViewModel(
+                signUseCase: DefaultSignUseCase(
+                    signReposiroty: DefaultSignRepository()
+                )
+            )
+        )
         let nav = UINavigationController(rootViewController: vc)
         
         if let sheet = nav.sheetPresentationController {
