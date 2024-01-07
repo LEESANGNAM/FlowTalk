@@ -76,6 +76,11 @@ class SignUpViewController: BaseViewController {
             .bind(to: mainView.passwordCheckLabel.rx.textColor)
             .disposed(by: disposeBag)
         
+        output.message
+            .bind(with: self) { owner, errorText in
+                owner.showToast(message: errorText)
+            }.disposed(by: disposeBag)
+        
     }
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))

@@ -26,4 +26,23 @@ class BaseViewController: UIViewController {
     func setHierarchy() { }
     func setConstraint() { }
     
+    
+    func showToast(message : String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.width/2 - 75, y: self.view.frame.height - 141, width: 175, height: 36))
+        
+        toastLabel.backgroundColor = Colors.brandGreen.color
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = Font.body.fontWithLineHeight()
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 8
+        toastLabel.clipsToBounds = true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseIn, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
 }

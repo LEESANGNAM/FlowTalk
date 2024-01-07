@@ -24,6 +24,8 @@ class SignUpViewModel {
     var passwordCheck = BehaviorRelay(value: true)
     var confirmPasswordCheck = BehaviorRelay(value: true)
     
+    let message =  PublishRelay<String>()
+    
     init(signUseCase: SignUseCase) {
         self.signUseCase = signUseCase
     }
@@ -46,6 +48,8 @@ class SignUpViewModel {
         var phoneNumCheck : BehaviorRelay<Bool>
         var passwordCheck : BehaviorRelay<Bool>
         var confirmPasswordCheck : BehaviorRelay<Bool>
+        
+        let message: PublishRelay<String>
     }
     
     func transform(input: Input) -> Output {
@@ -116,14 +120,14 @@ class SignUpViewModel {
                 let email = self.emailText // 이메일 텍스트 가져오기
                 
                 guard self.signUseCase.isEmailValid(email: email) else {
-                    print("이메일 유효하지않음")
+                    message.accept("이메일 유효하지않음")
                     self.emailCheck.accept(false)
                     return Observable.empty()
                 }
                 
                 // 이미 인증된 상태인 경우에는 다시 요청하지 않음
                 guard !self.emailCheck.value else {
-                    print("이미 인증된 이메일")
+                    message.accept("이미 인증된 이메일")
                     return Observable.empty()
                 }
                 
@@ -132,10 +136,12 @@ class SignUpViewModel {
             }
             .subscribe(with: self) { owner, value in
                 print("이메일 체크 성공 했음", value)
+                owner.message.accept("사용 가능한 이메일 입니다.")
                 owner.emailCheck.accept(true)
             } onError: { owner, error in
                 if let networkError = error as? NetWorkErrorType {
                     print("네트워크에러: ", networkError.message)
+                    owner.message.accept(networkError.message)
                     owner.emailCheck.accept(false)
                 }
             } onCompleted: { _ in
@@ -175,7 +181,7 @@ class SignUpViewModel {
                     return Observable.empty()
                 } else {
                     // 에러 메시지를 활용하여 뷰에 표시하거나 다른 처리를 수행할 수 있습니다.
-                    print("에러 메시지: \(errorMessages.joined(separator: ", "))")
+                    message.accept("에러 메시지: \(errorMessages.joined(separator: ", "))")
                     return Observable.empty()
                 }
             }
@@ -199,7 +205,8 @@ class SignUpViewModel {
             nicknameCheck: nicknameCheck,
             phoneNumCheck: phoneNumCheck,
             passwordCheck: passwordCheck,
-            confirmPasswordCheck: confirmPasswordCheck
+            confirmPasswordCheck: confirmPasswordCheck,
+            message: message
         )
     }
     
