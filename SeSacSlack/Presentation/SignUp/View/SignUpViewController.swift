@@ -56,6 +56,26 @@ class SignUpViewController: BaseViewController {
             .bind(to: mainView.phoneNumTextField.rx.text)
             .disposed(by: disposeBag)
         
+        output.nicknameCheck
+            .map { $0 ? Colors.brandBlack.color : Colors.brandError.color }
+            .bind(to: mainView.nicknameLabel.rx.textColor)
+            .disposed(by: disposeBag)
+        
+        output.phoneNumCheck
+            .map { $0 ? Colors.brandBlack.color : Colors.brandError.color }
+            .bind(to: mainView.phoneNumLabel.rx.textColor)
+            .disposed(by: disposeBag)
+        
+        output.passwordCheck
+            .map {$0 ? Colors.brandBlack.color : Colors.brandError.color }
+            .bind(to: mainView.passwordLabel.rx.textColor)
+            .disposed(by: disposeBag)
+        
+        output.confirmPasswordCheck
+            .map { $0 ? Colors.brandBlack.color : Colors.brandError.color }
+            .bind(to: mainView.passwordCheckLabel.rx.textColor)
+            .disposed(by: disposeBag)
+        
     }
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))

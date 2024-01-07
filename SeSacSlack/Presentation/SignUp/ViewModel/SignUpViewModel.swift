@@ -18,11 +18,11 @@ class SignUpViewModel {
     var passwordText = ""
     var passwordCheckText = ""
     
-    var emailCheck = BehaviorRelay(value: false)
-    var nicknameCheck = BehaviorRelay(value: false)
+    var emailCheck = BehaviorRelay(value: true)
+    var nicknameCheck = BehaviorRelay(value: true)
     var phoneNumCheck = BehaviorRelay(value: true)
-    var passwordCheck = BehaviorRelay(value: false)
-    var confirmPasswordCheck = BehaviorRelay(value: false)
+    var passwordCheck = BehaviorRelay(value: true)
+    var confirmPasswordCheck = BehaviorRelay(value: true)
     
     init(signUseCase: SignUseCase) {
         self.signUseCase = signUseCase
@@ -42,6 +42,10 @@ class SignUpViewModel {
         let emailValid: BehaviorRelay<Bool>
         let textFieldFill: BehaviorRelay<Bool>
         let phoneText: BehaviorRelay<String>
+        var nicknameCheck : BehaviorRelay<Bool>
+        var phoneNumCheck : BehaviorRelay<Bool>
+        var passwordCheck : BehaviorRelay<Bool>
+        var confirmPasswordCheck : BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -54,8 +58,8 @@ class SignUpViewModel {
         
         Observable.combineLatest(emailEmptyValid, nicknameEmptyValid, passwordEmptyValid, passwordChaeckEmptyValid)
             .map { email, nickname, password, confirmPassword in
-                    return email && nickname && password && confirmPassword
-                }
+                return email && nickname && password && confirmPassword
+            }
             .bind(to: textFieldFill)
             .disposed(by: disposeBag)
         
@@ -79,11 +83,15 @@ class SignUpViewModel {
         input.phoneNumTextFieldChange
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
-                let phoneText = text.formated(by: "###-####-####")
-                owner.phoneNumText.accept(phoneText)
-                owner.phoneNumCheck.accept(false)
+                if text.isEmpty {
+                    owner.phoneNumText.accept(text)
+                    owner.phoneNumCheck.accept(true)
+                } else {
+                    let phoneText = text.formated(by: "###-####-####")
+                    owner.phoneNumText.accept(phoneText)
+                }
             }.disposed(by: disposeBag)
-
+        
         input.passwordTextFieldChange
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
@@ -91,7 +99,7 @@ class SignUpViewModel {
                 let isPassword = owner.signUseCase.isTextEmpty(text: text)
                 passwordEmptyValid.accept(isPassword)
             }.disposed(by: disposeBag)
-
+        
         input.passwordCheckTextFieldChange
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
@@ -141,42 +149,35 @@ class SignUpViewModel {
         input.signupButtonTap
             .flatMapLatest { [weak self] _ in
                 guard let self = self else { return Observable<Void>.empty() }
-
-                let nickname = self.nicknameText
                 
-                guard self.emailCheck.value else {
-                    print("이메일 중복검사 안함")
-                    return Observable.empty()
+                var errorMessages: [String] = []
+                
+                self.valid()
+                
+                if !self.emailCheck.value {
+                    errorMessages.append("이메일 중복검사 안함")
+                }
+                if !self.nicknameCheck.value {
+                    errorMessages.append("닉네임 유효하지 않음")
+                }
+                if !self.phoneNumCheck.value {
+                    errorMessages.append("전화번호 유효하지않음")
+                }
+                if !self.passwordCheck.value {
+                    errorMessages.append("비밀번호 조건오류")
+                }
+                if !self.confirmPasswordCheck.value {
+                    errorMessages.append("비밀번호 다름")
                 }
                 
-                guard self.signUseCase.isNicknameValid(nickname: nickname) else {
-                    print("닉네임 유효하지 않음")
+                if errorMessages.isEmpty {
+                    // 모든 조건을 통과한 경우에만 가입 요청
+                    return Observable.empty()
+                } else {
+                    // 에러 메시지를 활용하여 뷰에 표시하거나 다른 처리를 수행할 수 있습니다.
+                    print("에러 메시지: \(errorMessages.joined(separator: ", "))")
                     return Observable.empty()
                 }
-                
-                let phoneNum = self.phoneNumText.value
-                
-                guard self.signUseCase.isPhoneNumValid(phone: phoneNum) else {
-                    print("전화번호 유효하지않음")
-                    return Observable.empty()
-                }
-                
-                let passwordText = self.passwordText
-                
-                guard self.signUseCase.isPasswordValid(password: passwordText) else {
-                    print("비밀번호 조건오류")
-                    return Observable.empty()
-                }
-                
-                let confirmPassword = self.passwordCheckText
-                
-                guard self.signUseCase.isPasswordConfirmed(password: passwordText, confirmPassword: confirmPassword) else {
-                    print("비밀번호 다름")
-                    return Observable.empty()
-                }
-
-                // 가입요청 예정
-                return Observable.empty()
             }
             .subscribe(with: self) { owner, _ in
                 print("가입하기 탭탭탭")
@@ -189,12 +190,38 @@ class SignUpViewModel {
                 print("가입하기 디스포즈")
             }
             .disposed(by: disposeBag)
-
         
         
-        return Output(emailValid: emailEmptyValid,textFieldFill: textFieldFill,phoneText: phoneNumText)
+        return Output(
+            emailValid: emailEmptyValid,
+            textFieldFill: textFieldFill,
+            phoneText: phoneNumText,
+            nicknameCheck: nicknameCheck,
+            phoneNumCheck: phoneNumCheck,
+            passwordCheck: passwordCheck,
+            confirmPasswordCheck: confirmPasswordCheck
+        )
     }
     
+    func valid() {
+        let nickname = nicknameText
+        let nicknameCheckd = signUseCase.isNicknameValid(nickname: nickname)
+        nicknameCheck.accept(nicknameCheckd)
+        
+        let phoneNum = phoneNumText.value
+        if !phoneNum.isEmpty {
+            let phoneCheckd = signUseCase.isPhoneNumValid(phone: phoneNum)
+            phoneNumCheck.accept(phoneCheckd)
+        }
+        
+        let passwordText = passwordText
+        let passwordTextCheckd = signUseCase.isPasswordValid(password: passwordText)
+        passwordCheck.accept(passwordTextCheckd)
+        
+        let confirmPassword = passwordCheckText
+        let confirmPasswordCheckd = signUseCase.isPasswordConfirmed(password: passwordText, confirmPassword: confirmPassword)
+        confirmPasswordCheck.accept(confirmPasswordCheckd)
+    }
     
 }
 
