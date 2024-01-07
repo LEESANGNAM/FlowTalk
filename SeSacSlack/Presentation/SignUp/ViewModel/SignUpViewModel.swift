@@ -142,6 +142,11 @@ class SignUpViewModel {
 
                 let nickname = self.nicknameText
                 
+                guard self.emailCheck.value else {
+                    print("이메일 중복검사 안함")
+                    return Observable.empty()
+                }
+                
                 guard self.signUseCase.isNicknameValid(nickname: nickname) else {
                     print("닉네임 유효하지 않음")
                     return Observable.empty()
