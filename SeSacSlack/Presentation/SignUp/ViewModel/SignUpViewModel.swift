@@ -20,8 +20,9 @@ class SignUpViewModel {
     
     var emailCheck = BehaviorRelay(value: false)
     var nicknameCheck = BehaviorRelay(value: false)
+    var phoneNumCheck = BehaviorRelay(value: true)
     var passwordCheck = BehaviorRelay(value: false)
-    var passwordDoubleCheck = BehaviorRelay(value: false)
+    var confirmPasswordCheck = BehaviorRelay(value: false)
     
     init(signUseCase: SignUseCase) {
         self.signUseCase = signUseCase
@@ -44,14 +45,14 @@ class SignUpViewModel {
     }
     
     func transform(input: Input) -> Output {
-        let emailValid =  BehaviorRelay<Bool>(value: false)
-        let nicknameValid = BehaviorRelay(value: false)
-        let passwordValid = BehaviorRelay(value: false)
-        let passwordChaeckValid = BehaviorRelay(value: false)
+        let emailEmptyValid =  BehaviorRelay(value: false)
+        let nicknameEmptyValid = BehaviorRelay(value: false)
+        let passwordEmptyValid = BehaviorRelay(value: false)
+        let passwordChaeckEmptyValid = BehaviorRelay(value: false)
         
         let textFieldFill = BehaviorRelay(value: false)
         
-        Observable.combineLatest(emailValid, nicknameValid, passwordValid, passwordChaeckValid)
+        Observable.combineLatest(emailEmptyValid, nicknameEmptyValid, passwordEmptyValid, passwordChaeckEmptyValid)
             .map { email, nickname, password, confirmPassword in
                     return email && nickname && password && confirmPassword
                 }
@@ -64,7 +65,7 @@ class SignUpViewModel {
                 owner.emailText = text
                 owner.emailCheck.accept(false) // 인증 후 텍스트 바꾸면 다시인증
                 let isEmail = owner.signUseCase.isTextEmpty(text: text)
-                emailValid.accept(isEmail)
+                emailEmptyValid.accept(isEmail)
             }.disposed(by: disposeBag)
         
         input.nicknameTextFieldChange
@@ -72,7 +73,7 @@ class SignUpViewModel {
             .bind(with: self) { owner, text in
                 owner.nicknameText = text
                 let isNickname = owner.signUseCase.isTextEmpty(text: text)
-                nicknameValid.accept(isNickname)
+                nicknameEmptyValid.accept(isNickname)
             }.disposed(by: disposeBag)
         
         input.phoneNumTextFieldChange
@@ -80,6 +81,7 @@ class SignUpViewModel {
             .bind(with: self) { owner, text in
                 let phoneText = text.formated(by: "###-####-####")
                 owner.phoneNumText.accept(phoneText)
+                owner.phoneNumCheck.accept(false)
             }.disposed(by: disposeBag)
 
         input.passwordTextFieldChange
@@ -87,7 +89,7 @@ class SignUpViewModel {
             .bind(with: self) { owner, text in
                 owner.passwordText = text
                 let isPassword = owner.signUseCase.isTextEmpty(text: text)
-                passwordValid.accept(isPassword)
+                passwordEmptyValid.accept(isPassword)
             }.disposed(by: disposeBag)
 
         input.passwordCheckTextFieldChange
@@ -95,7 +97,7 @@ class SignUpViewModel {
             .bind(with: self) { owner, text in
                 owner.passwordCheckText = text
                 let isConfirmPassword = owner.signUseCase.isTextEmpty(text: text)
-                passwordChaeckValid.accept(isConfirmPassword)
+                passwordChaeckEmptyValid.accept(isConfirmPassword)
             }.disposed(by: disposeBag)
         
         
@@ -165,6 +167,13 @@ class SignUpViewModel {
                     print("비밀번호 조건오류")
                     return Observable.empty()
                 }
+                
+                let confirmPassword = self.passwordCheckText
+                
+                guard self.signUseCase.isPasswordConfirmed(password: passwordText, confirmPassword: confirmPassword) else {
+                    print("비밀번호 다름")
+                    return Observable.empty()
+                }
 
                 // 가입요청 예정
                 return Observable.empty()
@@ -183,7 +192,7 @@ class SignUpViewModel {
 
         
         
-        return Output(emailValid: emailValid,textFieldFill: textFieldFill,phoneText: phoneNumText)
+        return Output(emailValid: emailEmptyValid,textFieldFill: textFieldFill,phoneText: phoneNumText)
     }
     
     

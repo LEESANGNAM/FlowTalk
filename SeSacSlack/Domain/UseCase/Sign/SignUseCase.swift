@@ -18,6 +18,7 @@ protocol SignUseCase: AnyObject {
     func isNicknameValid(nickname: String) -> Bool
     func isPhoneNumValid(phone: String) -> Bool
     func isPasswordValid(password: String) -> Bool
+    func isPasswordConfirmed(password: String, confirmPassword: String) -> Bool
 }
 
 final class DefaultSignUseCase: SignUseCase {
@@ -59,5 +60,10 @@ final class DefaultSignUseCase: SignUseCase {
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
     }
+    
+    func isPasswordConfirmed(password: String, confirmPassword: String) -> Bool {
+            return password == confirmPassword
+        }
+    
     
 }
