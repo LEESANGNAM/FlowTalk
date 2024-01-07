@@ -11,6 +11,9 @@ import RxCocoa
 
 
 protocol SignUseCase: AnyObject {
+    
+    func signUp(user: SignUpRequestDTO) -> Observable<SignUpResponseDTO>
+    
     func emailValidation(email: String) -> Observable<EmptyResponseDTO>
     func isTextEmpty(text: String) -> Bool
     

@@ -10,7 +10,7 @@ import Foundation
 struct SignUpRequestDTO: Encodable {
     let email: String
     let password: String
-    let nickName: String
+    let nickname: String
     let phone: String?
-    let diviceToken: String?
+    let deviceToken: String?
 }

@@ -154,7 +154,7 @@ class SignUpViewModel {
         
         input.signupButtonTap
             .flatMapLatest { [weak self] _ in
-                guard let self = self else { return Observable<Void>.empty() }
+                guard let self = self else { return Observable<SignUpResponseDTO>.empty() }
                 
                 var errorMessages: [String] = []
                 
@@ -178,15 +178,29 @@ class SignUpViewModel {
                 
                 if errorMessages.isEmpty {
                     // 모든 조건을 통과한 경우에만 가입 요청
-                    return Observable.empty()
+                    let email = self.emailText
+                    let password = self.passwordText
+                    let nickname = self.nicknameText
+                    let phone = phoneNumText.value.isEmpty ? "" : phoneNumText.value
+                    let diviceToken = "testToken"
+                    
+                    let user = SignUpRequestDTO(
+                        email: email,
+                        password: password,
+                        nickname: nickname,
+                        phone: phone,
+                        deviceToken: diviceToken
+                    )
+                    return self.signUseCase.signUp(user: user)
                 } else {
                     // 에러 메시지를 활용하여 뷰에 표시하거나 다른 처리를 수행할 수 있습니다.
                     message.accept("에러 메시지: \(errorMessages.joined(separator: ", "))")
                     return Observable.empty()
                 }
             }
-            .subscribe(with: self) { owner, _ in
+            .subscribe(with: self) { owner, value in
                 print("가입하기 탭탭탭")
+                print("가입 성공!:",value)
                 //가입 성공값 저장
             } onError: { owner, error in
                 if let networkError = error as? NetWorkErrorType {
