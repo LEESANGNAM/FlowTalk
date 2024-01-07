@@ -23,6 +23,8 @@
 		D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2942B487D2E0012CFC5 /* SignUseCase.swift */; };
 		D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2982B487FF10012CFC5 /* SignUpViewModel.swift */; };
 		D616D29B2B4AAB750012CFC5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D29A2B4AAB750012CFC5 /* String+Extension.swift */; };
+		D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */; };
+		D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */; };
 		D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA182B4435600054AD46 /* AppDelegate.swift */; };
 		D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1A2B4435600054AD46 /* SceneDelegate.swift */; };
 		D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */; };
@@ -88,6 +90,8 @@
 		D616D2942B487D2E0012CFC5 /* SignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUseCase.swift; sourceTree = "<group>"; };
 		D616D2982B487FF10012CFC5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		D616D29A2B4AAB750012CFC5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestDTO.swift; sourceTree = "<group>"; };
+		D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseDTO.swift; sourceTree = "<group>"; };
 		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */,
+				D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */,
+				D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */,
+				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
@@ -608,6 +615,7 @@
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
+				D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
