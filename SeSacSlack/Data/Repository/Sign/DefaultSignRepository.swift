@@ -13,4 +13,9 @@ final class DefaultSignRepository: SignRepository {
     func emailVaildation(email: String) -> RxSwift.Observable<EmptyResponseDTO> {
         return NetWorkManager.shared.request(type: EmptyResponseDTO.self, api: .emailValid(EmailValidationRequestDTO(email: email)))
     }
+    
+    func signUp(user: SignUpRequestDTO) -> RxSwift.Observable<SignUpResponseDTO> {
+        return NetWorkManager.shared.request(type: SignUpResponseDTO.self, api: .signUp(user))
+    }
+    
 }

@@ -10,4 +10,5 @@ import RxSwift
 
 protocol SignRepository: AnyObject {
     func emailVaildation(email: String) -> Observable<EmptyResponseDTO>
+    func signUp(user:SignUpRequestDTO) -> Observable<SignUpResponseDTO>
 }
