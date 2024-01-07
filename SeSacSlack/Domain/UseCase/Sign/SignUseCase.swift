@@ -29,6 +29,10 @@ final class DefaultSignUseCase: SignUseCase {
         self.signReposiroty = signReposiroty
     }
     
+    func signUp(user: SignUpRequestDTO) -> Observable<SignUpResponseDTO> {
+        return signReposiroty.signUp(user: user)
+    }
+    
     func emailValidation(email: String) -> Observable<EmptyResponseDTO> {
         return signReposiroty.emailVaildation(email: email)
     }
