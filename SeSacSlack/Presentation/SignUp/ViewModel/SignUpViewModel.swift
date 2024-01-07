@@ -70,7 +70,7 @@ class SignUpViewModel {
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
                 owner.nicknameText = text
-                let isNickname = owner.signUseCase.isNicknameValid(nickname: text)
+                let isNickname = owner.signUseCase.isTextEmpty(text: text)
                 nicknameValid.accept(isNickname)
             }.disposed(by: disposeBag)
 
@@ -127,30 +127,34 @@ class SignUpViewModel {
             }
             .disposed(by: disposeBag)
         
-        input.signupButtonTap
-            .bind(with: self) { owner, _ in
-                print("가입하기 탭탭탭")
-            }.disposed(by: disposeBag)
         
-        //
-        //        input.emailCheckButtonTap
-        //            .bind(with: self) { owner, _ in
-        //                owner.signUseCase.emailValidation(email: owner.emailText)
-        //                    .subscribe(with: self) { owner, value in
-        //                        print("이메일 체크 성공 했음",value)
-        //                        owner.emailCheck.accept(true)
-        //                    } onError: { owner, error in
-        //                        if let networkError = error as? NetWorkErrorType {
-        //                            print("네트워크에러: ",networkError.message)
-        //                            owner.emailCheck.accept(false)
-        //                        }
-        //                    } onCompleted: { _ in
-        //                        print("이메일체크 완료")
-        //                    } onDisposed: { _ in
-        //                        print("이메일 체크 디스포즈")
-        //                    }.disposed(by: owner.disposeBag)
-        //            }.disposed(by: disposeBag)
-        //
+        input.signupButtonTap
+            .flatMapLatest { [weak self] _ in
+                guard let self = self else { return Observable<Void>.empty() }
+
+                let nickname = self.nicknameText
+
+                guard self.signUseCase.isNicknameValid(nickname: nickname) else {
+                    print("닉네임 유효하지 않음")
+                    return Observable.empty()
+                }
+
+                // 가입요청 예정
+                return Observable.empty()
+            }
+            .subscribe(with: self) { owner, _ in
+                print("가입하기 탭탭탭")
+                //가입 성공값 저장
+            } onError: { owner, error in
+                if let networkError = error as? NetWorkErrorType {
+                    print("네트워크 에러: ", networkError.message)
+                }
+            } onDisposed: { _ in
+                print("가입하기 디스포즈")
+            }
+            .disposed(by: disposeBag)
+
+        
         
         return Output(emailValid: emailValid,textFieldFill: textFieldFill)
     }
