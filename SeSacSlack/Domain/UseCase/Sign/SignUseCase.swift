@@ -17,6 +17,7 @@ protocol SignUseCase: AnyObject {
     func isEmailValid(email: String) -> Bool
     func isNicknameValid(nickname: String) -> Bool
     func isPhoneNumValid(phone: String) -> Bool
+    func isPasswordValid(password: String) -> Bool
 }
 
 final class DefaultSignUseCase: SignUseCase {
@@ -46,10 +47,17 @@ final class DefaultSignUseCase: SignUseCase {
     }
     
     func isPhoneNumValid(phone: String) -> Bool {
-        let phoneNumberRegex = "^01[0-1, 7][0-9]{7,8}$"
+        let phoneNumberRegex = "^01[0-1,7]-?[0-9]{3,4}-?[0-9]{4}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
         return predicate.evaluate(with: phone)
     }
     
+    func isPasswordValid(password: String) -> Bool {
+        // 최소 8자 이상
+        // 하나 이상의 대문자, 소문자, 숫자, 특수 문자 포함
+        let passwordRegex = #"(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}"#
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
     
 }

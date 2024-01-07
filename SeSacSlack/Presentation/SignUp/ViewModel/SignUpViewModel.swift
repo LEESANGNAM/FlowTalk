@@ -154,6 +154,12 @@ class SignUpViewModel {
                     return Observable.empty()
                 }
                 
+                let passwordText = self.passwordText
+                
+                guard self.signUseCase.isPasswordValid(password: passwordText) else {
+                    print("비밀번호 조건오류")
+                    return Observable.empty()
+                }
 
                 // 가입요청 예정
                 return Observable.empty()
