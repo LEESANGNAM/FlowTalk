@@ -35,7 +35,7 @@ class SignUpViewController: BaseViewController {
             emailTextFieldChange: mainView.emailTextField.rx.text.orEmpty,
             nicknameTextFieldChange: mainView.nicknameTextField.rx.text.orEmpty,
             phoneNumTextFieldChange: mainView.phoneNumTextField.rx.text.orEmpty,
-            passwordTextFieldChange: mainView.phoneNumTextField.rx.text.orEmpty,
+            passwordTextFieldChange: mainView.passwordTextField.rx.text.orEmpty,
             passwordCheckTextFieldChange: mainView.passwordCheckTextField.rx.text.orEmpty,
             signupButtonTap: mainView.signUpButton.rx.tap)
         let output = viewModel.transform(input: input)
@@ -52,7 +52,9 @@ class SignUpViewController: BaseViewController {
                 owner.mainView.signUpButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
             }.disposed(by: disposeBag)
         
-        
+        output.phoneText
+            .bind(to: mainView.phoneNumTextField.rx.text)
+            .disposed(by: disposeBag)
         
     }
     private func setNavigationBar() {

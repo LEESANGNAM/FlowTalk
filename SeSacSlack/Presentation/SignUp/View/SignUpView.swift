@@ -34,7 +34,7 @@ class SignUpView: BaseView {
         
         addSubview(phoneNumLabel)
         addSubview(phoneNumTextField)
-        
+        phoneNumTextField.keyboardType = .numberPad
         addSubview(passwordLabel)
         addSubview(passwordTextField)
         

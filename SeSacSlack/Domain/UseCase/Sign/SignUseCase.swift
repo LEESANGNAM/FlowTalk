@@ -13,9 +13,10 @@ import RxCocoa
 protocol SignUseCase: AnyObject {
     func emailValidation(email: String) -> Observable<EmptyResponseDTO>
     func isTextEmpty(text: String) -> Bool
-
+    
     func isEmailValid(email: String) -> Bool
     func isNicknameValid(nickname: String) -> Bool
+    func isPhoneNumValid(phone: String) -> Bool
 }
 
 final class DefaultSignUseCase: SignUseCase {
@@ -41,8 +42,14 @@ final class DefaultSignUseCase: SignUseCase {
     }
     
     func isNicknameValid(nickname: String) -> Bool {
-           return nickname.count >= 1 && nickname.count <= 30
-       }
+        return nickname.count >= 1 && nickname.count <= 30
+    }
+    
+    func isPhoneNumValid(phone: String) -> Bool {
+        let phoneNumberRegex = "^01[0-1, 7][0-9]{7,8}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
+        return predicate.evaluate(with: phone)
+    }
     
     
 }

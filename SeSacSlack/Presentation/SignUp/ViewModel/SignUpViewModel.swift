@@ -14,7 +14,7 @@ class SignUpViewModel {
     var disposeBag =  DisposeBag()
     var emailText = ""
     var nicknameText = ""
-    var phoneNumText = ""
+    var phoneNumText = BehaviorRelay(value: "")
     var passwordText = ""
     var passwordCheckText = ""
     
@@ -40,6 +40,7 @@ class SignUpViewModel {
     struct Output {
         let emailValid: BehaviorRelay<Bool>
         let textFieldFill: BehaviorRelay<Bool>
+        let phoneText: BehaviorRelay<String>
     }
     
     func transform(input: Input) -> Output {
@@ -72,6 +73,13 @@ class SignUpViewModel {
                 owner.nicknameText = text
                 let isNickname = owner.signUseCase.isTextEmpty(text: text)
                 nicknameValid.accept(isNickname)
+            }.disposed(by: disposeBag)
+        
+        input.phoneNumTextFieldChange
+            .distinctUntilChanged()
+            .bind(with: self) { owner, text in
+                let phoneText = text.formated(by: "###-####-####")
+                owner.phoneNumText.accept(phoneText)
             }.disposed(by: disposeBag)
 
         input.passwordTextFieldChange
@@ -133,11 +141,19 @@ class SignUpViewModel {
                 guard let self = self else { return Observable<Void>.empty() }
 
                 let nickname = self.nicknameText
-
+                
                 guard self.signUseCase.isNicknameValid(nickname: nickname) else {
                     print("닉네임 유효하지 않음")
                     return Observable.empty()
                 }
+                
+                let phoneNum = self.phoneNumText.value
+                
+                guard self.signUseCase.isPhoneNumValid(phone: phoneNum) else {
+                    print("전화번호 유효하지않음")
+                    return Observable.empty()
+                }
+                
 
                 // 가입요청 예정
                 return Observable.empty()
@@ -156,7 +172,7 @@ class SignUpViewModel {
 
         
         
-        return Output(emailValid: emailValid,textFieldFill: textFieldFill)
+        return Output(emailValid: emailValid,textFieldFill: textFieldFill,phoneText: phoneNumText)
     }
     
     
