@@ -81,6 +81,22 @@ class SignUpViewController: BaseViewController {
                 owner.showToast(message: errorText)
             }.disposed(by: disposeBag)
         
+        output.errorTextfield
+            .bind(with: self) { owner, errorTextField in
+                switch errorTextField {
+                case .emailTextField:
+                    owner.mainView.emailTextField.becomeFirstResponder()
+                case .nicknameTextField:
+                    owner.mainView.nicknameLabel.becomeFirstResponder()
+                case .phoneNumTextField:
+                    owner.mainView.phoneNumTextField.becomeFirstResponder()
+                case .passwordTextField:
+                    owner.mainView.passwordTextField.becomeFirstResponder()
+                case .passwordCheckTextField:
+                    owner.mainView.passwordCheckTextField.becomeFirstResponder()
+                }
+            }
+        
     }
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))

@@ -26,6 +26,7 @@ class SignUpViewModel {
     var confirmPasswordCheck = BehaviorRelay(value: true)
     
     let message =  PublishRelay<String>()
+    let errorTextfield = PublishRelay<SignUpTextFieldType>()
     
     init(signUseCase: SignUseCase) {
         self.signUseCase = signUseCase
@@ -51,6 +52,7 @@ class SignUpViewModel {
         var confirmPasswordCheck : BehaviorRelay<Bool>
         
         let message: PublishRelay<String>
+        let errorTextfield: PublishRelay<SignUpTextFieldType>
     }
     
     func transform(input: Input) -> Output {
@@ -152,26 +154,35 @@ class SignUpViewModel {
         input.signupButtonTap
             .bind(with: self) { owner, _ in
                 var errorMessages: [String] = []
+                var textfieldArray: [SignUpTextFieldType] = []
                 owner.valid()
                 
                 if !owner.emailCheck.value {
                     errorMessages.append("이메일 중복검사 안함")
+                    textfieldArray.append(.emailTextField)
                 }
                 if !owner.nicknameCheck.value {
                     errorMessages.append("닉네임 유효하지 않음")
+                    textfieldArray.append(.nicknameTextField)
                 }
                 if !owner.phoneNumCheck.value {
                     errorMessages.append("전화번호 유효하지않음")
+                    textfieldArray.append(.phoneNumTextField)
                 }
                 if !owner.passwordCheck.value {
                     errorMessages.append("비밀번호 조건오류")
+                    textfieldArray.append(.passwordTextField)
                 }
                 if !owner.confirmPasswordCheck.value {
                     errorMessages.append("비밀번호 다름")
+                    textfieldArray.append(.passwordCheckTextField)
                 }
                 
                 guard errorMessages.isEmpty  else {
                     owner.message.accept("에러 메시지: \(errorMessages.joined(separator: ", "))")
+                    if let errorTextfield = textfieldArray.first {
+                        owner.errorTextfield.accept(errorTextfield)
+                    }
                     return
                 }
                 
@@ -228,7 +239,8 @@ class SignUpViewModel {
             phoneNumCheck: phoneNumCheck,
             passwordCheck: passwordCheck,
             confirmPasswordCheck: confirmPasswordCheck,
-            message: message
+            message: message,
+            errorTextfield: errorTextfield
         )
     }
     
