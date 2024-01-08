@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import UIKit
 
 class SignUpViewModel {
     private let signUseCase: SignUseCase
@@ -210,6 +211,7 @@ class SignUpViewModel {
                         }
                     } onCompleted: { _ in
                         print("가입하기 완료")
+                        owner.changeRootView()
                     } onDisposed: { _ in
                         print("가입하기 디스포즈")
                     }
@@ -248,6 +250,14 @@ class SignUpViewModel {
         let confirmPassword = passwordCheckText
         let confirmPasswordCheckd = signUseCase.isPasswordConfirmed(password: passwordText, confirmPassword: confirmPassword)
         confirmPasswordCheck.accept(confirmPasswordCheckd)
+    }
+    
+    private func changeRootView(){
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let vc = WorkSpaceInitViewController()
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
 }
