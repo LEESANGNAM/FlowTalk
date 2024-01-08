@@ -114,102 +114,97 @@ class SignUpViewModel {
         
         
         
+        
         input.emailCheckButtonTap
-            .flatMapLatest { [weak self] _ in
-                guard let self = self else { return Observable<EmptyResponseDTO>.empty()}
-                let email = self.emailText // 이메일 텍스트 가져오기
-                
-                guard self.signUseCase.isEmailValid(email: email) else {
-                    message.accept("이메일 유효하지않음")
+            .bind(with: self) { owner, _ in
+                let email = owner.emailText // 이메일 텍스트 가져오기
+                guard owner.signUseCase.isEmailValid(email: email) else {
+                    owner.message.accept("이메일 유효하지않음")
                     self.emailCheck.accept(false)
-                    return Observable.empty()
+                    return
                 }
                 
                 // 이미 인증된 상태인 경우에는 다시 요청하지 않음
-                guard !self.emailCheck.value else {
-                    message.accept("이미 인증된 이메일")
-                    return Observable.empty()
+                guard !owner.emailCheck.value else {
+                    owner.message.accept("이미 인증된 이메일")
+                    return
                 }
                 
-                // 유효한 이메일인 경우 서버로 이메일 중복 체크 요청
-                return self.signUseCase.emailValidation(email: email)
-            }
-            .subscribe(with: self) { owner, value in
-                print("이메일 체크 성공 했음", value)
-                owner.message.accept("사용 가능한 이메일 입니다.")
-                owner.emailCheck.accept(true)
-            } onError: { owner, error in
-                if let networkError = error as? NetWorkErrorType {
-                    print("네트워크에러: ", networkError.message)
-                    owner.message.accept(networkError.message)
-                    owner.emailCheck.accept(false)
-                }
-            } onCompleted: { _ in
-                print("이메일체크 완료")
-            } onDisposed: { _ in
-                print("이메일 체크 디스포즈")
-            }
-            .disposed(by: disposeBag)
+                owner.signUseCase.emailValidation(email: owner.emailText)
+                    .subscribe(with: self) { owner, value in
+                        print("이메일 체크 성공 했음",value)
+                        owner.emailCheck.accept(true)
+                    } onError: { owner, error in
+                        if let networkError = error as? NetWorkErrorType {
+                            owner.message.accept(networkError.message)
+                            owner.emailCheck.accept(false)
+                        }
+                    } onCompleted: { _ in
+                        print("이메일체크 완료")
+                    } onDisposed: { _ in
+                        print("이메일 체크 디스포즈")
+                    }.disposed(by: owner.disposeBag)
+            }.disposed(by: disposeBag)
+        
         
         
         input.signupButtonTap
-            .flatMapLatest { [weak self] _ in
-                guard let self = self else { return Observable<SignUpResponseDTO>.empty() }
-                
+            .bind(with: self) { owner, _ in
                 var errorMessages: [String] = []
+                owner.valid()
                 
-                self.valid()
-                
-                if !self.emailCheck.value {
+                if !owner.emailCheck.value {
                     errorMessages.append("이메일 중복검사 안함")
                 }
-                if !self.nicknameCheck.value {
+                if !owner.nicknameCheck.value {
                     errorMessages.append("닉네임 유효하지 않음")
                 }
-                if !self.phoneNumCheck.value {
+                if !owner.phoneNumCheck.value {
                     errorMessages.append("전화번호 유효하지않음")
                 }
-                if !self.passwordCheck.value {
+                if !owner.passwordCheck.value {
                     errorMessages.append("비밀번호 조건오류")
                 }
-                if !self.confirmPasswordCheck.value {
+                if !owner.confirmPasswordCheck.value {
                     errorMessages.append("비밀번호 다름")
                 }
                 
-                if errorMessages.isEmpty {
-                    // 모든 조건을 통과한 경우에만 가입 요청
-                    let email = self.emailText
-                    let password = self.passwordText
-                    let nickname = self.nicknameText
-                    let phone = phoneNumText.value.isEmpty ? "" : phoneNumText.value
-                    let diviceToken = "testToken"
-                    
-                    let user = SignUpRequestDTO(
-                        email: email,
-                        password: password,
-                        nickname: nickname,
-                        phone: phone,
-                        deviceToken: diviceToken
-                    )
-                    return self.signUseCase.signUp(user: user)
-                } else {
-                    // 에러 메시지를 활용하여 뷰에 표시하거나 다른 처리를 수행할 수 있습니다.
-                    message.accept("에러 메시지: \(errorMessages.joined(separator: ", "))")
-                    return Observable.empty()
+                guard errorMessages.isEmpty  else {
+                    owner.message.accept("에러 메시지: \(errorMessages.joined(separator: ", "))")
+                    return
                 }
-            }
-            .subscribe(with: self) { owner, value in
-                print("가입하기 탭탭탭")
-                print("가입 성공!:",value)
-                //가입 성공값 저장
-            } onError: { owner, error in
-                if let networkError = error as? NetWorkErrorType {
-                    print("네트워크 에러: ", networkError.message)
-                }
-            } onDisposed: { _ in
-                print("가입하기 디스포즈")
-            }
-            .disposed(by: disposeBag)
+                
+                let email = owner.emailText
+                let password = owner.passwordText
+                let nickname = owner.nicknameText
+                let phone = owner.phoneNumText.value.isEmpty ? "" : owner.phoneNumText.value
+                let diviceToken = "testToken"
+                
+                let user = SignUpRequestDTO(
+                    email: email,
+                    password: password,
+                    nickname: nickname,
+                    phone: phone,
+                    deviceToken: diviceToken
+                )
+                
+                owner.signUseCase.signUp(user: user)
+                    .subscribe(with: self) { owner, value in
+                        print("가입하기 탭탭탭")
+                        print("가입 성공!:",value)
+                        //가입 성공값 저장
+                    } onError: { owner, error in
+                        if let networkError = error as? NetWorkErrorType {
+                            owner.message.accept(networkError.message)
+                        }
+                    } onCompleted: { _ in
+                        print("가입하기 완료")
+                    } onDisposed: { _ in
+                        print("가입하기 디스포즈")
+                    }
+                    .disposed(by: owner.disposeBag)
+            }.disposed(by: disposeBag)
+        
         
         
         return Output(
