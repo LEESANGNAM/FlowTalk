@@ -22,6 +22,11 @@ class SignUpView: BaseView {
     
     let emailCheckButton = CustomBackgroundTitleButton(title: "중복확인", color: Colors.brandInactive.color)
     
+    let signUpBackView = {
+        let view = UIView()
+        view.backgroundColor = Colors.backgroundPrimary.color
+        return view
+    }()
     let signUpButton = CustomBackgroundTitleButton(title: "가입하기", color: Colors.brandInactive.color)
     
     override func setHierarchy() {
@@ -40,8 +45,9 @@ class SignUpView: BaseView {
         
         addSubview(passwordCheckLabel)
         addSubview(passwordCheckTextField)
+        addSubview(signUpBackView)
         
-        addSubview(signUpButton)
+        signUpBackView.addSubview(signUpButton)
         
     }
     
@@ -111,11 +117,15 @@ class SignUpView: BaseView {
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(24)
             make.height.equalTo(44)
         }
-        
+        signUpBackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.height.equalTo(68)
+            make.bottom.equalTo(keyboardLayoutGuide.snp.top)
+        }
         
         signUpButton.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(24)
-            make.bottom.equalTo(keyboardLayoutGuide.snp.top)
+            make.horizontalEdges.equalToSuperview().inset(24)
+            make.verticalEdges.equalToSuperview().inset(12)
             make.height.equalTo(44)
         }
        
