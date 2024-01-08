@@ -27,6 +27,7 @@ class SignUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        setDelegate()
         bind()
     }
     private func bind() {
@@ -114,7 +115,32 @@ class SignUpViewController: BaseViewController {
             }
 
     }
-    
-    
-    
+    private func setDelegate() {
+        mainView.emailTextField.delegate = self
+        mainView.nicknameTextField.delegate = self
+        mainView.phoneNumTextField.delegate = self
+        mainView.passwordTextField.delegate = self
+        mainView.passwordCheckTextField.delegate = self
+    }
 }
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            switch textField {
+            case mainView.emailTextField:
+                mainView.nicknameTextField.becomeFirstResponder()
+            case mainView.nicknameTextField:
+                mainView.phoneNumTextField.becomeFirstResponder()
+            case mainView.phoneNumTextField:
+                mainView.passwordTextField.becomeFirstResponder()
+            case mainView.passwordTextField:
+                mainView.passwordCheckTextField.becomeFirstResponder()
+            case mainView.passwordCheckTextField:
+                mainView.passwordCheckTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+            }
+            return true
+        }
+}
+
