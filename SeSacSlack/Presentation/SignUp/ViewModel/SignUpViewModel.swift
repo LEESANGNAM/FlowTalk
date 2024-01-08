@@ -193,6 +193,17 @@ class SignUpViewModel {
                         print("가입하기 탭탭탭")
                         print("가입 성공!:",value)
                         //가입 성공값 저장
+                        let userid = value.user_id
+                        let nickname = value.nickname
+                        let token = value.token.accessToken
+                        let refresh = value.token.refreshToken
+                        
+                        owner.signUseCase.saveUserDefaults(
+                            id: userid,
+                            nickname: nickname,
+                            token: token,
+                            refresh: refresh
+                        )
                     } onError: { owner, error in
                         if let networkError = error as? NetWorkErrorType {
                             owner.message.accept(networkError.message)
