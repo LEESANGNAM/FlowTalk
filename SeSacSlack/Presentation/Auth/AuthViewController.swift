@@ -15,10 +15,12 @@ class AuthViewController: BaseViewController {
     let emailLoginButton = SNSLoginButton(icon: Icon.email.image, title: "이메일로 계속하기", titleColor: Colors.brandWhite.color, backgroundColor: Colors.brandGreen.color)
     let signUpButton = SNSLoginButton(title: "또는",subtitle: " 새롭게 회원가입 하기", titleColor: Colors.brandBlack.color,subtitleColor: Colors.brandGreen.color, backgroundColor: Colors.backgroundPrimary.color)
     
+    let kakaoAuthVM = KakaoAuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setSignUpButton()
+        testkakaoButton()
     }
     
     override func setHierarchy() {
@@ -53,6 +55,16 @@ class AuthViewController: BaseViewController {
 }
 
 extension AuthViewController {
+    private func testkakaoButton(){
+        kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
+    }
+    @objc
+    private func kakaoLoginButtonTapped(){
+        print("로그인 테스트")
+        kakaoAuthVM.kakaoLogin()
+    }
+    
+    
     private func setSignUpButton(){
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }

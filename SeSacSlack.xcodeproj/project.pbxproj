@@ -58,6 +58,7 @@
 		D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */; };
 		D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA842B470CDF0054AD46 /* AuthViewController.swift */; };
 		D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA862B470D450054AD46 /* SNSLoginButton.swift */; };
+		D6BA714A2B4C583600D3FD00 /* KakaoAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D654CA842B470CDF0054AD46 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		D654CA862B470D450054AD46 /* SNSLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginButton.swift; sourceTree = "<group>"; };
+		D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				D654CA842B470CDF0054AD46 /* AuthViewController.swift */,
+				D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
+				D6BA714A2B4C583600D3FD00 /* KakaoAuthViewModel.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
@@ -720,6 +724,7 @@
 /* Begin XCBuildConfiguration section */
 		D654CA3D2B4435610054AD46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D654CA4E2B459FC00054AD46 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -783,6 +788,7 @@
 		};
 		D654CA3E2B4435610054AD46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D654CA4E2B459FC00054AD46 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -839,6 +845,7 @@
 		};
 		D654CA402B4435610054AD46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D654CA4E2B459FC00054AD46 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -851,6 +858,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -869,6 +877,7 @@
 		};
 		D654CA412B4435610054AD46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D654CA4E2B459FC00054AD46 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -881,6 +890,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
