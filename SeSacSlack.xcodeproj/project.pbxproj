@@ -59,6 +59,9 @@
 		D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA842B470CDF0054AD46 /* AuthViewController.swift */; };
 		D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA862B470D450054AD46 /* SNSLoginButton.swift */; };
 		D6BA714A2B4C583600D3FD00 /* KakaoAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */; };
+		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
+		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
+		D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,9 @@
 		D654CA842B470CDF0054AD46 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		D654CA862B470D450054AD46 /* SNSLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginButton.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthViewModel.swift; sourceTree = "<group>"; };
+		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
+		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
+		D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,7 @@
 			children = (
 				D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */,
 				D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */,
+				D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -232,6 +239,8 @@
 			children = (
 				D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */,
 				D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */,
+				D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */,
+				D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -651,9 +660,11 @@
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
+				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D616D29B2B4AAB750012CFC5 /* String+Extension.swift in Sources */,
 				D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */,
+				D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
@@ -667,6 +678,7 @@
 				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
+				D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */,
 				D6BA714A2B4C583600D3FD00 /* KakaoAuthViewModel.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,

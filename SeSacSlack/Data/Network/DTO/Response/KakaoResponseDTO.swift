@@ -1,13 +1,14 @@
 //
-//  SignUpResponseDTO.swift
+//  KakaoResponseDTO.swift
 //  SeSacSlack
 //
-//  Created by 이상남 on 1/8/24.
+//  Created by 이상남 on 1/9/24.
 //
 
 import Foundation
 
-struct SignUpResponseDTO: Decodable {
+
+struct KakaoResponseDTO: Decodable {
     let user_id: Int
     let email: String
     let nickname: String
@@ -17,5 +18,3 @@ struct SignUpResponseDTO: Decodable {
     let createdAt: String?
     let token: TokenResponseDTO
 }
-
-
