@@ -14,6 +14,7 @@ enum Router: URLRequestConvertible {
     
     case emailValid(EmailValidationRequestDTO)
     case signUp(SignUpRequestDTO)
+    case kakaoLogin(KakaoLoginRequestDTO)
     
     private var baseURL: URL {
         return URL(string: APIKey.baseURL)!
@@ -25,20 +26,22 @@ enum Router: URLRequestConvertible {
             return "v1/users/validation/email"
         case .signUp:
             return "v1/users/join"
+        case .kakaoLogin:
+            return "v1/users/login/kakao"
         }
     }
     
     
     var header: HTTPHeaders {
         switch self {
-        case .emailValid, .signUp :
+        case .emailValid, .signUp, .kakaoLogin :
             return ["SesacKey": Router.key ]
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .emailValid, .signUp:
+        case .emailValid, .signUp, .kakaoLogin :
             return .post
         }
     }
@@ -56,6 +59,8 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailValidRequestDTO, into: request)
         case .signUp(let signUpRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(signUpRequestDTO, into: request)
+        case .kakaoLogin(let kakaoLoginRequestDTO):
+            request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(kakaoLoginRequestDTO, into: request)
         }
         return request
     }

@@ -24,6 +24,7 @@ class KakaoAuthViewModel {
     lazy var loginStatus = isLogin.flatMap { value in
         return Observable.just(value ? "로그인상태" : "로그아웃 상태")
     }
+    let oauthToken = PublishSubject<OAuthToken>()
     
     func kakaoLoginWithApp (){
         //카카오톡 앱으로 인증
@@ -31,7 +32,8 @@ class KakaoAuthViewModel {
             .subscribe(onNext:{  (oauthToken) in
                 print("loginWithKakaoTalk() success.")
                 //do something
-                _ = oauthToken
+                print("oauthToken:",oauthToken)
+                self.oauthToken.onNext(oauthToken)
                 self.isLogin.accept(true)
             }, onError: {error in
                 print(error)
@@ -47,7 +49,8 @@ class KakaoAuthViewModel {
                 print("loginWithKakaoAccount() success.")
                 //do something
                 self.isLogin.accept(true)
-                _ = oauthToken
+                print("oauthToken:",oauthToken)
+                self.oauthToken.onNext(oauthToken)
             }, onError: {error in
                 print(error)
                 self.isLogin.accept(false)

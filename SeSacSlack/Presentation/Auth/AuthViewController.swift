@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 class AuthViewController: BaseViewController {
@@ -16,11 +18,32 @@ class AuthViewController: BaseViewController {
     let signUpButton = SNSLoginButton(title: "또는",subtitle: " 새롭게 회원가입 하기", titleColor: Colors.brandBlack.color,subtitleColor: Colors.brandGreen.color, backgroundColor: Colors.backgroundPrimary.color)
     
     let kakaoAuthVM = KakaoAuthViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setSignUpButton()
         testkakaoButton()
+        bind()
+    }
+    private func bind() {
+        kakaoAuthVM.oauthToken
+            .flatMapLatest { oauthToken in
+                let kakaoLoginModel = KakaoLoginRequestDTO(oauthToken: oauthToken.accessToken, deviceToken: "text")
+                return NetWorkManager.shared.request(type: KakaoResponseDTO.self, api: .kakaoLogin(kakaoLoginModel))
+            }.subscribe(with: self) { owner, value in
+                print("카카오 로그인 성공함 로그인모델값 :",value)
+            }onError: { owner,error  in
+                if let networkError = error as? NetWorkErrorType {
+                    print("카카오 로그인 에러: ",networkError.message)
+                } else {
+                    print("다른에러: ", error)
+                }
+            }onCompleted: { owner in
+                print("카카오로그인 완료")
+            } onDisposed: { owner in
+                print("카카오 로그인 디스포즈")
+            }.disposed(by: disposeBag)
     }
     
     override func setHierarchy() {
