@@ -143,6 +143,7 @@
 		D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeEmptyViewController.swift; sourceTree = "<group>"; };
 		D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginResponseDTO.swift; sourceTree = "<group>"; };
+		D6BA71612B4ED7E400D3FD00 /* SeSacSlack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSacSlack.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +396,7 @@
 		D654CA172B4435600054AD46 /* SeSacSlack */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71612B4ED7E400D3FD00 /* SeSacSlack.entitlements */,
 				D616D2962B487F9F0012CFC5 /* Presentation */,
 				D616D2892B48792C0012CFC5 /* Domain */,
 				D616D2752B4854000012CFC5 /* Data */,
@@ -508,8 +510,8 @@
 		D654CA832B470B9C0054AD46 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				D654CA842B470CDF0054AD46 /* AuthViewController.swift */,
-				D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */,
+				D6BA71632B4EDA3900D3FD00 /* ViewModel */,
+				D6BA71622B4EDA3400D3FD00 /* View */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -544,6 +546,22 @@
 				D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		D6BA71622B4EDA3400D3FD00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D654CA842B470CDF0054AD46 /* AuthViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6BA71632B4EDA3900D3FD00 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -917,6 +935,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSacSlack/SeSacSlack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y7C6A3W353;
@@ -949,6 +968,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSacSlack/SeSacSlack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y7C6A3W353;

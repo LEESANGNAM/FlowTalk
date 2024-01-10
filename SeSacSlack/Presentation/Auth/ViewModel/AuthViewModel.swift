@@ -27,6 +27,7 @@ class AuthViewModel {
     }
     
     let oauthToken = PublishSubject<OAuthToken>()
+    let appleToken = PublishSubject<String>()
     let errorMessage = PublishRelay<String>()
     struct Input {
         let appleLoginButtonTap: ControlEvent<Void>
@@ -80,6 +81,32 @@ class AuthViewModel {
                 print("카카오 로그인 디스포즈")
             }.disposed(by: disposeBag)
         
+        appleToken
+            .withUnretained(self)
+            .flatMapLatest { owner, idToken in
+                let appleLoginModel = AppleLoginRequestDTO(idToken: idToken, nickname: "", diviceToken: "test")
+                return owner.loginUseCase.appleLogin(user: appleLoginModel)
+            }.subscribe(with: self) { owner, value in
+                print("애플 로그인 성공함 로그인모델값 :",value)
+                UserDefaultsManager.saveUserDefaults(
+                    id: value.user_id,
+                    nickname: value.nickname,
+                    token: value.token.accessToken,
+                    refresh: value.token.refreshToken
+                )
+                isSuccess.accept(true)
+            }onError: { owner,error  in
+                if let networkError = error as? NetWorkErrorType {
+                    print("애플 로그인 에러: ",networkError.message)
+                    owner.errorMessage.accept(networkError.message)
+                } else {
+                    print("다른에러: ", error)
+                }
+            }onCompleted: { owner in
+                print("애플 로그인 완료")
+            } onDisposed: { owner in
+                print("애플 로그인 디스포즈")
+            }.disposed(by: disposeBag)
         
         
         return Output(
@@ -149,5 +176,3 @@ extension AuthViewModel {
             .disposed(by: disposeBag)
     }
 }
-
-

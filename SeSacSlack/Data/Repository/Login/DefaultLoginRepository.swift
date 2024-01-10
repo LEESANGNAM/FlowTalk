@@ -12,4 +12,9 @@ final class DefaultLoginRepository: LoginRespository {
     func kakaoLogin(user: KakaoLoginRequestDTO) -> RxSwift.Observable<KakaoLoginResponseDTO> {
         return NetWorkManager.shared.request(type: KakaoLoginResponseDTO.self, api: .kakaoLogin(user))
     }
+    
+    func apppleLogin(user: AppleLoginRequestDTO) -> Observable<AppleLoginResponseDTO> {
+        return NetWorkManager.shared.request(type: AppleLoginResponseDTO.self, api: .appleLogin(user))
+    }
+    
 }

@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AuthenticationServices
 
 
 class AuthViewController: BaseViewController {
@@ -39,7 +40,7 @@ class AuthViewController: BaseViewController {
         
         output.appleLoginButtonTap
             .bind(with: self) { owner, _ in
-                print("애플로그인 버튼 탭")
+                owner.appleLogin()
             }.disposed(by: disposeBag)
         
         output.kakaoLoginButtonTap
@@ -135,3 +136,82 @@ extension AuthViewController {
         sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
+
+
+extension AuthViewController: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+}
+
+
+extension AuthViewController: ASAuthorizationControllerDelegate {
+    
+    private func appleLogin(){
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.email, .fullName]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+    
+    // 애플 로그인 실패한 경우
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Login failed \(error.localizedDescription)")
+    }
+    
+    // 애플 로그인 성공한 경우 -> 메인 페이지로 이동 등...
+    // 처음 시도 : 계속, email, fullName 제공
+    // 두번째 시도: 로그인 하시겠습니까? email, fullName nil 값으로 온다.
+    // 사용자에 대한 정보를 계속 제공해주지 않는다. 최초에만 제공
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        switch authorization.credential {
+            
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            print(appleIDCredential)
+            
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            
+            guard let token = appleIDCredential.identityToken,
+                  let tokenToString = String(data: token,encoding: .utf8) else {
+                print("Token Error")
+                return
+            }
+            viewModel.appleToken.onNext(tokenToString)
+//
+//            print("appleIDCredential----------------------------")
+//            print("userIdentifier: ",userIdentifier)
+//            print("----------------------------")
+//            print("fullName: ",fullName ?? "No fullName")
+//            print("----------------------------")
+//            print("email: ",email ?? "No Email")
+//            print("----------------------------")
+//            print("token: ",token)
+//            print("----------------------------")
+//            print("tokenToString: ",tokenToString)
+//            print("----------------------------")
+        case let passwordCredential as ASPasswordCredential:
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            print("passwordCredential----------------------------")
+            print("username: ",username)
+            print("----------------------------")
+            print("password: ",password)
+            print("----------------------------")
+            
+            
+        default: break
+        }
+        
+        
+    }
+}
+
+
