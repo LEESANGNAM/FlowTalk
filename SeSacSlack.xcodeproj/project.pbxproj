@@ -66,6 +66,8 @@
 		D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */; };
 		D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */; };
 		D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */; };
+		D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */; };
+		D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,8 @@
 		D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoginRepository.swift; sourceTree = "<group>"; };
 		D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeEmptyViewController.swift; sourceTree = "<group>"; };
+		D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestDTO.swift; sourceTree = "<group>"; };
+		D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,7 @@
 				D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */,
 				D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */,
 				D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */,
+				D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */,
 				D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */,
 				D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */,
+				D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -718,10 +724,12 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
+				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
 				D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */,
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
+				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
