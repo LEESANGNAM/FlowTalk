@@ -23,7 +23,6 @@ protocol SignUseCase: AnyObject {
     func isPasswordValid(password: String) -> Bool
     func isPasswordConfirmed(password: String, confirmPassword: String) -> Bool
     
-    func saveUserDefaults(id: Int, nickname: String, token: String, refresh: String)
 }
 
 final class DefaultSignUseCase: SignUseCase {
@@ -73,14 +72,6 @@ final class DefaultSignUseCase: SignUseCase {
     func isPasswordConfirmed(password: String, confirmPassword: String) -> Bool {
             return password == confirmPassword
         }
-    
-    func saveUserDefaults(id: Int, nickname: String, token: String, refresh: String) {
-        UserDefaultsManager.isLogin = true
-        UserDefaultsManager.id = id
-        UserDefaultsManager.nickname = nickname
-        UserDefaultsManager.token = token
-        UserDefaultsManager.refresh = refresh
-    }
     
     
 }

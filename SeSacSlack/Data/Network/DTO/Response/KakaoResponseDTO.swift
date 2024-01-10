@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct KakaoResponseDTO: Decodable {
+struct KakaoLoginResponseDTO: Decodable {
     let user_id: Int
     let email: String
     let nickname: String

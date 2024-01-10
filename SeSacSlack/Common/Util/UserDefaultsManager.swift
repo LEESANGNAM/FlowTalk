@@ -17,6 +17,14 @@ struct UserDefaultsManager {
     static var id
     @UserDefaultsWrapper(key: "nickname", defaultValue: "")
     static var nickname
+    
+    static func saveUserDefaults(id: Int = 0, nickname: String = "" , token: String = "", refresh: String = "") {
+        UserDefaultsManager.isLogin = true
+        UserDefaultsManager.id = id
+        UserDefaultsManager.nickname = nickname
+        UserDefaultsManager.token = token
+        UserDefaultsManager.refresh = refresh
+    }
 }
 
 @propertyWrapper

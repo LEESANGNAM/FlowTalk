@@ -210,7 +210,7 @@ class SignUpViewModel {
                         let token = value.token.accessToken
                         let refresh = value.token.refreshToken
                         
-                        owner.signUseCase.saveUserDefaults(
+                        UserDefaultsManager.saveUserDefaults(
                             id: userid,
                             nickname: nickname,
                             token: token,

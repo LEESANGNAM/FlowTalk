@@ -60,7 +60,13 @@ class OnBoardingViewController: BaseViewController {
     @objc
     private func startButtonTapped() {
         print("시작하기 버튼 탭")
-        let vc = AuthViewController()
+        let vc = AuthViewController(
+            viewModel: AuthViewModel(
+                loginUseCase: DefaultLoginUseCase(
+                    loginRepository: DefaultLoginRepository()
+                )
+            )
+        )
         
         let custom = UISheetPresentationController.Detent.custom(identifier: .init("custom")) { _ in
             return 270

@@ -58,10 +58,13 @@
 		D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */; };
 		D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA842B470CDF0054AD46 /* AuthViewController.swift */; };
 		D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA862B470D450054AD46 /* SNSLoginButton.swift */; };
-		D6BA714A2B4C583600D3FD00 /* KakaoAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */; };
+		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
 		D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */; };
+		D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71512B4E90F100D3FD00 /* LoginRespository.swift */; };
+		D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */; };
+		D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,10 +130,13 @@
 		D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D654CA842B470CDF0054AD46 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		D654CA862B470D450054AD46 /* SNSLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginButton.swift; sourceTree = "<group>"; };
-		D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthViewModel.swift; sourceTree = "<group>"; };
+		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseDTO.swift; sourceTree = "<group>"; };
+		D6BA71512B4E90F100D3FD00 /* LoginRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRespository.swift; sourceTree = "<group>"; };
+		D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoginRepository.swift; sourceTree = "<group>"; };
+		D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +272,7 @@
 		D616D28A2B4879330012CFC5 /* RepositoryInterface */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71532B4E918200D3FD00 /* Login */,
 				D616D28B2B48794E0012CFC5 /* Sign */,
 			);
 			path = RepositoryInterface;
@@ -282,6 +289,7 @@
 		D616D28E2B487B620012CFC5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71542B4E918E00D3FD00 /* Login */,
 				D616D28F2B487B700012CFC5 /* Sign */,
 			);
 			path = Repository;
@@ -298,6 +306,7 @@
 		D616D2922B487CFC0012CFC5 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71572B4E91FF00D3FD00 /* Login */,
 				D616D2932B487D0C0012CFC5 /* Sign */,
 			);
 			path = UseCase;
@@ -491,9 +500,33 @@
 			isa = PBXGroup;
 			children = (
 				D654CA842B470CDF0054AD46 /* AuthViewController.swift */,
-				D6BA71492B4C583600D3FD00 /* KakaoAuthViewModel.swift */,
+				D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		D6BA71532B4E918200D3FD00 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71512B4E90F100D3FD00 /* LoginRespository.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D6BA71542B4E918E00D3FD00 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D6BA71572B4E91FF00D3FD00 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -657,6 +690,7 @@
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
+				D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
@@ -674,12 +708,13 @@
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
+				D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */,
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
 				D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */,
-				D6BA714A2B4C583600D3FD00 /* KakaoAuthViewModel.swift in Sources */,
+				D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
@@ -687,6 +722,7 @@
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
+				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
