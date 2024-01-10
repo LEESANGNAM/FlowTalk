@@ -510,8 +510,8 @@
 		D654CA832B470B9C0054AD46 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA71632B4EDA3900D3FD00 /* ViewModel */,
-				D6BA71622B4EDA3400D3FD00 /* View */,
+				D6BA71652B4EE1BB00D3FD00 /* SNS */,
+				D6BA71642B4EE1B300D3FD00 /* Email */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -562,6 +562,22 @@
 				D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6BA71642B4EE1B300D3FD00 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		D6BA71652B4EE1BB00D3FD00 /* SNS */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71632B4EDA3900D3FD00 /* ViewModel */,
+				D6BA71622B4EDA3400D3FD00 /* View */,
+			);
+			path = SNS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
