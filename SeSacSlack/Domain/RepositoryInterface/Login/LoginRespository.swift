@@ -11,4 +11,5 @@ import RxSwift
 protocol LoginRespository: AnyObject {
     func kakaoLogin(user: KakaoLoginRequestDTO) -> Observable<KakaoLoginResponseDTO>
     func apppleLogin(user: AppleLoginRequestDTO) -> Observable<AppleLoginResponseDTO>
+    func emailLogin(user: EmailLoginRequestDTO) ->Observable<EmailLoginResponseDTO>
 }

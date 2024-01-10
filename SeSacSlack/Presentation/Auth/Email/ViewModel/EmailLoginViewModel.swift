@@ -91,7 +91,30 @@ class EmailLoginViewModel {
                 } else {
                     owner.passwordCheck.accept(passwordValid)
                 }
-                print("통과함 요청")
+                
+                let emailLoginUser = EmailLoginRequestDTO(
+                    email: owner.emailText,
+                    password: owner.passwordText,
+                    deviceToken: "testDeviceToken")
+                
+                owner.loginUseCase.emailLogin(user: emailLoginUser)
+                    .subscribe(with: self) { owner, emailuser in
+                        print("이메일로그인 성공", emailuser)
+                        UserDefaultsManager.saveUserDefaults(
+                            id: emailuser.user_id,
+                            nickname: emailuser.nickname,
+                            token: emailuser.token.accessToken,
+                            refresh: emailuser.token.refreshToken)
+                    } onError: { owner, error in
+                        if let networkError = error as? NetWorkErrorType {
+                            print("이메일로그인 실패",networkError.message)
+                            owner.message.accept(networkError.message)
+                        }
+                    } onCompleted: { _ in
+                        print("이메일 로그인 완료")
+                    } onDisposed: { _ in
+                        print("이메일 로그인 디스포즈")
+                    }.disposed(by: owner.disposeBag)
             }.disposed(by: disposeBag)
         
         

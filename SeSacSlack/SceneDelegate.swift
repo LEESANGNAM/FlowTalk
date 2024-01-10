@@ -29,17 +29,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         
-//        if UserDefaultsManager.id != 0 {
-//            window = UIWindow(windowScene: scene)
-//            let vc = WorkSpaceHomeEmptyViewController()
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-//        } else {
+        if UserDefaultsManager.id != 0 {
+            window = UIWindow(windowScene: scene)
+            let vc = WorkSpaceHomeEmptyViewController()
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        } else {
             window = UIWindow(windowScene: scene)
             let vc = OnBoardingViewController()
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
-//        }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

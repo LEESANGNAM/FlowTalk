@@ -13,6 +13,7 @@ import RxCocoa
 protocol LoginUseCase: AnyObject {
     func kakaoLogin(user: KakaoLoginRequestDTO) -> Observable<KakaoLoginResponseDTO>
     func appleLogin(user: AppleLoginRequestDTO) -> Observable<AppleLoginResponseDTO>
+    func emailLogin(user: EmailLoginRequestDTO) -> Observable<EmailLoginResponseDTO>
     
     func isTextEmpty(text: String) -> Bool
     func isEmailValid(email: String) -> Bool
@@ -35,6 +36,11 @@ final class DefaultLoginUseCase: LoginUseCase {
     func appleLogin(user: AppleLoginRequestDTO) -> Observable<AppleLoginResponseDTO> {
         return loginRepository.apppleLogin(user: user)
     }
+    
+    func emailLogin(user: EmailLoginRequestDTO) -> Observable<EmailLoginResponseDTO> {
+        return loginRepository.emailLogin(user: user)
+    }
+    
     
     func isTextEmpty(text: String) -> Bool {
         return !text.isEmpty

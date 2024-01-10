@@ -17,4 +17,8 @@ final class DefaultLoginRepository: LoginRespository {
         return NetWorkManager.shared.request(type: AppleLoginResponseDTO.self, api: .appleLogin(user))
     }
     
+    func emailLogin(user: EmailLoginRequestDTO) -> Observable<EmailLoginResponseDTO> {
+        return NetWorkManager.shared.request(type: EmailLoginResponseDTO.self, api: .emailLogin(user))
+    }
+    
 }
