@@ -65,6 +65,7 @@
 		D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71512B4E90F100D3FD00 /* LoginRespository.swift */; };
 		D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */; };
 		D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */; };
+		D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		D6BA71512B4E90F100D3FD00 /* LoginRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRespository.swift; sourceTree = "<group>"; };
 		D6BA71552B4E919B00D3FD00 /* DefaultLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoginRepository.swift; sourceTree = "<group>"; };
 		D6BA71582B4E920E00D3FD00 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeEmptyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 		D616D2A22B4BE5500012CFC5 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA715A2B4EC0F700D3FD00 /* Home */,
 				D616D2A32B4BE5780012CFC5 /* Init */,
 			);
 			path = WorkSpace;
@@ -529,6 +532,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		D6BA715A2B4EC0F700D3FD00 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -689,6 +700,7 @@
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
+				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
 				D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,

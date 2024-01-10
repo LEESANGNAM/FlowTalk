@@ -66,10 +66,11 @@ class AuthViewController: BaseViewController {
             .bind(with: self) { owner, result in
                 if result {
                     print("로그인 성공 home Default 이동")
+                    owner.changeRootView()
                 } else {
                     print("가만히 있기")
                 }
-            }
+            }.disposed(by: disposeBag)
         
         
         
@@ -126,4 +127,11 @@ extension AuthViewController {
         present(nav, animated: true)
     }
     
+    private func changeRootView(){
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let vc = WorkSpaceHomeEmptyViewController()
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
 }
