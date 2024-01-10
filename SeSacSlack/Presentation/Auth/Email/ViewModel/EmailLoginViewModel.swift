@@ -41,7 +41,7 @@ class EmailLoginViewModel {
         
         let emailCheck: BehaviorRelay<Bool>
         var passwordCheck : BehaviorRelay<Bool>
-        
+        let isSuccess: PublishRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -49,6 +49,8 @@ class EmailLoginViewModel {
         let passwordEmptyValid = BehaviorRelay(value: false)
         
         let textFieldFill = BehaviorRelay(value: false)
+        
+        let isSuccess = PublishRelay<Bool>()
         
         Observable.combineLatest(emailEmptyValid, passwordEmptyValid)
             .map { email, password in
@@ -104,7 +106,9 @@ class EmailLoginViewModel {
                             id: emailuser.user_id,
                             nickname: emailuser.nickname,
                             token: emailuser.token.accessToken,
-                            refresh: emailuser.token.refreshToken)
+                            refresh: emailuser.token.refreshToken
+                        )
+                        isSuccess.accept(true)
                     } onError: { owner, error in
                         if let networkError = error as? NetWorkErrorType {
                             print("이메일로그인 실패",networkError.message)
@@ -124,7 +128,8 @@ class EmailLoginViewModel {
             textFieldFill: textFieldFill,
             loginButtonTapped: input.loginButtonTapped,
             emailCheck: emailCheck,
-            passwordCheck: passwordCheck
+            passwordCheck: passwordCheck,
+            isSuccess: isSuccess
         )
         
     }
