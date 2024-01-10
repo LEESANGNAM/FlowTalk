@@ -50,12 +50,20 @@ class AuthViewController: BaseViewController {
         
         output.emailLoginButtonTap
             .bind(with: self) { owner, _ in
-                print("이메일 버튼탭")
+                owner.showModal(viewController: EmailLoginViewController())
             }.disposed(by: disposeBag)
         
         output.signUpButtonTap
             .bind(with: self) { owner, _ in
-                owner.signUpButtonTapped()
+                owner.showModal(
+                    viewController: SignUpViewController(
+                        viewModel: SignUpViewModel(
+                            signUseCase: DefaultSignUseCase(
+                                signReposiroty: DefaultSignRepository()
+                            )
+                        )
+                    )
+                )
             }.disposed(by: disposeBag)
         
         output.errorMessage
@@ -110,14 +118,15 @@ class AuthViewController: BaseViewController {
 
 extension AuthViewController {
     
-    private func signUpButtonTapped() {
-        let vc = SignUpViewController(
-            viewModel: SignUpViewModel(
-                signUseCase: DefaultSignUseCase(
-                    signReposiroty: DefaultSignRepository()
-                )
-            )
-        )
+    private func showModal(viewController: UIViewController) {
+        let vc = viewController
+//        let vc = SignUpViewController(
+//            viewModel: SignUpViewModel(
+//                signUseCase: DefaultSignUseCase(
+//                    signReposiroty: DefaultSignRepository()
+//                )
+//            )
+//        )
         let nav = UINavigationController(rootViewController: vc)
         
         if let sheet = nav.sheetPresentationController {
@@ -127,7 +136,6 @@ extension AuthViewController {
         
         present(nav, animated: true)
     }
-    
     private func changeRootView(){
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate

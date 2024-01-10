@@ -68,6 +68,8 @@
 		D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */; };
 		D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */; };
 		D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */; };
+		D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71682B4EE3DF00D3FD00 /* EmailLoginViewModel.swift */; };
+		D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA716A2B4EE3EA00D3FD00 /* EmailLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,8 @@
 		D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA71612B4ED7E400D3FD00 /* SeSacSlack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSacSlack.entitlements; sourceTree = "<group>"; };
+		D6BA71682B4EE3DF00D3FD00 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
+		D6BA716A2B4EE3EA00D3FD00 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +571,8 @@
 		D6BA71642B4EE1B300D3FD00 /* Email */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71672B4EE20300D3FD00 /* ViewModel */,
+				D6BA71662B4EE1FC00D3FD00 /* View */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -578,6 +584,22 @@
 				D6BA71622B4EDA3400D3FD00 /* View */,
 			);
 			path = SNS;
+			sourceTree = "<group>";
+		};
+		D6BA71662B4EE1FC00D3FD00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA716A2B4EE3EA00D3FD00 /* EmailLoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6BA71672B4EE20300D3FD00 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71682B4EE3DF00D3FD00 /* EmailLoginViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -739,6 +761,7 @@
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
+				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
@@ -758,6 +781,7 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
+				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
 				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,

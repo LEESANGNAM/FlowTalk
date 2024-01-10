@@ -108,12 +108,7 @@ class SignUpViewController: BaseViewController {
     }
     
     @objc func backButtonTapped() {
-        print("뒤로가기 버튼 탭")
-        
-        if let presentingViewController = self.presentingViewController?.presentingViewController {
-                presentingViewController.dismiss(animated: true, completion: nil)
-            }
-
+        dismiss(animated: true, completion: nil)
     }
     private func setDelegate() {
         mainView.emailTextField.delegate = self
