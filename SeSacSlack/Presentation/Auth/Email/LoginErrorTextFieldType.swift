@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum LoginErrorTextFieldType {
+    case emailTextField
+    case passwordTextField
+}

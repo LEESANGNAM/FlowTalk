@@ -50,7 +50,15 @@ class AuthViewController: BaseViewController {
         
         output.emailLoginButtonTap
             .bind(with: self) { owner, _ in
-                owner.showModal(viewController: EmailLoginViewController())
+                owner.showModal(
+                    viewController: EmailLoginViewController(
+                        viewModel: EmailLoginViewModel(
+                            loginUseCase: DefaultLoginUseCase(
+                                loginRepository: DefaultLoginRepository()
+                            )
+                        )
+                    )
+                )
             }.disposed(by: disposeBag)
         
         output.signUpButtonTap

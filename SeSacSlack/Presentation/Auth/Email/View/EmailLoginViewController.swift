@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class EmailLoginViewController: BaseViewController {
     let emailLabel = CustomTitle2BlackLabel(text: "이메일")
@@ -22,11 +24,65 @@ class EmailLoginViewController: BaseViewController {
     let loginButton = CustomBackgroundTitleButton(title: "로그인", color: Colors.brandInactive.color)
     
     
+    let viewModel: EmailLoginViewModel
+    let disposeBag = DisposeBag()
+    
+    init(viewModel: EmailLoginViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        setDelegate()
+        bind()
     }
+    
+    private func bind() {
+        let input = EmailLoginViewModel.Input(
+            emailTextFieldChange: emailTextField.rx.text.orEmpty,
+            passwordTextFieldChange: passwordTextField.rx.text.orEmpty,
+            loginButtonTapped: loginButton.rx.tap
+        )
+        
+        let output = viewModel.transform(input: input)
+    
+        output.textFieldFill
+            .bind(with: self) { owner, value in
+                owner.loginButton.isEnabled = value
+                owner.loginButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
+            }.disposed(by: disposeBag)
+        
+        output.emailCheck
+            .map { $0 ? Colors.brandBlack.color : Colors.brandError.color }
+            .bind(to: emailLabel.rx.textColor)
+            .disposed(by: disposeBag)
+        
+        output.passwordCheck
+            .map { $0 ? Colors.brandBlack.color : Colors.brandError.color }
+            .bind(to: passwordLabel.rx.textColor)
+            .disposed(by: disposeBag)
+        
+        
+        output.message
+            .bind(with: self) { owner, errorText in
+                owner.showToast(message: errorText)
+            }.disposed(by: disposeBag)
+        
+        output.errorTextfield
+            .bind(with: self) { owner, errorTextField in
+                switch errorTextField {
+                case .emailTextField:
+                    owner.emailTextField.becomeFirstResponder()
+                case .passwordTextField:
+                    owner.passwordTextField.becomeFirstResponder()
+                }
+            }.disposed(by: disposeBag)
+        
+    }
+    
     
     override func setHierarchy() {
         view.addSubview(emailLabel)
@@ -84,5 +140,23 @@ class EmailLoginViewController: BaseViewController {
     @objc private func backButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
-    
+    private func setDelegate() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+}
+
+
+extension EmailLoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            switch textField {
+            case emailTextField:
+                passwordTextField.becomeFirstResponder()
+            case passwordTextField:
+                passwordTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+            }
+            return true
+        }
 }
