@@ -77,6 +77,8 @@
 		D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */; };
 		D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */; };
 		D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */; };
+		D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */; };
+		D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,8 @@
 		D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshErrorType.swift; sourceTree = "<group>"; };
 		D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpErrorType.swift; sourceTree = "<group>"; };
+		D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle1BlackLabel.swift; sourceTree = "<group>"; };
+		D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyBlackLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */,
+				D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */,
+				D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -778,8 +784,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */,
+				D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */,
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
+				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
