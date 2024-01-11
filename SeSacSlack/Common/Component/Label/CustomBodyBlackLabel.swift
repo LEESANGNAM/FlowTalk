@@ -14,6 +14,8 @@ class CustomBodyBlackLabel: UILabel {
         self.font = Font.body.fontWithLineHeight()
         self.text = text
         self.tintColor = Colors.brandBlack.color
+        self.textAlignment = .center
+        self.numberOfLines = 0
     }
     
     required init?(coder: NSCoder) {

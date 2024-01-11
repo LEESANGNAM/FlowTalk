@@ -14,6 +14,7 @@ class CustomTitle1BlackLabel: UILabel {
         self.font = Font.title1.fontWithLineHeight()
         self.text = text
         self.tintColor = Colors.brandBlack.color
+        self.textAlignment = .center
     }
     
     required init?(coder: NSCoder) {
