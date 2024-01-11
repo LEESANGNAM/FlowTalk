@@ -8,17 +8,27 @@
 import UIKit
 
 enum Icon: String {
+    // loginButtonIcon
     case kakao = "KakaoIcon"
     case apple = "appleIcon"
     case email = "emailIcon"
     
+    //tabbar
     case home = "homeIcon"
     case dm = "dmIcon"
     case search = "searchIcon"
     case setting = "settingIcon"
     
+    //logoIcon
     case onboarding = "onboarding"
+    case launching = "launching"
+    case workspaceEmpty = "workspaceEmpty"
     
+    //create workspace
+    case camera = "camera"
+    case workspace = "workspace"
+    
+    //ETC
     case close = "close"
     
     var image: UIImage {

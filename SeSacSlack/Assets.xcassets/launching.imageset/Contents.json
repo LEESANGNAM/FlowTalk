@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Apple ID Login.png",
+      "filename" : "launching.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Apple ID Login@2x.png",
+      "filename" : "launching@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Apple ID Login@3x.png",
+      "filename" : "launching@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
