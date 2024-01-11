@@ -25,6 +25,15 @@ struct UserDefaultsManager {
         UserDefaultsManager.token = token
         UserDefaultsManager.refresh = refresh
     }
+    
+    static func resetUserDefaults() {
+        UserDefaultsManager.isLogin = false
+        UserDefaultsManager.id = 0
+        UserDefaultsManager.nickname = ""
+        UserDefaultsManager.token = ""
+        UserDefaultsManager.refresh = ""
+    }
+    
 }
 
 @propertyWrapper

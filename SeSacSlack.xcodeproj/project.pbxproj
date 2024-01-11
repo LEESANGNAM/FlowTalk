@@ -73,6 +73,9 @@
 		D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA716C2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift */; };
 		D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA716E2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift */; };
 		D6BA71712B4EFED000D3FD00 /* EmailLoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71702B4EFED000D3FD00 /* EmailLoginResponseDTO.swift */; };
+		D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71722B4FEC8600D3FD00 /* Interceptor.swift */; };
+		D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */; };
+		D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,9 @@
 		D6BA716C2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorTextFieldType.swift; sourceTree = "<group>"; };
 		D6BA716E2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA71702B4EFED000D3FD00 /* EmailLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginResponseDTO.swift; sourceTree = "<group>"; };
+		D6BA71722B4FEC8600D3FD00 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponseDTO.swift; sourceTree = "<group>"; };
+		D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +240,7 @@
 				D616D2842B4862E00012CFC5 /* Error */,
 				D616D2772B48546C0012CFC5 /* Router.swift */,
 				D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */,
+				D6BA71722B4FEC8600D3FD00 /* Interceptor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -268,6 +275,7 @@
 				D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */,
 				D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */,
 				D6BA71702B4EFED000D3FD00 /* EmailLoginResponseDTO.swift */,
+				D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 			children = (
 				D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */,
 				D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */,
+				D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -771,6 +780,7 @@
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
+				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
@@ -781,6 +791,7 @@
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
+				D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */,
 				D616D29B2B4AAB750012CFC5 /* String+Extension.swift in Sources */,
 				D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */,
 				D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */,
@@ -810,6 +821,7 @@
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
+				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,

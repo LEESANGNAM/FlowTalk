@@ -16,7 +16,7 @@ final class NetWorkManager {
 
     func request<T: Decodable>(type: T.Type, api: Router) -> Observable<T> {
         return Observable<T>.create { observer in
-            AF.request(api).validate().responseData { response in
+            AF.request(api,interceptor: Interceptor()).validate().responseData { response in
                 self.handleResponse(response: response, observer: observer)
             }
             return Disposables.create()
