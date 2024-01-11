@@ -9,19 +9,19 @@ import Foundation
 
 enum RefreshErrorType: String, Error {
     case validToken = "E04"
-    case 알수없는계쩡 = "E03"
-    case 리프레시토큰만료 = "E06"
-    case 인증실패 = "E02"
+    case unownedUser = "E03"
+    case refreshTokenEnd = "E06"
+    case authFailed = "E02"
     
     var message: String {
         switch self {
         case .validToken:
             return "유효한토큰"
-        case .알수없는계쩡:
+        case .unownedUser:
             return "알 수 없는 계정"
-        case .리프레시토큰만료:
+        case .refreshTokenEnd:
             return "리프레시 토큰 만료"
-        case .인증실패:
+        case .authFailed:
             return "인증실패"
         }
     }

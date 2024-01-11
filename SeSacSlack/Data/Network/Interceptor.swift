@@ -15,20 +15,20 @@ class Interceptor: RequestInterceptor {
         var urlRequest = urlRequest
         let token = UserDefaultsManager.token
         urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
-        print("adapt: \(urlRequest.headers)")
         completion(.success(urlRequest))
     }
     
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
         print("retry 진입 나와라")
         
-        print("에러 처리함 리프레시 토큰 실패")
         if let refreshError = error as? RefreshErrorType {
            print("리프레시 토큰 에러",refreshError.message)
            print("리프레시 토큰 rawvalue",refreshError.rawValue)
             completion(.doNotRetryWithError(error))
+            changeRootView()
             return
         }
+        
         if let networkError = error as? NetWorkErrorType {
             print("리프레시 토큰 에러",networkError.message)
             print("리프레시 토큰 rawvalue",networkError.rawValue)
@@ -82,18 +82,12 @@ class Interceptor: RequestInterceptor {
     }
     
     private func changeRootView(){
-        resetLogin()
+        UserDefaultsManager.resetUserDefaults()
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 let vc = OnBoardingViewController()
                 sceneDelegate?.window?.rootViewController = vc
                 sceneDelegate?.window?.makeKeyAndVisible()
-    }
-    private func resetLogin(){
-        UserDefaultsManager.isLogin = false
-        UserDefaultsManager.token = ""
-        UserDefaultsManager.refresh = ""
-        UserDefaultsManager.id = 0
     }
     
 }
