@@ -26,8 +26,8 @@ final class NetWorkManager {
     
     private func handleResponse<T: Decodable>(response: AFDataResponse<Data>, observer: AnyObserver<T>) {
         guard let statusCode = response.response?.statusCode else { return }
-        print("리스폰스 데이터",String(data: response.data ?? Data() ,encoding: .utf8)!)
-        print("response",response)
+//        print("리스폰스 데이터",String(data: response.data ?? Data() ,encoding: .utf8)!)
+//        print("response",response)
         print("상태코드",statusCode)
         switch statusCode {
            case 200..<300:
@@ -51,16 +51,19 @@ final class NetWorkManager {
                do {
                    guard let data = response.data else { return }
                    let error = try JSONDecoder().decode(ResponseErrorDTO.self, from: data)
-                   if let errorType = NetWorkErrorType(rawValue: error.errorCode) {
-                       observer.onError(errorType)
+                   if let commonErrorType = CommonErrorType(rawValue: error.errorCode) {
+                       observer.onError(commonErrorType)
+                   } else if let loginErrorType = LoginSignUpErrorType(rawValue: error.errorCode) {
+                       observer.onError(loginErrorType)
+                   } else if let refreshErrorType = RefreshErrorType(rawValue: error.errorCode) {
+                       observer.onError(refreshErrorType)
                    }
                } catch {
                    print("에러 변환 실패")
                    observer.onError(error)
                }
            default:
-               // 기타 상태 코드에 대한 처리
-               observer.onError(NetWorkErrorType.badRequest)
+               observer.onError(CommonErrorType.serverError)
            }
         
         }

@@ -24,29 +24,24 @@ class Interceptor: RequestInterceptor {
         if let refreshError = error as? RefreshErrorType {
            print("리프레시 토큰 에러",refreshError.message)
            print("리프레시 토큰 rawvalue",refreshError.rawValue)
-            completion(.doNotRetryWithError(error))
+            completion(.doNotRetry)
             changeRootView()
             return
         }
         
-        if let networkError = error as? NetWorkErrorType {
-            print("리프레시 토큰 에러",networkError.message)
-            print("리프레시 토큰 rawvalue",networkError.rawValue)
-            completion(.doNotRetryWithError(error))
-            return
-        } else {
-           print("에러 :", error.localizedDescription)
-            completion(.doNotRetryWithError(error))
+        if let loginError = error as? LoginSignUpErrorType {
+            print("loginError 에러",loginError.message)
+            print("loginError rawvalue",loginError.rawValue)
+            completion(.doNotRetry)
             return
         }
-
         
-           guard let response = request.task?.response as? HTTPURLResponse,
-                 response.statusCode == 400 else {
-               print("다른 에러")
-               completion(.doNotRetryWithError(error))
-               return
-           }
+        guard let commonError = error as? CommonErrorType,
+              commonError.rawValue == "E05" else {
+            print("common 에러 토큰에러 아님")
+            completion(.doNotRetry)
+            return
+        }
         
         
         let result = NetWorkManager.shared.request(type: RefreshTokenResponseDTO.self, api: .refresh)
@@ -61,15 +56,7 @@ class Interceptor: RequestInterceptor {
                print("리프레시 토큰 rawvalue",refreshError.rawValue)
                 completion(.doNotRetryWithError(error))
             }
-            if let networkError = error as? NetWorkErrorType {
-                print("리프레시 토큰 에러",networkError.message)
-                print("리프레시 토큰 rawvalue",networkError.rawValue)
-                completion(.doNotRetryWithError(error))
-            } else {
-               print("에러 :", error.localizedDescription)
-                completion(.doNotRetryWithError(error))
-            }
-            completion(.doNotRetryWithError(error))
+            completion(.doNotRetry)
             return
         } onCompleted: { _ in
             print("리프레시토큰 재발급 완료")

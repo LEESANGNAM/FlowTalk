@@ -96,7 +96,7 @@ class SignUpViewController: BaseViewController {
                 case .passwordCheckTextField:
                     owner.mainView.passwordCheckTextField.becomeFirstResponder()
                 }
-            }
+            }.disposed(by: disposeBag)
         
     }
     private func setNavigationBar() {

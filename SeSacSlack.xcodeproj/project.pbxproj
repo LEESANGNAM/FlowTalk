@@ -76,6 +76,7 @@
 		D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71722B4FEC8600D3FD00 /* Interceptor.swift */; };
 		D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */; };
 		D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */; };
+		D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		D6BA71722B4FEC8600D3FD00 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshErrorType.swift; sourceTree = "<group>"; };
+		D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				D616D2822B4862BF0012CFC5 /* NetWorkErrorType.swift */,
 				D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */,
 				D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */,
+				D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -778,6 +781,7 @@
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
+				D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
 				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,

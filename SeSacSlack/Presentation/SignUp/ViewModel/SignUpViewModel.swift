@@ -136,9 +136,10 @@ class SignUpViewModel {
                 owner.signUseCase.emailValidation(email: owner.emailText)
                     .subscribe(with: self) { owner, value in
                         print("이메일 체크 성공 했음",value)
+                        owner.message.accept("사용가능한 이메일 입니다.")
                         owner.emailCheck.accept(true)
                     } onError: { owner, error in
-                        if let networkError = error as? NetWorkErrorType {
+                        if let networkError = error as? LoginSignUpErrorType {
                             owner.message.accept(networkError.message)
                             owner.emailCheck.accept(false)
                         }
@@ -217,7 +218,7 @@ class SignUpViewModel {
                             refresh: refresh
                         )
                     } onError: { owner, error in
-                        if let networkError = error as? NetWorkErrorType {
+                        if let networkError = error as? CommonErrorType {
                             owner.message.accept(networkError.message)
                         }
                     } onCompleted: { _ in

@@ -69,7 +69,7 @@ class AuthViewModel {
                 )
                 isSuccess.accept(true)
             }onError: { owner,error  in
-                if let networkError = error as? NetWorkErrorType {
+                if let networkError = error as? LoginSignUpErrorType {
                     print("카카오 로그인 에러: ",networkError.message)
                     owner.errorMessage.accept(networkError.message)
                 } else {
@@ -96,7 +96,7 @@ class AuthViewModel {
                 )
                 isSuccess.accept(true)
             }onError: { owner,error  in
-                if let networkError = error as? NetWorkErrorType {
+                if let networkError = error as? LoginSignUpErrorType {
                     print("애플 로그인 에러: ",networkError.message)
                     owner.errorMessage.accept(networkError.message)
                 } else {
