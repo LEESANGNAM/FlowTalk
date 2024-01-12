@@ -60,7 +60,9 @@ class WorkSpaceInitViewController: BaseViewController {
     }
     
     @objc func closeButtonTapped() {
-        print("클로즈버튼 홈으로 이동")
+        let vc = WorkSpaceHomeEmptyViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
     
 }
