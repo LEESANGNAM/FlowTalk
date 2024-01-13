@@ -52,17 +52,36 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     
     
     private func setNavigationBar() {
-        let closeButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(closeButtonTapped))
-        closeButtonItem.tintColor = Colors.brandBlack.color
-        self.navigationItem.leftBarButtonItem = closeButtonItem
-        navigationItem.title = "시작하기"
+        let leftImage = UIImage(systemName: "heart.fill")
+        let leftButton = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(leftButtonTapped))
+        navigationItem.leftBarButtonItem = leftButton
+        
+        let rightImage = UIImage(systemName: "star.fill")
+        let rightButton = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(rightButtonTapped))
+        navigationItem.rightBarButtonItem = rightButton
+
+        let titleFont = Font.title1.fontWithLineHeight()
+        let titleAttributes = [NSAttributedString.Key.font: titleFont, NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        let titleLabel = UILabel()
+        titleLabel.textAlignment = .left
+        titleLabel.attributedText = NSAttributedString(string: "No Workspace", attributes: titleAttributes)
+        titleLabel.sizeToFit() // 라벨 크기를 맞추기 위해 추가
+        
+        navigationItem.titleView = titleLabel
+
         self.navigationController?.navigationBar.backgroundColor = Colors.backgroundSecondar.color
+
     }
     
-    @objc func closeButtonTapped() {
-        let vc = WorkSpaceHomeEmptyViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        present(nav, animated: true)
+    
+    @objc func leftButtonTapped() {
+       print("워크스페이스 사진")
+    }
+
+    // 오른쪽 버튼 클릭 시 실행되는 함수
+    @objc func rightButtonTapped() {
+        print("프로필사진")
     }
     
 }
