@@ -79,6 +79,7 @@
 		D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */; };
 		D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */; };
 		D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */; };
+		D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpErrorType.swift; sourceTree = "<group>"; };
 		D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle1BlackLabel.swift; sourceTree = "<group>"; };
 		D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyBlackLabel.swift; sourceTree = "<group>"; };
+		D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +497,7 @@
 		D654CA7A2B46DAE80054AD46 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA717E2B52B77B00D3FD00 /* View */,
 				D616D2702B48417C0012CFC5 /* Label */,
 				D616D26F2B4841720012CFC5 /* TextField */,
 				D654CA7B2B46DB490054AD46 /* Button */,
@@ -627,6 +630,14 @@
 				D6BA71682B4EE3DF00D3FD00 /* EmailLoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6BA717E2B52B77B00D3FD00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -805,6 +816,7 @@
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */,
 				D616D29B2B4AAB750012CFC5 /* String+Extension.swift in Sources */,
+				D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */,
 				D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */,
 				D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,

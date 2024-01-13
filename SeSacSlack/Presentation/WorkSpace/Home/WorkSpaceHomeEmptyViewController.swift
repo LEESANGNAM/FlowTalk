@@ -8,7 +8,7 @@
 import UIKit
 
 class WorkSpaceHomeEmptyViewController: BaseViewController {
-    
+    let navigationView = WorkSpaceProfileView()
     let titleLabel = CustomTitle1BlackLabel(text: "워크 스페이스를 찾을 수 없어요.")
     let subtitleLabel = CustomBodyBlackLabel(text: "관리자에게 초대를 요청하거나, 다른 이메일로 시도하거나 새로운 워크 스페이스를 생성해주세요.")
     let logoImageView = UIImageView(image: Icon.workspaceEmpty.image)
@@ -16,10 +16,10 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
     }
     
     override func setHierarchy() {
+        view.addSubview(navigationView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         
@@ -28,8 +28,13 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     }
     
     override func setConstraint() {
+        navigationView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(44)
+        }
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(35)
+            make.top.equalTo(navigationView.snp.bottom).offset(35)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(24)
             make.height.equalTo(30)
         }
@@ -50,30 +55,7 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
         }
     }
     
-    
-    private func setNavigationBar() {
-        let leftImage = UIImage(systemName: "heart.fill")
-        let leftButton = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(leftButtonTapped))
-        navigationItem.leftBarButtonItem = leftButton
         
-        let rightImage = UIImage(systemName: "star.fill")
-        let rightButton = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(rightButtonTapped))
-        navigationItem.rightBarButtonItem = rightButton
-
-        let titleFont = Font.title1.fontWithLineHeight()
-        let titleAttributes = [NSAttributedString.Key.font: titleFont, NSAttributedString.Key.foregroundColor: UIColor.black]
-        
-        let titleLabel = UILabel()
-        titleLabel.textAlignment = .left
-        titleLabel.attributedText = NSAttributedString(string: "No Workspace", attributes: titleAttributes)
-        titleLabel.sizeToFit() // 라벨 크기를 맞추기 위해 추가
-        
-        navigationItem.titleView = titleLabel
-
-        self.navigationController?.navigationBar.backgroundColor = Colors.backgroundSecondar.color
-
-    }
-    
     
     @objc func leftButtonTapped() {
        print("워크스페이스 사진")

@@ -32,8 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaultsManager.isLogin {
             window = UIWindow(windowScene: scene)
             let vc = WorkSpaceHomeEmptyViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
+            window?.rootViewController = vc
             window?.makeKeyAndVisible()
         } else {
             window = UIWindow(windowScene: scene)
