@@ -16,6 +16,7 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
     }
     
     override func setHierarchy() {
@@ -55,15 +56,14 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
         }
     }
     
-        
-    
-    @objc func leftButtonTapped() {
-       print("워크스페이스 사진")
+    func setUp() {
+        workspaceCreateButton.addTarget(self, action: #selector(workspaceCreateButtonTapped), for: .touchUpInside)
     }
-
-    // 오른쪽 버튼 클릭 시 실행되는 함수
-    @objc func rightButtonTapped() {
-        print("프로필사진")
+    
+    @objc
+    private func workspaceCreateButtonTapped() {
+        let nav = UINavigationController(rootViewController: WorkSpaceAddViewController())
+        present(nav, animated: true)
     }
     
 }

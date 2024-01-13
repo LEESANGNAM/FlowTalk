@@ -80,6 +80,7 @@
 		D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */; };
 		D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */; };
 		D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */; };
+		D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle1BlackLabel.swift; sourceTree = "<group>"; };
 		D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyBlackLabel.swift; sourceTree = "<group>"; };
 		D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceProfileView.swift; sourceTree = "<group>"; };
+		D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 		D616D2A22B4BE5500012CFC5 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71812B52E34800D3FD00 /* Add */,
 				D6BA715A2B4EC0F700D3FD00 /* Home */,
 				D616D2A32B4BE5780012CFC5 /* Init */,
 			);
@@ -640,6 +643,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D6BA71812B52E34800D3FD00 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -846,6 +857,7 @@
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
+				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
