@@ -26,6 +26,16 @@ final class NetWorkManager {
         }
     }
     
+    func multipartRequst<T: Decodable>(type: T.Type, api: Router) -> Observable<T> {
+        return Observable<T>.create { observer in
+        AF.upload(
+            multipartFormData: api.multipart,
+            with: api, interceptor: Interceptor()).validate().responseData { response in
+                self.handleResponse(response: response, observer: observer)
+            }
+            return Disposables.create()
+        }
+    }
     
     private func handleResponse<T: Decodable>(response: AFDataResponse<Data>, observer: AnyObserver<T>) {
         guard let statusCode = response.response?.statusCode else { return }

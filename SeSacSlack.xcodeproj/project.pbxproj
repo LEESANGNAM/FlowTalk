@@ -84,6 +84,9 @@
 		D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */; };
 		D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */; };
 		D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */; };
+		D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */; };
+		D6BA71912B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */; };
+		D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +179,9 @@
 		D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewModel.swift; sourceTree = "<group>"; };
 		D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
+		D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceRepository.swift; sourceTree = "<group>"; };
+		D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWorkSpaceRepository.swift; sourceTree = "<group>"; };
+		D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +329,7 @@
 		D616D28A2B4879330012CFC5 /* RepositoryInterface */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA718C2B53DE4300D3FD00 /* WorkSpace */,
 				D6BA71532B4E918200D3FD00 /* Login */,
 				D616D28B2B48794E0012CFC5 /* Sign */,
 			);
@@ -340,6 +347,7 @@
 		D616D28E2B487B620012CFC5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA718F2B53DEFC00D3FD00 /* WorkSpace */,
 				D6BA71542B4E918E00D3FD00 /* Login */,
 				D616D28F2B487B700012CFC5 /* Sign */,
 			);
@@ -357,6 +365,7 @@
 		D616D2922B487CFC0012CFC5 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA71922B53DFE200D3FD00 /* WorkSpace */,
 				D6BA71572B4E91FF00D3FD00 /* Login */,
 				D616D2932B487D0C0012CFC5 /* Sign */,
 			);
@@ -676,6 +685,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		D6BA718C2B53DE4300D3FD00 /* WorkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */,
+			);
+			path = WorkSpace;
+			sourceTree = "<group>";
+		};
+		D6BA718F2B53DEFC00D3FD00 /* WorkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */,
+			);
+			path = WorkSpace;
+			sourceTree = "<group>";
+		};
+		D6BA71922B53DFE200D3FD00 /* WorkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */,
+			);
+			path = WorkSpace;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -833,6 +866,7 @@
 				D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */,
 				D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */,
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
+				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
@@ -841,6 +875,7 @@
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
 				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,
+				D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */,
 				D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
@@ -853,6 +888,7 @@
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */,
+				D6BA71912B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift in Sources */,
 				D616D29B2B4AAB750012CFC5 /* String+Extension.swift in Sources */,
 				D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */,
 				D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */,
