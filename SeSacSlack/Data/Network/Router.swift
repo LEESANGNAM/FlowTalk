@@ -19,6 +19,8 @@ enum Router: URLRequestConvertible {
     case emailLogin(EmailLoginRequestDTO)
     case refresh
     
+    case addWorkSpace(AddWorkSpaceRequestDTO)
+    
     private var baseURL: URL {
         return URL(string: APIKey.baseURL)!
     }
@@ -37,6 +39,9 @@ enum Router: URLRequestConvertible {
             return "v2/users/login"
         case .refresh:
             return "v1/auth/refresh"
+            
+        case .addWorkSpace:
+            return "v1/workspaces"
         }
     }
     
@@ -50,18 +55,22 @@ enum Router: URLRequestConvertible {
                 "SesacKey": Router.key,
                 "RefreshToken": UserDefaultsManager.refresh
             ]
+        case .addWorkSpace:
+            return [
+                "Content-Type": "multipart/form-data",
+                "SesacKey": Router.key
+            ]
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin:
+        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,.addWorkSpace:
             return .post
         case .refresh:
             return .get
         }
     }
-
     
     
     func asURLRequest() throws -> URLRequest {
@@ -81,7 +90,7 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(appleLoginRequestDTO, into: request)
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
-        case .refresh:
+        case .refresh, .addWorkSpace:
             break
         }
         return request
@@ -90,3 +99,25 @@ enum Router: URLRequestConvertible {
     
 }
 
+extension Router {
+    
+    var multipart: MultipartFormData {
+        switch self {
+        case .addWorkSpace(let addWorkSpaceRequestDTO):
+            let multipart = MultipartFormData()
+            let name = addWorkSpaceRequestDTO.name
+            let desctiption = addWorkSpaceRequestDTO.desctiption
+            let image = addWorkSpaceRequestDTO.image
+            
+            multipart.append(name.data(using: .utf8)!, withName: "name")
+            if let desctiption {
+                multipart.append(desctiption.data(using: .utf8)!, withName: "desctiption")
+            }
+            multipart.append(image, withName: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
+            return multipart
+            
+        default: return MultipartFormData()
+        }
+    }
+    
+}

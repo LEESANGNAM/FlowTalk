@@ -19,8 +19,9 @@ class WorkSpaceProfileView: BaseView {
     
     let profileButton = {
         let view = UIButton()
-        view.setImage(Icon.workspace.image, for: .normal)
-        view.backgroundColor = Colors.brandGreen.color
+        view.setImage(UIImage(systemName: "person.fill"), for: .normal)
+        view.backgroundColor = Colors.brandGray.color
+        view.tintColor = Colors.brandWhite.color
         view.layer.borderWidth = 2
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true

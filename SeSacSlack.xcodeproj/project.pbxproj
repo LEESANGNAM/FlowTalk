@@ -82,6 +82,8 @@
 		D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */; };
 		D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */; };
 		D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */; };
+		D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */; };
+		D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceProfileView.swift; sourceTree = "<group>"; };
 		D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewController.swift; sourceTree = "<group>"; };
 		D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewModel.swift; sourceTree = "<group>"; };
+		D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
+		D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,7 @@
 				D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */,
 				D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */,
 				D6BA716E2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift */,
+				D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */,
 				D6BA71702B4EFED000D3FD00 /* EmailLoginResponseDTO.swift */,
 				D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */,
+				D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -835,6 +841,7 @@
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
 				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,
+				D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
@@ -873,6 +880,7 @@
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,
+				D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
