@@ -11,6 +11,6 @@ import RxSwift
 final class DefaultWorkSpaceRepository: WorkSpaceRepository {
     
     func addWorkSpace(workspace: AddWorkSpaceRequestDTO) -> Observable<AddWorkSpaceResponseDTO> {
-        return NetWorkManager.shared.multipartRequst(type: AddWorkSpaceResponseDTO.self, api: .addWorkSpace(workspace))
+        return NetWorkManager.shared.request(type: AddWorkSpaceResponseDTO.self, api: .addWorkSpace(workspace))
     }
 }

@@ -19,32 +19,27 @@ final class NetWorkManager {
         originalRequest = api
         
         return Observable<T>.create { observer in
-            AF.request(api,interceptor: Interceptor()).validate().responseData { response in
-                self.handleResponse(response: response, observer: observer)
+            if let multipart = api.multipart {
+                AF.upload(
+                    multipartFormData: multipart,
+                    with: api, interceptor: Interceptor()).validate().responseData { response in
+                        self.handleResponse(response: response, observer: observer)
+                    }
+            } else {
+                AF.request(api, interceptor: Interceptor()).validate().responseData { response in
+                    self.handleResponse(response: response, observer: observer)
+                }
             }
-            return Disposables.create()
-        }
-    }
-    
-    func multipartRequst<T: Decodable>(type: T.Type, api: Router) -> Observable<T> {
-        originalRequest = api
-        
-        return Observable<T>.create { observer in
-        AF.upload(
-            multipartFormData: api.multipart,
-            with: api, interceptor: Interceptor()).validate().responseData { response in
-                self.handleResponse(response: response, observer: observer)
-            }
+            
             return Disposables.create()
         }
     }
     
     private func handleResponse<T: Decodable>(response: AFDataResponse<Data>, observer: AnyObserver<T>) {
         guard let statusCode = response.response?.statusCode else { return }
-                print("리스폰스 데이터",String(data: response.data ?? Data() ,encoding: .utf8)!)
-        print("리스폰스 결과",response.result)
-        print("리스폰스 결과",response.response)
-//        print("response왜안나오지?",response.data)
+        //        print("리스폰스 결과",response.result)
+        //        print("리스폰스 결과",response.response)
+        //        print("response왜안나오지?",response.data)
         print("상태코드",statusCode)
         switch statusCode {
         case 200..<300:
@@ -109,6 +104,7 @@ final class NetWorkManager {
         request(type: RefreshTokenResponseDTO.self, api: .refresh)
             .subscribe(with: self) { owner, token in
                 print("토큰 재발급", token.accessToken)
+                UserDefaultsManager.token = token.accessToken
                 // 기존 요청 재시도
                 owner.retryOriginalRequest(observer: observer, originalRequest: originalRequest)
             } onError: { owner, error in

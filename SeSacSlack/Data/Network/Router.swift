@@ -101,7 +101,7 @@ enum Router: URLRequestConvertible {
 
 extension Router {
     
-    var multipart: MultipartFormData {
+    var multipart: MultipartFormData? {
         switch self {
         case .addWorkSpace(let addWorkSpaceRequestDTO):
             let multipart = MultipartFormData()
@@ -116,7 +116,8 @@ extension Router {
             multipart.append(image, withName: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
             return multipart
             
-        default: return MultipartFormData()
+        default:
+            return nil
         }
     }
     
