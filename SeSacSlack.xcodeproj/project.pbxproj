@@ -89,6 +89,7 @@
 		D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */; };
 		D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */; };
 		D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */; };
+		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,7 @@
 		D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceUseCase.swift; sourceTree = "<group>"; };
 		D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceErrorType.swift; sourceTree = "<group>"; };
+		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeInitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +604,7 @@
 		D6BA715A2B4EC0F700D3FD00 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA719B2B54489500D3FD00 /* Initail */,
 				D6BA71992B54346600D3FD00 /* Empty */,
 			);
 			path = Home;
@@ -721,6 +724,14 @@
 				D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */,
 			);
 			path = Empty;
+			sourceTree = "<group>";
+		};
+		D6BA719B2B54489500D3FD00 /* Initail */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */,
+			);
+			path = Initail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -928,6 +939,7 @@
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
 				D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */,
 				D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */,
+				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,
@@ -1126,6 +1138,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1159,6 +1172,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
