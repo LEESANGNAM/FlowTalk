@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class WorkSpaceAddViewController: BaseViewController {
     let posterButton = {
@@ -87,13 +89,43 @@ class WorkSpaceAddViewController: BaseViewController {
         }
     }
     
+    let viewmodel: WorkSpaceAddViewModel
+    let disposeBag = DisposeBag()
+    init(viewmodel: WorkSpaceAddViewModel) {
+        self.viewmodel = viewmodel
+        super.init()
+    }
+    
 }
 
 
 extension WorkSpaceAddViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        bind()
+    }
+    
+    private func bind() {
+        let input = WorkSpaceAddViewModel.Input(
+            nameTextFieldChanged: workSpaceNameTextField.rx.text.orEmpty,
+            descriptionTextFieldChanged: workSpaceInfoTextField.rx.text.orEmpty,
+            doneButtonTapped: doneButton.rx.tap)
+        let output = viewmodel.transform(input: input)
+        
+        output.doneButtonValid
+            .bind(with: self) { owner, value in
+                owner.doneButton.isEnabled = value
+                owner.doneButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandGray.color
+            }.disposed(by: disposeBag)
+        
+        output.errorMessage
+            .bind(with: self) { owner, errorText in
+                owner.showToast(message: errorText)
+            }.disposed(by: disposeBag)
+        
+        
     }
     
     private func setNavigationBar() {
