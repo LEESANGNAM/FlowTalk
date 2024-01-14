@@ -12,6 +12,11 @@ import RxCocoa
 class WorkSpaceAddViewModel {
     
     let disposeBag = DisposeBag()
+    let workSpaceUseCase: WorkSpaceUseCase
+    
+    init(workSpaceUseCase: WorkSpaceUseCase) {
+        self.workSpaceUseCase = workSpaceUseCase
+    }
     
     private let nameText = BehaviorRelay(value: "")
     private let descriptionText = BehaviorRelay<String?>(value: nil)
@@ -67,7 +72,29 @@ class WorkSpaceAddViewModel {
                 } else if !textValid.value {
                     owner.errorMessage.accept("워크 스페이스 이름은 1~30자로 설정해주세요.")
                 } else {
-                    print("네트워크 요청~~")
+                    guard let imageData = owner.imageData.value else {
+                        owner.errorMessage.accept("워크스페이스 이미지를 등록해주세요.")
+                        return
+                    }
+                    let workspace = AddWorkSpaceRequestDTO(
+                        name: owner.nameText.value,
+                        desctiption: owner.descriptionText.value,
+                        image: imageData
+                    )
+                    let result = owner.workSpaceUseCase.addWorkSpace(workSpace: workspace)
+                    result.subscribe(with: self) { owner, value in
+                        print("워크스페이스 생성 성공", value)
+                    } onError: { owner, error in
+                        if let workspaceError = error as? WorkSpaceErrorType{
+                            print("워크스페이스 에러,",workspaceError.message)
+                        }else {
+                            print("error:",error)
+                        }
+                    } onCompleted: { _ in
+                        print("워크스페이스 생성 완료")
+                    } onDisposed: { _ in
+                        print("워크스페이스 생성 디스포즈")
+                    }.disposed(by: owner.disposeBag)
                 }
                 
             }.disposed(by: disposeBag)

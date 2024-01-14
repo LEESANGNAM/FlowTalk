@@ -98,6 +98,13 @@ class SignUpViewController: BaseViewController {
                 }
             }.disposed(by: disposeBag)
         
+        output.singUpSuccess
+            .bind(with: self) { owner, value in
+                if value {
+                    owner.changeRootView()
+                }
+            }.disposed(by: disposeBag)
+        
     }
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))
@@ -116,6 +123,15 @@ class SignUpViewController: BaseViewController {
         mainView.phoneNumTextField.delegate = self
         mainView.passwordTextField.delegate = self
         mainView.passwordCheckTextField.delegate = self
+    }
+    
+    private func changeRootView(){
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let vc = WorkSpaceInitViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
 

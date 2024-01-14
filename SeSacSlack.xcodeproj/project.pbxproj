@@ -88,6 +88,7 @@
 		D6BA71912B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */; };
 		D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */; };
 		D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */; };
+		D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWorkSpaceRepository.swift; sourceTree = "<group>"; };
 		D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceUseCase.swift; sourceTree = "<group>"; };
 		D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 				D616D2852B4863020012CFC5 /* ResponseErrorDTO.swift */,
 				D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */,
 				D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */,
+				D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
 				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmailValidationResponseDTO.swift in Sources */,
+				D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
 				D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */,

@@ -62,7 +62,13 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     
     @objc
     private func workspaceCreateButtonTapped() {
-        let vc = WorkSpaceAddViewController(viewmodel: WorkSpaceAddViewModel())
+        let vc = WorkSpaceAddViewController(
+            viewmodel: WorkSpaceAddViewModel(
+                workSpaceUseCase: DefaultWorkSpaceUseCase(
+                    workSpaceRepository: DefaultWorkSpaceRepository()
+                )
+            )
+        )
         let nav = UINavigationController(rootViewController: vc )
         present(nav, animated: true)
     }

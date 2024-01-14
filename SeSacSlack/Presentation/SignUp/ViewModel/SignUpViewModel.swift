@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import UIKit
 
 class SignUpViewModel {
     private let signUseCase: SignUseCase
@@ -53,6 +52,8 @@ class SignUpViewModel {
         
         let message: PublishRelay<String>
         let errorTextfield: PublishRelay<SignUpTextFieldType>
+        
+        let singUpSuccess: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -60,6 +61,8 @@ class SignUpViewModel {
         let nicknameEmptyValid = BehaviorRelay(value: false)
         let passwordEmptyValid = BehaviorRelay(value: false)
         let passwordChaeckEmptyValid = BehaviorRelay(value: false)
+        
+        let singUpSuccess = BehaviorRelay(value: false)
         
         let textFieldFill = BehaviorRelay(value: false)
         
@@ -223,7 +226,7 @@ class SignUpViewModel {
                         }
                     } onCompleted: { _ in
                         print("가입하기 완료")
-                        owner.changeRootView()
+                        singUpSuccess.accept(true)
                     } onDisposed: { _ in
                         print("가입하기 디스포즈")
                     }
@@ -241,7 +244,8 @@ class SignUpViewModel {
             passwordCheck: passwordCheck,
             confirmPasswordCheck: confirmPasswordCheck,
             message: message,
-            errorTextfield: errorTextfield
+            errorTextfield: errorTextfield,
+            singUpSuccess: singUpSuccess
         )
     }
     
@@ -265,13 +269,7 @@ class SignUpViewModel {
         confirmPasswordCheck.accept(confirmPasswordCheckd)
     }
     
-    private func changeRootView(){
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        let vc = WorkSpaceInitViewController()
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
-    }
+   
     
 }
 

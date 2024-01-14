@@ -27,6 +27,8 @@ final class NetWorkManager {
     }
     
     func multipartRequst<T: Decodable>(type: T.Type, api: Router) -> Observable<T> {
+        originalRequest = api
+        
         return Observable<T>.create { observer in
         AF.upload(
             multipartFormData: api.multipart,
@@ -39,8 +41,10 @@ final class NetWorkManager {
     
     private func handleResponse<T: Decodable>(response: AFDataResponse<Data>, observer: AnyObserver<T>) {
         guard let statusCode = response.response?.statusCode else { return }
-        //        print("리스폰스 데이터",String(data: response.data ?? Data() ,encoding: .utf8)!)
-        //        print("response",response)
+                print("리스폰스 데이터",String(data: response.data ?? Data() ,encoding: .utf8)!)
+        print("리스폰스 결과",response.result)
+        print("리스폰스 결과",response.response)
+//        print("response왜안나오지?",response.data)
         print("상태코드",statusCode)
         switch statusCode {
         case 200..<300:
@@ -62,8 +66,11 @@ final class NetWorkManager {
         case 400:
             print("실패 했는데 ------------")
             do {
+                print("여기 찍히나?")
                 guard let data = response.data else { return }
+                print("데이터가 안찍히나",data)
                 let error = try JSONDecoder().decode(ResponseErrorDTO.self, from: data)
+                print("에러코드 : ",error.errorCode)
                 let errorType = hendleError(code: error.errorCode)
                 if let commonError = errorType as? CommonErrorType {
                     if commonError.rawValue == "E05" { // 토큰 만료
@@ -73,8 +80,12 @@ final class NetWorkManager {
                         observer.onError(commonError)
                     }
                 } else if let refreshError = errorType as? RefreshErrorType {
-                    print("리프레쉬에러코드 : ",refreshError.rawValue)
-                    observer.onError(refreshError)
+                    if refreshError.rawValue != "E04" {
+                        print("리프레쉬 에러")
+                        // 리프레쉬 토큰 에러 시 루트 뷰 변경
+                        changeRootView()
+                        observer.onError(refreshError)
+                    }
                 } else if let loginError = errorType as? LoginSignUpErrorType {
                     observer.onError(loginError)
                 }
@@ -139,7 +150,9 @@ final class NetWorkManager {
     private func hendleError(code: String) -> Error {
         if let commonErrorType = CommonErrorType(rawValue: code) {
             return commonErrorType
-        } else if let loginErrorType = LoginSignUpErrorType(rawValue: code) {
+        }else if let workspaceError = WorkSpaceErrorType(rawValue: code){
+            return workspaceError
+        }else if let loginErrorType = LoginSignUpErrorType(rawValue: code) {
             return loginErrorType
         } else if let refreshErrorType = RefreshErrorType(rawValue: code) {
             return refreshErrorType
