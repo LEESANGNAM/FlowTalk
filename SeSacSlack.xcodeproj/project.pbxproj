@@ -81,6 +81,7 @@
 		D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */; };
 		D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */; };
 		D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */; };
+		D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyBlackLabel.swift; sourceTree = "<group>"; };
 		D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceProfileView.swift; sourceTree = "<group>"; };
 		D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewController.swift; sourceTree = "<group>"; };
+		D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -646,9 +648,26 @@
 		D6BA71812B52E34800D3FD00 /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */,
+				D6BA71852B53D81500D3FD00 /* ViewModel */,
+				D6BA71842B53D80C00D3FD00 /* View */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		D6BA71842B53D80C00D3FD00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6BA71852B53D81500D3FD00 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -811,6 +830,7 @@
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
+				D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */,
 				D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
