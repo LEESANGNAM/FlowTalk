@@ -6,15 +6,23 @@
 //
 
 import UIKit
+import PhotosUI
 import RxSwift
 import RxCocoa
 
 class WorkSpaceAddViewController: BaseViewController {
+    let posterImageView = {
+        let view = UIImageView()
+        view.backgroundColor = Colors.brandGreen.color
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 8
+       return view
+    }()
     let posterButton = {
         let view = UIButton()
         view.setImage(Icon.workspace.image, for: .normal)
         view.setImage(Icon.workspace.image, for: .highlighted)
-        view.backgroundColor = Colors.brandGreen.color
+        view.addTarget(self, action: #selector(posterButtonTapped), for: .touchUpInside)
         view.tintColor = Colors.brandWhite.color
         view.layer.cornerRadius = 8
         return view
@@ -39,6 +47,7 @@ class WorkSpaceAddViewController: BaseViewController {
     let doneButton = CustomBackgroundTitleButton(title: "완료", color: Colors.brandGray.color)
     
     override func setHierarchy() {
+        view.addSubview(posterImageView)
         view.addSubview(posterButton)
         view.addSubview(cameraImageView)
         view.addSubview(workSpaceNameLabel)
@@ -49,16 +58,22 @@ class WorkSpaceAddViewController: BaseViewController {
     }
     
     override func setConstraint() {
-        posterButton.snp.makeConstraints { make in
+        posterImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.centerX.equalToSuperview()
             make.size.equalTo(70)
         }
+        posterButton.snp.makeConstraints { make in
+            make.centerX.equalTo(posterImageView)
+            make.bottom.equalTo(posterImageView.snp.bottom)
+            make.width.equalTo(48)
+            make.height.equalTo(60)
+        }
         
         cameraImageView.snp.makeConstraints { make in
             make.size.equalTo(24)
-            make.bottom.equalTo(posterButton.snp.bottom).offset(5)
-            make.trailing.equalTo(posterButton.snp.trailing).offset(5)
+            make.bottom.equalTo(posterImageView.snp.bottom).offset(5)
+            make.trailing.equalTo(posterImageView.snp.trailing).offset(5)
         }
         workSpaceNameLabel.snp.makeConstraints { make in
             make.top.equalTo(posterButton.snp.bottom).offset(16)
@@ -91,6 +106,7 @@ class WorkSpaceAddViewController: BaseViewController {
     
     let viewmodel: WorkSpaceAddViewModel
     let disposeBag = DisposeBag()
+    var picker: PHPickerViewController!
     init(viewmodel: WorkSpaceAddViewModel) {
         self.viewmodel = viewmodel
         super.init()
@@ -98,12 +114,12 @@ class WorkSpaceAddViewController: BaseViewController {
     
 }
 
-
 extension WorkSpaceAddViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        setPHPicker()
         bind()
     }
     
@@ -125,6 +141,12 @@ extension WorkSpaceAddViewController {
                 owner.showToast(message: errorText)
             }.disposed(by: disposeBag)
         
+        output.imageData
+            .bind(with: self) { owner, data in
+                if let data {
+                    owner.posterImageView.image = UIImage(data: data)
+                }
+            }.disposed(by: disposeBag)
         
     }
     
@@ -139,4 +161,41 @@ extension WorkSpaceAddViewController {
     @objc func backButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc func posterButtonTapped() {
+        present(picker,animated: true)
+    }
+    
+    private func setPHPicker(){
+        var phPickerConfiguration = PHPickerConfiguration()
+        phPickerConfiguration.filter = .images
+        picker = PHPickerViewController(configuration: phPickerConfiguration)
+        picker.delegate = self
+    }
+}
+
+
+extension WorkSpaceAddViewController: PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        let itemProvider = results.first?.itemProvider // 2
+        
+        if let itemProvider = itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
+            itemProvider.loadObject(ofClass: UIImage.self) {[weak self] (image, error) in // 4
+                DispatchQueue.main.async { [weak self] in
+                    if let selectImage = image as? UIImage,
+                        let size = self?.posterImageView.frame.size,
+                       let imageData = selectImage.resized(to: size)?.jpegData(compressionQuality: 1.0){
+                        self?.viewmodel.setImageData(imageData)
+                        self?.posterButton.setImage(nil, for: .normal)
+                        self?.posterButton.setImage(nil, for: .highlighted)
+                    }
+                }
+            }
+        } else {
+            // TODO: Handle empty results or item provider not being able load UIImage
+        }
+    }
+    
 }

@@ -29,6 +29,7 @@ class WorkSpaceAddViewModel {
         let doneButtonValid: BehaviorRelay<Bool>
         let createSuccess: PublishRelay<Bool>
         let errorMessage: PublishRelay<String>
+        let imageData: BehaviorRelay<Data?>
     }
     
     func transform(input: Input) -> Output {
@@ -76,8 +77,12 @@ class WorkSpaceAddViewModel {
         return Output(
             doneButtonValid: doneButtonValid,
             createSuccess: createSuccess,
-            errorMessage: errorMessage
+            errorMessage: errorMessage,
+            imageData: imageData
         )
     }
     
+    func setImageData(_ imageData: Data?) {
+        self.imageData.accept(imageData)
+    }
 }

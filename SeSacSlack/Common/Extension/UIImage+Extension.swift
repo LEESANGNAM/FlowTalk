@@ -19,7 +19,7 @@ extension UIImage {
             CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
 
         // 이미지 그래픽 컨텍스트를 생성하고 크기를 적용하여 그림
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
         self.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

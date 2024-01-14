@@ -87,6 +87,7 @@
 		D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */; };
 		D6BA71912B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */; };
 		D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */; };
+		D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceRepository.swift; sourceTree = "<group>"; };
 		D6BA71902B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWorkSpaceRepository.swift; sourceTree = "<group>"; };
 		D6BA71932B53E00100D3FD00 /* WorkSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceUseCase.swift; sourceTree = "<group>"; };
+		D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +512,7 @@
 			children = (
 				D654CA722B463C210054AD46 /* UIColor+Extension.swift */,
 				D616D29A2B4AAB750012CFC5 /* String+Extension.swift */,
+				D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
+				D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
