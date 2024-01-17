@@ -91,7 +91,7 @@
 		D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */; };
 		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */; };
 		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
-		D6DCA35A2B57D97700236EDB /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* ChannelCollectionViewCell.swift */; };
+		D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,7 +191,7 @@
 		D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceErrorType.swift; sourceTree = "<group>"; };
 		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeInitViewController.swift; sourceTree = "<group>"; };
 		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		D6DCA3592B57D97700236EDB /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -743,7 +743,7 @@
 		D6DCA3582B57D91C00236EDB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D6DCA3592B57D97700236EDB /* ChannelCollectionViewCell.swift */,
+				D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -907,7 +907,7 @@
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
-				D6DCA35A2B57D97700236EDB /* ChannelCollectionViewCell.swift in Sources */,
+				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
 				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */,
