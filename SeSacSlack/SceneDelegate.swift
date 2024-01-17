@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window?.makeKeyAndVisible()
 //        } else {
             window = UIWindow(windowScene: scene)
-            let vc = WorkSpaceHomeInitViewController()
+            let vc = OnBoardingViewController()
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
 //        }

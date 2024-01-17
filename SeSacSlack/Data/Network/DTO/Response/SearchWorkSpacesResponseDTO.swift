@@ -8,10 +8,6 @@
 import Foundation
 
 struct SearchWorkSpacesResponseDTO: Decodable {
-    let data: [WorkSpacesResponseDTO]
-}
-
-struct WorkSpacesResponseDTO: Decodable {
     let workspace_id: Int
     let name: String
     let description: String?
