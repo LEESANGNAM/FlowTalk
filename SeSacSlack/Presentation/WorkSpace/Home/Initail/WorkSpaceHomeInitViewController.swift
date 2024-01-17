@@ -14,15 +14,13 @@ class WorkSpaceHomeInitViewController: BaseViewController {
     let testData = [
         ["일반","채널1","채널2","채널3","채널4","채널5","채널6","채널7","채널8","채널9","채널추가"],
         ["사람1","사람2","사람3","사람4","사람5","사람6","사람7","사람8","사람9","사람10","사람11"],
-        ["팀원추가"],
-        ["테스트추가"]
+        ["팀원추가"]
     ]
     
     enum Section: Int, Hashable, CaseIterable {
         case channel
         case directmessage
         case addMember
-        case test
         
         var title: String {
             switch self {
@@ -32,8 +30,6 @@ class WorkSpaceHomeInitViewController: BaseViewController {
                 return "다이렉트 메시지"
             case .addMember:
                 return "팀원추가"
-            case .test:
-                return "테스트"
             }
         }
     }
@@ -117,12 +113,9 @@ extension WorkSpaceHomeInitViewController {
         }
     }
     
-    func createOutlineCellRegistration() -> UICollectionView.CellRegistration<UICollectionViewListCell, String> {
-        return UICollectionView.CellRegistration<UICollectionViewListCell, String> { (cell, indexPath, text) in
-            var content = cell.defaultContentConfiguration()
-            content.text = text
-            content.textProperties.font = Font.body.fontWithLineHeight()
-            cell.contentConfiguration = content
+    func createOutlineCellRegistration() -> UICollectionView.CellRegistration<ChannelCollectionViewCell, String> {
+        return UICollectionView.CellRegistration<ChannelCollectionViewCell, String> { (cell, indexPath, text) in
+            cell.titleLabel.text = text
         }
     }
     
@@ -138,7 +131,7 @@ extension WorkSpaceHomeInitViewController {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknown section") }
             switch section {
-            case .channel,.addMember,.directmessage,.test:
+            case .channel,.addMember,.directmessage:
                 if item.hasChildren {
                     return collectionView.dequeueConfiguredReusableCell(using: outlineHeaderCellRegistration, for: indexPath, item: item.title!)
                 } else {
