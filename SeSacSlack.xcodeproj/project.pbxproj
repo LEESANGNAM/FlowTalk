@@ -90,6 +90,8 @@
 		D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */; };
 		D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */; };
 		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */; };
+		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
+		D6DCA35A2B57D97700236EDB /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* ChannelCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,8 @@
 		D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceErrorType.swift; sourceTree = "<group>"; };
 		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeInitViewController.swift; sourceTree = "<group>"; };
+		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6DCA3592B57D97700236EDB /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,6 +529,7 @@
 		D654CA7A2B46DAE80054AD46 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3582B57D91C00236EDB /* Cell */,
 				D6BA717E2B52B77B00D3FD00 /* View */,
 				D616D2702B48417C0012CFC5 /* Label */,
 				D616D26F2B4841720012CFC5 /* TextField */,
@@ -547,6 +552,7 @@
 			children = (
 				D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */,
 				D616D26D2B4833E00012CFC5 /* BaseView.swift */,
+				D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -734,6 +740,14 @@
 			path = Initail;
 			sourceTree = "<group>";
 		};
+		D6DCA3582B57D91C00236EDB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3592B57D97700236EDB /* ChannelCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -893,6 +907,7 @@
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
+				D6DCA35A2B57D97700236EDB /* ChannelCollectionViewCell.swift in Sources */,
 				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */,
@@ -947,6 +962,7 @@
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
+				D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */,
 				D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,

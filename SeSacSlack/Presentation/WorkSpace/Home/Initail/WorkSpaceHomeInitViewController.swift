@@ -9,36 +9,31 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum testsection: Int,CaseIterable {
-    case channel
-    case directmessage
-    case addMember
-    
-    var title: String {
-        switch self {
-        case .channel:
-            return "채널"
-        case .directmessage:
-            return "다이렉트 메시지"
-        case .addMember:
-            return "팀원추가"
-        }
-    }
-}
 
 class WorkSpaceHomeInitViewController: BaseViewController {
     let testData = [
-    ["일반","채널1","채널2","채널3","채널4","채널5","채널6","채널7","채널8","채널9","채널추가"],
-    ["사람1","사람2","사람3","사람4","사람5","사람6","사람7","사람8","사람9","사람10","사람11"],
-    ["팀원추가"]
+        ["일반","채널1","채널2","채널3","채널4","채널5","채널6","채널7","채널8","채널9","채널추가"],
+        ["사람1","사람2","사람3","사람4","사람5","사람6","사람7","사람8","사람9","사람10","사람11"],
+        ["팀원추가"],
+        ["테스트추가"]
     ]
     
-    enum Section: Int, Hashable, CaseIterable, CustomStringConvertible {
+    enum Section: Int, Hashable, CaseIterable {
+        case channel
+        case directmessage
+        case addMember
         case test
         
-        var description: String {
+        var title: String {
             switch self {
-            case .test: return "test"
+            case .channel:
+                return "채널"
+            case .directmessage:
+                return "다이렉트 메시지"
+            case .addMember:
+                return "팀원추가"
+            case .test:
+                return "테스트"
             }
         }
     }
@@ -53,10 +48,8 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         private let identifier = UUID()
     }
     
-//    var hiddenSections = Set<Int>()
     let workSpaceNaviBar = WorkSpaceProfileView()
     
-    var starredEmojis = Set<Item>()
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     
@@ -66,9 +59,6 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         configureDataSource()
         applyInitialSnapshots()
     }
-    
-    
-   
     
     override func setHierarchy() {
         view.addSubview(workSpaceNaviBar)
@@ -92,10 +82,10 @@ extension WorkSpaceHomeInitViewController {
         collectionView.backgroundColor = .systemGroupedBackground
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-                    make.top.equalTo(workSpaceNaviBar.snp.bottom)
-                    make.horizontalEdges.equalToSuperview()
-                    make.bottom.equalTo(view.safeAreaLayoutGuide)
-                }
+            make.top.equalTo(workSpaceNaviBar.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     /// - Tag: CreateFullLayout
@@ -108,14 +98,15 @@ extension WorkSpaceHomeInitViewController {
             
             let section: NSCollectionLayoutSection
             
-                section = NSCollectionLayoutSection.list(using: .init(appearance: .sidebar), layoutEnvironment: layoutEnvironment)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
+            section = NSCollectionLayoutSection.list(using: .init(appearance: .sidebar), layoutEnvironment: layoutEnvironment)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 00, leading: 0, bottom: 0, trailing: 0)
+            
             return section
         }
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
     
-
+    
     func createOutlineHeaderCellRegistration() -> UICollectionView.CellRegistration<UICollectionViewListCell, String> {
         return UICollectionView.CellRegistration<UICollectionViewListCell, String> { (cell, indexPath, title) in
             var content = cell.defaultContentConfiguration()
@@ -147,7 +138,7 @@ extension WorkSpaceHomeInitViewController {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknown section") }
             switch section {
-            case .test:
+            case .channel,.addMember,.directmessage,.test:
                 if item.hasChildren {
                     return collectionView.dequeueConfiguredReusableCell(using: outlineHeaderCellRegistration, for: indexPath, item: item.title!)
                 } else {
@@ -164,14 +155,14 @@ extension WorkSpaceHomeInitViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections(sections)
         dataSource.apply(snapshot, animatingDifferences: false)
-
+        
         //  outlines
         var outlineSnapshot = NSDiffableDataSourceSectionSnapshot<Item>()
         
-        for category in testsection.allCases {
+        for category in sections {
             
             var rootItem: Item
-            if case testsection.addMember = category {
+            if case Section.addMember = category {
                 rootItem = Item(title: String(describing: category.title), hasChildren: false)
             } else {
                 rootItem = Item(title: String(describing: category.title), hasChildren: true)
@@ -180,8 +171,9 @@ extension WorkSpaceHomeInitViewController {
             outlineSnapshot.append([rootItem])
             let outlineItems = testData[category.rawValue].map { Item(title:$0) }
             outlineSnapshot.append(outlineItems, to: rootItem)
+            dataSource.apply(outlineSnapshot, to: category, animatingDifferences: false)
         }
-        dataSource.apply(outlineSnapshot, to: .test, animatingDifferences: false)
+        
     }
 }
 
