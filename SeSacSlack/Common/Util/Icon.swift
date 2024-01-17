@@ -30,6 +30,12 @@ enum Icon: String {
     
     //ETC
     case close = "close"
+    case plus = "plus"
+    
+    case hashtag = "hashtag"
+    case selecteHashtag = "selectHashtag"
+    
+    
     
     var image: UIImage {
             return UIImage(named: self.rawValue)!
