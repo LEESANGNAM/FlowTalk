@@ -95,6 +95,7 @@
 		D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */; };
 		D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3602B591DE500236EDB /* MyInfoManager.swift */; };
 		D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */; };
+		D6DCA3662B596F7B00236EDB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3652B596F7B00236EDB /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +199,7 @@
 		D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpacesResponseDTO.swift; sourceTree = "<group>"; };
 		D6DCA3602B591DE500236EDB /* MyInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoManager.swift; sourceTree = "<group>"; };
 		D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponseDTO.swift; sourceTree = "<group>"; };
+		D6DCA3652B596F7B00236EDB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,7 @@
 		D616D2962B487F9F0012CFC5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3642B596F4F00236EDB /* Splash */,
 				D616D2A22B4BE5500012CFC5 /* WorkSpace */,
 				D616D2682B48335E0012CFC5 /* SignUp */,
 				D654CA832B470B9C0054AD46 /* Auth */,
@@ -765,6 +768,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		D6DCA3642B596F4F00236EDB /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3652B596F7B00236EDB /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -977,6 +988,7 @@
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
+				D6DCA3662B596F7B00236EDB /* SplashViewController.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,
 				D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
