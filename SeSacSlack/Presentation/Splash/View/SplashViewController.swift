@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SplashViewController: BaseViewController {
     let titleLabel = {
@@ -19,10 +21,49 @@ class SplashViewController: BaseViewController {
         view.image = Icon.onboarding.image
         return view
     }()
-
+    
+    let viewModel: SplashViewModel
+    let disposeBag = DisposeBag()
+    
+    init(viewModel: SplashViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        bind()
+    }
+    
+    private func bind() {
+        let input = SplashViewModel.Input(viewdidLoadEvent: Observable.just(()))
+        
+        let output = viewModel.transform(input: input)
+        
+        output.isLoginWorkspace
+            .bind(with: self) { owner, value in
+                let isLogin = value.0
+                let isworkspace = value.1
+                
+                if isLogin && isworkspace {
+                    print("워크스페이스 디폴트로 이동")
+                    owner.changeRootView(WorkSpaceHomeInitViewController())
+                } else if isLogin && !isworkspace {
+                    print("워크스페이스 empty로 이동")
+                    owner.changeRootView(WorkSpaceHomeEmptyViewController())
+                } else {
+                    print("온보딩 뷰로 이동")
+                    owner.changeRootView(OnBoardingViewController())
+                }
+            }.disposed(by: disposeBag)
+        
+    }
+    private func changeRootView(_ vc: UIViewController){
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
     override func setHierarchy() {
         view.addSubview(titleLabel)
