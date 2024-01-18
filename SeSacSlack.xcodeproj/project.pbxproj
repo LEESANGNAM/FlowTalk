@@ -93,6 +93,8 @@
 		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
 		D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */; };
 		D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */; };
+		D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3602B591DE500236EDB /* MyInfoManager.swift */; };
+		D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +196,8 @@
 		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpacesResponseDTO.swift; sourceTree = "<group>"; };
+		D6DCA3602B591DE500236EDB /* MyInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoManager.swift; sourceTree = "<group>"; };
+		D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +319,7 @@
 				D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */,
 				D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */,
 				D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */,
+				D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 		D654CA702B463C010054AD46 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA35F2B591DAE00236EDB /* Service */,
 				D654CA7E2B46FDC50054AD46 /* Base */,
 				D654CA7A2B46DAE80054AD46 /* Component */,
 				D654CA712B463C140054AD46 /* Extension */,
@@ -751,6 +757,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		D6DCA35F2B591DAE00236EDB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3602B591DE500236EDB /* MyInfoManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -958,6 +972,8 @@
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
 				D6BA71502B4D83BA00D3FD00 /* TokenResponseDTO.swift in Sources */,
 				D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */,
+				D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */,
+				D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */,
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeInitViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
