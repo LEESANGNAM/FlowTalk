@@ -96,6 +96,8 @@
 		D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3602B591DE500236EDB /* MyInfoManager.swift */; };
 		D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */; };
 		D6DCA3662B596F7B00236EDB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3652B596F7B00236EDB /* SplashViewController.swift */; };
+		D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3692B59727100236EDB /* SplashViewModel.swift */; };
+		D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA36B2B5972E700236EDB /* RX+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,8 @@
 		D6DCA3602B591DE500236EDB /* MyInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoManager.swift; sourceTree = "<group>"; };
 		D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponseDTO.swift; sourceTree = "<group>"; };
 		D6DCA3652B596F7B00236EDB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		D6DCA3692B59727100236EDB /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		D6DCA36B2B5972E700236EDB /* RX+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RX+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,6 +538,7 @@
 				D654CA722B463C210054AD46 /* UIColor+Extension.swift */,
 				D616D29A2B4AAB750012CFC5 /* String+Extension.swift */,
 				D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */,
+				D6DCA36B2B5972E700236EDB /* RX+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -771,9 +776,26 @@
 		D6DCA3642B596F4F00236EDB /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				D6DCA3652B596F7B00236EDB /* SplashViewController.swift */,
+				D6DCA3682B59726100236EDB /* ViewModel */,
+				D6DCA3672B59725A00236EDB /* View */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		D6DCA3672B59725A00236EDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3652B596F7B00236EDB /* SplashViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6DCA3682B59726100236EDB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3692B59727100236EDB /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -969,6 +991,7 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
+				D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */,
 				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
 				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
@@ -1000,6 +1023,7 @@
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
+				D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
