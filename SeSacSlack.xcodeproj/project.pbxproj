@@ -98,6 +98,7 @@
 		D6DCA3662B596F7B00236EDB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3652B596F7B00236EDB /* SplashViewController.swift */; };
 		D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3692B59727100236EDB /* SplashViewModel.swift */; };
 		D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA36B2B5972E700236EDB /* RX+Extension.swift */; };
+		D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +205,7 @@
 		D6DCA3652B596F7B00236EDB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D6DCA3692B59727100236EDB /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		D6DCA36B2B5972E700236EDB /* RX+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RX+Extension.swift"; sourceTree = "<group>"; };
+		D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,12 +305,8 @@
 		D616D27A2B4856900012CFC5 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */,
-				D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */,
-				D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */,
-				D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */,
-				D6BA716E2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift */,
-				D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */,
+				D6DCA3742B59BE2E00236EDB /* WorkSpace */,
+				D6DCA3722B59B87300236EDB /* User */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -316,16 +314,8 @@
 		D616D27B2B4856980012CFC5 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */,
-				D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */,
-				D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */,
-				D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */,
-				D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */,
-				D6BA71702B4EFED000D3FD00 /* EmailLoginResponseDTO.swift */,
-				D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */,
-				D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */,
-				D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */,
-				D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */,
+				D6DCA3732B59B88800236EDB /* WorkSpace */,
+				D6DCA3712B59B85100236EDB /* User */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -752,7 +742,8 @@
 		D6BA719B2B54489500D3FD00 /* Default */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */,
+				D6DCA36E2B59B0F600236EDB /* ViewModel */,
+				D6DCA36D2B59B0EA00236EDB /* View */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -796,6 +787,66 @@
 				D6DCA3692B59727100236EDB /* SplashViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6DCA36D2B59B0EA00236EDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6DCA36E2B59B0F600236EDB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6DCA3712B59B85100236EDB /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D616D2872B4864A60012CFC5 /* EmailValidationResponseDTO.swift */,
+				D616D29E2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift */,
+				D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */,
+				D6BA714F2B4D83BA00D3FD00 /* TokenResponseDTO.swift */,
+				D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */,
+				D6BA71702B4EFED000D3FD00 /* EmailLoginResponseDTO.swift */,
+				D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */,
+				D6DCA3622B591EFE00236EDB /* MyInfoResponseDTO.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D6DCA3722B59B87300236EDB /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */,
+				D616D29C2B4B12200012CFC5 /* SignUpRequestDTO.swift */,
+				D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */,
+				D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */,
+				D6BA716E2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D6DCA3732B59B88800236EDB /* WorkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */,
+				D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */,
+			);
+			path = WorkSpace;
+			sourceTree = "<group>";
+		};
+		D6DCA3742B59BE2E00236EDB /* WorkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */,
+			);
+			path = WorkSpace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1025,6 +1076,7 @@
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
 				D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
+				D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
