@@ -99,6 +99,8 @@
 		D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3692B59727100236EDB /* SplashViewModel.swift */; };
 		D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA36B2B5972E700236EDB /* RX+Extension.swift */; };
 		D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */; };
+		D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */; };
+		D6DCA37A2B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +208,8 @@
 		D6DCA3692B59727100236EDB /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		D6DCA36B2B5972E700236EDB /* RX+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RX+Extension.swift"; sourceTree = "<group>"; };
 		D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewModel.swift; sourceTree = "<group>"; };
+		D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyChannelsRequestDTO.swift; sourceTree = "<group>"; };
+		D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyChannelsResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +309,7 @@
 		D616D27A2B4856900012CFC5 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3752B59BF4100236EDB /* Channels */,
 				D6DCA3742B59BE2E00236EDB /* WorkSpace */,
 				D6DCA3722B59B87300236EDB /* User */,
 			);
@@ -314,6 +319,7 @@
 		D616D27B2B4856980012CFC5 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3782B59BF7600236EDB /* Channels */,
 				D6DCA3732B59B88800236EDB /* WorkSpace */,
 				D6DCA3712B59B85100236EDB /* User */,
 			);
@@ -849,6 +855,22 @@
 			path = WorkSpace;
 			sourceTree = "<group>";
 		};
+		D6DCA3752B59BF4100236EDB /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		D6DCA3782B59BF7600236EDB /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1007,6 +1029,7 @@
 				D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */,
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
+				D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
 				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
@@ -1068,6 +1091,7 @@
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
+				D6DCA37A2B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift in Sources */,
 				D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */,
 				D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,

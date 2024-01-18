@@ -49,12 +49,26 @@ class WorkSpaceHomeInitViewController: BaseViewController {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierarchy()
         configureDataSource()
         applyInitialSnapshots()
         setUpBackgroundColors()
+        
+       let result = NetWorkManager.shared.request(type: [SearchMyChannelsResponseDTO].self, api: .searchMyChannels(SearchMyChannelsRequestDTO(id: 140)))
+        result.subscribe(with: self) { owner, model in
+            print("채널 정보 조회",model)
+        } onError: { owner, error in
+            print("에러 ",error)
+        } onCompleted: { _ in
+            print("채널정보 조회 완료")
+        } onDisposed: { _ in
+            print("채널정보 조회 디스포즈")
+        }.disposed(by: disposeBag)
+
     }
     
     override func setHierarchy() {
