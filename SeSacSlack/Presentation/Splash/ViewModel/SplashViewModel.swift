@@ -13,6 +13,11 @@ import RxCocoa
 class SplashViewModel {
     
     let disposeBag = DisposeBag()
+    let workSpaceUseCase: WorkSpaceUseCase
+    
+    init(workSpaceUseCase: WorkSpaceUseCase) {
+        self.workSpaceUseCase = workSpaceUseCase
+    }
     
     struct Input {
         let viewdidLoadEvent: Observable<Void>
@@ -32,7 +37,9 @@ class SplashViewModel {
             .bind(with: self) { owner, value in
                 if value {
                     isLogin.accept(true)
-                    NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
+                    let workspace = owner.workSpaceUseCase.searchWorkSpaces()
+                    
+                    workspace
                         .subscribe(with: self) { owner, workspace in
                             print("워크스페이스값:",workspace)
                             if workspace.isEmpty {
@@ -51,6 +58,7 @@ class SplashViewModel {
                     isLogin.accept(false)
                     isWorkSpaceEmpty.accept(false)
                 }
+                
             }.disposed(by: disposeBag)
         
         let combineValue = Observable.combineLatest(isLogin, isWorkSpaceEmpty)
