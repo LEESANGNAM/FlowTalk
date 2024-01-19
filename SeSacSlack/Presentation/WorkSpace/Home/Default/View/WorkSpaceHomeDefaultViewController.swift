@@ -57,9 +57,12 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         configureDataSource()
         applyInitialSnapshots()
         setUpBackgroundColors()
-        
+     
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        WorkSpaceManager.shared.fetch()
+    }
     override func setHierarchy() {
         view.addSubview(workSpaceNaviBar)
     }

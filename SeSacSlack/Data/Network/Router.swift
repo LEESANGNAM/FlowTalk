@@ -23,6 +23,7 @@ enum Router: URLRequestConvertible {
     
     case addWorkSpace(AddWorkSpaceRequestDTO)
     case searchWorkSpaces
+    case searchWorkspace(SearchWorkSpaceRequestDTO)
     
     case searchMyChannels(SearchMyChannelsRequestDTO)
     
@@ -51,6 +52,8 @@ enum Router: URLRequestConvertible {
             
         case .addWorkSpace, .searchWorkSpaces:
             return "v1/workspaces"
+        case .searchWorkspace(let model):
+            return "v1/workspaces/\(model.id)"
             
         case .searchMyChannels(let model):
             return "v1/workspaces/\(model.id)/channels/my"
@@ -62,7 +65,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
-                .searchWorkSpaces,
+                .searchWorkSpaces, .searchWorkspace,
                 .searchMyChannels:
             return ["SesacKey": Router.key ]
         case .refresh:
@@ -82,7 +85,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,.addWorkSpace:
             return .post
-        case .refresh,.searchWorkSpaces,.searchMyInfo, .searchMyChannels:
+        case .refresh,.searchWorkSpaces,.searchMyInfo, .searchMyChannels,.searchWorkspace:
             return .get
         }
     }
@@ -105,7 +108,7 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(appleLoginRequestDTO, into: request)
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
-        case .refresh, .addWorkSpace, .searchWorkSpaces, .searchMyInfo, .searchMyChannels:
+        case .refresh, .addWorkSpace, .searchWorkSpaces, .searchMyInfo, .searchMyChannels,.searchWorkspace:
             break
         }
         return request

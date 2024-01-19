@@ -102,6 +102,9 @@
 		D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */; };
 		D6DCA37A2B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */; };
 		D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */; };
+		D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */; };
+		D6DCA3802B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */; };
+		D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +215,9 @@
 		D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyChannelsRequestDTO.swift; sourceTree = "<group>"; };
 		D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyChannelsResponseDTO.swift; sourceTree = "<group>"; };
 		D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
+		D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceManager.swift; sourceTree = "<group>"; };
+		D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
+		D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -769,6 +775,7 @@
 			children = (
 				D6DCA3602B591DE500236EDB /* MyInfoManager.swift */,
 				D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */,
+				D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -846,6 +853,7 @@
 			children = (
 				D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */,
 				D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */,
+				D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -854,6 +862,7 @@
 			isa = PBXGroup;
 			children = (
 				D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */,
+				D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1045,12 +1054,14 @@
 				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,
 				D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */,
 				D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */,
+				D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
 				D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
+				D6DCA3802B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
@@ -1102,6 +1113,7 @@
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
+				D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
 				D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */,

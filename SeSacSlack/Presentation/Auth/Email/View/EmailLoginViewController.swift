@@ -170,6 +170,8 @@ class EmailLoginViewController: BaseViewController {
                 if testModel.isEmpty {
                     ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
                 } else {
+                    let workspaceID = testModel[0].workspace_id
+                    WorkSpaceManager.shared.setID(workspaceID)
                     ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController())
                 }
                 
