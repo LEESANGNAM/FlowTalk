@@ -7,12 +7,13 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 
 final class WorkSpaceManager {
     static let shared = WorkSpaceManager()
     var id = UserDefaultsManager.workSpaceId
-    private var workspace: SearchWorkSpaceResponseDTO?
+    var workspace = BehaviorRelay<SearchWorkSpaceResponseDTO?>(value: nil)
     private init(){ }
     let disposeBag = DisposeBag()
     func fetch() {
@@ -25,7 +26,7 @@ final class WorkSpaceManager {
         
         result.subscribe(with: self) { owner, value in
             print("워크스페이스 한개조회 성공",value)
-            owner.workspace = value
+            owner.workspace.accept(value)
         } onError: { owner, error in
             print("error: ",error)
         } onCompleted: { _ in
@@ -40,8 +41,8 @@ final class WorkSpaceManager {
         self.id = id
     }
     
-    func getWorkspace() -> SearchWorkSpaceResponseDTO? {
-        return workspace
-    }
+//    func getWorkspace() -> SearchWorkSpaceResponseDTO? {
+//        return workspace.value.
+//    }
     
 }

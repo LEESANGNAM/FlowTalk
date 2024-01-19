@@ -61,6 +61,20 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         bind()
     }
     func bind() {
+        
+        WorkSpaceManager.shared.workspace
+            .bind(with: self) { owner, workspace in
+                if let workspace {
+                    print("워크스페이스 있음")
+                    let channels = workspace.channels
+                    let member = workspace.workspaceMembers
+                    owner.channalData.accept(channels)
+                    owner.dmData.accept(member)
+                    owner.workSpaceNaviBar.setWorkspaceIcon(workspace: workspace)
+                    owner.workSpaceNaviBar.setProfileIcon()
+                }
+            }.disposed(by: disposeBag)
+        
         channalData
             .subscribe(onNext: { [weak self] _ in
                 self?.applyInitialSnapshots()
@@ -83,14 +97,9 @@ class WorkSpaceHomeInitViewController: BaseViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+       
         
-        if  let workspace = WorkSpaceManager.shared.getWorkspace() {
-            print("워크스페이스 있음")
-            let channels = workspace.channels
-            let member = workspace.workspaceMembers
-            channalData.accept(channels)
-            dmData.accept(member)
-        }
+        
     }
     override func setHierarchy() {
         view.addSubview(workSpaceNaviBar)

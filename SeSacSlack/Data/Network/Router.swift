@@ -35,28 +35,28 @@ enum Router: URLRequestConvertible {
     private var path: String {
         switch self {
         case .emailValid:
-            return "v1/users/validation/email"
+            return "/v1/users/validation/email"
         case .signUp:
-            return "v1/users/join"
+            return "/v1/users/join"
         case .kakaoLogin:
-            return "v1/users/login/kakao"
+            return "/v1/users/login/kakao"
         case .appleLogin:
-            return "v1/users/login/apple"
+            return "/v1/users/login/apple"
         case .emailLogin:
-            return "v2/users/login"
+            return "/v2/users/login"
         case .refresh:
-            return "v1/auth/refresh"
+            return "/v1/auth/refresh"
         
         case .searchMyInfo:
-            return "v1/users/my"
+            return "/v1/users/my"
             
         case .addWorkSpace, .searchWorkSpaces:
-            return "v1/workspaces"
+            return "/v1/workspaces"
         case .searchWorkspace(let model):
-            return "v1/workspaces/\(model.id)"
+            return "/v1/workspaces/\(model.id)"
             
         case .searchMyChannels(let model):
-            return "v1/workspaces/\(model.id)/channels/my"
+            return "/v1/workspaces/\(model.id)/channels/my"
         }
     }
     
