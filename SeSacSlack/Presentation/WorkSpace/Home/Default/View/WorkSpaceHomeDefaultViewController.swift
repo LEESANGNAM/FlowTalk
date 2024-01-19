@@ -11,11 +11,11 @@ import RxCocoa
 
 
 class WorkSpaceHomeInitViewController: BaseViewController {
-    let testData = [
-        ["일반","채널1","채널2","채널3","채널4","채널5","채널6","채널7","채널8","채널9","채널추가"],
-        ["사람1","사람2","사람3","사람4","사람5","사람6","사람7","사람8","사람9","사람10","새 메시지 시작"],
-        ["팀원추가"]
-    ]
+    
+    let channalData = BehaviorRelay<[SearchWorkSpaceChannel]>(value: [])
+    var dmData = BehaviorRelay<[SearchWorkSpaceMember]>(value: [])
+    var addmemberData = BehaviorRelay<[String]>(value: ["팀원추가"])
+    
     
     enum Section: Int, Hashable, CaseIterable {
         case channel
@@ -57,11 +57,40 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         configureDataSource()
         applyInitialSnapshots()
         setUpBackgroundColors()
-     
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         WorkSpaceManager.shared.fetch()
+        bind()
+    }
+    func bind() {
+        channalData
+            .subscribe(onNext: { [weak self] _ in
+                self?.applyInitialSnapshots()
+            })
+            .disposed(by: disposeBag)
+        
+        dmData
+            .subscribe(onNext: { [weak self] _ in
+                self?.applyInitialSnapshots()
+            })
+            .disposed(by: disposeBag)
+        
+        addmemberData
+            .subscribe(onNext: { [weak self] _ in
+                self?.applyInitialSnapshots()
+            })
+            .disposed(by: disposeBag)
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if  let workspace = WorkSpaceManager.shared.getWorkspace() {
+            print("워크스페이스 있음")
+            let channels = workspace.channels
+            let member = workspace.workspaceMembers
+            channalData.accept(channels)
+            dmData.accept(member)
+        }
     }
     override func setHierarchy() {
         view.addSubview(workSpaceNaviBar)
@@ -210,9 +239,19 @@ extension WorkSpaceHomeInitViewController {
             } else {
                 rootItem = Item(title: String(describing: category.title), hasChildren: true)
             }
-            
             outlineSnapshot.append([rootItem])
-            let outlineItems = testData[category.rawValue].map { Item(title:$0) }
+            
+            var outlineItems: [Item]
+            switch category {
+            case .channel:
+                outlineItems = channalData.value.map { Item(title:$0.name) }
+                outlineItems.append(Item(title: "채널추가"))
+            case .directmessage:
+                outlineItems = dmData.value.map { Item(title:$0.nickname) }
+                outlineItems.append(Item(title: "새 메시지 시작"))
+            case .addMember:
+                outlineItems = addmemberData.value.map { Item(title:$0) }
+            }
             outlineSnapshot.append(outlineItems, to: rootItem)
             dataSource.apply(outlineSnapshot, to: category, animatingDifferences: false)
         }
