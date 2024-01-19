@@ -17,6 +17,8 @@ struct UserDefaultsManager {
     static var id
     @UserDefaultsWrapper(key: "nickname", defaultValue: "")
     static var nickname
+    @UserDefaultsWrapper(key: "workSpaceId", defaultValue: 0)
+    static var workSpaceId
     
     static func saveUserDefaults(id: Int = 0, nickname: String = "" , token: String = "", refresh: String = "") {
         UserDefaultsManager.isLogin = true

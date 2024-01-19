@@ -519,7 +519,6 @@
 				D654CA6E2B45C1390054AD46 /* Font.swift */,
 				D654CA742B46C2100054AD46 /* Icon.swift */,
 				D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */,
-				D616D2A02B4BE2830012CFC5 /* UserDefaultsManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -776,6 +775,7 @@
 				D6DCA3602B591DE500236EDB /* MyInfoManager.swift */,
 				D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */,
 				D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */,
+				D616D2A02B4BE2830012CFC5 /* UserDefaultsManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";

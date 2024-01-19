@@ -11,14 +11,14 @@ import RxSwift
 
 final class WorkSpaceManager {
     static let shared = WorkSpaceManager()
-    var id: Int?
+    var id = UserDefaultsManager.workSpaceId
     private init(){ }
     let disposeBag = DisposeBag()
     func fetch() {
         print("실행함")
-        guard let id else {
-            print("아이디없음")
-            return }
+//        guard let id else {
+//            print("아이디없음")
+//            return }
         let model = SearchWorkSpaceRequestDTO(id: id)
         let result = NetWorkManager.shared.request(type: SearchWorkSpaceResponseDTO.self, api: .searchWorkspace(model))
         

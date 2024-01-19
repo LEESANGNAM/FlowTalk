@@ -46,7 +46,7 @@ class SplashViewModel {
                                 isWorkSpaceEmpty.accept(false)
                             } else {
                                 let workspaceID = workspace[0].workspace_id
-                                WorkSpaceManager.shared.setID(workspaceID)
+                                UserDefaultsManager.workSpaceId = workspaceID
                                 isWorkSpaceEmpty.accept(true)
                             }
                         } onError: { owner, error in
