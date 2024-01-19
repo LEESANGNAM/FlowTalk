@@ -145,11 +145,28 @@ extension AuthViewController {
         present(nav, animated: true)
     }
     private func changeRootView(){
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        let vc = WorkSpaceHomeEmptyViewController()
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
+        var testModel: [SearchWorkSpacesResponseDTO]!
+        
+        NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
+            .subscribe(with: self) { owner, value in
+                print("워크스페이스 확인 ",value)
+                testModel = value
+            } onError: { owner, error in
+                print("워크스페이스 에러:",error)
+            } onCompleted: { _ in
+                print("워크스페이스 찾기 완료")
+        
+                if testModel.isEmpty {
+                    ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
+                } else {
+                    ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController())
+                }
+                
+            } onDisposed: { _ in
+                print("워크스페이스 찾기 디스포즈")
+            }.disposed(by: disposeBag)
+        
+        
     }
 }
 

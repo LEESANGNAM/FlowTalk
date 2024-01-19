@@ -37,34 +37,30 @@ class SplashViewController: BaseViewController {
     }
     
     private func bind() {
-        let input = SplashViewModel.Input(viewdidLoadEvent: Observable.just(()))
+        let input = SplashViewModel.Input(viewWillAppearEvent: self.rx.viewWillAppear.map{ _ in })
         
         let output = viewModel.transform(input: input)
         
         output.isLoginWorkspace
             .bind(with: self) { owner, value in
+                print("콤바인값 :",value)
                 let isLogin = value.0
                 let isworkspace = value.1
                 
                 if isLogin && isworkspace {
                     print("워크스페이스 디폴트로 이동")
-                    owner.changeRootView(WorkSpaceHomeInitViewController())
+                    ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController())
                 } else if isLogin && !isworkspace {
                     print("워크스페이스 empty로 이동")
-                    owner.changeRootView(WorkSpaceHomeEmptyViewController())
+                    ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
                 } else {
                     print("온보딩 뷰로 이동")
-                    owner.changeRootView(OnBoardingViewController())
+                    ViewManager.shared.changeRootView(OnBoardingViewController())
                 }
             }.disposed(by: disposeBag)
         
     }
-    private func changeRootView(_ vc: UIViewController){
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
-    }
+    
     override func setHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(iconImageView)

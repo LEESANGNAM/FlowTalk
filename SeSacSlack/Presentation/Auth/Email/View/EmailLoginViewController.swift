@@ -156,8 +156,6 @@ class EmailLoginViewController: BaseViewController {
     }
     
     private func changeRootView(){
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
         var testModel: [SearchWorkSpacesResponseDTO]!
         
         NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
@@ -168,15 +166,13 @@ class EmailLoginViewController: BaseViewController {
                 print("워크스페이스 에러:",error)
             } onCompleted: { _ in
                 print("워크스페이스 찾기 완료")
-                var vc: UIViewController
+        
                 if testModel.isEmpty {
-                    vc = WorkSpaceHomeEmptyViewController()
+                    ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
                 } else {
-                    vc = WorkSpaceHomeInitViewController()
+                    ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController())
                 }
                 
-                sceneDelegate?.window?.rootViewController = vc
-                sceneDelegate?.window?.makeKeyAndVisible()
             } onDisposed: { _ in
                 print("워크스페이스 찾기 디스포즈")
             }.disposed(by: disposeBag)

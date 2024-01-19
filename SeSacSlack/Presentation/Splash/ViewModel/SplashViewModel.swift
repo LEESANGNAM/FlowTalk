@@ -20,7 +20,7 @@ class SplashViewModel {
     }
     
     struct Input {
-        let viewdidLoadEvent: Observable<Void>
+        let viewWillAppearEvent: Observable<Void>
     }
     
     struct Output {
@@ -31,7 +31,7 @@ class SplashViewModel {
         let isLogin = PublishRelay<Bool>()
         let isWorkSpaceEmpty = PublishRelay<Bool>()
         
-        input.viewdidLoadEvent
+        input.viewWillAppearEvent
             .delay(.seconds(1), scheduler: MainScheduler.instance)
             .map { return UserDefaultsManager.isLogin }
             .bind(with: self) { owner, value in
@@ -49,6 +49,7 @@ class SplashViewModel {
                             }
                         } onError: { owner, error in
                             print("워크스페이스 찾기 오류")
+                            ViewManager.shared.resetRootView()
                         } onCompleted: { _ in
                             print("워크 스페이스 찾기 완료")
                         } onDisposed: { _ in
@@ -62,7 +63,8 @@ class SplashViewModel {
             }.disposed(by: disposeBag)
         
         let combineValue = Observable.combineLatest(isLogin, isWorkSpaceEmpty)
-
+        
+        print("콤바인값 :",combineValue)
         
         return Output(
             isLoginWorkspace: combineValue

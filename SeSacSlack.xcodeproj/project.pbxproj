@@ -101,6 +101,7 @@
 		D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */; };
 		D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */; };
 		D6DCA37A2B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */; };
+		D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +211,7 @@
 		D6DCA36F2B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewModel.swift; sourceTree = "<group>"; };
 		D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyChannelsRequestDTO.swift; sourceTree = "<group>"; };
 		D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyChannelsResponseDTO.swift; sourceTree = "<group>"; };
+		D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -766,6 +768,7 @@
 			isa = PBXGroup;
 			children = (
 				D6DCA3602B591DE500236EDB /* MyInfoManager.swift */,
+				D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1065,6 +1068,7 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
+				D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */,
 				D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */,
 				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
 				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,

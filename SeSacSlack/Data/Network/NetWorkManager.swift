@@ -78,7 +78,7 @@ final class NetWorkManager {
                     if refreshError.rawValue != "E04" {
                         print("리프레쉬 에러")
                         // 리프레쉬 토큰 에러 시 루트 뷰 변경
-                        changeRootView()
+                        ViewManager.shared.resetRootView()
                         observer.onError(refreshError)
                     }
                 } else if let loginError = errorType as? LoginSignUpErrorType {
@@ -112,7 +112,7 @@ final class NetWorkManager {
                     if refreshError.rawValue != "E04" {
                         print("리프레쉬 에러")
                         // 리프레쉬 토큰 에러 시 루트 뷰 변경
-                        owner.changeRootView()
+                        ViewManager.shared.resetRootView()
                         observer.onError(refreshError)
                     }
                 }
@@ -155,14 +155,6 @@ final class NetWorkManager {
         } else {
             return CommonErrorType.serverError
         }
-    }
-    private func changeRootView(){
-        UserDefaultsManager.resetUserDefaults()
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        let vc = OnBoardingViewController()
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
 }
