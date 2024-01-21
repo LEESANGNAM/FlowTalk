@@ -148,6 +148,22 @@ extension WorkSpaceAddViewController {
                 }
             }.disposed(by: disposeBag)
         
+        output.isSuccess
+            .bind(with: self) { owner, value in
+                if value {
+                    ViewManager.shared.changeRootView(
+                        WorkSpaceHomeInitViewController(
+                            viewModel: WorkSpaceHomeDefaultViewModel(
+                                dmUseCase: DefaultDMUseCase(
+                                    dmRepository: DefaultDMRepository()),
+                                channelUseCase: DefaultChannelUseCase(
+                                    channelRepository: DefaultChannelRepository())
+                            )
+                        )
+                    )
+                }
+            }.disposed(by: disposeBag)
+        
     }
     
     private func setNavigationBar() {

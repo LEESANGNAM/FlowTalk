@@ -60,6 +60,15 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         applyInitialSnapshots()
         setUpBackgroundColors()
         bind()
+        let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePan(_:)))
+        edgePanGesture.edges = .left
+        view.addGestureRecognizer(edgePanGesture)
+    }
+    
+    @objc func handleScreenEdgePan(_ gesture: UIScreenEdgePanGestureRecognizer) {
+        if gesture.state == .recognized {
+            print("스와이프 제스처")
+        }
     }
     func bind() {
         

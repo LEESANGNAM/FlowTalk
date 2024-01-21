@@ -35,6 +35,7 @@ class WorkSpaceAddViewModel {
         let createSuccess: PublishRelay<Bool>
         let errorMessage: PublishRelay<String>
         let imageData: BehaviorRelay<Data?>
+        let isSuccess: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -42,7 +43,7 @@ class WorkSpaceAddViewModel {
         let textValid = BehaviorRelay(value: false)
         let doneButtonValid = BehaviorRelay(value: false)
         let createSuccess = PublishRelay<Bool>()
-        
+        let isSuccess = BehaviorRelay(value: false)
         imageData.map { $0 != nil }
             .bind(to: imageValid)
             .disposed(by: disposeBag)
@@ -84,11 +85,15 @@ class WorkSpaceAddViewModel {
                     let result = owner.workSpaceUseCase.addWorkSpace(workSpace: workspace)
                     result.subscribe(with: self) { owner, value in
                         print("워크스페이스 생성 성공", value)
+                        UserDefaultsManager.workSpaceId = value.workspace_id
+                        isSuccess.accept(true)
                     } onError: { owner, error in
                         if let workspaceError = error as? WorkSpaceErrorType{
                             print("워크스페이스 에러,",workspaceError.message)
+                            isSuccess.accept(false)
                         }else {
                             print("error:",error)
+                            isSuccess.accept(false)
                         }
                     } onCompleted: { _ in
                         print("워크스페이스 생성 완료")
@@ -105,7 +110,8 @@ class WorkSpaceAddViewModel {
             doneButtonValid: doneButtonValid,
             createSuccess: createSuccess,
             errorMessage: errorMessage,
-            imageData: imageData
+            imageData: imageData,
+            isSuccess: isSuccess
         )
     }
     

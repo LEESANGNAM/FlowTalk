@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class WorkSpaceInitViewController: BaseViewController {
     
@@ -13,7 +15,7 @@ class WorkSpaceInitViewController: BaseViewController {
     let subtitleLabel = CustomBodyBlackLabel(text: "옹골찬 고래밥님의 조직을 위해 새로운 새싹톡 워크스페이스를 시작할 준비가 완료되었어요! ")
     let logoImageView = UIImageView(image: Icon.launching.image)
     let workspaceCreateButton = CustomBackgroundTitleButton(title: "워크스페이스 생성", color: Colors.brandGreen.color)
-    
+    let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -60,9 +62,36 @@ class WorkSpaceInitViewController: BaseViewController {
     }
     
     @objc func closeButtonTapped() {
-        let vc = WorkSpaceHomeEmptyViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        present(nav, animated: true)
-    }
-    
+            var testModel: [SearchWorkSpacesResponseDTO]!
+            
+            NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
+                .subscribe(with: self) { owner, value in
+                    print("워크스페이스 확인 ",value)
+                    testModel = value
+                } onError: { owner, error in
+                    print("워크스페이스 에러:",error)
+                } onCompleted: { _ in
+                    print("워크스페이스 찾기 완료")
+            
+                    if testModel.isEmpty {
+                        ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
+                    } else {
+                        let workspaceID = testModel[0].workspace_id
+                        UserDefaultsManager.workSpaceId = workspaceID
+                        ViewManager.shared.changeRootView(
+                            WorkSpaceHomeInitViewController(
+                                viewModel: WorkSpaceHomeDefaultViewModel(
+                                    dmUseCase: DefaultDMUseCase(
+                                        dmRepository: DefaultDMRepository()),
+                                    channelUseCase: DefaultChannelUseCase(
+                                        channelRepository: DefaultChannelRepository())
+                                )
+                            )
+                        )
+                    }
+                    
+                } onDisposed: { _ in
+                    print("워크스페이스 찾기 디스포즈")
+                }.disposed(by: disposeBag)
+        }
 }
