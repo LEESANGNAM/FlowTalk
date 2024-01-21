@@ -161,7 +161,7 @@ extension AuthViewController {
                 } else {
                     let workspaceID = testModel[0].workspace_id
                     UserDefaultsManager.workSpaceId = workspaceID
-                    ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController())
+                    ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController(viewModel: WorkSpaceHomeDefaultViewModel()))
                 }
                 
             } onDisposed: { _ in

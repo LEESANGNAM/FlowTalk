@@ -6,25 +6,85 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
 
 class WorkSpaceHomeDefaultViewModel {
-        let testData = [
-            ["일반","채널1","채널2","채널3","채널4","채널5","채널6","채널7","채널8","채널9","채널추가"],
-            ["사람1","사람2","사람3","사람4","사람5","사람6","사람7","사람8","사람9","사람10","새 메시지 시작"],
-            ["팀원추가"]
-        ]
+    
+    let disposeBag = DisposeBag()
+    let channalData = BehaviorRelay<[SearchMyChannelsResponseDTO]>(value: [])
+    let dmData = BehaviorRelay<[SearchMyWorkSpaceDMResponseDTO]>(value: [])
+
     
     struct Input {
-        
+        let viewWillAppear: Observable<Void>
     }
     
     struct Output {
-        
+        let channalData: BehaviorRelay<[SearchMyChannelsResponseDTO]>
+        let dmData: BehaviorRelay<[SearchMyWorkSpaceDMResponseDTO]>
+        let workspace: PublishRelay<SearchWorkSpaceResponseDTO>
     }
     
     func transform(input: Input) -> Output {
+        input.viewWillAppear
+            .bind(with: self) { owner, _ in
+                WorkSpaceManager.shared.fetch()
+            }.disposed(by: disposeBag)
         
-        return Output()
+        let workspaceData = PublishRelay<SearchWorkSpaceResponseDTO>()
+        
+        WorkSpaceManager.shared.workspace
+            .bind(with: self) { owner, workspace in
+                if let workspace {
+                    print("워크스페이스 있음")
+                    owner.channaltest(id: workspace.workspace_id)
+                    owner.dmtest(id: workspace.workspace_id)
+                    workspaceData.accept(workspace)
+                }
+            }.disposed(by: disposeBag)
+        
+        return Output(
+            channalData: channalData,
+            dmData: dmData,
+            workspace: workspaceData
+        )
+    }
+    
+    func channaltest(id: Int) {
+        NetWorkManager.shared.request(type: [SearchMyChannelsResponseDTO].self, api: .searchMyChannels(SearchMyChannelsRequestDTO(id: id)))
+            .subscribe(with: self) { owner, value in
+                print("채널 조회 :",value)
+                owner.channalData.accept(value)
+            } onError: { _, error in
+                print("채널 조회 에러",error)
+            } onCompleted: { _ in
+                print("채널조회 완료")
+            } onDisposed: { _ in
+                print("채널조회 디스포즈")
+            }.disposed(by: disposeBag)
+
+    }
+    func dmtest(id: Int) {
+        NetWorkManager.shared.request(type: [SearchMyWorkSpaceDMResponseDTO].self, api: .searchMyDM(SearchMyWorkSpaceDMRequestDTO(id: id)))
+            .subscribe(with: self) { owner, value in
+                print("dm 조회 :",value)
+                owner.dmData.accept(value)
+            } onError: { _, error in
+                print("dm 조회 에러",error)
+            } onCompleted: { _ in
+                print("dm 조회 완료")
+            } onDisposed: { _ in
+                print("dm 조회 디스포즈")
+            }.disposed(by: disposeBag)
+    }
+    
+    func getchannalArray() -> [SearchMyChannelsResponseDTO] {
+        return channalData.value
+    }
+    func getdmArray() -> [SearchMyWorkSpaceDMResponseDTO] {
+        return dmData.value
     }
     
 }
