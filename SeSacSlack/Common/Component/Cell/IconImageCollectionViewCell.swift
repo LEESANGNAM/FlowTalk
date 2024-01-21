@@ -89,6 +89,9 @@ class IconImageCollectionViewCell: BaseCollectionViewCell {
         iconImageView.tintColor = nil
         titleLabel.text = title
         iconImageView.image = Icon.plus.image
+        iconImageView.snp.updateConstraints { make in
+            make.size.equalTo(18)
+        }
     }
     func setupChatCount(_ count: Int?){
         if let count {
