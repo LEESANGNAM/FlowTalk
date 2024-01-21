@@ -49,7 +49,16 @@ class SplashViewController: BaseViewController {
                 
                 if isLogin && isworkspace {
                     print("워크스페이스 디폴트로 이동")
-                    ViewManager.shared.changeRootView(WorkSpaceHomeInitViewController(viewModel: WorkSpaceHomeDefaultViewModel()))
+                    ViewManager.shared.changeRootView(
+                        WorkSpaceHomeInitViewController(
+                            viewModel: WorkSpaceHomeDefaultViewModel(
+                                dmUseCase: DefaultDMUseCase(
+                                    dmRepository: DefaultDMRepository()),
+                                channelUseCase: DefaultChannelUseCase(
+                                    channelRepository: DefaultChannelRepository())
+                            )
+                        )
+                    )
                 } else if isLogin && !isworkspace {
                     print("워크스페이스 empty로 이동")
                     ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
@@ -75,9 +84,9 @@ class SplashViewController: BaseViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(89)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(13)
             make.height.width.equalTo(368)
-
+            
         }
     }
     
-   
+    
 }

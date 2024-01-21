@@ -15,7 +15,14 @@ class WorkSpaceHomeDefaultViewModel {
     let disposeBag = DisposeBag()
     let channelData = BehaviorRelay<[SearchMyChannelsResponseDTO]>(value: [])
     let dmData = BehaviorRelay<[SearchMyWorkSpaceDMResponseDTO]>(value: [])
-
+    
+    let dmUseCase: DMUseCase
+    let channelUseCase: ChannelUseCase
+    
+    init(dmUseCase: DMUseCase, channelUseCase: ChannelUseCase) {
+        self.dmUseCase = dmUseCase
+        self.channelUseCase = channelUseCase
+    }
     
     struct Input {
         let viewWillAppear: Observable<Void>
@@ -52,8 +59,8 @@ class WorkSpaceHomeDefaultViewModel {
         )
     }
     
-    func channeltest(id: Int) {
-        NetWorkManager.shared.request(type: [SearchMyChannelsResponseDTO].self, api: .searchMyChannels(SearchMyChannelsRequestDTO(id: id)))
+   private func channeltest(id: Int) {
+       channelUseCase.searchMyChannels(model: SearchMyChannelsRequestDTO(id: id))
             .subscribe(with: self) { owner, value in
                 print("채널 조회 :",value)
                 owner.channelData.accept(value)
@@ -66,8 +73,8 @@ class WorkSpaceHomeDefaultViewModel {
             }.disposed(by: disposeBag)
 
     }
-    func dmtest(id: Int) {
-        NetWorkManager.shared.request(type: [SearchMyWorkSpaceDMResponseDTO].self, api: .searchMyDM(SearchMyWorkSpaceDMRequestDTO(id: id)))
+    private func dmtest(id: Int) {
+        dmUseCase.searchMyWorkSpaceDM(model: SearchMyWorkSpaceDMRequestDTO(id: id))
             .subscribe(with: self) { owner, value in
                 print("dm 조회 :",value)
                 owner.dmData.accept(value)
