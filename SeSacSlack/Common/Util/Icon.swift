@@ -36,6 +36,10 @@ enum Icon: String {
     case selecteHashtag = "selectHashtag"
     
     
+    case noProfileA = "NoPhotoA"
+    case noProfileB = "NoPhotoB"
+    case noProfileC = "NoPhotoC"
+    
     
     var image: UIImage {
             return UIImage(named: self.rawValue)!

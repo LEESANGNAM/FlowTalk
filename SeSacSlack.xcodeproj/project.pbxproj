@@ -105,6 +105,8 @@
 		D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */; };
 		D6DCA3802B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */; };
 		D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */; };
+		D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */; };
+		D6DCA3882B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +220,8 @@
 		D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceManager.swift; sourceTree = "<group>"; };
 		D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
+		D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyWorkSpaceDMRequestDTO.swift; sourceTree = "<group>"; };
+		D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyWorkSpaceDMResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +321,7 @@
 		D616D27A2B4856900012CFC5 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3842B5D2F6B00236EDB /* DM */,
 				D6DCA3752B59BF4100236EDB /* Channels */,
 				D6DCA3742B59BE2E00236EDB /* WorkSpace */,
 				D6DCA3722B59B87300236EDB /* User */,
@@ -327,6 +332,7 @@
 		D616D27B2B4856980012CFC5 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3832B5D2F6700236EDB /* DM */,
 				D6DCA3782B59BF7600236EDB /* Channels */,
 				D6DCA3732B59B88800236EDB /* WorkSpace */,
 				D6DCA3712B59B85100236EDB /* User */,
@@ -883,6 +889,22 @@
 			path = Channels;
 			sourceTree = "<group>";
 		};
+		D6DCA3832B5D2F6700236EDB /* DM */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */,
+			);
+			path = DM;
+			sourceTree = "<group>";
+		};
+		D6DCA3842B5D2F6B00236EDB /* DM */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */,
+			);
+			path = DM;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1040,6 +1062,7 @@
 				D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */,
 				D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */,
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
+				D6DCA3882B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift in Sources */,
 				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
 				D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
@@ -1077,6 +1100,7 @@
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
+				D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */,
