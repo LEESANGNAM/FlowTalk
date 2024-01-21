@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct SearchMyWorkSpaceDMRequestDTO: Encodable {
+    let id: Int
+}

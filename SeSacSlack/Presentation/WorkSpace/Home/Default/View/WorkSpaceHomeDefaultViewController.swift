@@ -12,8 +12,8 @@ import RxCocoa
 
 class WorkSpaceHomeInitViewController: BaseViewController {
     
-    let channalData = BehaviorRelay<[SearchWorkSpaceChannel]>(value: [])
-    var dmData = BehaviorRelay<[SearchWorkSpaceMember]>(value: [])
+    let channalData = BehaviorRelay<[SearchMyChannelsResponseDTO]>(value: [])
+    var dmData = BehaviorRelay<[SearchMyWorkSpaceDMResponseDTO]>(value: [])
     var addmemberData = BehaviorRelay<[String]>(value: ["팀원추가"])
     
     
@@ -66,14 +66,17 @@ class WorkSpaceHomeInitViewController: BaseViewController {
             .bind(with: self) { owner, workspace in
                 if let workspace {
                     print("워크스페이스 있음")
-                    let channels = workspace.channels
-                    let member = workspace.workspaceMembers
-                    owner.channalData.accept(channels)
-                    owner.dmData.accept(member)
+//                    let channels = workspace.channels
+//                    let member = workspace.workspaceMembers
+//                    owner.channalData.accept(channels)
+//                    owner.dmData.accept(member)
+                    owner.channaltest(id: workspace.workspace_id)
+                    owner.dmtest(id: workspace.workspace_id)
                     owner.workSpaceNaviBar.setWorkspaceIcon(workspace: workspace)
                     owner.workSpaceNaviBar.setProfileIcon()
                 }
             }.disposed(by: disposeBag)
+        
         
         channalData
             .subscribe(onNext: { [weak self] _ in
@@ -95,11 +98,32 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       
-        
-        
+    func channaltest(id: Int) {
+        NetWorkManager.shared.request(type: [SearchMyChannelsResponseDTO].self, api: .searchMyChannels(SearchMyChannelsRequestDTO(id: id)))
+            .subscribe(with: self) { owner, value in
+                print("채널 조회 :",value)
+                owner.channalData.accept(value)
+            } onError: { _, error in
+                print("채널 조회 에러",error)
+            } onCompleted: { _ in
+                print("채널조회 완료")
+            } onDisposed: { _ in
+                print("채널조회 디스포즈")
+            }.disposed(by: disposeBag)
+
+    }
+    func dmtest(id: Int) {
+        NetWorkManager.shared.request(type: [SearchMyWorkSpaceDMResponseDTO].self, api: .searchMyDM(SearchMyWorkSpaceDMRequestDTO(id: id)))
+            .subscribe(with: self) { owner, value in
+                print("dm 조회 :",value)
+                owner.dmData.accept(value)
+            } onError: { _, error in
+                print("dm 조회 에러",error)
+            } onCompleted: { _ in
+                print("dm 조회 완료")
+            } onDisposed: { _ in
+                print("dm 조회 디스포즈")
+            }.disposed(by: disposeBag)
     }
     override func setHierarchy() {
         view.addSubview(workSpaceNaviBar)
@@ -256,7 +280,7 @@ extension WorkSpaceHomeInitViewController {
                 outlineItems = channalData.value.map { Item(title:$0.name) }
                 outlineItems.append(Item(title: "채널추가"))
             case .directmessage:
-                outlineItems = dmData.value.map { Item(title:$0.nickname) }
+                outlineItems = dmData.value.map { Item(title:$0.user.nickname) }
                 outlineItems.append(Item(title: "새 메시지 시작"))
             case .addMember:
                 outlineItems = addmemberData.value.map { Item(title:$0) }

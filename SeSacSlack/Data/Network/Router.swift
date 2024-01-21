@@ -27,6 +27,8 @@ enum Router: URLRequestConvertible {
     
     case searchMyChannels(SearchMyChannelsRequestDTO)
     
+    case searchMyDM(SearchMyWorkSpaceDMRequestDTO)
+    
     
     private var baseURL: URL {
         return URL(string: APIKey.baseURL)!
@@ -57,6 +59,9 @@ enum Router: URLRequestConvertible {
             
         case .searchMyChannels(let model):
             return "/v1/workspaces/\(model.id)/channels/my"
+            
+        case .searchMyDM(let model):
+            return "/v1/workspaces/\(model.id)/dms"
         }
     }
     
@@ -66,7 +71,8 @@ enum Router: URLRequestConvertible {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
                 .searchWorkSpaces, .searchWorkspace,
-                .searchMyChannels:
+                .searchMyChannels,
+                .searchMyDM:
             return ["SesacKey": Router.key ]
         case .refresh:
             return [
@@ -85,7 +91,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,.addWorkSpace:
             return .post
-        case .refresh,.searchWorkSpaces,.searchMyInfo, .searchMyChannels,.searchWorkspace:
+        case .refresh,.searchWorkSpaces,.searchMyInfo, .searchMyChannels,.searchWorkspace,.searchMyDM:
             return .get
         }
     }
@@ -108,7 +114,7 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(appleLoginRequestDTO, into: request)
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
-        case .refresh, .addWorkSpace, .searchWorkSpaces, .searchMyInfo, .searchMyChannels,.searchWorkspace:
+        case .refresh, .addWorkSpace, .searchWorkSpaces, .searchMyInfo, .searchMyChannels,.searchWorkspace,.searchMyDM:
             break
         }
         return request
