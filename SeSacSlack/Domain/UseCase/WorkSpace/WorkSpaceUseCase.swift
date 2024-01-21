@@ -13,6 +13,7 @@ import RxCocoa
 protocol WorkSpaceUseCase: AnyObject {
     func addWorkSpace(workSpace: AddWorkSpaceRequestDTO) -> Observable<AddWorkSpaceResponseDTO>
     func searchWorkSpaces() ->  Observable<[SearchWorkSpacesResponseDTO]>
+    func searchWorkSpace(workspace: SearchWorkSpaceRequestDTO) -> Observable<SearchWorkSpaceResponseDTO>
 }
 
 final class DefaultWorkSpaceUseCase: WorkSpaceUseCase {
@@ -28,6 +29,10 @@ final class DefaultWorkSpaceUseCase: WorkSpaceUseCase {
     
     func searchWorkSpaces() -> RxSwift.Observable<[SearchWorkSpacesResponseDTO]> {
         return workSpaceRepository.searchWorkSpaces()
+    }
+    
+    func searchWorkSpace(workspace: SearchWorkSpaceRequestDTO) -> Observable<SearchWorkSpaceResponseDTO> {
+        return workSpaceRepository.searchWorkspace(workspace: workspace)
     }
    
 }

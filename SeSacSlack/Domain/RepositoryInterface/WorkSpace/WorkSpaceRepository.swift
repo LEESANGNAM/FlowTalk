@@ -11,4 +11,5 @@ import RxSwift
 protocol WorkSpaceRepository: AnyObject {
     func addWorkSpace(workspace: AddWorkSpaceRequestDTO) -> Observable<AddWorkSpaceResponseDTO>
     func searchWorkSpaces() ->  Observable<[SearchWorkSpacesResponseDTO]>
+    func searchWorkspace(workspace: SearchWorkSpaceRequestDTO) -> Observable<SearchWorkSpaceResponseDTO>
 }
