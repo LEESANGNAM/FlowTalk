@@ -13,7 +13,7 @@ import RxCocoa
 class WorkSpaceHomeDefaultViewModel {
     
     let disposeBag = DisposeBag()
-    let channalData = BehaviorRelay<[SearchMyChannelsResponseDTO]>(value: [])
+    let channelData = BehaviorRelay<[SearchMyChannelsResponseDTO]>(value: [])
     let dmData = BehaviorRelay<[SearchMyWorkSpaceDMResponseDTO]>(value: [])
 
     
@@ -22,7 +22,7 @@ class WorkSpaceHomeDefaultViewModel {
     }
     
     struct Output {
-        let channalData: BehaviorRelay<[SearchMyChannelsResponseDTO]>
+        let channelData: BehaviorRelay<[SearchMyChannelsResponseDTO]>
         let dmData: BehaviorRelay<[SearchMyWorkSpaceDMResponseDTO]>
         let workspace: PublishRelay<SearchWorkSpaceResponseDTO>
     }
@@ -39,24 +39,24 @@ class WorkSpaceHomeDefaultViewModel {
             .bind(with: self) { owner, workspace in
                 if let workspace {
                     print("워크스페이스 있음")
-                    owner.channaltest(id: workspace.workspace_id)
+                    owner.channeltest(id: workspace.workspace_id)
                     owner.dmtest(id: workspace.workspace_id)
                     workspaceData.accept(workspace)
                 }
             }.disposed(by: disposeBag)
         
         return Output(
-            channalData: channalData,
+            channelData: channelData,
             dmData: dmData,
             workspace: workspaceData
         )
     }
     
-    func channaltest(id: Int) {
+    func channeltest(id: Int) {
         NetWorkManager.shared.request(type: [SearchMyChannelsResponseDTO].self, api: .searchMyChannels(SearchMyChannelsRequestDTO(id: id)))
             .subscribe(with: self) { owner, value in
                 print("채널 조회 :",value)
-                owner.channalData.accept(value)
+                owner.channelData.accept(value)
             } onError: { _, error in
                 print("채널 조회 에러",error)
             } onCompleted: { _ in
@@ -80,8 +80,8 @@ class WorkSpaceHomeDefaultViewModel {
             }.disposed(by: disposeBag)
     }
     
-    func getchannalArray() -> [SearchMyChannelsResponseDTO] {
-        return channalData.value
+    func getchannelArray() -> [SearchMyChannelsResponseDTO] {
+        return channelData.value
     }
     func getdmArray() -> [SearchMyWorkSpaceDMResponseDTO] {
         return dmData.value

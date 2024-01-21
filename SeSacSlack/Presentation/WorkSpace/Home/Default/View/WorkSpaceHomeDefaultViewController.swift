@@ -66,7 +66,7 @@ class WorkSpaceHomeInitViewController: BaseViewController {
         let input = WorkSpaceHomeDefaultViewModel.Input(viewWillAppear: self.rx.viewWillAppear.map { _ in})
         let output = viewModel.transform(input: input)
         
-        output.channalData
+        output.channelData
             .bind(with: self, onNext: { owner, _ in
                 owner.applyInitialSnapshots()
             }).disposed(by: disposeBag)
@@ -237,7 +237,7 @@ extension WorkSpaceHomeInitViewController {
             var outlineItems: [Item]
             switch category {
             case .channel:
-                outlineItems = viewModel.getchannalArray().map { Item(title:$0.name) }
+                outlineItems = viewModel.getchannelArray().map { Item(title:$0.name) }
                 outlineItems.append(Item(title: "채널추가"))
             case .directmessage:
                 outlineItems = viewModel.getdmArray().map { Item(title:$0.user.nickname) }

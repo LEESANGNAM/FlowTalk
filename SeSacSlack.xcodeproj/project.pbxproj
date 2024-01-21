@@ -108,6 +108,9 @@
 		D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */; };
 		D6DCA3882B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */; };
 		D6DCA38A2B5D419000236EDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */; };
+		D6DCA38E2B5D741300236EDB /* ChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA38D2B5D741300236EDB /* ChannelRepository.swift */; };
+		D6DCA3902B5D746E00236EDB /* DefaultChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA38F2B5D746E00236EDB /* DefaultChannelRepository.swift */; };
+		D6DCA3932B5D74D900236EDB /* ChannelUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3922B5D74D900236EDB /* ChannelUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +227,9 @@
 		D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyWorkSpaceDMRequestDTO.swift; sourceTree = "<group>"; };
 		D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyWorkSpaceDMResponseDTO.swift; sourceTree = "<group>"; };
 		D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		D6DCA38D2B5D741300236EDB /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
+		D6DCA38F2B5D746E00236EDB /* DefaultChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChannelRepository.swift; sourceTree = "<group>"; };
+		D6DCA3922B5D74D900236EDB /* ChannelUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +372,7 @@
 		D616D28A2B4879330012CFC5 /* RepositoryInterface */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA38B2B5D738900236EDB /* Channel */,
 				D6BA718C2B53DE4300D3FD00 /* WorkSpace */,
 				D6BA71532B4E918200D3FD00 /* Login */,
 				D616D28B2B48794E0012CFC5 /* Sign */,
@@ -384,6 +391,7 @@
 		D616D28E2B487B620012CFC5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA38C2B5D73FF00236EDB /* Channel */,
 				D6BA718F2B53DEFC00D3FD00 /* WorkSpace */,
 				D6BA71542B4E918E00D3FD00 /* Login */,
 				D616D28F2B487B700012CFC5 /* Sign */,
@@ -402,6 +410,7 @@
 		D616D2922B487CFC0012CFC5 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				D6DCA3912B5D74CD00236EDB /* Channel */,
 				D6BA71922B53DFE200D3FD00 /* WorkSpace */,
 				D6BA71572B4E91FF00D3FD00 /* Login */,
 				D616D2932B487D0C0012CFC5 /* Sign */,
@@ -908,6 +917,30 @@
 			path = DM;
 			sourceTree = "<group>";
 		};
+		D6DCA38B2B5D738900236EDB /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA38D2B5D741300236EDB /* ChannelRepository.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		D6DCA38C2B5D73FF00236EDB /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA38F2B5D746E00236EDB /* DefaultChannelRepository.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		D6DCA3912B5D74CD00236EDB /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				D6DCA3922B5D74D900236EDB /* ChannelUseCase.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1073,6 +1106,7 @@
 				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */,
+				D6DCA38E2B5D741300236EDB /* ChannelRepository.swift in Sources */,
 				D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */,
 				D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */,
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
@@ -1106,6 +1140,7 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
+				D6DCA3932B5D74D900236EDB /* ChannelUseCase.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */,
 				D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */,
@@ -1138,6 +1173,7 @@
 				D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */,
 				D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
+				D6DCA3902B5D746E00236EDB /* DefaultChannelRepository.swift in Sources */,
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
