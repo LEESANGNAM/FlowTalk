@@ -107,6 +107,7 @@
 		D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */; };
 		D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */; };
 		D6DCA3882B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */; };
+		D6DCA38A2B5D419000236EDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +223,7 @@
 		D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6DCA3852B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyWorkSpaceDMRequestDTO.swift; sourceTree = "<group>"; };
 		D6DCA3872B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMyWorkSpaceDMResponseDTO.swift; sourceTree = "<group>"; };
+		D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +550,7 @@
 				D616D29A2B4AAB750012CFC5 /* String+Extension.swift */,
 				D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */,
 				D6DCA36B2B5972E700236EDB /* RX+Extension.swift */,
+				D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
 				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,
 				D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */,
+				D6DCA38A2B5D419000236EDB /* UIImageView+Extension.swift in Sources */,
 				D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
