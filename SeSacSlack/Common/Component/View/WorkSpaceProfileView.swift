@@ -56,11 +56,17 @@ class WorkSpaceProfileView: BaseView {
     }
     
     
-    func setWorkspaceIcon(workspace: SearchWorkSpaceResponseDTO) {
-        let urlString = APIKey.baseURL + "/v1" + workspace.thumbnail
-        let imageSize = workSpaceImageView.frame.size
-        workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "dmIcon")
-        workSpaceNameLabel.text = workspace.name
+    func setWorkspaceIcon(workspace: SearchWorkSpaceResponseDTO? = nil) {
+        if let workspace {
+            let urlString = APIKey.baseURL + "/v1" + workspace.thumbnail
+            let imageSize = workSpaceImageView.frame.size
+            workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "dmIcon")
+            workSpaceNameLabel.text = workspace.name
+        } else {
+            workSpaceImageView.image = Icon.workspace.image
+            workSpaceNameLabel.text = "No WorkSpace"
+        }
+        
     }
     func setProfileIcon() {
         if let myinfo = MyInfoManager.shared.myinfo,

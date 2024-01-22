@@ -58,6 +58,8 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     
     func setUp() {
         workspaceCreateButton.addTarget(self, action: #selector(workspaceCreateButtonTapped), for: .touchUpInside)
+        navigationView.setProfileIcon()
+        navigationView.setWorkspaceIcon()
     }
     
     @objc

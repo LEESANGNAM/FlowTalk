@@ -38,7 +38,7 @@ class SplashViewModel {
                 if value {
                     isLogin.accept(true)
                     let workspace = owner.workSpaceUseCase.searchWorkSpaces()
-                    
+                    MyInfoManager().fetch()
                     workspace
                         .subscribe(with: self) { owner, workspace in
                             print("워크스페이스값:",workspace)
