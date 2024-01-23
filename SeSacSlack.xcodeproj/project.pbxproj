@@ -93,6 +93,8 @@
 		D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */; };
 		D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */; };
 		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */; };
+		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
+		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
 		D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */; };
 		D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */; };
@@ -218,6 +220,8 @@
 		D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceErrorType.swift; sourceTree = "<group>"; };
 		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewController.swift; sourceTree = "<group>"; };
+		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpacesResponseDTO.swift; sourceTree = "<group>"; };
@@ -576,6 +580,7 @@
 				D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */,
 				D6DCA36B2B5972E700236EDB /* RX+Extension.swift */,
 				D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */,
+				D6C7A2282B600CFA0007102A /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -836,6 +841,7 @@
 				D6DCA37B2B5A8A6A00236EDB /* ViewManager.swift */,
 				D6DCA37D2B5A967E00236EDB /* WorkSpaceManager.swift */,
 				D616D2A02B4BE2830012CFC5 /* UserDefaultsManager.swift */,
+				D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1188,6 +1194,7 @@
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
 				D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */,
+				D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D6DCA3802B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift in Sources */,
 				D6DCA39C2B5D779B00236EDB /* DMUseCase.swift in Sources */,
@@ -1218,6 +1225,7 @@
 				D6DCA3972B5D76AC00236EDB /* DMRepository.swift in Sources */,
 				D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
+				D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */,
 				D6BA71712B4EFED000D3FD00 /* EmailLoginResponseDTO.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
 				D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */,

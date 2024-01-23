@@ -12,6 +12,7 @@ import RxCocoa
 
 class WorkSpaceHomeInitViewController: BaseViewController {
     
+    let transition = SlideInTransition()
     
     enum Section: Int, Hashable, CaseIterable {
         case channel
@@ -68,6 +69,10 @@ class WorkSpaceHomeInitViewController: BaseViewController {
     @objc func handleScreenEdgePan(_ gesture: UIScreenEdgePanGestureRecognizer) {
         if gesture.state == .recognized {
             print("스와이프 제스처")
+            let vc = WorkSpaceListViewController()
+            vc.transitioningDelegate = self
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true)
         }
     }
     func bind() {
@@ -260,5 +265,18 @@ extension WorkSpaceHomeInitViewController {
         
     }
 }
+
+extension WorkSpaceHomeInitViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            transition.isPresenting = true
+            return transition
+        }
+
+        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            transition.isPresenting = false
+            return transition
+        }
+}
+
 
 
