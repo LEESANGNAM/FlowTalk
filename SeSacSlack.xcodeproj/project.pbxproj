@@ -58,6 +58,9 @@
 		D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */; };
 		D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA842B470CDF0054AD46 /* AuthViewController.swift */; };
 		D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654CA862B470D450054AD46 /* SNSLoginButton.swift */; };
+		D69D464D2B5ED1490044C756 /* WorkspaceListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */; };
+		D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */; };
+		D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -179,6 +182,9 @@
 		D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D654CA842B470CDF0054AD46 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		D654CA862B470D450054AD46 /* SNSLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginButton.swift; sourceTree = "<group>"; };
+		D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListEmptyView.swift; sourceTree = "<group>"; };
+		D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListViewController.swift; sourceTree = "<group>"; };
+		D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListView.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -458,6 +464,7 @@
 		D616D2A22B4BE5500012CFC5 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D69D46492B5ED1190044C756 /* List */,
 				D6BA715A2B4EC0F700D3FD00 /* Home */,
 				D6BA71812B52E34800D3FD00 /* Add */,
 				D616D2A32B4BE5780012CFC5 /* Init */,
@@ -628,6 +635,32 @@
 				D6BA71642B4EE1B300D3FD00 /* Email */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		D69D46492B5ED1190044C756 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				D69D464B2B5ED1290044C756 /* ViewModel */,
+				D69D464A2B5ED1240044C756 /* View */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		D69D464A2B5ED1240044C756 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */,
+				D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */,
+				D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D69D464B2B5ED1290044C756 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D6BA71532B4E918200D3FD00 /* Login */ = {
@@ -1148,6 +1181,7 @@
 				D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */,
 				D6DCA38A2B5D419000236EDB /* UIImageView+Extension.swift in Sources */,
 				D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */,
+				D69D464D2B5ED1490044C756 /* WorkspaceListEmptyView.swift in Sources */,
 				D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
@@ -1167,6 +1201,7 @@
 				D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */,
 				D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */,
 				D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */,
+				D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
@@ -1181,6 +1216,7 @@
 				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
 				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,
 				D6DCA3972B5D76AC00236EDB /* DMRepository.swift in Sources */,
+				D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
 				D6BA71712B4EFED000D3FD00 /* EmailLoginResponseDTO.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,

@@ -31,6 +31,7 @@ enum Icon: String {
     //ETC
     case close = "close"
     case plus = "plus"
+    case help = "help"
     
     case hashtag = "hashtag"
     case selecteHashtag = "selectHashtag"
