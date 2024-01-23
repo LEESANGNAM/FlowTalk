@@ -49,7 +49,7 @@ enum Colors {
         case .viewSeperator:
             return  UIColor(hexCode: "#ECECEC")
         case .alpha:
-            return  UIColor(hexCode: "#00000080", alpha: 0.5)
+            return  UIColor(hexCode: "#000000", alpha: 0.5)
         case .kakao:
             return UIColor(hexCode: "#FEE500")
         }
