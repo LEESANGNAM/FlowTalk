@@ -152,14 +152,7 @@ extension WorkSpaceAddViewController {
             .bind(with: self) { owner, value in
                 if value {
                     ViewManager.shared.changeRootView(
-                        WorkSpaceHomeInitViewController(
-                            viewModel: WorkSpaceHomeDefaultViewModel(
-                                dmUseCase: DefaultDMUseCase(
-                                    dmRepository: DefaultDMRepository()),
-                                channelUseCase: DefaultChannelUseCase(
-                                    channelRepository: DefaultChannelRepository())
-                            )
-                        )
+                        TabbarController()
                     )
                 }
             }.disposed(by: disposeBag)

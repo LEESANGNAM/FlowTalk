@@ -173,14 +173,7 @@ class EmailLoginViewController: BaseViewController {
                     let workspaceID = testModel[0].workspace_id
                     UserDefaultsManager.workSpaceId = workspaceID
                     ViewManager.shared.changeRootView(
-                        WorkSpaceHomeInitViewController(
-                            viewModel: WorkSpaceHomeDefaultViewModel(
-                                dmUseCase: DefaultDMUseCase(
-                                    dmRepository: DefaultDMRepository()),
-                                channelUseCase: DefaultChannelUseCase(
-                                    channelRepository: DefaultChannelRepository())
-                            )
-                        )
+                        TabbarController()
                     )
                 }
                 

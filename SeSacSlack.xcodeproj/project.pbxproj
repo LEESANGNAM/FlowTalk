@@ -95,6 +95,7 @@
 		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
+		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
 		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
 		D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */; };
 		D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */; };
@@ -222,6 +223,7 @@
 		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewController.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpacesResponseDTO.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 		D6BA715A2B4EC0F700D3FD00 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D6C7A22C2B6117990007102A /* Tabbar */,
 				D6BA719B2B54489500D3FD00 /* Default */,
 				D6BA71992B54346600D3FD00 /* Empty */,
 			);
@@ -824,6 +827,14 @@
 				D6DCA36D2B59B0EA00236EDB /* View */,
 			);
 			path = Default;
+			sourceTree = "<group>";
+		};
+		D6C7A22C2B6117990007102A /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				D6C7A22D2B6117A70007102A /* TabbarController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		D6DCA3582B57D91C00236EDB /* Cell */ = {
@@ -1200,6 +1211,7 @@
 				D6DCA39C2B5D779B00236EDB /* DMUseCase.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
+				D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */,
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */,

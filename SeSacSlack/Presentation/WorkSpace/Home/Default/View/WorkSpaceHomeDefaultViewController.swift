@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 
-class WorkSpaceHomeInitViewController: BaseViewController {
+class WorkSpaceHomeDefaultViewController: BaseViewController {
     
     let transition = SlideInTransition()
     
@@ -117,7 +117,7 @@ class WorkSpaceHomeInitViewController: BaseViewController {
     
 }
 
-extension WorkSpaceHomeInitViewController {
+extension WorkSpaceHomeDefaultViewController {
     
     func configureHierarchy() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
@@ -266,7 +266,7 @@ extension WorkSpaceHomeInitViewController {
     }
 }
 
-extension WorkSpaceHomeInitViewController: UIViewControllerTransitioningDelegate {
+extension WorkSpaceHomeDefaultViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             transition.isPresenting = true
             return transition

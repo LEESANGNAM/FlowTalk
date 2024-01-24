@@ -50,14 +50,7 @@ class SplashViewController: BaseViewController {
                 if isLogin && isworkspace {
                     print("워크스페이스 디폴트로 이동")
                     ViewManager.shared.changeRootView(
-                        WorkSpaceHomeInitViewController(
-                            viewModel: WorkSpaceHomeDefaultViewModel(
-                                dmUseCase: DefaultDMUseCase(
-                                    dmRepository: DefaultDMRepository()),
-                                channelUseCase: DefaultChannelUseCase(
-                                    channelRepository: DefaultChannelRepository())
-                            )
-                        )
+                        TabbarController()
                     )
                 } else if isLogin && !isworkspace {
                     print("워크스페이스 empty로 이동")
