@@ -62,29 +62,6 @@ class WorkSpaceInitViewController: BaseViewController {
     }
     
     @objc func closeButtonTapped() {
-            var testModel: [SearchWorkSpacesResponseDTO]!
-            
-            NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
-                .subscribe(with: self) { owner, value in
-                    print("워크스페이스 확인 ",value)
-                    testModel = value
-                } onError: { owner, error in
-                    print("워크스페이스 에러:",error)
-                } onCompleted: { _ in
-                    print("워크스페이스 찾기 완료")
-            
-                    if testModel.isEmpty {
-                        ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
-                    } else {
-                        let workspaceID = testModel[0].workspace_id
-                        UserDefaultsManager.workSpaceId = workspaceID
-                        ViewManager.shared.changeRootView(
-                            TabbarController()
-                        )
-                    }
-                    
-                } onDisposed: { _ in
-                    print("워크스페이스 찾기 디스포즈")
-                }.disposed(by: disposeBag)
+            WorkSpaceManager.shared.fetchArray()
         }
 }

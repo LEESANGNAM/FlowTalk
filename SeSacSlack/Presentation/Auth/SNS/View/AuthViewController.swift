@@ -82,8 +82,7 @@ class AuthViewController: BaseViewController {
         output.isSuccess
             .bind(with: self) { owner, result in
                 if result {
-                    print("로그인 성공 home Default 이동")
-                    owner.changeRootView()
+                    WorkSpaceManager.shared.fetchArray()
                 } else {
                     print("가만히 있기")
                 }
@@ -128,13 +127,6 @@ extension AuthViewController {
     
     private func showModal(viewController: UIViewController) {
         let vc = viewController
-//        let vc = SignUpViewController(
-//            viewModel: SignUpViewModel(
-//                signUseCase: DefaultSignUseCase(
-//                    signReposiroty: DefaultSignRepository()
-//                )
-//            )
-//        )
         let nav = UINavigationController(rootViewController: vc)
         
         if let sheet = nav.sheetPresentationController {
@@ -143,34 +135,6 @@ extension AuthViewController {
         }
         
         present(nav, animated: true)
-    }
-    private func changeRootView(){
-        var testModel: [SearchWorkSpacesResponseDTO]!
-        
-        NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
-            .subscribe(with: self) { owner, value in
-                print("워크스페이스 확인 ",value)
-                testModel = value
-            } onError: { owner, error in
-                print("워크스페이스 에러:",error)
-            } onCompleted: { _ in
-                print("워크스페이스 찾기 완료")
-        
-                if testModel.isEmpty {
-                    ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
-                } else {
-                    let workspaceID = testModel[0].workspace_id
-                    UserDefaultsManager.workSpaceId = workspaceID
-                    ViewManager.shared.changeRootView(
-                        TabbarController()
-                    )
-                }
-                
-            } onDisposed: { _ in
-                print("워크스페이스 찾기 디스포즈")
-            }.disposed(by: disposeBag)
-        
-        
     }
 }
 
@@ -222,18 +186,7 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
                 return
             }
             viewModel.appleToken.onNext(tokenToString)
-//
-//            print("appleIDCredential----------------------------")
-//            print("userIdentifier: ",userIdentifier)
-//            print("----------------------------")
-//            print("fullName: ",fullName ?? "No fullName")
-//            print("----------------------------")
-//            print("email: ",email ?? "No Email")
-//            print("----------------------------")
-//            print("token: ",token)
-//            print("----------------------------")
-//            print("tokenToString: ",tokenToString)
-//            print("----------------------------")
+
         case let passwordCredential as ASPasswordCredential:
             let username = passwordCredential.user
             let password = passwordCredential.password

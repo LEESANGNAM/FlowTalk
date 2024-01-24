@@ -31,11 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
             window = UIWindow(windowScene: scene)
             let vc = SplashViewController(
-                viewModel: SplashViewModel(
-                    workSpaceUseCase: DefaultWorkSpaceUseCase(
-                        workSpaceRepository: DefaultWorkSpaceRepository()
-                    )
-                )
+                viewModel: SplashViewModel()
             )
             window?.rootViewController = vc
             window?.makeKeyAndVisible()

@@ -41,21 +41,9 @@ class SplashViewController: BaseViewController {
         
         let output = viewModel.transform(input: input)
         
-        output.isLoginWorkspace
+        output.isLogin
             .bind(with: self) { owner, value in
-                print("콤바인값 :",value)
-                let isLogin = value.0
-                let isworkspace = value.1
-                
-                if isLogin && isworkspace {
-                    print("워크스페이스 디폴트로 이동")
-                    ViewManager.shared.changeRootView(
-                        TabbarController()
-                    )
-                } else if isLogin && !isworkspace {
-                    print("워크스페이스 empty로 이동")
-                    ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
-                } else {
+                if !value {
                     print("온보딩 뷰로 이동")
                     ViewManager.shared.changeRootView(OnBoardingViewController())
                 }

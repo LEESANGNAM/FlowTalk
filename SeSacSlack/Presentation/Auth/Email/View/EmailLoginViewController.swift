@@ -10,8 +10,8 @@ import RxSwift
 import RxCocoa
 
 class EmailLoginViewController: BaseViewController {
-    let emailLabel = CustomFontColorLabel(text: "이메일", font: Font.title2.fontWithLineHeight())
-    let passwordLabel = CustomFontColorLabel(text: "비밀번호",font: Font.title2.fontWithLineHeight())
+    let emailLabel = CustomFontColorLabel(text: "이메일", font: Font.title2.fontWithLineHeight(),textAlignment: .left)
+    let passwordLabel = CustomFontColorLabel(text: "비밀번호",font: Font.title2.fontWithLineHeight(),textAlignment: .left)
     
     let emailTextField = CustomPlaceHolderTextField("이메일을 입력하세요")
     let passwordTextField = CustomPlaceHolderTextField("비밀번호를을 입력하세요")
@@ -84,8 +84,7 @@ class EmailLoginViewController: BaseViewController {
         output.isSuccess
             .bind(with: self) { owner, result in
                 if result {
-                    print("로그인 성공 home Default 이동")
-                    owner.changeRootView()
+                    WorkSpaceManager.shared.fetchArray()
                 } else {
                     print("가만히 있기")
                 }
@@ -155,34 +154,7 @@ class EmailLoginViewController: BaseViewController {
         passwordTextField.delegate = self
     }
     
-    private func changeRootView(){
-        var testModel: [SearchWorkSpacesResponseDTO]!
-        
-        NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
-            .subscribe(with: self) { owner, value in
-                print("워크스페이스 확인 ",value)
-                testModel = value
-            } onError: { owner, error in
-                print("워크스페이스 에러:",error)
-            } onCompleted: { _ in
-                print("워크스페이스 찾기 완료")
-        
-                if testModel.isEmpty {
-                    ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
-                } else {
-                    let workspaceID = testModel[0].workspace_id
-                    UserDefaultsManager.workSpaceId = workspaceID
-                    ViewManager.shared.changeRootView(
-                        TabbarController()
-                    )
-                }
-                
-            } onDisposed: { _ in
-                print("워크스페이스 찾기 디스포즈")
-            }.disposed(by: disposeBag)
-        
-        
-    }
+
 }
 
 
