@@ -96,6 +96,9 @@
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
+		D6C7A2302B612E8A0007102A /* WorkSpaceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22F2B612E8A0007102A /* WorkSpaceListTableViewCell.swift */; };
+		D6C7A2322B612EA30007102A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2312B612EA30007102A /* BaseTableViewCell.swift */; };
+		D6C7A2342B6145170007102A /* CustomFontColorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2332B6145170007102A /* CustomFontColorLabel.swift */; };
 		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
 		D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */; };
 		D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */; };
@@ -224,6 +227,9 @@
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		D6C7A22F2B612E8A0007102A /* WorkSpaceListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListTableViewCell.swift; sourceTree = "<group>"; };
+		D6C7A2312B612EA30007102A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		D6C7A2332B6145170007102A /* CustomFontColorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontColorLabel.swift; sourceTree = "<group>"; };
 		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpacesResponseDTO.swift; sourceTree = "<group>"; };
@@ -310,6 +316,7 @@
 				D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */,
 				D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */,
 				D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */,
+				D6C7A2332B6145170007102A /* CustomFontColorLabel.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -614,6 +621,7 @@
 				D654CA7F2B46FDD60054AD46 /* BaseViewController.swift */,
 				D616D26D2B4833E00012CFC5 /* BaseView.swift */,
 				D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */,
+				D6C7A2312B612EA30007102A /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -841,6 +849,7 @@
 			isa = PBXGroup;
 			children = (
 				D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */,
+				D6C7A22F2B612E8A0007102A /* WorkSpaceListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1201,6 +1210,7 @@
 				D69D464D2B5ED1490044C756 /* WorkspaceListEmptyView.swift in Sources */,
 				D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
+				D6C7A2342B6145170007102A /* CustomFontColorLabel.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
 				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
@@ -1237,6 +1247,7 @@
 				D6DCA3972B5D76AC00236EDB /* DMRepository.swift in Sources */,
 				D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
+				D6C7A2322B612EA30007102A /* BaseTableViewCell.swift in Sources */,
 				D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */,
 				D6BA71712B4EFED000D3FD00 /* EmailLoginResponseDTO.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
@@ -1260,6 +1271,7 @@
 				D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
+				D6C7A2302B612E8A0007102A /* WorkSpaceListTableViewCell.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 				D6DCA37A2B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift in Sources */,
 				D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */,
