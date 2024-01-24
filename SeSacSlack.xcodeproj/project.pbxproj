@@ -11,7 +11,6 @@
 		D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */; };
 		D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D26D2B4833E00012CFC5 /* BaseView.swift */; };
 		D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */; };
-		D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */; };
 		D616D2782B48546C0012CFC5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D2772B48546C0012CFC5 /* Router.swift */; };
 		D616D27D2B4856A80012CFC5 /* EmailValidationRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */; };
 		D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */; };
@@ -80,8 +79,6 @@
 		D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */; };
 		D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */; };
 		D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */; };
-		D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */; };
-		D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */; };
 		D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */; };
 		D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */; };
 		D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */; };
@@ -147,7 +144,6 @@
 		D616D26B2B48338D0012CFC5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D616D26D2B4833E00012CFC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D616D2712B48419B0012CFC5 /* CustomPlaceHolderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceHolderTextField.swift; sourceTree = "<group>"; };
-		D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle2BlackLabel.swift; sourceTree = "<group>"; };
 		D616D2772B48546C0012CFC5 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D616D27C2B4856A80012CFC5 /* EmailValidationRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationRequestDTO.swift; sourceTree = "<group>"; };
 		D616D27E2B48570F0012CFC5 /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
@@ -211,8 +207,6 @@
 		D6BA71742B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshErrorType.swift; sourceTree = "<group>"; };
 		D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpErrorType.swift; sourceTree = "<group>"; };
-		D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitle1BlackLabel.swift; sourceTree = "<group>"; };
-		D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyBlackLabel.swift; sourceTree = "<group>"; };
 		D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceProfileView.swift; sourceTree = "<group>"; };
 		D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewController.swift; sourceTree = "<group>"; };
 		D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewModel.swift; sourceTree = "<group>"; };
@@ -313,9 +307,6 @@
 		D616D2702B48417C0012CFC5 /* Label */ = {
 			isa = PBXGroup;
 			children = (
-				D616D2732B48427C0012CFC5 /* CustomTitle2BlackLabel.swift */,
-				D6BA717A2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift */,
-				D6BA717C2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift */,
 				D6C7A2332B6145170007102A /* CustomFontColorLabel.swift */,
 			);
 			path = Label;
@@ -1188,14 +1179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D616D27F2B48570F0012CFC5 /* NetWorkManager.swift in Sources */,
-				D6BA717D2B5063FC00D3FD00 /* CustomBodyBlackLabel.swift in Sources */,
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D6DCA3882B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift in Sources */,
 				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
 				D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
-				D6BA717B2B5063EE00D3FD00 /* CustomTitle1BlackLabel.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */,
 				D6DCA38E2B5D741300236EDB /* ChannelRepository.swift in Sources */,
@@ -1213,7 +1202,6 @@
 				D6C7A2342B6145170007102A /* CustomFontColorLabel.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
 				D6BA715C2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift in Sources */,
-				D616D2742B48427C0012CFC5 /* CustomTitle2BlackLabel.swift in Sources */,
 				D6BA71522B4E90F100D3FD00 /* LoginRespository.swift in Sources */,
 				D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,

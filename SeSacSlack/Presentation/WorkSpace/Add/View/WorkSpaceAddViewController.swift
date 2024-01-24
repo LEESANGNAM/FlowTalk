@@ -38,8 +38,8 @@ class WorkSpaceAddViewController: BaseViewController {
         view.layer.borderColor = Colors.brandWhite.color.cgColor
         return view
     }()
-    let workSpaceNameLabel = CustomTitle2BlackLabel(text: "워크스페이스 이름")
-    let workSpaceInfoLabel = CustomTitle2BlackLabel(text: "워크스페이스 설명")
+    let workSpaceNameLabel = CustomFontColorLabel(text: "워크스페이스 이름", font: Font.title2.fontWithLineHeight())
+    let workSpaceInfoLabel = CustomFontColorLabel(text: "워크스페이스 설명", font: Font.title2.fontWithLineHeight())
     
     let workSpaceNameTextField = CustomPlaceHolderTextField("워크스페이스 이름을 입력하세요 (필수) ")
     let workSpaceInfoTextField = CustomPlaceHolderTextField("워크스페이스를 설명하세요 (옵션) ")

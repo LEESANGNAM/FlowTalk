@@ -10,8 +10,8 @@ import RxSwift
 import RxCocoa
 
 class EmailLoginViewController: BaseViewController {
-    let emailLabel = CustomTitle2BlackLabel(text: "이메일")
-    let passwordLabel = CustomTitle2BlackLabel(text: "비밀번호")
+    let emailLabel = CustomFontColorLabel(text: "이메일", font: Font.title2.fontWithLineHeight())
+    let passwordLabel = CustomFontColorLabel(text: "비밀번호",font: Font.title2.fontWithLineHeight())
     
     let emailTextField = CustomPlaceHolderTextField("이메일을 입력하세요")
     let passwordTextField = CustomPlaceHolderTextField("비밀번호를을 입력하세요")

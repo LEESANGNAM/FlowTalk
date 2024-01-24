@@ -9,8 +9,8 @@ import UIKit
 
 class WorkspaceListEmptyView: BaseView {
     
-    let titleLabel = CustomTitle1BlackLabel(text: "워크스페이스를\n찾을 수 없어요.")
-    let subtitleLabel = CustomBodyBlackLabel(text: "관리자에게 초대를 요청하거나,\n다른 이메일로 시도하거나\n새로운 워크스페이스를 생성해주세요.")
+    let titleLabel = CustomFontColorLabel(text: "워크스페이스를\n찾을 수 없어요.", font: Font.title1.fontWithLineHeight())
+    let subtitleLabel = CustomFontColorLabel(text: "관리자에게 초대를 요청하거나,\n다른 이메일로 시도하거나\n새로운 워크스페이스를 생성해주세요.", font: Font.body.fontWithLineHeight())
     let addButton = CustomBackgroundTitleButton(title: "워크스페이스 생성", color: Colors.brandGreen.color)
     
     

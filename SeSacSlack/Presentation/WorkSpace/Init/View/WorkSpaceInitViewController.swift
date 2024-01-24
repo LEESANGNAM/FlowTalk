@@ -11,8 +11,8 @@ import RxCocoa
 
 class WorkSpaceInitViewController: BaseViewController {
     
-    let titleLabel = CustomTitle1BlackLabel(text: "출시 준비 완료!")
-    let subtitleLabel = CustomBodyBlackLabel(text: "옹골찬 고래밥님의 조직을 위해 새로운 새싹톡 워크스페이스를 시작할 준비가 완료되었어요! ")
+    let titleLabel = CustomFontColorLabel(text: "출시 준비 완료!", font: Font.title1.fontWithLineHeight())
+    let subtitleLabel = CustomFontColorLabel(text: "옹골찬 고래밥님의 조직을 위해 새로운 새싹톡 워크스페이스를 시작할 준비가 완료되었어요! ", font: Font.body.fontWithLineHeight())
     let logoImageView = UIImageView(image: Icon.launching.image)
     let workspaceCreateButton = CustomBackgroundTitleButton(title: "워크스페이스 생성", color: Colors.brandGreen.color)
     let disposeBag = DisposeBag()

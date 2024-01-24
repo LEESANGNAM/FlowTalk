@@ -8,11 +8,11 @@
 import UIKit
 
 class SignUpView: BaseView {
-    lazy var emailLabel = CustomTitle2BlackLabel(text: "이메일")
-    lazy var nicknameLabel = CustomTitle2BlackLabel(text: "닉네임")
-    lazy var phoneNumLabel = CustomTitle2BlackLabel(text: "연락처")
-    lazy var passwordLabel = CustomTitle2BlackLabel(text: "비밀번호")
-    lazy var passwordCheckLabel = CustomTitle2BlackLabel(text: "비밀번호 확인")
+    lazy var emailLabel = CustomFontColorLabel(text: "이메일", font: Font.title2.fontWithLineHeight())
+    lazy var nicknameLabel = CustomFontColorLabel(text: "닉네임", font: Font.title2.fontWithLineHeight())
+    lazy var phoneNumLabel = CustomFontColorLabel(text: "연락처", font: Font.title2.fontWithLineHeight())
+    lazy var passwordLabel = CustomFontColorLabel(text: "비밀번호", font: Font.title2.fontWithLineHeight())
+    lazy var passwordCheckLabel = CustomFontColorLabel(text: "비밀번호 확인", font: Font.title2.fontWithLineHeight())
     
     lazy var emailTextField = CustomPlaceHolderTextField("이메일을 입력하세요")
     lazy var nicknameTextField = CustomPlaceHolderTextField("닉네임을 입력하세요")

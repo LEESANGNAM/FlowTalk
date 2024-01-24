@@ -16,7 +16,7 @@ class WorkSpaceListView: BaseView {
         return view
     }()
     
-    let navibarTitle = CustomTitle1BlackLabel(text: "워크스페이스")
+    let navibarTitle = CustomFontColorLabel(text: "워크스페이스", font: Font.title1.fontWithLineHeight())
     let navibar = {
         let view = UIView()
         view.backgroundColor = Colors.backgroundPrimary.color

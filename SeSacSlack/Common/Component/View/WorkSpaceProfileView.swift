@@ -26,7 +26,7 @@ class WorkSpaceProfileView: BaseView {
         return view
     }()
     let workSpaceNameLabel = {
-        let view = CustomTitle1BlackLabel(text: "No WorkSpace")
+        let view = CustomFontColorLabel(text: "No WorkSpace", font: Font.title1.fontWithLineHeight())
         view.textAlignment = .left
         return view
     }()
