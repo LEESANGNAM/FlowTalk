@@ -34,6 +34,10 @@ class WorkSpaceListView: BaseView {
         let view = UITableView()
         view.isHidden = true
         view.backgroundColor = Colors.brandWhite.color
+        view.register(WorkSpaceListTableViewCell.self, forCellReuseIdentifier: WorkSpaceListTableViewCell.identifier)
+        view.showsVerticalScrollIndicator = false
+        view.separatorStyle = .none
+        view.bounces = false
         return view
     }()
     
