@@ -9,8 +9,6 @@ import UIKit
 
 class WorkSpaceListTableViewCell: BaseTableViewCell {
     
-    static let identifier = "WorkSpaceListTableViewCell"
-    
     let backView = {
         let view = UIView()
         view.layer.cornerRadius = 8

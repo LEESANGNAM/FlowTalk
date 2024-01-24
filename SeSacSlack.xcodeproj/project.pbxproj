@@ -96,6 +96,7 @@
 		D6C7A2302B612E8A0007102A /* WorkSpaceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22F2B612E8A0007102A /* WorkSpaceListTableViewCell.swift */; };
 		D6C7A2322B612EA30007102A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2312B612EA30007102A /* BaseTableViewCell.swift */; };
 		D6C7A2342B6145170007102A /* CustomFontColorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2332B6145170007102A /* CustomFontColorLabel.swift */; };
+		D6C7A2362B6152430007102A /* ResusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2352B6152430007102A /* ResusableProtocol.swift */; };
 		D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */; };
 		D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */; };
 		D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */; };
@@ -224,6 +225,7 @@
 		D6C7A22F2B612E8A0007102A /* WorkSpaceListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListTableViewCell.swift; sourceTree = "<group>"; };
 		D6C7A2312B612EA30007102A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		D6C7A2332B6145170007102A /* CustomFontColorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontColorLabel.swift; sourceTree = "<group>"; };
+		D6C7A2352B6152430007102A /* ResusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResusableProtocol.swift; sourceTree = "<group>"; };
 		D6DCA3562B57D8C400236EDB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA3592B57D97700236EDB /* IconImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkSpacesResponseDTO.swift; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 				D654CA6E2B45C1390054AD46 /* Font.swift */,
 				D654CA742B46C2100054AD46 /* Icon.swift */,
 				D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */,
+				D6C7A2352B6152430007102A /* ResusableProtocol.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1206,6 +1209,7 @@
 				D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */,
 				D654CA852B470CDF0054AD46 /* AuthViewController.swift in Sources */,
 				D6DCA3802B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift in Sources */,
+				D6C7A2362B6152430007102A /* ResusableProtocol.swift in Sources */,
 				D6DCA39C2B5D779B00236EDB /* DMUseCase.swift in Sources */,
 				D654CA732B463C210054AD46 /* UIColor+Extension.swift in Sources */,
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
