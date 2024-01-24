@@ -26,6 +26,7 @@ final class WorkSpaceManager {
         
         result.subscribe(with: self) { owner, value in
             print("워크스페이스 한개조회 성공",value)
+            UserDefaultsManager.workSpaceId = value.workspace_id
             owner.workspace.accept(value)
         } onError: { owner, error in
             print("error: ",error)
@@ -44,9 +45,11 @@ final class WorkSpaceManager {
                 if value.isEmpty {
                     ViewManager.shared.changeRootView(WorkSpaceHomeEmptyViewController())
                 } else {
-                    let workspaceID = value[0].workspace_id
-                    UserDefaultsManager.workSpaceId = workspaceID
-                    owner.setID(workspaceID)
+                    print("마지막 접속 id: ",owner.id)
+                    if owner.id == 0 {
+                        let workspaceID = value[0].workspace_id
+                        owner.id = workspaceID
+                    }
                     ViewManager.shared.changeRootView(
                         TabbarController()
                     )
@@ -63,6 +66,7 @@ final class WorkSpaceManager {
     func setID(_ id: Int) {
         print("아이디넣음")
         self.id = id
+        fetch()
     }
     
     

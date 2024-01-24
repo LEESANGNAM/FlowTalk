@@ -57,10 +57,11 @@ class WorkSpaceProfileView: BaseView {
     
     
     func setWorkspaceIcon(workspace: SearchWorkSpaceResponseDTO? = nil) {
+        layoutIfNeeded()
         if let workspace {
             let urlString = APIKey.baseURL + "/v1" + workspace.thumbnail
             let imageSize = workSpaceImageView.frame.size
-            workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "dmIcon")
+            workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "workspace")
             workSpaceNameLabel.text = workspace.name
         } else {
             workSpaceImageView.image = Icon.workspace.image

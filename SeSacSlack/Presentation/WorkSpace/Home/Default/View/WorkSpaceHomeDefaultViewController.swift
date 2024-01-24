@@ -69,7 +69,7 @@ class WorkSpaceHomeDefaultViewController: BaseViewController {
     @objc func handleScreenEdgePan(_ gesture: UIScreenEdgePanGestureRecognizer) {
         if gesture.state == .recognized {
             print("스와이프 제스처")
-            let vc = WorkSpaceListViewController()
+            let vc = WorkSpaceListViewController(viewModel: WorkSpaceListViewModel())
             vc.transitioningDelegate = self
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true)

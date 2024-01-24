@@ -12,7 +12,6 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
     let backView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        view.backgroundColor = Colors.brandGray.color
         return view
     }()
     
@@ -31,6 +30,7 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
     let etcButton = {
         let view = UIButton()
         view.setImage(Icon.etc.image, for: .normal)
+        view.isHidden = true
         return view
     }()
     
@@ -40,6 +40,7 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
         backView.addSubview(nameLabel)
         backView.addSubview(dateLabel)
         backView.addSubview(etcButton)
+        selectionStyle = .none
     }
     
     override func setConstraint() {
@@ -74,7 +75,27 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
         }
     }
     
-    
+    func setData(data: SearchWorkSpacesResponseDTO) {
+        let selectWorkSpaceId = WorkSpaceManager.shared.id
+        if selectWorkSpaceId == data.workspace_id {
+            backView.backgroundColor = Colors.brandGray.color
+            etcButton.isHidden = false
+        } else {
+            backView.backgroundColor = Colors.brandWhite.color
+            etcButton.isHidden = true
+        }
+        
+        layoutIfNeeded()
+        let date = data.createdAt
+        let name = data.name
+        let urlString = APIKey.baseURL + "/v1" + data.thumbnail
+        print("urlString",urlString)
+        let size = iconImageView.frame.size
+        print("size",size)
+        iconImageView.setImage(with: urlString, frameSize: size, placeHolder: "workspace")
+        nameLabel.text = name
+        dateLabel.text = date
+    }
     
     
     

@@ -34,6 +34,7 @@ struct UserDefaultsManager {
         UserDefaultsManager.nickname = ""
         UserDefaultsManager.token = ""
         UserDefaultsManager.refresh = ""
+        UserDefaultsManager.workSpaceId = 0
     }
     
 }
