@@ -105,8 +105,10 @@ class WorkSpaceListViewController: BaseViewController {
         present(actionSheet, animated: true)
     }
     
-    @objc func cellETCButtonTapped() {
-        showActionSheet(isAdmin: true) {
+    @objc func cellETCButtonTapped(_ sender: UIButton) {
+        let data = viewModel.getworkSpace(index: sender.tag)
+        let isAdmin = data.owner_id == MyInfoManager.shared.myinfo?.user_id
+        showActionSheet(isAdmin: isAdmin) {
             print("편집")
         } deleteAction: {
             print("삭제")

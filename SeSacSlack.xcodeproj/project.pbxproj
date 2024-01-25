@@ -90,6 +90,8 @@
 		D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */; };
 		D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */; };
 		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */; };
+		D6BC02562B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */; };
+		D6BC02582B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -220,6 +222,8 @@
 		D6BA71952B53F37000D3FD00 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D6BA71972B54014500D3FD00 /* WorkSpaceErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceErrorType.swift; sourceTree = "<group>"; };
 		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewController.swift; sourceTree = "<group>"; };
+		D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
+		D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -937,6 +941,7 @@
 				D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */,
 				D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */,
 				D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */,
+				D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -946,6 +951,7 @@
 			children = (
 				D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */,
 				D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */,
+				D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1199,7 +1205,9 @@
 				D616D2832B4862BF0012CFC5 /* NetWorkErrorType.swift in Sources */,
 				D6BA71692B4EE3DF00D3FD00 /* EmailLoginViewModel.swift in Sources */,
 				D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */,
+				D6BC02582B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift in Sources */,
 				D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */,
+				D6BC02562B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA38A2B5D419000236EDB /* UIImageView+Extension.swift in Sources */,
 				D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */,
 				D69D464D2B5ED1490044C756 /* WorkspaceListEmptyView.swift in Sources */,
