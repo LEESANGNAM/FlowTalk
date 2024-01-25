@@ -114,6 +114,20 @@ class WorkSpaceListViewController: BaseViewController {
             print("삭제")
         } exitAction: {
             print("나가기")
+            if isAdmin {
+                print("관리자임 못나감")
+            } else {
+                NetWorkManager.shared.request(type: [ExitWorkSpaceResponseDTO].self, api: .exitWorkSpace(ExitWorkSpaceRequestDTO(id: data.workspace_id)))
+                    .subscribe(with: self) { owner, value in
+                        print("퇴장성공함, 남은데이터: ",value)
+                    } onError: { _, error in
+                        print("에러가 있을거임")
+                    } onCompleted: { _ in
+                        print("퇴장완료")
+                    } onDisposed: { _ in
+                        print("디스포즈")
+                    }.disposed(by: self.disposeBag)
+            }
         } adminChangeAction: {
             print("관리자변경")
         }
