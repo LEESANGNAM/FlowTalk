@@ -12,7 +12,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresenting: Bool = false
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.7
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -32,6 +32,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             // Animate the 'to' view controller's view sliding in from left to right
             UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
                 toViewController.view.frame.origin.x = 0
+                toViewController.view.backgroundColor = toViewController.view.backgroundColor?.withAlphaComponent(0.5)
             }, completion: { _ in
                 transitionContext.completeTransition(true)
             })
@@ -39,6 +40,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             // Animate the 'from' view controller's view sliding out from right to left
             UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
                 fromViewController.view.frame.origin.x = -containerView.frame.width
+                fromViewController.view.backgroundColor = fromViewController.view.backgroundColor?.withAlphaComponent(0.0)
             }, completion: { _ in
                 transitionContext.completeTransition(true)
             })

@@ -25,17 +25,8 @@ class WorkSpaceListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.alpha.color
+        view.backgroundColor = Colors.alpha.color.withAlphaComponent(0.0)
         
-//        WorkSpaceManager.shared.workspace
-//            .bind(with: self) { owner, workspace in
-//                if let workspace {
-//                    owner.mainView.showTableView()
-//                    owner.mainView.tableView.backgroundColor = .systemBlue
-//                } else {
-//                    owner.mainView.showEmptyView()
-//                }
-//            }
         setGesture()
         setTableView()
         bind()
