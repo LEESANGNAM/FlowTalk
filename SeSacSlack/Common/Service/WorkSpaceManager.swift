@@ -64,6 +64,9 @@ final class WorkSpaceManager {
     }
     
     func setID(_ id: Int) {
+        if self.id == id {
+            return
+        }
         print("아이디넣음")
         self.id = id
         fetch()

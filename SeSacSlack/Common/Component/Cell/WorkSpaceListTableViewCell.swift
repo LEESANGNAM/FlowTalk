@@ -35,7 +35,7 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
     }()
     
     override func setHierarchy() {
-        addSubview(backView)
+        contentView.addSubview(backView)
         backView.addSubview(iconImageView)
         backView.addSubview(nameLabel)
         backView.addSubview(dateLabel)

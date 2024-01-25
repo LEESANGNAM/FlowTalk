@@ -72,6 +72,52 @@ class WorkSpaceListViewController: BaseViewController {
         mainView.tableView.dataSource = self
     }
     
+    private func showActionSheet(isAdmin: Bool, editAction: @escaping () -> Void, deleteAction: @escaping () -> Void,exitAction: @escaping () -> Void , adminChangeAction: @escaping () -> Void) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        var actionArray: [UIAlertAction] = []
+        // 관리자일 경우에만 추가 액션들을 추가
+        if isAdmin {
+            let editAction = UIAlertAction(title: "워크스페이스 편집", style: .default) { _ in
+                editAction()
+            }
+            let exitAction = UIAlertAction(title: "워크스페이스 나가기", style: .default) { _ in
+                exitAction()
+            }
+            let adminChangeAction = UIAlertAction(title: "워크스페이스 관리자 변경", style: .default) { _ in
+                adminChangeAction()
+            }
+            let deleteAction = UIAlertAction(title: "워크스페이스 삭제", style: .destructive) { _ in
+                deleteAction()
+            }
+            actionArray.append(contentsOf: [editAction,exitAction,adminChangeAction,deleteAction])
+        } else {
+            let exitAction = UIAlertAction(title: "나가기", style: .default) { _ in
+                exitAction()
+            }
+            actionArray.append(exitAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        actionArray.append(cancelAction)
+        
+        actionArray.forEach { actionSheet.addAction($0) }
+        
+        present(actionSheet, animated: true)
+    }
+    
+    @objc func cellETCButtonTapped() {
+        showActionSheet(isAdmin: true) {
+            print("편집")
+        } deleteAction: {
+            print("삭제")
+        } exitAction: {
+            print("나가기")
+        } adminChangeAction: {
+            print("관리자변경")
+        }
+
+    }
+    
 }
 
 
@@ -84,6 +130,8 @@ extension WorkSpaceListViewController: UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkSpaceListTableViewCell.identifier, for: indexPath) as? WorkSpaceListTableViewCell  else { return UITableViewCell()}
         let data = viewModel.getworkSpace(index: indexPath.row)
         cell.setData(data: data)
+        cell.etcButton.tag = indexPath.row
+        cell.etcButton.addTarget(self, action: #selector(cellETCButtonTapped), for: .touchUpInside)
         return cell
     }
     
