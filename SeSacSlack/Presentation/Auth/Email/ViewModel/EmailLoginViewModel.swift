@@ -108,6 +108,7 @@ class EmailLoginViewModel {
                             token: emailuser.token.accessToken,
                             refresh: emailuser.token.refreshToken
                         )
+                        MyInfoManager.shared.fetch()
                         isSuccess.accept(true)
                     } onError: { owner, error in
                         print("에러 왜안나와",error)

@@ -92,6 +92,8 @@
 		D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */; };
 		D6BC02562B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */; };
 		D6BC02582B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */; };
+		D6BC025A2B63C91200BE1633 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02592B63C91200BE1633 /* CustomAlertViewController.swift */; };
+		D6BC025C2B63F7F800BE1633 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025B2B63F7F800BE1633 /* UIViewController+Extension.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -224,6 +226,8 @@
 		D6BA719C2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeDefaultViewController.swift; sourceTree = "<group>"; };
 		D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC02592B63C91200BE1633 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		D6BC025B2B63F7F800BE1633 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -565,6 +569,7 @@
 				D654CA742B46C2100054AD46 /* Icon.swift */,
 				D654CA762B46CC0F0054AD46 /* SF-Pro.ttf */,
 				D6C7A2352B6152430007102A /* ResusableProtocol.swift */,
+				D6BC02592B63C91200BE1633 /* CustomAlertViewController.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				D6DCA36B2B5972E700236EDB /* RX+Extension.swift */,
 				D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */,
 				D6C7A2282B600CFA0007102A /* UIView+Extension.swift */,
+				D6BC025B2B63F7F800BE1633 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1226,6 +1232,7 @@
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
 				D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */,
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
+				D6BC025A2B63C91200BE1633 /* CustomAlertViewController.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D6C7A2382B6152980007102A /* WorkSpaceListViewModel.swift in Sources */,
 				D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */,
@@ -1247,6 +1254,7 @@
 				D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */,
 				D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */,
 				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
+				D6BC025C2B63F7F800BE1633 /* UIViewController+Extension.swift in Sources */,
 				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,
 				D6DCA3972B5D76AC00236EDB /* DMRepository.swift in Sources */,
 				D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */,

@@ -115,7 +115,10 @@ class WorkSpaceListViewController: BaseViewController {
         } exitAction: {
             print("나가기")
             if isAdmin {
-                print("관리자임 못나감")
+                self.showCustomAlert(titleText: "워크스페이스 나가기", messageText: "회원님은 워크스페이스 관리자입니다. 워크스페이스 관리자를 다른 멤버로 변경한 후 나갈 수 있습니다.", okTitle: "확인") {
+                    print("나가기 액션 경고창 성공")
+                    self.dismiss(animated: true)
+                }
             } else {
                 NetWorkManager.shared.request(type: [ExitWorkSpaceResponseDTO].self, api: .exitWorkSpace(ExitWorkSpaceRequestDTO(id: data.workspace_id)))
                     .subscribe(with: self) { owner, value in
