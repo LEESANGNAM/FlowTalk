@@ -179,6 +179,7 @@ extension WorkSpaceListViewController: UITableViewDelegate, UITableViewDataSourc
         let data = viewModel.getworkSpace(index: indexPath.row)
         print("셀클릭 워크스페이스 정보",data)
         WorkSpaceManager.shared.setID(data.workspace_id)
+        dismiss(animated: true)
     }
     
     
