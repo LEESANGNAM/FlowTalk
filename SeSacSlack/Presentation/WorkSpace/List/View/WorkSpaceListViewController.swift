@@ -33,7 +33,10 @@ class WorkSpaceListViewController: BaseViewController {
     }
     
     private func bind() {
-        let input = WorkSpaceListViewModel.Input(viewwillApperEvent: self.rx.viewWillAppear.map{ _ in})
+        let input = WorkSpaceListViewModel.Input(
+            viewwillApperEvent: self.rx.viewWillAppear.map{ _ in},
+            addButtonTapped: mainView.addButton.rx.tap
+        )
         let output = viewModel.transform(input: input)
         
         output.workspaceData
@@ -51,8 +54,26 @@ class WorkSpaceListViewController: BaseViewController {
                 owner.mainView.tableView.reloadData()
             }.disposed(by: disposeBag)
         
+        output.addButtonTapped
+            .bind(with: self) { owner, _ in
+                owner.addButtonTapped()
+            }.disposed(by: disposeBag)
+        
+        
+        
     }
     
+    private func addButtonTapped() {
+        let vc = WorkSpaceAddViewController(
+            viewmodel: WorkSpaceAddViewModel(
+                workSpaceUseCase: DefaultWorkSpaceUseCase(
+                    workSpaceRepository: DefaultWorkSpaceRepository()
+                )
+            )
+        )
+        let nav = UINavigationController(rootViewController: vc )
+        present(nav, animated: true)
+    }
     
     private func setGesture() {
         let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePan(_:)))

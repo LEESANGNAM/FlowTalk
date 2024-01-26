@@ -14,10 +14,12 @@ class WorkSpaceListViewModel {
     let workspaceData = BehaviorRelay<[SearchWorkSpacesResponseDTO]>(value: [])
     struct Input {
         let viewwillApperEvent: Observable<Void>
+        let addButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
         let workspaceData: BehaviorRelay<[SearchWorkSpacesResponseDTO]>
+        let addButtonTapped: ControlEvent<Void>
     }
     
     func transform(input: Input) -> Output {
@@ -32,7 +34,10 @@ class WorkSpaceListViewModel {
         
         
         
-        return Output(workspaceData: workspaceData)
+        return Output(
+            workspaceData: workspaceData,
+            addButtonTapped: input.addButtonTapped
+        )
     }
     
     func getworkspaceCount() -> Int {
