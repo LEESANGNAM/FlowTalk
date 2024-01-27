@@ -141,7 +141,7 @@ class WorkSpaceEditViewModel {
             image: imageData
         )
         
-        let result = NetWorkManager.shared.request(type: EditWorkSpaceResponseDTO.self, api: .editWorkSpace(workspace))
+        let result = workSpaceUseCase.editWorkSpace(workSpace: workspace)
         result.subscribe(with: self) { owner, value in
             print("워크스페이스 수정",value)
         } onError: { owner, error in

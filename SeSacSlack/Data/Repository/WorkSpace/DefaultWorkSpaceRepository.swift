@@ -14,6 +14,10 @@ final class DefaultWorkSpaceRepository: WorkSpaceRepository {
         return NetWorkManager.shared.request(type: AddWorkSpaceResponseDTO.self, api: .addWorkSpace(workspace))
     }
     
+    func editWorkSpace(workspace: EditWorkSpaceRequestDTO) -> Observable<EditWorkSpaceResponseDTO> {
+        return NetWorkManager.shared.request(type: EditWorkSpaceResponseDTO.self, api: .editWorkSpace(workspace))
+    }
+    
     func searchWorkSpaces() -> Observable<[SearchWorkSpacesResponseDTO]> {
         return NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
     }
