@@ -94,6 +94,8 @@
 		D6BC02582B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */; };
 		D6BC025A2B63C91200BE1633 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02592B63C91200BE1633 /* CustomAlertViewController.swift */; };
 		D6BC025C2B63F7F800BE1633 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025B2B63F7F800BE1633 /* UIViewController+Extension.swift */; };
+		D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */; };
+		D6BC02602B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -228,6 +230,8 @@
 		D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC02592B63C91200BE1633 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		D6BC025B2B63F7F800BE1633 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -948,6 +952,7 @@
 				D6DCA35D2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift */,
 				D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */,
 				D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */,
+				D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 				D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */,
 				D6DCA37F2B5A9B0800236EDB /* SearchWorkSpaceRequestDTO.swift */,
 				D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */,
+				D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1243,6 +1249,7 @@
 				D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */,
 				D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
+				D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */,
@@ -1297,6 +1304,7 @@
 				D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
 				D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */,
+				D6BC02602B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,7 @@ enum Router: URLRequestConvertible {
     case searchWorkSpaces
     case searchWorkspace(SearchWorkSpaceRequestDTO)
     case exitWorkSpace(ExitWorkSpaceRequestDTO)
+    case editWorkSpace(EditWorkSpaceRequestDTO)
     
     case searchMyChannels(SearchMyChannelsRequestDTO)
     
@@ -59,6 +60,9 @@ enum Router: URLRequestConvertible {
             return "/v1/workspaces/\(model.id)"
         case .exitWorkSpace(let model):
             return "/v1/workspaces/\(model.id)/leave"
+        case .editWorkSpace(let model):
+            return "/v1/workspaces/\(model.id)"
+            
         case .searchMyChannels(let model):
             return "/v1/workspaces/\(model.id)/channels/my"
             
@@ -72,7 +76,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
-                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace,
+                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace,
                 .searchMyChannels,
                 .searchMyDM:
             return ["SesacKey": Router.key ]
@@ -98,6 +102,8 @@ enum Router: URLRequestConvertible {
                 .searchMyChannels,
                 .searchMyDM:
             return .get
+        case .editWorkSpace:
+            return .put
         }
     }
     
@@ -120,7 +126,7 @@ enum Router: URLRequestConvertible {
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
         case .refresh, .searchMyInfo,
-                .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace,
+                .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace,
                 .searchMyChannels,
                 .searchMyDM:
             break
@@ -140,6 +146,19 @@ extension Router {
             let name = addWorkSpaceRequestDTO.name
             let desctiption = addWorkSpaceRequestDTO.desctiption
             let image = addWorkSpaceRequestDTO.image
+            
+            multipart.append(name.data(using: .utf8)!, withName: "name")
+            if let desctiption {
+                multipart.append(desctiption.data(using: .utf8)!, withName: "desctiption")
+            }
+            multipart.append(image, withName: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
+            return multipart
+            
+        case .editWorkSpace(let editWorkSpaceRequestDTO):
+            let multipart = MultipartFormData()
+            let name = editWorkSpaceRequestDTO.name
+            let desctiption = editWorkSpaceRequestDTO.desctiption
+            let image = editWorkSpaceRequestDTO.image
             
             multipart.append(name.data(using: .utf8)!, withName: "name")
             if let desctiption {
