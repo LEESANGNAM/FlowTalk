@@ -62,6 +62,6 @@ class WorkSpaceInitViewController: BaseViewController {
     }
     
     @objc func closeButtonTapped() {
-            WorkSpaceManager.shared.fetchArray()
-        }
+        WorkSpaceManager.shared.fetchArrayAndChangeView()
+    }
 }

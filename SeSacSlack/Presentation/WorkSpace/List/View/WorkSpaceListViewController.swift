@@ -49,7 +49,7 @@ class WorkSpaceListViewController: BaseViewController {
                 }
             }.disposed(by: disposeBag)
         
-        WorkSpaceManager.shared.workspace
+        WorkSpaceManager.shared.workspaceArray
             .bind(with: self) { owner, _ in
                 owner.mainView.tableView.reloadData()
             }.disposed(by: disposeBag)

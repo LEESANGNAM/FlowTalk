@@ -32,7 +32,7 @@ class SplashViewModel {
                 if value {
                     isLogin.accept(true)
                     MyInfoManager.shared.fetch()
-                    WorkSpaceManager.shared.fetchArray()
+                    WorkSpaceManager.shared.fetchArrayAndChangeView()
                 } else {
                     isLogin.accept(false)
                 }

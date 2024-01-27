@@ -37,7 +37,7 @@ final class WorkSpaceManager {
         }.disposed(by: disposeBag)
     }
     
-    func fetchArray() {
+    func fetchArrayAndChangeView() {
         NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
             .subscribe(with: self) { owner, value in
                 print("워크스페이스 확인 ",value)
@@ -62,7 +62,19 @@ final class WorkSpaceManager {
                 print("워크스페이스 찾기 디스포즈")
             }.disposed(by: disposeBag)
     }
-    
+    func fetchArray() {
+        NetWorkManager.shared.request(type: [SearchWorkSpacesResponseDTO].self, api: .searchWorkSpaces)
+            .subscribe(with: self) { owner, value in
+                print("워크스페이스 확인 ",value)
+                owner.workspaceArray.accept(value)
+            } onError: { owner, error in
+                print("워크스페이스 에러:",error)
+            } onCompleted: { owner in
+                print("워크스페이스 찾기 완료")
+            } onDisposed: { _ in
+                print("워크스페이스 찾기 디스포즈")
+            }.disposed(by: disposeBag)
+    }
     func setID(_ id: Int) {
         if self.id == id {
             return

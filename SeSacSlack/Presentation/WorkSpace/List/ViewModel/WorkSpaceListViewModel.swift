@@ -27,12 +27,13 @@ class WorkSpaceListViewModel {
         
         input.viewwillApperEvent
             .bind(with: self) { owner, _ in
-                WorkSpaceManager.shared.workspaceArray
-                    .bind(to: owner.workspaceData)
-                    .disposed(by: owner.disposeBag)
+                WorkSpaceManager.shared.fetchArray()
+                
             }.disposed(by: disposeBag)
         
-        
+        WorkSpaceManager.shared.workspaceArray
+            .bind(to: workspaceData)
+            .disposed(by: disposeBag)
         
         return Output(
             workspaceData: workspaceData,

@@ -82,7 +82,7 @@ class AuthViewController: BaseViewController {
         output.isSuccess
             .bind(with: self) { owner, result in
                 if result {
-                    WorkSpaceManager.shared.fetchArray()
+                    WorkSpaceManager.shared.fetchArrayAndChangeView()
                 } else {
                     print("가만히 있기")
                 }
