@@ -107,11 +107,14 @@ class WorkSpaceEditViewController: BaseViewController {
     let viewmodel: WorkSpaceEditViewModel
     let disposeBag = DisposeBag()
     var picker: PHPickerViewController!
+    private let completeSubject = PublishSubject<Void>()
     init(viewmodel: WorkSpaceEditViewModel) {
         self.viewmodel = viewmodel
         super.init()
     }
     
+    
+        
 }
 
 extension WorkSpaceEditViewController {
@@ -167,6 +170,24 @@ extension WorkSpaceEditViewController {
                 }
             }.disposed(by: disposeBag)
         
+        output.isUpdate
+            .bind(with: self) { owner, value in
+                if value {
+                    owner.handleUpdate()
+                }
+            }.disposed(by: disposeBag)
+        
+    }
+    
+    //완료 동작
+    private func handleUpdate() {
+        completeSubject.onNext(())
+        dismiss(animated: true)
+    }
+
+    // 외부 구독용
+    func completeObservable() -> Observable<Void> {
+        return completeSubject.asObservable()
     }
     
     private func setNavigationBar() {

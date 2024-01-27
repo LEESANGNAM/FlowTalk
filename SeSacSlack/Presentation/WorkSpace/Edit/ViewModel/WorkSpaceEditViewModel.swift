@@ -25,7 +25,8 @@ class WorkSpaceEditViewModel {
     private let imageData = BehaviorRelay<Data?>(value: nil)
     
     private let errorMessage = PublishRelay<String>()
-    
+    let isSuccess = BehaviorRelay(value: false)
+    let isUpdate = BehaviorRelay(value: false)
     struct Input {
         let nameTextFieldChanged: ControlProperty<String>
         let descriptionTextFieldChanged: ControlProperty<String>
@@ -38,6 +39,7 @@ class WorkSpaceEditViewModel {
         let errorMessage: PublishRelay<String>
         let imageData: BehaviorRelay<Data?>
         let isSuccess: BehaviorRelay<Bool>
+        let isUpdate: BehaviorRelay<Bool>
         let workspaceData: BehaviorRelay<SearchWorkSpacesResponseDTO?>
     }
     
@@ -46,7 +48,7 @@ class WorkSpaceEditViewModel {
         let textValid = BehaviorRelay(value: false)
         let doneButtonValid = BehaviorRelay(value: false)
         let createSuccess = PublishRelay<Bool>()
-        let isSuccess = BehaviorRelay(value: false)
+        
         imageData.map { $0 != nil }
             .bind(to: imageValid)
             .disposed(by: disposeBag)
@@ -81,53 +83,9 @@ class WorkSpaceEditViewModel {
                         return
                     }
                     if let data = owner.workspaceData.value{
-                        let workspace = EditWorkSpaceRequestDTO(
-                            id: data.workspace_id,
-                            name: owner.nameText.value,
-                            desctiption: owner.descriptionText.value,
-                            image: imageData
-                        )
-                        
-                        let result = NetWorkManager.shared.request(type: EditWorkSpaceResponseDTO.self, api: .editWorkSpace(workspace))
-                        result.subscribe(with: self) { owner, value in
-                            print("워크스페이스 수정",value)
-                        } onError: { owner, error in
-                            if let workspaceError = error as? WorkSpaceErrorType{
-                                print("워크스페이스 에러,",workspaceError.message)
-                                isSuccess.accept(false)
-                            }else {
-                                print("error:",error)
-                                isSuccess.accept(false)
-                            }
-                        } onCompleted: { _ in
-                            print("워크스페이스 수정 완료")
-                        } onDisposed: { _ in
-                            print("워크스페이스 수정 디스포즈")
-                        }.disposed(by: owner.disposeBag)
+                        owner.EditWorkSpace(data: data, imageData: imageData)
                     } else {
-                        let workspace = AddWorkSpaceRequestDTO(
-                            name: owner.nameText.value,
-                            desctiption: owner.descriptionText.value,
-                            image: imageData
-                        )
-                        let result = owner.workSpaceUseCase.addWorkSpace(workSpace: workspace)
-                        result.subscribe(with: self) { owner, value in
-                            print("워크스페이스 생성 성공", value)
-                            UserDefaultsManager.workSpaceId = value.workspace_id
-                            isSuccess.accept(true)
-                        } onError: { owner, error in
-                            if let workspaceError = error as? WorkSpaceErrorType{
-                                print("워크스페이스 에러,",workspaceError.message)
-                                isSuccess.accept(false)
-                            }else {
-                                print("error:",error)
-                                isSuccess.accept(false)
-                            }
-                        } onCompleted: { _ in
-                            print("워크스페이스 생성 완료")
-                        } onDisposed: { _ in
-                            print("워크스페이스 생성 디스포즈")
-                        }.disposed(by: owner.disposeBag)
+                        owner.addWorkSpace(imageData: imageData)
                     }
                 }
             }.disposed(by: disposeBag)
@@ -140,11 +98,65 @@ class WorkSpaceEditViewModel {
             errorMessage: errorMessage,
             imageData: imageData,
             isSuccess: isSuccess,
+            isUpdate: isUpdate,
             workspaceData: workspaceData
         )
     }
     
     func setImageData(_ imageData: Data?) {
         self.imageData.accept(imageData)
+    }
+    
+    private func addWorkSpace(imageData: Data) {
+        let workspace = AddWorkSpaceRequestDTO(
+            name: nameText.value,
+            desctiption: descriptionText.value,
+            image: imageData
+        )
+        let result = workSpaceUseCase.addWorkSpace(workSpace: workspace)
+        result.subscribe(with: self) { owner, value in
+            print("워크스페이스 생성 성공", value)
+            UserDefaultsManager.workSpaceId = value.workspace_id
+        } onError: { owner, error in
+            if let workspaceError = error as? WorkSpaceErrorType{
+                print("워크스페이스 에러,",workspaceError.message)
+                owner.isSuccess.accept(false)
+            }else {
+                print("error:",error)
+                owner.isSuccess.accept(false)
+            }
+        } onCompleted: { owner in
+            print("워크스페이스 생성 완료")
+            owner.isSuccess.accept(true)
+        } onDisposed: { _ in
+            print("워크스페이스 생성 디스포즈")
+        }.disposed(by: disposeBag)
+    }
+    
+    private func EditWorkSpace(data: SearchWorkSpacesResponseDTO, imageData: Data) {
+        let workspace = EditWorkSpaceRequestDTO(
+            id: data.workspace_id,
+            name: nameText.value,
+            desctiption: descriptionText.value,
+            image: imageData
+        )
+        
+        let result = NetWorkManager.shared.request(type: EditWorkSpaceResponseDTO.self, api: .editWorkSpace(workspace))
+        result.subscribe(with: self) { owner, value in
+            print("워크스페이스 수정",value)
+        } onError: { owner, error in
+            if let workspaceError = error as? WorkSpaceErrorType{
+                print("워크스페이스 에러,",workspaceError.message)
+                owner.isUpdate.accept(false)
+            }else {
+                print("error:",error)
+                owner.isUpdate.accept(false)
+            }
+        } onCompleted: { owner in
+            print("워크스페이스 수정 완료")
+            owner.isUpdate.accept(true)
+        } onDisposed: { _ in
+            print("워크스페이스 수정 디스포즈")
+        }.disposed(by: disposeBag)
     }
 }

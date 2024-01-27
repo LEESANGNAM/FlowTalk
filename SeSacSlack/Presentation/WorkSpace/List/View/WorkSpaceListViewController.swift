@@ -167,6 +167,14 @@ class WorkSpaceListViewController: BaseViewController {
         vm.workspaceData.accept(data)
         vm.setImageData(WorkSpaceManager.shared.imageData)
         let vc = WorkSpaceEditViewController( viewmodel: vm )
+        
+        vc.completeObservable()
+            .bind(with: self) { owner, _ in
+                WorkSpaceManager.shared.fetchArray()
+                WorkSpaceManager.shared.fetch()
+                owner.showToast(message: "워크스페이스가 편집되었습니다.")
+            }.disposed(by: vc.disposeBag)
+        
         let nav = UINavigationController(rootViewController: vc )
         present(nav, animated: true)
     }
