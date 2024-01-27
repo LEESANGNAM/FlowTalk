@@ -64,8 +64,8 @@ class WorkSpaceListViewController: BaseViewController {
     }
     
     private func addButtonTapped() {
-        let vc = WorkSpaceAddViewController(
-            viewmodel: WorkSpaceAddViewModel(
+        let vc = WorkSpaceEditViewController(
+            viewmodel: WorkSpaceEditViewModel(
                 workSpaceUseCase: DefaultWorkSpaceUseCase(
                     workSpaceRepository: DefaultWorkSpaceRepository()
                 )
@@ -159,14 +159,14 @@ class WorkSpaceListViewController: BaseViewController {
 
     }
     private func showEditView(data: SearchWorkSpacesResponseDTO) {
-        let vm = WorkSpaceAddViewModel(
+        let vm = WorkSpaceEditViewModel(
             workSpaceUseCase: DefaultWorkSpaceUseCase(
                 workSpaceRepository: DefaultWorkSpaceRepository()
             )
         )
         vm.workspaceData.accept(data)
         vm.setImageData(WorkSpaceManager.shared.imageData)
-        let vc = WorkSpaceAddViewController( viewmodel: vm )
+        let vc = WorkSpaceEditViewController( viewmodel: vm )
         let nav = UINavigationController(rootViewController: vc )
         present(nav, animated: true)
     }

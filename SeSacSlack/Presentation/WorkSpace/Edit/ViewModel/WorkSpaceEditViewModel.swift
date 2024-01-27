@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class WorkSpaceAddViewModel {
+class WorkSpaceEditViewModel {
     
     let disposeBag = DisposeBag()
     let workSpaceUseCase: WorkSpaceUseCase

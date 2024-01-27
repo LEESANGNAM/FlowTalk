@@ -80,8 +80,8 @@
 		D6BA71772B4FEEEA00D3FD00 /* RefreshErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */; };
 		D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */; };
 		D6BA71802B52B78900D3FD00 /* WorkSpaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */; };
-		D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */; };
-		D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */; };
+		D6BA71832B52E35F00D3FD00 /* WorkSpaceEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71822B52E35F00D3FD00 /* WorkSpaceEditViewController.swift */; };
+		D6BA71872B53D82400D3FD00 /* WorkSpaceEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71862B53D82400D3FD00 /* WorkSpaceEditViewModel.swift */; };
 		D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */; };
 		D6BA718B2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */; };
 		D6BA718E2B53DE5C00D3FD00 /* WorkSpaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */; };
@@ -214,8 +214,8 @@
 		D6BA71762B4FEEEA00D3FD00 /* RefreshErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshErrorType.swift; sourceTree = "<group>"; };
 		D6BA71782B500F6200D3FD00 /* LoginSignUpErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpErrorType.swift; sourceTree = "<group>"; };
 		D6BA717F2B52B78900D3FD00 /* WorkSpaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceProfileView.swift; sourceTree = "<group>"; };
-		D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewController.swift; sourceTree = "<group>"; };
-		D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceAddViewModel.swift; sourceTree = "<group>"; };
+		D6BA71822B52E35F00D3FD00 /* WorkSpaceEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceEditViewController.swift; sourceTree = "<group>"; };
+		D6BA71862B53D82400D3FD00 /* WorkSpaceEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceEditViewModel.swift; sourceTree = "<group>"; };
 		D6BA71882B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA718A2B53DB8F00D3FD00 /* AddWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA718D2B53DE5C00D3FD00 /* WorkSpaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceRepository.swift; sourceTree = "<group>"; };
@@ -482,7 +482,7 @@
 			children = (
 				D69D46492B5ED1190044C756 /* List */,
 				D6BA715A2B4EC0F700D3FD00 /* Home */,
-				D6BA71812B52E34800D3FD00 /* Add */,
+				D6BA71812B52E34800D3FD00 /* Edit */,
 				D616D2A32B4BE5780012CFC5 /* Init */,
 			);
 			path = WorkSpace;
@@ -778,19 +778,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D6BA71812B52E34800D3FD00 /* Add */ = {
+		D6BA71812B52E34800D3FD00 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
 				D6BA71852B53D81500D3FD00 /* ViewModel */,
 				D6BA71842B53D80C00D3FD00 /* View */,
 			);
-			path = Add;
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		D6BA71842B53D80C00D3FD00 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA71822B52E35F00D3FD00 /* WorkSpaceAddViewController.swift */,
+				D6BA71822B52E35F00D3FD00 /* WorkSpaceEditViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 		D6BA71852B53D81500D3FD00 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA71862B53D82400D3FD00 /* WorkSpaceAddViewModel.swift */,
+				D6BA71862B53D82400D3FD00 /* WorkSpaceEditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1204,7 +1204,7 @@
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
-				D6BA71872B53D82400D3FD00 /* WorkSpaceAddViewModel.swift in Sources */,
+				D6BA71872B53D82400D3FD00 /* WorkSpaceEditViewModel.swift in Sources */,
 				D6DCA38E2B5D741300236EDB /* ChannelRepository.swift in Sources */,
 				D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */,
 				D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */,
@@ -1290,7 +1290,7 @@
 				D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
 				D6DCA3902B5D746E00236EDB /* DefaultChannelRepository.swift in Sources */,
-				D6BA71832B52E35F00D3FD00 /* WorkSpaceAddViewController.swift in Sources */,
+				D6BA71832B52E35F00D3FD00 /* WorkSpaceEditViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
 				D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */,

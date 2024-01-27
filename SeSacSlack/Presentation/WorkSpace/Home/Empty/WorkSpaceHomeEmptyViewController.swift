@@ -64,8 +64,8 @@ class WorkSpaceHomeEmptyViewController: BaseViewController {
     
     @objc
     private func workspaceCreateButtonTapped() {
-        let vc = WorkSpaceAddViewController(
-            viewmodel: WorkSpaceAddViewModel(
+        let vc = WorkSpaceEditViewController(
+            viewmodel: WorkSpaceEditViewModel(
                 workSpaceUseCase: DefaultWorkSpaceUseCase(
                     workSpaceRepository: DefaultWorkSpaceRepository()
                 )

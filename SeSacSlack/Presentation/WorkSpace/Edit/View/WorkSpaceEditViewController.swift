@@ -10,7 +10,7 @@ import PhotosUI
 import RxSwift
 import RxCocoa
 
-class WorkSpaceAddViewController: BaseViewController {
+class WorkSpaceEditViewController: BaseViewController {
     let posterImageView = {
         let view = UIImageView()
         view.backgroundColor = Colors.brandGreen.color
@@ -104,17 +104,17 @@ class WorkSpaceAddViewController: BaseViewController {
         }
     }
     
-    let viewmodel: WorkSpaceAddViewModel
+    let viewmodel: WorkSpaceEditViewModel
     let disposeBag = DisposeBag()
     var picker: PHPickerViewController!
-    init(viewmodel: WorkSpaceAddViewModel) {
+    init(viewmodel: WorkSpaceEditViewModel) {
         self.viewmodel = viewmodel
         super.init()
     }
     
 }
 
-extension WorkSpaceAddViewController {
+extension WorkSpaceEditViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +124,7 @@ extension WorkSpaceAddViewController {
     }
     
     private func bind() {
-        let input = WorkSpaceAddViewModel.Input(
+        let input = WorkSpaceEditViewModel.Input(
             nameTextFieldChanged: workSpaceNameTextField.rx.text.orEmpty,
             descriptionTextFieldChanged: workSpaceInfoTextField.rx.text.orEmpty,
             doneButtonTapped: doneButton.rx.tap)
@@ -194,7 +194,7 @@ extension WorkSpaceAddViewController {
 }
 
 
-extension WorkSpaceAddViewController: PHPickerViewControllerDelegate{
+extension WorkSpaceEditViewController: PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         let itemProvider = results.first?.itemProvider // 2
