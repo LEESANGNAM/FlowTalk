@@ -131,6 +131,7 @@ class WorkSpaceListViewController: BaseViewController {
         let isAdmin = data.owner_id == MyInfoManager.shared.myinfo?.user_id
         showActionSheet(isAdmin: isAdmin) {
             print("편집")
+            self.showEditView(data: data)
         } deleteAction: {
             print("삭제")
         } exitAction: {
@@ -157,7 +158,18 @@ class WorkSpaceListViewController: BaseViewController {
         }
 
     }
-    
+    private func showEditView(data: SearchWorkSpacesResponseDTO) {
+        let vm = WorkSpaceAddViewModel(
+            workSpaceUseCase: DefaultWorkSpaceUseCase(
+                workSpaceRepository: DefaultWorkSpaceRepository()
+            )
+        )
+        vm.workspaceData.accept(data)
+        vm.setImageData(WorkSpaceManager.shared.imageData)
+        let vc = WorkSpaceAddViewController( viewmodel: vm )
+        let nav = UINavigationController(rootViewController: vc )
+        present(nav, animated: true)
+    }
 }
 
 

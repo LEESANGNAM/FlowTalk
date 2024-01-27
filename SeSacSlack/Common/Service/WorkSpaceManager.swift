@@ -16,6 +16,7 @@ final class WorkSpaceManager {
     
     
     var id = UserDefaultsManager.workSpaceId
+    var imageData: Data? = nil
     var workspace = BehaviorRelay<SearchWorkSpaceResponseDTO?>(value: nil)
     var workspaceArray = BehaviorRelay<[SearchWorkSpacesResponseDTO]>(value: [])
     let disposeBag = DisposeBag()

@@ -61,7 +61,9 @@ class WorkSpaceProfileView: BaseView {
         if let workspace {
             let urlString = APIKey.baseURL + "/v1" + workspace.thumbnail
             let imageSize = workSpaceImageView.frame.size
-            workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "workspace")
+            workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "workspace") { image in
+                WorkSpaceManager.shared.imageData = image?.jpegData(compressionQuality: 1.0)
+            }
             workSpaceNameLabel.text = workspace.name
         } else {
             workSpaceImageView.image = Icon.workspace.image

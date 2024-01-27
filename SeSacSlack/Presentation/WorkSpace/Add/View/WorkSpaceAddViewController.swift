@@ -141,6 +141,16 @@ extension WorkSpaceAddViewController {
                 owner.showToast(message: errorText)
             }.disposed(by: disposeBag)
         
+        output.workspaceData
+            .bind(with: self) { owner, workspace in
+                guard let workspace else { return }
+                owner.workSpaceNameTextField.text = workspace.name
+                owner.workSpaceInfoTextField.text = workspace.description
+                owner.doneButton.setTitle("저장", for: .normal)
+                owner.posterButton.setImage(nil, for: .normal)
+                owner.posterButton.setImage(nil, for: .highlighted)
+            }.disposed(by: disposeBag)
+        
         output.imageData
             .bind(with: self) { owner, data in
                 if let data {
