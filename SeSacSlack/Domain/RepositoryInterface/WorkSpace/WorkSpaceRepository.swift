@@ -13,4 +13,5 @@ protocol WorkSpaceRepository: AnyObject {
     func editWorkSpace(workspace: EditWorkSpaceRequestDTO) -> Observable<EditWorkSpaceResponseDTO>
     func searchWorkSpaces() ->  Observable<[SearchWorkSpacesResponseDTO]>
     func searchWorkspace(workspace: SearchWorkSpaceRequestDTO) -> Observable<SearchWorkSpaceResponseDTO>
+    func deleteWorkSpace(workspace: DeleteWorkSpaceRequestDTO) -> Observable<EmptyResponseDTO>
 }

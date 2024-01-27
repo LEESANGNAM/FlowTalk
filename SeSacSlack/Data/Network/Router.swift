@@ -26,6 +26,7 @@ enum Router: URLRequestConvertible {
     case searchWorkspace(SearchWorkSpaceRequestDTO)
     case exitWorkSpace(ExitWorkSpaceRequestDTO)
     case editWorkSpace(EditWorkSpaceRequestDTO)
+    case deleteWorkSpace(DeleteWorkSpaceRequestDTO)
     
     case searchMyChannels(SearchMyChannelsRequestDTO)
     
@@ -62,6 +63,8 @@ enum Router: URLRequestConvertible {
             return "/v1/workspaces/\(model.id)/leave"
         case .editWorkSpace(let model):
             return "/v1/workspaces/\(model.id)"
+        case .deleteWorkSpace(let model):
+            return "/v1/workspaces/\(model.id)"
             
         case .searchMyChannels(let model):
             return "/v1/workspaces/\(model.id)/channels/my"
@@ -76,7 +79,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
-                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace,
+                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMyChannels,
                 .searchMyDM:
             return ["SesacKey": Router.key ]
@@ -104,6 +107,8 @@ enum Router: URLRequestConvertible {
             return .get
         case .editWorkSpace:
             return .put
+        case .deleteWorkSpace:
+            return .delete
         }
     }
     
@@ -126,7 +131,7 @@ enum Router: URLRequestConvertible {
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
         case .refresh, .searchMyInfo,
-                .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace,
+                .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMyChannels,
                 .searchMyDM:
             break

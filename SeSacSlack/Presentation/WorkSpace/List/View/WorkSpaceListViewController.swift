@@ -59,7 +59,10 @@ class WorkSpaceListViewController: BaseViewController {
                 owner.addButtonTapped()
             }.disposed(by: disposeBag)
         
-        
+        output.deleteSuccess
+            .bind(with: self) { owner, _ in
+                owner.dismiss(animated: true)
+            }.disposed(by: disposeBag)
         
     }
     
@@ -134,6 +137,14 @@ class WorkSpaceListViewController: BaseViewController {
             self.showEditView(data: data)
         } deleteAction: {
             print("삭제")
+            self.showCustomAlert(titleText: "워크스페이스 삭제", messageText: "정말 이 워크스페이스를 삭제하시겠습니까? 삭제 시 채널/멤버/채팅 등 워크스페이스 내의 모든 정보가 삭제되며 복구할 수 없습니다.", okTitle: "삭제", cancelTitle: "취소") {
+                print("삭제액션")
+                self.viewModel.deleteWorkSpace(data: data)
+            } cancelAction: {
+                print("취소액션")
+                self.dismiss(animated: true)
+            }
+
         } exitAction: {
             print("나가기")
             if isAdmin {

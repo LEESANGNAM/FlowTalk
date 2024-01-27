@@ -68,6 +68,10 @@ final class WorkSpaceManager {
             .subscribe(with: self) { owner, value in
                 print("워크스페이스 확인 ",value)
                 owner.workspaceArray.accept(value)
+                if owner.id == 0 {
+                    let workspaceID = value[0].workspace_id
+                    owner.setID(workspaceID)
+                }
             } onError: { owner, error in
                 print("워크스페이스 에러:",error)
             } onCompleted: { owner in
