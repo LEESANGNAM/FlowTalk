@@ -111,7 +111,6 @@ class EmailLoginViewModel {
                         MyInfoManager.shared.fetch()
                         isSuccess.accept(true)
                     } onError: { owner, error in
-                        print("에러 왜안나와",error)
                         if let networkError = error as? CommonErrorType {
                             print("이메일로그인 실패",networkError.message)
                             owner.message.accept(networkError.message)

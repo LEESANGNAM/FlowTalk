@@ -64,7 +64,6 @@ class WorkSpaceListViewModel {
         let workspace = DeleteWorkSpaceRequestDTO(id: data.workspace_id)
         workspaceUseCase.deleteWorkspace(workspace: workspace)
             .subscribe(with: self) { owner, _ in
-                print("삭제됨")
             } onError: { owner, error in
                 print("삭제 에러있음",error)
             } onCompleted: { owner in

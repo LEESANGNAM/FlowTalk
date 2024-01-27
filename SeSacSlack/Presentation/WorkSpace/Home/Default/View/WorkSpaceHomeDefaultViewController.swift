@@ -68,7 +68,6 @@ class WorkSpaceHomeDefaultViewController: BaseViewController {
     
     @objc func handleScreenEdgePan(_ gesture: UIScreenEdgePanGestureRecognizer) {
         if gesture.state == .recognized {
-            print("스와이프 제스처")
             let vc = WorkSpaceListViewController(
                 viewModel: WorkSpaceListViewModel(
                     workspaceUseCase: DefaultWorkSpaceUseCase(
@@ -203,7 +202,7 @@ extension WorkSpaceHomeDefaultViewController {
                     break
                 }
                 let itemCount = self.collectionView.numberOfItems(inSection: indexPath.section)
-                print("\(indexPath.section)섹션 아이템 갯수 ",itemCount)
+//                print("\(indexPath.section)섹션 아이템 갯수 ",itemCount)
                 if indexPath.item == itemCount - 1 {
                     cell.setupLast(title: text)
                     cell.setupChatCount(nil)

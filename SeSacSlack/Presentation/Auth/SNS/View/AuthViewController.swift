@@ -83,8 +83,6 @@ class AuthViewController: BaseViewController {
             .bind(with: self) { owner, result in
                 if result {
                     WorkSpaceManager.shared.fetchArrayAndChangeView()
-                } else {
-                    print("가만히 있기")
                 }
             }.disposed(by: disposeBag)
         
@@ -190,11 +188,11 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
         case let passwordCredential as ASPasswordCredential:
             let username = passwordCredential.user
             let password = passwordCredential.password
-            print("passwordCredential----------------------------")
-            print("username: ",username)
-            print("----------------------------")
-            print("password: ",password)
-            print("----------------------------")
+//            print("passwordCredential----------------------------")
+//            print("username: ",username)
+//            print("----------------------------")
+//            print("password: ",password)
+//            print("----------------------------")
             
             
         default: break

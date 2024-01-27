@@ -84,9 +84,7 @@ class WorkSpaceListViewController: BaseViewController {
         view.addGestureRecognizer(edgePanGesture)
     }
     @objc func handleScreenEdgePan(_ gesture: UIScreenEdgePanGestureRecognizer) {
-        print("제스처 상태 확인",gesture.state)
         if gesture.state == .recognized {
-            print("스와이프 제스처")
             dismiss(animated: true)
         }
     }
@@ -133,23 +131,17 @@ class WorkSpaceListViewController: BaseViewController {
         let data = viewModel.getworkSpace(index: sender.tag)
         let isAdmin = data.owner_id == MyInfoManager.shared.myinfo?.user_id
         showActionSheet(isAdmin: isAdmin) {
-            print("편집")
             self.showEditView(data: data)
         } deleteAction: {
-            print("삭제")
             self.showCustomAlert(titleText: "워크스페이스 삭제", messageText: "정말 이 워크스페이스를 삭제하시겠습니까? 삭제 시 채널/멤버/채팅 등 워크스페이스 내의 모든 정보가 삭제되며 복구할 수 없습니다.", okTitle: "삭제", cancelTitle: "취소") {
-                print("삭제액션")
                 self.viewModel.deleteWorkSpace(data: data)
             } cancelAction: {
-                print("취소액션")
                 self.dismiss(animated: true)
             }
-
         } exitAction: {
             print("나가기")
             if isAdmin {
                 self.showCustomAlert(titleText: "워크스페이스 나가기", messageText: "회원님은 워크스페이스 관리자입니다. 워크스페이스 관리자를 다른 멤버로 변경한 후 나갈 수 있습니다.", okTitle: "확인") {
-                    print("나가기 액션 경고창 성공")
                     self.dismiss(animated: true)
                 }
             } else {
@@ -208,7 +200,6 @@ extension WorkSpaceListViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = viewModel.getworkSpace(index: indexPath.row)
-        print("셀클릭 워크스페이스 정보",data)
         WorkSpaceManager.shared.setID(data.workspace_id)
         dismiss(animated: true)
     }

@@ -85,8 +85,6 @@ class EmailLoginViewController: BaseViewController {
             .bind(with: self) { owner, result in
                 if result {
                     WorkSpaceManager.shared.fetchArrayAndChangeView()
-                } else {
-                    print("가만히 있기")
                 }
             }.disposed(by: disposeBag)
         

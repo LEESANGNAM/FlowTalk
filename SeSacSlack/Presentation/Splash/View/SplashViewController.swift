@@ -44,7 +44,6 @@ class SplashViewController: BaseViewController {
         output.isLogin
             .bind(with: self) { owner, value in
                 if !value {
-                    print("온보딩 뷰로 이동")
                     ViewManager.shared.changeRootView(OnBoardingViewController())
                 }
             }.disposed(by: disposeBag)

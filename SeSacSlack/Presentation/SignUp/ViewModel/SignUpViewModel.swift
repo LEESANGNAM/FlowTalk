@@ -138,7 +138,6 @@ class SignUpViewModel {
                 
                 owner.signUseCase.emailValidation(email: owner.emailText)
                     .subscribe(with: self) { owner, value in
-                        print("이메일 체크 성공 했음",value)
                         owner.message.accept("사용가능한 이메일 입니다.")
                         owner.emailCheck.accept(true)
                     } onError: { owner, error in
@@ -146,10 +145,6 @@ class SignUpViewModel {
                             owner.message.accept(networkError.message)
                             owner.emailCheck.accept(false)
                         }
-                    } onCompleted: { _ in
-                        print("이메일체크 완료")
-                    } onDisposed: { _ in
-                        print("이메일 체크 디스포즈")
                     }.disposed(by: owner.disposeBag)
             }.disposed(by: disposeBag)
         
@@ -206,8 +201,6 @@ class SignUpViewModel {
                 
                 owner.signUseCase.signUp(user: user)
                     .subscribe(with: self) { owner, value in
-                        print("가입하기 탭탭탭")
-                        print("가입 성공!:",value)
                         //가입 성공값 저장
                         let userid = value.user_id
                         let nickname = value.nickname

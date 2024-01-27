@@ -45,7 +45,6 @@ class WorkSpaceHomeDefaultViewModel {
         WorkSpaceManager.shared.workspace
             .bind(with: self) { owner, workspace in
                 if let workspace {
-                    print("워크스페이스 있음")
                     owner.channeltest(id: workspace.workspace_id)
                     owner.dmtest(id: workspace.workspace_id)
                     workspaceData.accept(workspace)
@@ -62,28 +61,28 @@ class WorkSpaceHomeDefaultViewModel {
    private func channeltest(id: Int) {
        channelUseCase.searchMyChannels(model: SearchMyChannelsRequestDTO(id: id))
             .subscribe(with: self) { owner, value in
-                print("채널 조회 :",value)
+//                print("채널 조회 :",value)
                 owner.channelData.accept(value)
             } onError: { _, error in
-                print("채널 조회 에러",error)
+//                print("채널 조회 에러",error)
             } onCompleted: { _ in
-                print("채널조회 완료")
+//                print("채널조회 완료")
             } onDisposed: { _ in
-                print("채널조회 디스포즈")
+//                print("채널조회 디스포즈")
             }.disposed(by: disposeBag)
 
     }
     private func dmtest(id: Int) {
         dmUseCase.searchMyWorkSpaceDM(model: SearchMyWorkSpaceDMRequestDTO(id: id))
             .subscribe(with: self) { owner, value in
-                print("dm 조회 :",value)
+//                print("dm 조회 :",value)
                 owner.dmData.accept(value)
             } onError: { _, error in
-                print("dm 조회 에러",error)
+//                print("dm 조회 에러",error)
             } onCompleted: { _ in
-                print("dm 조회 완료")
+//                print("dm 조회 완료")
             } onDisposed: { _ in
-                print("dm 조회 디스포즈")
+//                print("dm 조회 디스포즈")
             }.disposed(by: disposeBag)
     }
     
