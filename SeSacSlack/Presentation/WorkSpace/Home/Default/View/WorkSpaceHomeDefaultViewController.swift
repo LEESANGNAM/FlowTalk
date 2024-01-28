@@ -128,6 +128,7 @@ extension WorkSpaceHomeDefaultViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(collectionView)
+        collectionView.delegate = self
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(workSpaceNaviBar.snp.bottom)
             make.horizontalEdges.equalToSuperview()
@@ -283,5 +284,20 @@ extension WorkSpaceHomeDefaultViewController: UIViewControllerTransitioningDeleg
         }
 }
 
+extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = Section(rawValue: indexPath.section)
+        if section == .addMember {
+            print("팀원추가")
+            let vc = AddMemberViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            if let sheet = nav.sheetPresentationController {
+                sheet.detents = [.large()]
+                sheet.prefersGrabberVisible = true
+            }
+            present(nav, animated: true)
+        }
+    }
+}
 
 

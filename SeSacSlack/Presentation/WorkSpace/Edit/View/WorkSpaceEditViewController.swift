@@ -38,8 +38,8 @@ class WorkSpaceEditViewController: BaseViewController {
         view.layer.borderColor = Colors.brandWhite.color.cgColor
         return view
     }()
-    let workSpaceNameLabel = CustomFontColorLabel(text: "워크스페이스 이름", font: Font.title2.fontWithLineHeight())
-    let workSpaceInfoLabel = CustomFontColorLabel(text: "워크스페이스 설명", font: Font.title2.fontWithLineHeight())
+    let workSpaceNameLabel = CustomFontColorLabel(text: "워크스페이스 이름", font: Font.title2.fontWithLineHeight(),textAlignment: .left)
+    let workSpaceInfoLabel = CustomFontColorLabel(text: "워크스페이스 설명", font: Font.title2.fontWithLineHeight(),textAlignment: .left)
     
     let workSpaceNameTextField = CustomPlaceHolderTextField("워크스페이스 이름을 입력하세요 (필수) ")
     let workSpaceInfoTextField = CustomPlaceHolderTextField("워크스페이스를 설명하세요 (옵션) ")
@@ -136,7 +136,7 @@ extension WorkSpaceEditViewController {
         output.doneButtonValid
             .bind(with: self) { owner, value in
                 owner.doneButton.isEnabled = value
-                owner.doneButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandGray.color
+                owner.doneButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
             }.disposed(by: disposeBag)
         
         output.errorMessage

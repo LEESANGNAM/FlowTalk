@@ -98,6 +98,7 @@
 		D6BC02602B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */; };
 		D6BC02622B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */; };
 		D6BC02642B665A5A00BE1633 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02632B665A5A00BE1633 /* Date+Extension.swift */; };
+		D6BC02682B66A51700BE1633 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02672B66A51700BE1633 /* AddMemberViewController.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -236,6 +237,7 @@
 		D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC02632B665A5A00BE1633 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D6BC02672B66A51700BE1633 /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		D616D2A22B4BE5500012CFC5 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02652B66A50A00BE1633 /* Add */,
 				D69D46492B5ED1190044C756 /* List */,
 				D6BA715A2B4EC0F700D3FD00 /* Home */,
 				D6BA71812B52E34800D3FD00 /* Edit */,
@@ -852,6 +855,22 @@
 				D6DCA36D2B59B0EA00236EDB /* View */,
 			);
 			path = Default;
+			sourceTree = "<group>";
+		};
+		D6BC02652B66A50A00BE1633 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02662B66A51100BE1633 /* View */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		D6BC02662B66A51100BE1633 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02672B66A51700BE1633 /* AddMemberViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D6C7A22C2B6117990007102A /* Tabbar */ = {
@@ -1311,6 +1330,7 @@
 				D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
+				D6BC02682B66A51700BE1633 /* AddMemberViewController.swift in Sources */,
 				D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */,
 				D6BC02602B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift in Sources */,
 			);
