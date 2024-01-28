@@ -14,4 +14,8 @@ struct SearchWorkSpacesResponseDTO: Decodable {
     let thumbnail: String
     let owner_id: Int
     let createdAt: String
+    
+    var createDate: String {
+        return self.createdAt.toDate()?.yyMMddFormattedDateString() ?? createdAt
+    }
 }

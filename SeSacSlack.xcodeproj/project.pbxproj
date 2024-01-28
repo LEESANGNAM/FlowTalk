@@ -97,6 +97,7 @@
 		D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */; };
 		D6BC02602B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */; };
 		D6BC02622B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */; };
+		D6BC02642B665A5A00BE1633 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02632B665A5A00BE1633 /* Date+Extension.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -234,6 +235,7 @@
 		D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC02632B665A5A00BE1633 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 				D6DCA3892B5D419000236EDB /* UIImageView+Extension.swift */,
 				D6C7A2282B600CFA0007102A /* UIView+Extension.swift */,
 				D6BC025B2B63F7F800BE1633 /* UIViewController+Extension.swift */,
+				D6BC02632B665A5A00BE1633 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1300,6 +1303,7 @@
 				D6DCA3572B57D8C400236EDB /* BaseCollectionViewCell.swift in Sources */,
 				D6BA71962B53F37000D3FD00 /* UIImage+Extension.swift in Sources */,
 				D6BA71732B4FEC8600D3FD00 /* Interceptor.swift in Sources */,
+				D6BC02642B665A5A00BE1633 /* Date+Extension.swift in Sources */,
 				D6DCA3902B5D746E00236EDB /* DefaultChannelRepository.swift in Sources */,
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceEditViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,

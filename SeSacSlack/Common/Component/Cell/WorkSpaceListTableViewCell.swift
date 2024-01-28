@@ -86,7 +86,7 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
         }
         
         layoutIfNeeded()
-        let date = data.createdAt
+        let date = data.createDate
         let name = data.name
         let urlString = APIKey.baseURL + "/v1" + data.thumbnail
         let size = iconImageView.frame.size
