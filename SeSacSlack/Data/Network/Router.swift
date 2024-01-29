@@ -27,6 +27,7 @@ enum Router: URLRequestConvertible {
     case exitWorkSpace(ExitWorkSpaceRequestDTO)
     case editWorkSpace(EditWorkSpaceRequestDTO)
     case deleteWorkSpace(DeleteWorkSpaceRequestDTO)
+    case addMemberWorkspace(AddMemberWorkSpaceRequestDTO)
     
     case searchMyChannels(SearchMyChannelsRequestDTO)
     
@@ -65,6 +66,8 @@ enum Router: URLRequestConvertible {
             return "/v1/workspaces/\(model.id)"
         case .deleteWorkSpace(let model):
             return "/v1/workspaces/\(model.id)"
+        case .addMemberWorkspace(let model):
+            return "/v1/workspaces/\(model.id)/members"
             
         case .searchMyChannels(let model):
             return "/v1/workspaces/\(model.id)/channels/my"
@@ -80,6 +83,7 @@ enum Router: URLRequestConvertible {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
                 .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
+                .addMemberWorkspace,
                 .searchMyChannels,
                 .searchMyDM:
             return ["SesacKey": Router.key ]
@@ -98,7 +102,8 @@ enum Router: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,.addWorkSpace:
+        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
+                .addWorkSpace, .addMemberWorkspace:
             return .post
         case .refresh, .searchMyInfo,
                 .searchWorkSpaces, .searchWorkspace, .exitWorkSpace,
@@ -130,6 +135,8 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(appleLoginRequestDTO, into: request)
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
+        case .addMemberWorkspace(let addMemberWorkSpaceRequestDTO):
+            request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addMemberWorkSpaceRequestDTO, into: request)
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMyChannels,
