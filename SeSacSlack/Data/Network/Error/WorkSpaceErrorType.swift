@@ -11,6 +11,9 @@ enum WorkSpaceErrorType: String, Error {
     case duplicationError = "E12"
     case badRequest = "E11"
     case coinError = "E21"
+    case unownedData = "E13"
+    case noPermission = "E14"
+    case exitRejec = "E15"
     
     var message: String {
         switch self {
@@ -20,6 +23,12 @@ enum WorkSpaceErrorType: String, Error {
             return "잘못된 요청입니다."
         case .coinError:
             return "새싹코인부족"
+        case .unownedData:
+            return "존재하지않는 데이터"
+        case .noPermission:
+            return "권한없음"
+        case .exitRejec:
+            return "요청거절,채널관리자는 워크스페이스 못나감"
         }
     }
 }
