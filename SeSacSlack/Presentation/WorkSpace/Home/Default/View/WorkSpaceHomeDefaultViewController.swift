@@ -289,7 +289,7 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         let section = Section(rawValue: indexPath.section)
         if section == .addMember {
             print("팀원추가")
-            let vc = AddMemberViewController()
+            let vc = AddMemberViewController(viewModel: AddMemberViewModel())
             let nav = UINavigationController(rootViewController: vc)
             if let sheet = nav.sheetPresentationController {
                 sheet.detents = [.large()]

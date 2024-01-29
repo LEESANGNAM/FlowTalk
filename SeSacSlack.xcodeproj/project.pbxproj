@@ -99,6 +99,9 @@
 		D6BC02622B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */; };
 		D6BC02642B665A5A00BE1633 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02632B665A5A00BE1633 /* Date+Extension.swift */; };
 		D6BC02682B66A51700BE1633 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02672B66A51700BE1633 /* AddMemberViewController.swift */; };
+		D6BC026B2B678C2800BE1633 /* AddMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026A2B678C2800BE1633 /* AddMemberViewModel.swift */; };
+		D6BC026D2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */; };
+		D6BC026F2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -238,6 +241,9 @@
 		D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC02632B665A5A00BE1633 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D6BC02672B66A51700BE1633 /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
+		D6BC026A2B678C2800BE1633 /* AddMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewModel.swift; sourceTree = "<group>"; };
+		D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
+		D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -860,6 +866,7 @@
 		D6BC02652B66A50A00BE1633 /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02692B678C1C00BE1633 /* ViewModel */,
 				D6BC02662B66A51100BE1633 /* View */,
 			);
 			path = Add;
@@ -871,6 +878,14 @@
 				D6BC02672B66A51700BE1633 /* AddMemberViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D6BC02692B678C1C00BE1633 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC026A2B678C2800BE1633 /* AddMemberViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D6C7A22C2B6117990007102A /* Tabbar */ = {
@@ -977,6 +992,7 @@
 				D6DCA3812B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift */,
 				D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */,
 				D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */,
+				D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -989,6 +1005,7 @@
 				D6BC02572B62D5D800BE1633 /* ExitWorkSpaceRequestDTO.swift */,
 				D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */,
 				D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */,
+				D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1231,6 +1248,7 @@
 				D616D29D2B4B12200012CFC5 /* SignUpRequestDTO.swift in Sources */,
 				D6DCA3882B5D2FB500236EDB /* SearchMyWorkSpaceDMResponseDTO.swift in Sources */,
 				D6BA71942B53E00100D3FD00 /* WorkSpaceUseCase.swift in Sources */,
+				D6BC026B2B678C2800BE1633 /* AddMemberViewModel.swift in Sources */,
 				D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
@@ -1275,6 +1293,7 @@
 				D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */,
 				D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
+				D6BC026F2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift in Sources */,
 				D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
@@ -1282,6 +1301,7 @@
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
+				D6BC026D2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA3932B5D74D900236EDB /* ChannelUseCase.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
 				D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */,

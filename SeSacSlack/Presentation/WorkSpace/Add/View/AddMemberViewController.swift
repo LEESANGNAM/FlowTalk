@@ -39,10 +39,47 @@ class AddMemberViewController: BaseViewController {
         }
     }
     
+    
+    let disposeBag = DisposeBag()
+    
+    let viewModel: AddMemberViewModel
+    init(viewModel: AddMemberViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        bind()
     }
+    
+    func bind() {
+        let input = AddMemberViewModel.Input(
+            emailTextFieldChange: emailTextField.rx.text.orEmpty,
+            doneButtonTapped: doneButton.rx.tap
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.errorMessage
+            .bind(with: self) { owner, errorText in
+                owner.showToast(message: errorText)
+            }.disposed(by: disposeBag)
+        
+        output.isEmptyCheck
+            .bind(with: self) { owner, value in
+                owner.doneButton.isEnabled = value
+                owner.doneButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
+            }.disposed(by: disposeBag)
+        
+        output.isSuccess
+            .bind(with: self) { owner, value in
+                print("통신성공하면 변경할 예정",value)
+            }.disposed(by: disposeBag)
+        
+    }
+    
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))
         backButtonItem.tintColor = Colors.brandBlack.color
