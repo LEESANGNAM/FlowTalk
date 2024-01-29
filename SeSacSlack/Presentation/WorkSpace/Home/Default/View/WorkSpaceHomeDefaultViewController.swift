@@ -290,6 +290,13 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         if section == .addMember {
             print("팀원추가")
             let vc = AddMemberViewController(viewModel: AddMemberViewModel())
+            
+            vc.completeObservable()
+                .bind(with: self) { owner, _ in
+                    WorkSpaceManager.shared.fetch()
+                    owner.showToast(message: "멤버를 성공적으로 초대했습니다.")
+                }.disposed(by: vc.disposeBag)
+            
             let nav = UINavigationController(rootViewController: vc)
             if let sheet = nav.sheetPresentationController {
                 sheet.detents = [.large()]

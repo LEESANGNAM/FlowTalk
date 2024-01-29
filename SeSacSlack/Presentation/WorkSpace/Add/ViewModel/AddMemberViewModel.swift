@@ -51,10 +51,20 @@ class AddMemberViewModel {
                     result
                     .subscribe(with: self) { owner, value in
                         print("멤버추가 요청 성공:", value)
-                    } onError: { _, error in
-                        print("멤버추가 error",error)
+                    } onError: { owner, error in
+                        if let commonError = error as? CommonErrorType {
+                            let code = commonError.code
+                            if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                                if workspaceError == .unownedUser {
+                                    errorMessage.accept("회원 정보를 찾을 수 없습니다.")
+                                } else if workspaceError == .duplicationError {
+                                    errorMessage.accept("이미 워크스페이스에 소속된 팀원이에요")
+                                }
+                            }
+                        }
                     } onCompleted: { _ in
                         print("멤버추가 완료")
+                        isSuccess.accept(true)
                     } onDisposed: { _ in
                         print("멤버추가 디스포즈")
                     }.disposed(by: owner.disposeBag)

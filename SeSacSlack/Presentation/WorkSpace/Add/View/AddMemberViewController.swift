@@ -41,7 +41,7 @@ class AddMemberViewController: BaseViewController {
     
     
     let disposeBag = DisposeBag()
-    
+    private let completeSubject = PublishSubject<Void>()
     let viewModel: AddMemberViewModel
     init(viewModel: AddMemberViewModel) {
         self.viewModel = viewModel
@@ -75,9 +75,22 @@ class AddMemberViewController: BaseViewController {
         
         output.isSuccess
             .bind(with: self) { owner, value in
-                print("통신성공하면 변경할 예정",value)
+                if value {
+                    owner.addMemeberSuccess()
+                }
             }.disposed(by: disposeBag)
         
+    }
+    
+    //완료 동작
+    private func addMemeberSuccess() {
+        completeSubject.onNext(())
+        dismiss(animated: true)
+    }
+
+    // 외부 구독용
+    func completeObservable() -> Observable<Void> {
+        return completeSubject.asObservable()
     }
     
     private func setNavigationBar() {

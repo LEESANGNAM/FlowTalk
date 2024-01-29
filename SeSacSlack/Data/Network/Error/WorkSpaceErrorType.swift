@@ -14,7 +14,7 @@ enum WorkSpaceErrorType: String, Error {
     case unownedData = "E13"
     case noPermission = "E14"
     case exitRejec = "E15"
-    
+    case unownedUser = "E03"
     var message: String {
         switch self {
         case .duplicationError:
@@ -29,6 +29,8 @@ enum WorkSpaceErrorType: String, Error {
             return "권한없음"
         case .exitRejec:
             return "요청거절,채널관리자는 워크스페이스 못나감"
+        case .unownedUser:
+            return "회원정보를 찾을 수 없습니다."
         }
     }
 }
