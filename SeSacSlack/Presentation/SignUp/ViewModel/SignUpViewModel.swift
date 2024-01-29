@@ -141,9 +141,12 @@ class SignUpViewModel {
                         owner.message.accept("사용가능한 이메일 입니다.")
                         owner.emailCheck.accept(true)
                     } onError: { owner, error in
-                        if let networkError = error as? LoginSignUpErrorType {
-                            owner.message.accept(networkError.message)
-                            owner.emailCheck.accept(false)
+                        if let networkError = error as? CommonErrorType {
+                            print("이메일중복 실패",networkError.message)
+                            let code = networkError.code
+                            if let loginError = LoginSignUpErrorType(rawValue: code) {
+                                owner.message.accept(loginError.message)
+                            }
                         }
                     }.disposed(by: owner.disposeBag)
             }.disposed(by: disposeBag)

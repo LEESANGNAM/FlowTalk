@@ -65,7 +65,13 @@ class WorkSpaceListViewModel {
         workspaceUseCase.deleteWorkspace(workspace: workspace)
             .subscribe(with: self) { owner, _ in
             } onError: { owner, error in
-                print("삭제 에러있음",error)
+                if let networkError = error as? CommonErrorType {
+                    print("커먼에러:",networkError.message)
+                    let code = networkError.code
+                    if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                        print("워크스페이스 에러:",workspaceError.message)
+                    }
+                }
             } onCompleted: { owner in
                 WorkSpaceManager.shared.id = 0
                 WorkSpaceManager.shared.fetchArray()

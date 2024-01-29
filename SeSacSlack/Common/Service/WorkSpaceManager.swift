@@ -56,7 +56,13 @@ final class WorkSpaceManager {
                     )
                 }
             } onError: { owner, error in
-                print("워크스페이스 에러:",error)
+                if let networkError = error as? CommonErrorType {
+                    print("커먼에러:",networkError.message)
+                    let code = networkError.code
+                    if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                        print("워크스페이스 에러:",workspaceError.message)
+                    }
+                }
             } onCompleted: { owner in
                 print("워크스페이스 찾기 완료")
             } onDisposed: { _ in
@@ -73,7 +79,13 @@ final class WorkSpaceManager {
                     owner.setID(workspaceID)
                 }
             } onError: { owner, error in
-                print("워크스페이스 에러:",error)
+                if let networkError = error as? CommonErrorType {
+                    print("커먼에러:",networkError.message)
+                    let code = networkError.code
+                    if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                        print("워크스페이스 에러:",workspaceError.message)
+                    }
+                }
             } onCompleted: { owner in
                 print("워크스페이스 찾기 완료")
             } onDisposed: { _ in

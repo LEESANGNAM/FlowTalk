@@ -36,19 +36,22 @@ class Interceptor: RequestInterceptor {
                 UserDefaultsManager.token = value.accessToken
                 completion(.retry)
             } onError: { owner, error in
-                if let tokenError = error as? RefreshErrorType {
-                    switch tokenError {
-                    case .validToken:
-                        completion(.doNotRetry)
-                    case .unownedUser:
-                        completion(.doNotRetry)
-                        ViewManager.shared.resetRootView()
-                    case .refreshTokenEnd:
-                        completion(.doNotRetry)
-                        ViewManager.shared.resetRootView()
-                    case .authFailed:
-                        completion(.doNotRetry)
-                        ViewManager.shared.resetRootView()
+                if let networkError = error as? CommonErrorType {
+                    let code = networkError.code
+                    if let tokenError = RefreshErrorType(rawValue: code) {
+                        switch tokenError {
+                        case .validToken:
+                            completion(.doNotRetry)
+                        case .unownedUser:
+                            completion(.doNotRetry)
+                            ViewManager.shared.resetRootView()
+                        case .refreshTokenEnd:
+                            completion(.doNotRetry)
+                            ViewManager.shared.resetRootView()
+                        case .authFailed:
+                            completion(.doNotRetry)
+                            ViewManager.shared.resetRootView()
+                        }
                     }
                 } else {
                     print("리프레시 토큰 에러:",error)

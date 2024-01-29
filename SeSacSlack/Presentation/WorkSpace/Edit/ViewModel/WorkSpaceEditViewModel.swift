@@ -118,12 +118,13 @@ class WorkSpaceEditViewModel {
             print("워크스페이스 생성 성공", value)
             UserDefaultsManager.workSpaceId = value.workspace_id
         } onError: { owner, error in
-            if let workspaceError = error as? WorkSpaceErrorType{
-                print("워크스페이스 에러,",workspaceError.message)
-                owner.isSuccess.accept(false)
-            }else {
-                print("error:",error)
-                owner.isSuccess.accept(false)
+            if let networkError = error as? CommonErrorType {
+                print("커먼에러:",networkError.message)
+                let code = networkError.code
+                if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                    print("워크스페이스 에러:",workspaceError.message)
+                    owner.isUpdate.accept(false)
+                }
             }
         } onCompleted: { owner in
             print("워크스페이스 생성 완료")
@@ -145,12 +146,13 @@ class WorkSpaceEditViewModel {
         result.subscribe(with: self) { owner, value in
             print("워크스페이스 수정",value)
         } onError: { owner, error in
-            if let workspaceError = error as? WorkSpaceErrorType{
-                print("워크스페이스 에러,",workspaceError.message)
-                owner.isUpdate.accept(false)
-            }else {
-                print("error:",error)
-                owner.isUpdate.accept(false)
+            if let networkError = error as? CommonErrorType {
+                print("커먼에러:",networkError.message)
+                let code = networkError.code
+                if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                    print("워크스페이스 에러:",workspaceError.message)
+                    owner.isUpdate.accept(false)
+                }
             }
         } onCompleted: { owner in
             print("워크스페이스 수정 완료")

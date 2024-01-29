@@ -7,14 +7,17 @@
 
 import Foundation
 
-enum CommonErrorType: String, Error {
-    case notauth = "E01"
-    case unownedRouter = "E97"
-    case tokenEnd = "E05"
-    case authfaild = "E02"
-    case unownedUser = "E03"
-    case overcall = "E98"
-    case serverError = "E99"
+
+enum CommonErrorType: Error {
+    case notauth(String) // "E01"
+    case unownedRouter(String) // "E97"
+    case tokenEnd(String) // "E05"
+    case authfaild(String) // "E02"
+    case unownedUser(String)// "E03"
+    case overcall(String) // "E98"
+    case serverError(String) // "E99"
+    
+    case anotherError(String)
     
     var message: String {
         switch self {
@@ -32,7 +35,35 @@ enum CommonErrorType: String, Error {
             return "과호출"
         case .serverError:
             return "서버 점검중"
-            
+        case .anotherError(_):
+            return ""
+        }
+    }
+    var code: String {
+        switch self {
+        case .notauth(let statusCode),
+                .unownedRouter(let statusCode),
+                .tokenEnd(let statusCode),
+                .authfaild(let statusCode),
+                .unownedUser(let statusCode),
+                .overcall(let statusCode),
+                .serverError(let statusCode),
+                .anotherError(let statusCode):
+               return statusCode
+        }
+    }
+    
+    init(statusCode: String) {
+        switch statusCode {
+        case "E01": self = .notauth(statusCode)
+        case "E97": self = .unownedRouter(statusCode)
+        case "E05": self = .tokenEnd(statusCode)
+        case "E02": self = .authfaild(statusCode)
+        case "E03": self = .unownedUser(statusCode)
+        case "E98": self = .overcall(statusCode)
+        case "E99": self = .serverError(statusCode)
+        default:
+            self = .anotherError(statusCode)
         }
     }
     

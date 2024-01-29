@@ -113,7 +113,10 @@ class EmailLoginViewModel {
                     } onError: { owner, error in
                         if let networkError = error as? CommonErrorType {
                             print("이메일로그인 실패",networkError.message)
-                            owner.message.accept(networkError.message)
+                            let code = networkError.code
+                            if let loginError = LoginSignUpErrorType(rawValue: code) {
+                                owner.message.accept(loginError.message)
+                            }
                         }
                     } onCompleted: { _ in
                         print("이메일 로그인 완료")

@@ -73,23 +73,25 @@ final class NetWorkManager {
                 observer.onError(error)
             }
         default:
-            observer.onError(CommonErrorType.serverError)
+            observer.onError(CommonErrorType.serverError("E99"))
         }
         
     }
     
     private func hendleError(code: String) -> Error {
-        if let commonErrorType = CommonErrorType(rawValue: code) {
-            return commonErrorType
-        }else if let workspaceError = WorkSpaceErrorType(rawValue: code){
-            return workspaceError
-        }else if let loginErrorType = LoginSignUpErrorType(rawValue: code) {
-            return loginErrorType
-        } else if let refreshErrorType = RefreshErrorType(rawValue: code) {
-            return refreshErrorType
-        } else {
-            return CommonErrorType.serverError
-        }
+        return CommonErrorType(statusCode: code)
+        
+//        if let commonErrorType = CommonErrorType(rawValue: code) {
+//            return commonErrorType
+//        }else if let workspaceError = WorkSpaceErrorType(rawValue: code){
+//            return workspaceError
+//        }else if let loginErrorType = LoginSignUpErrorType(rawValue: code) {
+//            return loginErrorType
+//        } else if let refreshErrorType = RefreshErrorType(rawValue: code) {
+//            return refreshErrorType
+//        } else {
+//            return CommonErrorType.serverError
+//        }
     }
     
 }
