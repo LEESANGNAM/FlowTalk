@@ -29,4 +29,8 @@ final class DefaultWorkSpaceRepository: WorkSpaceRepository {
     func deleteWorkSpace(workspace: DeleteWorkSpaceRequestDTO) -> Observable<EmptyResponseDTO> {
         return NetWorkManager.shared.request(type: EmptyResponseDTO.self, api: .deleteWorkSpace(workspace))
     }
+    
+    func workSpaceAddMember(workspace: AddMemberWorkSpaceRequestDTO) -> Observable<AddMemberWorkSpaceResponseDTO> {
+        return NetWorkManager.shared.request(type: AddMemberWorkSpaceResponseDTO.self, api: .addMemberWorkspace(workspace))
+    }
 }

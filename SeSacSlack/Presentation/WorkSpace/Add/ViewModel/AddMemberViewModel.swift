@@ -13,6 +13,11 @@ class AddMemberViewModel {
     let disposeBag = DisposeBag()
     var emailText = ""
     
+    let workSpaceUseCase: WorkSpaceUseCase
+    
+    init( workSpaceUseCase: WorkSpaceUseCase) {
+        self.workSpaceUseCase = workSpaceUseCase
+    }
     
     struct Input {
         let emailTextFieldChange: ControlProperty<String>
@@ -47,8 +52,7 @@ class AddMemberViewModel {
                 print("초대 요청")
                 let id = WorkSpaceManager.shared.id
                 let workspace = AddMemberWorkSpaceRequestDTO(id: id, email: owner.emailText)
-                let result = NetWorkManager.shared.request(type: AddMemberWorkSpaceResponseDTO.self, api: .addMemberWorkspace(workspace))
-                    result
+                owner.workSpaceUseCase.workSpaceAddMember(workspace: workspace)
                     .subscribe(with: self) { owner, value in
                         print("멤버추가 요청 성공:", value)
                     } onError: { owner, error in

@@ -289,7 +289,13 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         let section = Section(rawValue: indexPath.section)
         if section == .addMember {
             print("팀원추가")
-            let vc = AddMemberViewController(viewModel: AddMemberViewModel())
+            let vc = AddMemberViewController(
+                viewModel: AddMemberViewModel(
+                    workSpaceUseCase: DefaultWorkSpaceUseCase(
+                        workSpaceRepository: DefaultWorkSpaceRepository()
+                    )
+                )
+            )
             
             vc.completeObservable()
                 .bind(with: self) { owner, _ in

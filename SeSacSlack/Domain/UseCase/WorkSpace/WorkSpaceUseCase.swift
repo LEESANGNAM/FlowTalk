@@ -16,6 +16,7 @@ protocol WorkSpaceUseCase: AnyObject {
     func searchWorkSpaces() ->  Observable<[SearchWorkSpacesResponseDTO]>
     func searchWorkSpace(workspace: SearchWorkSpaceRequestDTO) -> Observable<SearchWorkSpaceResponseDTO>
     func deleteWorkspace(workspace: DeleteWorkSpaceRequestDTO) -> Observable<EmptyResponseDTO>
+    func workSpaceAddMember(workspace: AddMemberWorkSpaceRequestDTO) -> Observable<AddMemberWorkSpaceResponseDTO>
 }
 
 final class DefaultWorkSpaceUseCase: WorkSpaceUseCase {
@@ -42,6 +43,10 @@ final class DefaultWorkSpaceUseCase: WorkSpaceUseCase {
     }
     func deleteWorkspace(workspace: DeleteWorkSpaceRequestDTO) -> Observable<EmptyResponseDTO> {
         return workSpaceRepository.deleteWorkSpace(workspace: workspace)
+    }
+    
+    func workSpaceAddMember(workspace: AddMemberWorkSpaceRequestDTO) -> Observable<AddMemberWorkSpaceResponseDTO> {
+        return workSpaceRepository.workSpaceAddMember(workspace: workspace)
     }
    
 }
