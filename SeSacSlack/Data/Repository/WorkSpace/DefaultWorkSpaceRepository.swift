@@ -38,4 +38,8 @@ final class DefaultWorkSpaceRepository: WorkSpaceRepository {
         return NetWorkManager.shared.request(type: [ExitWorkSpaceResponseDTO].self, api: .exitWorkSpace(workspace))
     }
     
+    func searchMembers(workspace: SearchMembersRequestDTO) -> Observable<[SearchMembersResponseDTO]> {
+        return NetWorkManager.shared.request(type: [SearchMembersResponseDTO].self, api: .searchMembers(workspace))
+    }
+    
 }

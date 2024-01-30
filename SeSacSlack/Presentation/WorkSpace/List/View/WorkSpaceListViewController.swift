@@ -160,7 +160,13 @@ class WorkSpaceListViewController: BaseViewController {
     }
     
     private func showChangeAdmin() {
-        let vc = WorkSpaceChangeAdminViewController()
+        let vc = WorkSpaceChangeAdminViewController(
+            viewModel: WorkSpaceChangeAdminViewModel(
+                workspaceUseCase: DefaultWorkSpaceUseCase(
+                    workSpaceRepository: DefaultWorkSpaceRepository()
+                )
+            )
+        )
         let nav = UINavigationController(rootViewController: vc )
         if let sheet = nav.sheetPresentationController {
             sheet.detents = [.large()]

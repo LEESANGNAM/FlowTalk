@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 
 class WorkSpaceChangeAdminViewController: BaseViewController {
     lazy var tableView = {
@@ -17,8 +18,8 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
         view.separatorStyle = .none
         view.rowHeight = 60
         view.bounces = false
-        view.delegate = self
-        view.dataSource = self
+//        view.delegate = self
+//        view.dataSource = self
         return view
     }()
     
@@ -31,11 +32,39 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
         }
     }
     
+    let viewModel: WorkSpaceChangeAdminViewModel
+    let disposeBag = DisposeBag()
+    init(viewModel: WorkSpaceChangeAdminViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        bind()
     }
+    
+    
+    func bind() {
+        let input = WorkSpaceChangeAdminViewModel.Input(viewDidLoadEvent: Observable.just(()))
+        let output = viewModel.transform(input: input)
+        
+        output.dataArray
+            .bind(to: tableView.rx.items(cellIdentifier: WorkSpaceChangeAdminTableViewCell.identifier, cellType: WorkSpaceChangeAdminTableViewCell.self)) { (_, data, cell) in
+                cell.setData(data)
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                let selectedData = output.dataArray.value[indexPath.row]
+                print("선택된 데이터:", selectedData)
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
     
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))
@@ -51,17 +80,17 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
     
 }
 
-extension WorkSpaceChangeAdminViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkSpaceChangeAdminTableViewCell.identifier, for: indexPath) as? WorkSpaceChangeAdminTableViewCell else { return UITableViewCell() }
-        
-        return cell
-        
-    }
-    
-    
-}
+//extension WorkSpaceChangeAdminViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 10
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkSpaceChangeAdminTableViewCell.identifier, for: indexPath) as? WorkSpaceChangeAdminTableViewCell else { return UITableViewCell() }
+//        
+//        return cell
+//        
+//    }
+//    
+//    
+//}

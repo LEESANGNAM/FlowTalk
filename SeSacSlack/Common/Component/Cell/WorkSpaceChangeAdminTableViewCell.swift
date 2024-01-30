@@ -48,7 +48,13 @@ class WorkSpaceChangeAdminTableViewCell: BaseTableViewCell {
         }
     }
     
-    func setdata() {
+    func setData(_ data: SearchMembersResponseDTO) {
+        let email = data.email
+        let nickname = data.nickname
+        
+        nicknameLabel.text = nickname
+        emailLabel.text = email
+        
         
     }
     
