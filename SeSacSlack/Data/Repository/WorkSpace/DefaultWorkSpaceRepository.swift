@@ -33,4 +33,9 @@ final class DefaultWorkSpaceRepository: WorkSpaceRepository {
     func workSpaceAddMember(workspace: AddMemberWorkSpaceRequestDTO) -> Observable<AddMemberWorkSpaceResponseDTO> {
         return NetWorkManager.shared.request(type: AddMemberWorkSpaceResponseDTO.self, api: .addMemberWorkspace(workspace))
     }
+    
+    func exitWorkSpace(workspace: ExitWorkSpaceRequestDTO) -> Observable<[ExitWorkSpaceResponseDTO]> {
+        return NetWorkManager.shared.request(type: [ExitWorkSpaceResponseDTO].self, api: .exitWorkSpace(workspace))
+    }
+    
 }

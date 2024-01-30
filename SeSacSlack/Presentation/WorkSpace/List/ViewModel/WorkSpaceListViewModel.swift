@@ -14,6 +14,8 @@ class WorkSpaceListViewModel {
     let workspaceData = BehaviorRelay<[SearchWorkSpacesResponseDTO]>(value: [])
     private let deleteWorkSpaceSubject = PublishSubject<Void>()
     
+    let errorMessage = PublishRelay<String>()
+    
     let workspaceUseCase: WorkSpaceUseCase
     init(workspaceUseCase: WorkSpaceUseCase) {
         self.workspaceUseCase = workspaceUseCase
@@ -27,7 +29,7 @@ class WorkSpaceListViewModel {
     struct Output {
         let workspaceData: BehaviorRelay<[SearchWorkSpacesResponseDTO]>
         let addButtonTapped: ControlEvent<Void>
-        let deleteSuccess: Observable<Void>
+        let errorMessage: PublishRelay<String>
 
     }
     
@@ -47,7 +49,7 @@ class WorkSpaceListViewModel {
         return Output(
             workspaceData: workspaceData,
             addButtonTapped: input.addButtonTapped,
-            deleteSuccess: deleteWorkSpaceSubject.asObservable()
+            errorMessage: errorMessage
         )
     }
     
@@ -70,15 +72,49 @@ class WorkSpaceListViewModel {
                     let code = networkError.code
                     if let workspaceError = WorkSpaceErrorType(rawValue: code) {
                         print("워크스페이스 에러:",workspaceError.message)
+                        owner.errorMessage.accept(workspaceError.message)
                     }
                 }
             } onCompleted: { owner in
                 WorkSpaceManager.shared.id = 0
-                WorkSpaceManager.shared.fetchArray()
+                WorkSpaceManager.shared.fetchArrayAndChangeView()
                 print("삭제 완료")
-                owner.deleteWorkSpaceSubject.onNext(())
             } onDisposed: { owner in
                 print("삭제 디스포즈")
+            }.disposed(by: self.disposeBag)
+    }
+    func exitWorkSpace(data: SearchWorkSpacesResponseDTO) {
+        let workspace = ExitWorkSpaceRequestDTO(id: data.workspace_id)
+        workspaceUseCase.exitWorkSpace(workspace: workspace)
+            .subscribe(with: self) { owner, value in
+                print("퇴장성공함, 남은데이터: ",value)
+                if value.isEmpty {
+                    ViewManager.shared.changeRootView(
+                        WorkSpaceHomeEmptyViewController()
+                    )
+                } else {
+                    if let firstWorkspace = value.first {
+                        let id = firstWorkspace.workspace_id
+                        WorkSpaceManager.shared.id = id // 처음 아이디( 최근) 넣고 -> 이동하면 fetch
+
+                        ViewManager.shared.changeRootView(
+                            TabbarController()
+                        )
+                    }
+                }
+            } onError: { owner, error in
+                if let commonError = error as? CommonErrorType {
+                    let code = commonError.code
+                    if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                        if workspaceError == .exitRejec { // E15 코드면
+                            owner.errorMessage.accept(workspaceError.message) // 채널관리자~
+                        }
+                    }
+                }
+            } onCompleted: { _ in
+                print("퇴장완료")
+            } onDisposed: { _ in
+                print("디스포즈")
             }.disposed(by: self.disposeBag)
     }
     

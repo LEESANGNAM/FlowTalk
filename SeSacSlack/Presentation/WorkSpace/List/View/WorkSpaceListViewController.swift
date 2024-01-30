@@ -59,10 +59,6 @@ class WorkSpaceListViewController: BaseViewController {
                 owner.addButtonTapped()
             }.disposed(by: disposeBag)
         
-        output.deleteSuccess
-            .bind(with: self) { owner, _ in
-                owner.dismiss(animated: true)
-            }.disposed(by: disposeBag)
         
     }
     
@@ -149,16 +145,11 @@ class WorkSpaceListViewController: BaseViewController {
                     self.dismiss(animated: true)
                 }
             } else {
-                NetWorkManager.shared.request(type: [ExitWorkSpaceResponseDTO].self, api: .exitWorkSpace(ExitWorkSpaceRequestDTO(id: data.workspace_id)))
-                    .subscribe(with: self) { owner, value in
-                        print("퇴장성공함, 남은데이터: ",value)
-                    } onError: { _, error in
-                        print("에러가 있을거임")
-                    } onCompleted: { _ in
-                        print("퇴장완료")
-                    } onDisposed: { _ in
-                        print("디스포즈")
-                    }.disposed(by: self.disposeBag)
+                self.showCustomAlert(titleText: "워크스페이스 나가기", messageText: "정말 이 워크스페이스를 떠나시겠습니까? ", okTitle: "나가기", cancelTitle: "취소") {
+                    self.viewModel.exitWorkSpace(data: data)
+                } cancelAction: {
+                    self.dismiss(animated: true)
+                }
             }
         } adminChangeAction: {
             print("관리자변경")
