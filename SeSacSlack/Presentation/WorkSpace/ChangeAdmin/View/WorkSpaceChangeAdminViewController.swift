@@ -58,9 +58,26 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
-            .subscribe(onNext: { indexPath in
+            .bind(with: self, onNext: { owner, indexPath in
                 let selectedData = output.dataArray.value[indexPath.row]
                 print("선택된 데이터:", selectedData)
+                
+                owner.showCustomAlert(
+                    titleText: "\(selectedData.getName()) 님을 관리자로 지정하시겠습니까?",
+                    messageText: 
+                       """
+                       워크스페이스 관리자는 다음과 같은 권한이 있습니다
+                       - 워크스페이스 이름 또는 설명 변경
+                       - 워크스페이스 삭제
+                       - 워크스페이스 멤버 초대
+                       """,
+                    okTitle: "확인",
+                    cancelTitle: "취소") {
+                        print("관리자 변경~ 리스트뷰로 전환~")
+                    } cancelAction: {
+                        print("변경취소")
+                        owner.dismiss(animated: true)
+                    }
             })
             .disposed(by: disposeBag)
         

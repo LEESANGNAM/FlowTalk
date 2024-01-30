@@ -50,11 +50,7 @@ class WorkSpaceChangeAdminTableViewCell: BaseTableViewCell {
     
     func setData(_ data: SearchMembersResponseDTO) {
         let email = data.email
-        var nickname = data.nickname
-        if nickname.isEmpty{
-            let components = email.split(separator: "@")
-            nickname = components.first.map(String.init) ?? ""
-        }
+        var nickname = data.getName()
         nicknameLabel.text = nickname
         emailLabel.text = email
         

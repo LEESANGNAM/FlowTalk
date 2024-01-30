@@ -12,4 +12,13 @@ struct SearchMembersResponseDTO: Decodable {
     let email: String
     let nickname: String
     let profileImage: String?
+    
+    func getName() -> String {
+        if nickname.isEmpty{
+            let components = email.split(separator: "@")
+            return components.first.map(String.init) ?? ""
+        } else {
+            return nickname
+        }
+    }
 }
