@@ -18,8 +18,6 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
         view.separatorStyle = .none
         view.rowHeight = 60
         view.bounces = false
-//        view.delegate = self
-//        view.dataSource = self
         return view
     }()
     
@@ -47,7 +45,10 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
     
     
     func bind() {
-        let input = WorkSpaceChangeAdminViewModel.Input(viewDidLoadEvent: Observable.just(()))
+        let input = WorkSpaceChangeAdminViewModel.Input(
+            viewDidLoadEvent: Observable.just(()),
+            viewDidAppear: self.rx.viewDidAppear.map{ _ in }
+        )
         let output = viewModel.transform(input: input)
         
         output.dataArray
@@ -62,6 +63,21 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
                 print("선택된 데이터:", selectedData)
             })
             .disposed(by: disposeBag)
+        
+        
+        output.arrayEmpty
+            .bind(with: self) { owner, value in
+                if value {
+                    owner.showCustomAlert(
+                        titleText: "워크스페이스 관리자 변경 불가",
+                        messageText: "워크스페이스 멤버가 없어 관리자 변경을 할 수 없습니다. 새로운 멤버를 워크스페이스에 초대해보세요",
+                        okTitle: "확인") {
+                            owner.dismiss(animated: true) {
+                                owner.dismiss(animated: true)
+                            }
+                        }
+                }
+            }.disposed(by: disposeBag)
         
     }
     
@@ -80,17 +96,3 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
     
 }
 
-//extension WorkSpaceChangeAdminViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkSpaceChangeAdminTableViewCell.identifier, for: indexPath) as? WorkSpaceChangeAdminTableViewCell else { return UITableViewCell() }
-//        
-//        return cell
-//        
-//    }
-//    
-//    
-//}

@@ -21,15 +21,17 @@ class WorkSpaceChangeAdminViewModel {
     
     struct Input {
         let viewDidLoadEvent: Observable<Void>
+        let viewDidAppear: Observable<Void>
     }
     
     struct Output {
         let dataArray: BehaviorRelay<[SearchMembersResponseDTO]>
+        let arrayEmpty: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
         let dataArray = BehaviorRelay<[SearchMembersResponseDTO]>(value: [])
-        
+        let arrayEmpty = BehaviorRelay(value: false)
         input.viewDidLoadEvent
             .bind(with: self) { owner, _ in
                 let workspace = SearchMembersRequestDTO(id: WorkSpaceManager.shared.id)
@@ -55,9 +57,21 @@ class WorkSpaceChangeAdminViewModel {
                     }.disposed(by: owner.disposeBag)
             }.disposed(by: disposeBag)
         
+        input.viewDidAppear
+            .withLatestFrom(dataArray)
+            .bind(with: self) { owner, value in
+                if value.isEmpty {
+                    arrayEmpty.accept(true)
+                } else {
+                    arrayEmpty.accept(false)
+                }
+            }.disposed(by: disposeBag)
+        
+        
         
         return Output(
-            dataArray: dataArray
+            dataArray: dataArray,
+            arrayEmpty: arrayEmpty
         )
     }
     
