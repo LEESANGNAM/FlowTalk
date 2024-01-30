@@ -104,6 +104,9 @@
 		D6BC026F2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */; };
 		D6BC02742B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02732B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift */; };
 		D6BC02762B69430700BE1633 /* WorkSpaceChangeAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02752B69430700BE1633 /* WorkSpaceChangeAdminTableViewCell.swift */; };
+		D6BC02782B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02772B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift */; };
+		D6BC027A2B694B7C00BE1633 /* SearchMembersResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02792B694B7C00BE1633 /* SearchMembersResponseDTO.swift */; };
+		D6BC027C2B694B9800BE1633 /* SearchMembersRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -248,6 +251,9 @@
 		D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC02732B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminViewController.swift; sourceTree = "<group>"; };
 		D6BC02752B69430700BE1633 /* WorkSpaceChangeAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminTableViewCell.swift; sourceTree = "<group>"; };
+		D6BC02772B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminViewModel.swift; sourceTree = "<group>"; };
+		D6BC02792B694B7C00BE1633 /* SearchMembersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMembersResponseDTO.swift; sourceTree = "<group>"; };
+		D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMembersRequestDTO.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -913,6 +919,7 @@
 		D6BC02722B68CC1600BE1633 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02772B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1023,6 +1030,7 @@
 				D6BC02552B62D5BF00BE1633 /* ExitWorkSpaceResponseDTO.swift */,
 				D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */,
 				D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */,
+				D6BC02792B694B7C00BE1633 /* SearchMembersResponseDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1036,6 +1044,7 @@
 				D6BC025D2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift */,
 				D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */,
 				D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */,
+				D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1325,16 +1334,19 @@
 				D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */,
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D6BC026F2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift in Sources */,
+				D6BC027C2B694B9800BE1633 /* SearchMembersRequestDTO.swift in Sources */,
 				D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
+				D6BC02782B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift in Sources */,
 				D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D6BC026D2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA3932B5D74D900236EDB /* ChannelUseCase.swift in Sources */,
 				D654CA802B46FDD60054AD46 /* BaseViewController.swift in Sources */,
+				D6BC027A2B694B7C00BE1633 /* SearchMembersResponseDTO.swift in Sources */,
 				D6DCA37C2B5A8A6A00236EDB /* ViewManager.swift in Sources */,
 				D6DCA36A2B59727100236EDB /* SplashViewModel.swift in Sources */,
 				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
