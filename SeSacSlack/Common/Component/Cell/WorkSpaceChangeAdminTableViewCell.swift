@@ -50,12 +50,22 @@ class WorkSpaceChangeAdminTableViewCell: BaseTableViewCell {
     
     func setData(_ data: SearchMembersResponseDTO) {
         let email = data.email
-        let nickname = data.nickname
-        
+        var nickname = data.nickname
+        if nickname.isEmpty{
+            let components = email.split(separator: "@")
+            nickname = components.first.map(String.init) ?? ""
+        }
         nicknameLabel.text = nickname
         emailLabel.text = email
         
-        
+        layoutIfNeeded()
+        let size = profileImageView.frame.size
+        if let profile = data.profileImage {
+            let urlString = APIKey.baseURL + "/v1" + profile
+            profileImageView.setImage(with: urlString, frameSize: size, placeHolder: "NoPhotoA")
+        } else {
+            profileImageView.image = Icon.noProfileA.image
+        }
     }
     
     
