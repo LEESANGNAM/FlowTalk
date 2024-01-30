@@ -12,9 +12,10 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
     lazy var tableView = {
         let view = UITableView()
         view.backgroundColor = Colors.backgroundPrimary.color
-        view.register(WorkSpaceListTableViewCell.self, forCellReuseIdentifier: WorkSpaceListTableViewCell.identifier)
+        view.register(WorkSpaceChangeAdminTableViewCell.self, forCellReuseIdentifier: WorkSpaceChangeAdminTableViewCell.identifier)
         view.showsVerticalScrollIndicator = false
         view.separatorStyle = .none
+        view.rowHeight = 60
         view.bounces = false
         view.delegate = self
         view.dataSource = self
@@ -56,8 +57,7 @@ extension WorkSpaceChangeAdminViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkSpaceListTableViewCell.identifier, for: indexPath) as? WorkSpaceListTableViewCell else { return UITableViewCell() }
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkSpaceChangeAdminTableViewCell.identifier, for: indexPath) as? WorkSpaceChangeAdminTableViewCell else { return UITableViewCell() }
         
         return cell
         
