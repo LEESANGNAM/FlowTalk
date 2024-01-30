@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import RxSwift
 
 class WorkSpaceListTableViewCell: BaseTableViewCell {
+    var disposeBag = DisposeBag()
     
     let backView = {
         let view = UIView()
@@ -73,6 +75,11 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
             make.size.equalTo(20)
             make.trailing.equalToSuperview().offset(-12)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     func setData(data: SearchWorkSpacesResponseDTO) {
