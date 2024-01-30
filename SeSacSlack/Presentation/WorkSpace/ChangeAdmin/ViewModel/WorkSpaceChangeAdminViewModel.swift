@@ -14,7 +14,7 @@ class WorkSpaceChangeAdminViewModel {
     let disposeBag = DisposeBag()
     
     let workspaceUseCase: WorkSpaceUseCase
-    
+    let isSuccess = BehaviorRelay(value: false)
     init(workspaceUseCase: WorkSpaceUseCase) {
         self.workspaceUseCase = workspaceUseCase
     }
@@ -27,6 +27,7 @@ class WorkSpaceChangeAdminViewModel {
     struct Output {
         let dataArray: BehaviorRelay<[SearchMembersResponseDTO]>
         let arrayEmpty: BehaviorRelay<Bool>
+        let isSuccess: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -68,11 +69,33 @@ class WorkSpaceChangeAdminViewModel {
             }.disposed(by: disposeBag)
         
         
-        
         return Output(
             dataArray: dataArray,
-            arrayEmpty: arrayEmpty
+            arrayEmpty: arrayEmpty,
+            isSuccess: isSuccess
         )
+    }
+    
+    func changeAdmin(userId : Int) {
+        let workspaceId = WorkSpaceManager.shared.id
+        let workspace = WorkSpaceChangeAdminRequestDTO(workspaceId: workspaceId, userId: userId)
+        workspaceUseCase.changeAdmin(workspace: workspace)
+            .subscribe(with: self) { owner, value in
+                print("관리자 변경",value)
+            } onError: { owner, error in
+                if let commonError = error as? CommonErrorType {
+                    let code = commonError.code
+                    if let workspaceError = WorkSpaceErrorType(rawValue: code) {
+                        print("관리자변경 에러있음",workspaceError.message)
+                        owner.isSuccess.accept(false)
+                    }
+                }
+            } onCompleted: { owner in
+                print("관리자 변경 성공")
+                owner.isSuccess.accept(true)
+            } onDisposed: { _ in
+                print("관리자변경 디스포즈")
+            }.disposed(by: disposeBag)
     }
     
 }

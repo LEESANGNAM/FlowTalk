@@ -30,6 +30,7 @@ enum Router: URLRequestConvertible {
     case deleteWorkSpace(DeleteWorkSpaceRequestDTO)
     case addMemberWorkspace(AddMemberWorkSpaceRequestDTO)
     case searchMembers(SearchMembersRequestDTO)
+    case workSpaceChangeAdmin(WorkSpaceChangeAdminRequestDTO)
     
     
     //MARK: - channel
@@ -58,10 +59,10 @@ enum Router: URLRequestConvertible {
             return "/v2/users/login"
         case .refresh:
             return "/v1/auth/refresh"
-            
         case .searchMyInfo:
             return "/v1/users/my"
             
+        //MARK: - workspace
         case .addWorkSpace, .searchWorkSpaces:
             return "/v1/workspaces"
         case .searchWorkspace(let model):
@@ -76,11 +77,13 @@ enum Router: URLRequestConvertible {
             return "/v1/workspaces/\(model.id)/members"
         case .searchMembers(let model):
             return "/v1/workspaces/\(model.id)/members"
-            
-            
+        case .workSpaceChangeAdmin(let model):
+            return "/v1/workspaces/\(model.workspaceId)/change/admin/\(model.userId)"
+        
+        //MARK: - channel
         case .searchMyChannels(let model):
             return "/v1/workspaces/\(model.id)/channels/my"
-            
+        //MARK: - DM
         case .searchMyDM(let model):
             return "/v1/workspaces/\(model.id)/dms"
         }
@@ -92,7 +95,7 @@ enum Router: URLRequestConvertible {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
                 .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
-                .addMemberWorkspace, .searchMembers,
+                .addMemberWorkspace, .searchMembers, .workSpaceChangeAdmin,
                 .searchMyChannels,
                 .searchMyDM:
             return ["SesacKey": Router.key ]
@@ -111,18 +114,28 @@ enum Router: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
-                .addWorkSpace, .addMemberWorkspace:
-            return .post
-        case .refresh, .searchMyInfo,
-                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .searchMembers,
-                .searchMyChannels,
-                .searchMyDM:
+            
+        case .refresh, .searchMyInfo:
             return .get
-        case .editWorkSpace:
+        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin:
+            return .post
+            
+        //MARK: - workspace
+        case .addWorkSpace, .addMemberWorkspace:
+            return .post
+        case .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .searchMembers:
+            return .get
+        case .editWorkSpace,.workSpaceChangeAdmin:
             return .put
         case .deleteWorkSpace:
             return .delete
+            
+        //MARK: - channel
+        case .searchMyChannels:
+            return .get
+        //MARK: - DM
+        case .searchMyDM:
+            return .get
         }
     }
     
@@ -148,7 +161,7 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addMemberWorkSpaceRequestDTO, into: request)
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
-                .searchMembers,
+                .searchMembers, .workSpaceChangeAdmin,
                 .searchMyChannels,
                 .searchMyDM:
             break

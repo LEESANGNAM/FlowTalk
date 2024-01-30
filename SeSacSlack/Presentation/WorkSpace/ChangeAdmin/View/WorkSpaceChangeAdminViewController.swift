@@ -29,7 +29,7 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    
+    private let completeSubject = PublishSubject<Void>()
     let viewModel: WorkSpaceChangeAdminViewModel
     let disposeBag = DisposeBag()
     init(viewModel: WorkSpaceChangeAdminViewModel) {
@@ -64,7 +64,7 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
                 
                 owner.showCustomAlert(
                     titleText: "\(selectedData.getName()) 님을 관리자로 지정하시겠습니까?",
-                    messageText: 
+                    messageText:
                        """
                        워크스페이스 관리자는 다음과 같은 권한이 있습니다
                        - 워크스페이스 이름 또는 설명 변경
@@ -74,6 +74,7 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
                     okTitle: "확인",
                     cancelTitle: "취소") {
                         print("관리자 변경~ 리스트뷰로 전환~")
+                        owner.viewModel.changeAdmin(userId: selectedData.user_id)
                     } cancelAction: {
                         print("변경취소")
                         owner.dismiss(animated: true)
@@ -96,6 +97,13 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
                 }
             }.disposed(by: disposeBag)
         
+        output.isSuccess
+            .bind(with: self) { owner, value in
+                if value {
+                    owner.successChangeAdmin()
+                }
+            }.disposed(by: disposeBag)
+        
     }
     
     
@@ -109,6 +117,19 @@ class WorkSpaceChangeAdminViewController: BaseViewController {
     
     @objc func backButtonTapped() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //완료 동작
+    private func successChangeAdmin() {
+        completeSubject.onNext(())
+        dismiss(animated: true) {[weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+
+    // 외부 구독용
+    func completeObservable() -> Observable<Void> {
+        return completeSubject.asObservable()
     }
     
 }

@@ -17,4 +17,5 @@ protocol WorkSpaceRepository: AnyObject {
     func workSpaceAddMember(workspace: AddMemberWorkSpaceRequestDTO) -> Observable<AddMemberWorkSpaceResponseDTO>
     func exitWorkSpace(workspace: ExitWorkSpaceRequestDTO) -> Observable<[ExitWorkSpaceResponseDTO]>
     func searchMembers(workspace: SearchMembersRequestDTO) -> Observable<[SearchMembersResponseDTO]>
+    func changeAdmin(workspace: WorkSpaceChangeAdminRequestDTO) -> Observable<WorkSpaceChangeAdminResponseDTO>
 }

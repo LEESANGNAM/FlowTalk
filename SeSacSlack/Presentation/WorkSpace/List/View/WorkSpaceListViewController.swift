@@ -76,6 +76,11 @@ class WorkSpaceListViewController: BaseViewController {
                 owner.showPresentView(vc: vc)
             }.disposed(by: disposeBag)
         
+        output.errorMessage
+            .bind(with: self) { owner, errorText in
+                owner.showToast(message: errorText)
+                owner.dismiss(animated: true)
+            }.disposed(by: disposeBag)
         
     }
     
@@ -104,15 +109,7 @@ class WorkSpaceListViewController: BaseViewController {
             }
         } adminChangeAction: {
             print("관리자변경")
-            let vc = WorkSpaceChangeAdminViewController(
-                viewModel: WorkSpaceChangeAdminViewModel(
-                    workspaceUseCase: DefaultWorkSpaceUseCase(
-                        workSpaceRepository: DefaultWorkSpaceRepository()
-                    )
-                )
-            )
-            self.showPresentView(vc: vc)
-            
+            self.showChangeAdmin()
         }
     }
 }
@@ -144,6 +141,24 @@ extension WorkSpaceListViewController {
             sheet.prefersGrabberVisible = true
         }
         present(nav, animated: true)
+    }
+    
+    private func showChangeAdmin() {
+        let vc = WorkSpaceChangeAdminViewController(
+            viewModel: WorkSpaceChangeAdminViewModel(
+                workspaceUseCase: DefaultWorkSpaceUseCase(
+                    workSpaceRepository: DefaultWorkSpaceRepository()
+                )
+            )
+        )
+        vc.completeObservable()
+            .bind(with: self) { owner, _ in
+                WorkSpaceManager.shared.fetchArray()
+                WorkSpaceManager.shared.fetch()
+                owner.showToast(message: "관리자가 변경되었습니다.")
+            }.disposed(by: vc.disposeBag)
+        
+        showPresentView(vc: vc)
     }
     
     private func showEditView(data: SearchWorkSpacesResponseDTO) {

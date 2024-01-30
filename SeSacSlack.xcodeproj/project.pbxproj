@@ -107,6 +107,8 @@
 		D6BC02782B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02772B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift */; };
 		D6BC027A2B694B7C00BE1633 /* SearchMembersResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02792B694B7C00BE1633 /* SearchMembersResponseDTO.swift */; };
 		D6BC027C2B694B9800BE1633 /* SearchMembersRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */; };
+		D6BC027E2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */; };
+		D6BC02802B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -254,6 +256,8 @@
 		D6BC02772B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminViewModel.swift; sourceTree = "<group>"; };
 		D6BC02792B694B7C00BE1633 /* SearchMembersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMembersResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMembersRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminResponseDTO.swift; sourceTree = "<group>"; };
+		D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminRequestDTO.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -1031,6 +1035,7 @@
 				D6BC025F2B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift */,
 				D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */,
 				D6BC02792B694B7C00BE1633 /* SearchMembersResponseDTO.swift */,
+				D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1045,6 +1050,7 @@
 				D6BC02612B657DEB00BE1633 /* DeleteWorkSpaceRequestDTO.swift */,
 				D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */,
 				D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */,
+				D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1364,6 +1370,7 @@
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
 				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmptyResponseDTO.swift in Sources */,
+				D6BC027E2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift in Sources */,
 				D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
@@ -1371,6 +1378,7 @@
 				D6DCA3992B5D76EE00236EDB /* DefaultDMRepository.swift in Sources */,
 				D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */,
 				D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */,
+				D6BC02802B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift in Sources */,
 				D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */,
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
