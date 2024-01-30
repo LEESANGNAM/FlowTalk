@@ -153,9 +153,22 @@ class WorkSpaceListViewController: BaseViewController {
             }
         } adminChangeAction: {
             print("관리자변경")
+            self.showChangeAdmin()
+            
         }
 
     }
+    
+    private func showChangeAdmin() {
+        let vc = WorkSpaceChangeAdminViewController()
+        let nav = UINavigationController(rootViewController: vc )
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
+        present(nav, animated: true)
+    }
+    
     private func showEditView(data: SearchWorkSpacesResponseDTO) {
         let vm = WorkSpaceEditViewModel(
             workSpaceUseCase: DefaultWorkSpaceUseCase(

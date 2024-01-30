@@ -102,6 +102,7 @@
 		D6BC026B2B678C2800BE1633 /* AddMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026A2B678C2800BE1633 /* AddMemberViewModel.swift */; };
 		D6BC026D2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */; };
 		D6BC026F2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */; };
+		D6BC02742B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02732B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -244,6 +245,7 @@
 		D6BC026A2B678C2800BE1633 /* AddMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewModel.swift; sourceTree = "<group>"; };
 		D6BC026C2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberWorkSpaceResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC026E2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberWorkSpaceRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC02732B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminViewController.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 		D616D2A22B4BE5500012CFC5 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02702B68CBEF00BE1633 /* ChangeAdmin */,
 				D6BC02652B66A50A00BE1633 /* Add */,
 				D69D46492B5ED1190044C756 /* List */,
 				D6BA715A2B4EC0F700D3FD00 /* Home */,
@@ -884,6 +887,30 @@
 			isa = PBXGroup;
 			children = (
 				D6BC026A2B678C2800BE1633 /* AddMemberViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6BC02702B68CBEF00BE1633 /* ChangeAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02722B68CC1600BE1633 /* ViewModel */,
+				D6BC02712B68CC1100BE1633 /* View */,
+			);
+			path = ChangeAdmin;
+			sourceTree = "<group>";
+		};
+		D6BC02712B68CC1100BE1633 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02732B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6BC02722B68CC1600BE1633 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1316,6 +1343,7 @@
 				D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */,
 				D6BA71712B4EFED000D3FD00 /* EmailLoginResponseDTO.swift in Sources */,
 				D616D26A2B4833820012CFC5 /* SignUpView.swift in Sources */,
+				D6BC02742B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift in Sources */,
 				D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */,
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
 				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
