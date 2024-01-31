@@ -286,30 +286,67 @@ extension WorkSpaceHomeDefaultViewController: UIViewControllerTransitioningDeleg
 
 extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let section = Section(rawValue: indexPath.section)
-        if section == .addMember {
-            print("팀원추가")
-            let vc = AddMemberViewController(
-                viewModel: AddMemberViewModel(
-                    workSpaceUseCase: DefaultWorkSpaceUseCase(
-                        workSpaceRepository: DefaultWorkSpaceRepository()
-                    )
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        let lastItemIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
+        if indexPath.item == lastItemIndex {
+            switch section {
+            case .channel:
+                print("채널추가")
+                showActionSheet {
+                    print("채널 생성뷰 짜잔")
+                    self.showAddChannelView()
+                } searchAction: {
+                    print("채널 탐색뷰 짜잔")
+                }
+
+            case .directmessage:
+                print("dm추가")
+            case .addMember:
+                print("팀원추가")
+                showAddmemberView()
+            }
+        }
+    }
+    private func showActionSheet(addAction: @escaping () -> Void, searchAction: @escaping () -> Void) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        var actionArray: [UIAlertAction] = []
+        let addAction = UIAlertAction(title: "채널 생성", style: .default) { _ in
+            addAction()
+        }
+        let searchAction = UIAlertAction(title: "채널 탐색", style: .default) { _ in
+            searchAction()
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        actionArray.append(addAction)
+        actionArray.append(searchAction)
+        actionArray.append(cancelAction)
+        
+        actionArray.forEach { actionSheet.addAction($0) }
+        
+        present(actionSheet, animated: true)
+    }
+    func showAddChannelView() {
+        let vc = ChannelEditViewController()
+        showPresentView(vc: vc)
+    }
+    func showAddmemberView() {
+        let vc = AddMemberViewController(
+            viewModel: AddMemberViewModel(
+                workSpaceUseCase: DefaultWorkSpaceUseCase(
+                    workSpaceRepository: DefaultWorkSpaceRepository()
                 )
             )
-            
-            vc.completeObservable()
-                .bind(with: self) { owner, _ in
-                    WorkSpaceManager.shared.fetch()
-                    owner.showToast(message: "멤버를 성공적으로 초대했습니다.")
-                }.disposed(by: vc.disposeBag)
-            
-            let nav = UINavigationController(rootViewController: vc)
-            if let sheet = nav.sheetPresentationController {
-                sheet.detents = [.large()]
-                sheet.prefersGrabberVisible = true
-            }
-            present(nav, animated: true)
-        }
+        )
+        
+        vc.completeObservable()
+            .bind(with: self) { owner, _ in
+                WorkSpaceManager.shared.fetch()
+                owner.showToast(message: "멤버를 성공적으로 초대했습니다.")
+            }.disposed(by: vc.disposeBag)
+        
+       showPresentView(vc: vc)
     }
 }
 

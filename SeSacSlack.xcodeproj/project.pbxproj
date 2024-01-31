@@ -109,6 +109,7 @@
 		D6BC027C2B694B9800BE1633 /* SearchMembersRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */; };
 		D6BC027E2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */; };
 		D6BC02802B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */; };
+		D6BC028A2B6A6E1900BE1633 /* ChannelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02892B6A6E1900BE1633 /* ChannelEditViewController.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -258,6 +259,7 @@
 		D6BC027B2B694B9800BE1633 /* SearchMembersRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMembersRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC02892B6A6E1900BE1633 /* ChannelEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewController.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -941,6 +943,8 @@
 		D6BC02822B6A641000BE1633 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02852B6A6DE100BE1633 /* ViewModel */,
+				D6BC02842B6A6DDB00BE1633 /* View */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -950,6 +954,21 @@
 			children = (
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		D6BC02842B6A6DDB00BE1633 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02892B6A6E1900BE1633 /* ChannelEditViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6BC02852B6A6DE100BE1633 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D6C7A22C2B6117990007102A /* Tabbar */ = {
@@ -1421,6 +1440,7 @@
 				D6BC02642B665A5A00BE1633 /* Date+Extension.swift in Sources */,
 				D6DCA3902B5D746E00236EDB /* DefaultChannelRepository.swift in Sources */,
 				D6BA71832B52E35F00D3FD00 /* WorkSpaceEditViewController.swift in Sources */,
+				D6BC028A2B6A6E1900BE1633 /* ChannelEditViewController.swift in Sources */,
 				D616D2862B4863020012CFC5 /* ResponseErrorDTO.swift in Sources */,
 				D616D2912B487BB30012CFC5 /* DefaultSignRepository.swift in Sources */,
 				D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */,

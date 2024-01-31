@@ -45,4 +45,13 @@ class BaseViewController: UIViewController {
             toastLabel.removeFromSuperview()
         })
     }
+    
+    func showPresentView(vc: UIViewController) {
+        let nav = UINavigationController(rootViewController: vc )
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
+        present(nav, animated: true)
+    }
 }

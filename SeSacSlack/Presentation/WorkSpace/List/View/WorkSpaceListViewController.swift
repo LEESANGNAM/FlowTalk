@@ -134,14 +134,7 @@ extension WorkSpaceListViewController {
         dismiss(animated: true)
     }
     
-    private func showPresentView(vc: UIViewController) {
-        let nav = UINavigationController(rootViewController: vc )
-        if let sheet = nav.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.prefersGrabberVisible = true
-        }
-        present(nav, animated: true)
-    }
+  
     
     private func showChangeAdmin() {
         let vc = WorkSpaceChangeAdminViewController(
