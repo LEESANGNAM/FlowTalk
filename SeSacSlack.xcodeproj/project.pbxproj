@@ -491,8 +491,9 @@
 		D616D2962B487F9F0012CFC5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D6DCA3642B596F4F00236EDB /* Splash */,
+				D6BC02812B6A63FD00BE1633 /* Channel */,
 				D616D2A22B4BE5500012CFC5 /* WorkSpace */,
+				D6DCA3642B596F4F00236EDB /* Splash */,
 				D616D2682B48335E0012CFC5 /* SignUp */,
 				D654CA832B470B9C0054AD46 /* Auth */,
 				D654CA822B470B790054AD46 /* OnBoarding */,
@@ -511,10 +512,10 @@
 		D616D2A22B4BE5500012CFC5 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D6BA715A2B4EC0F700D3FD00 /* Home */,
 				D6BC02702B68CBEF00BE1633 /* ChangeAdmin */,
 				D6BC02652B66A50A00BE1633 /* Add */,
 				D69D46492B5ED1190044C756 /* List */,
-				D6BA715A2B4EC0F700D3FD00 /* Home */,
 				D6BA71812B52E34800D3FD00 /* Edit */,
 				D616D2A32B4BE5780012CFC5 /* Init */,
 			);
@@ -926,6 +927,29 @@
 				D6BC02772B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6BC02812B6A63FD00BE1633 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02832B6A660F00BE1633 /* Search */,
+				D6BC02822B6A641000BE1633 /* Edit */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		D6BC02822B6A641000BE1633 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		D6BC02832B6A660F00BE1633 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		D6C7A22C2B6117990007102A /* Tabbar */ = {
