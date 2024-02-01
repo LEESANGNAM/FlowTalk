@@ -35,6 +35,7 @@ enum Router: URLRequestConvertible {
     
     //MARK: - channel
     case searchMyChannels(SearchMyChannelsRequestDTO)
+    case addChannel(AddChannelRequestDTO)
     
     
     //MARK: - DM
@@ -83,6 +84,8 @@ enum Router: URLRequestConvertible {
         //MARK: - channel
         case .searchMyChannels(let model):
             return "/v1/workspaces/\(model.id)/channels/my"
+        case .addChannel(let model):
+            return "/v1/workspaces/\(model.workspace_id)/channels"
         //MARK: - DM
         case .searchMyDM(let model):
             return "/v1/workspaces/\(model.id)/dms"
@@ -94,9 +97,9 @@ enum Router: URLRequestConvertible {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
                 .searchMyInfo,
-                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
+                .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace, //workSpace
                 .addMemberWorkspace, .searchMembers, .workSpaceChangeAdmin,
-                .searchMyChannels,
+                .searchMyChannels, .addChannel, //channel
                 .searchMyDM:
             return ["SesacKey": Router.key ]
         case .refresh:
@@ -133,6 +136,8 @@ enum Router: URLRequestConvertible {
         //MARK: - channel
         case .searchMyChannels:
             return .get
+        case .addChannel:
+            return .post
         //MARK: - DM
         case .searchMyDM:
             return .get
@@ -159,6 +164,8 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
         case .addMemberWorkspace(let addMemberWorkSpaceRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addMemberWorkSpaceRequestDTO, into: request)
+        case .addChannel(let addChannelRequestDTO):
+            request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addChannelRequestDTO, into: request)
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMembers, .workSpaceChangeAdmin,

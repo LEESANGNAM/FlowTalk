@@ -94,6 +94,7 @@ class ChannelEditViewController: BaseViewController {
             .bind(with: self) { owner, value in
                 if value {
                     print("생성 성공")
+                    owner.dismiss(animated: true)
                 }
             }.disposed(by: disposeBag)
         
