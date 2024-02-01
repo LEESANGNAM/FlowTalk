@@ -57,7 +57,7 @@ class ChannelEditViewController: BaseViewController {
         }
     }
     
-    
+    private let completeSubject = PublishSubject<Void>()
     let viewModel: ChannelEditViewModel
     let disposeBag = DisposeBag()
     init(viewModel: ChannelEditViewModel) {
@@ -94,10 +94,21 @@ class ChannelEditViewController: BaseViewController {
             .bind(with: self) { owner, value in
                 if value {
                     print("생성 성공")
-                    owner.dismiss(animated: true)
+                    owner.addSuccess()
                 }
             }.disposed(by: disposeBag)
         
+    }
+    
+    //완료 동작
+    private func addSuccess() {
+        completeSubject.onNext(())
+        dismiss(animated: true)
+    }
+
+    // 외부 구독용
+    func completeObservable() -> Observable<Void> {
+        return completeSubject.asObservable()
     }
     
     private func setNavigationBar() {

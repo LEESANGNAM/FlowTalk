@@ -10,4 +10,5 @@ import RxSwift
 
 protocol ChannelRepository: AnyObject {
     func searchMyChannels(model: SearchMyChannelsRequestDTO) -> Observable<[SearchMyChannelsResponseDTO]>
+    func addChannel(channel: AddChannelRequestDTO) -> Observable<AddChannelResponseDTO>
 }

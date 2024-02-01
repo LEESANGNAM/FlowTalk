@@ -335,6 +335,13 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
                 )
             )
         )
+        
+        vc.completeObservable()
+            .bind(with: self) { owner, _ in
+                WorkSpaceManager.shared.fetch()
+                owner.showToast(message: "채널이 생성되었습니다.")
+            }.disposed(by: vc.disposeBag)
+        
         showPresentView(vc: vc)
     }
     func showAddmemberView() {

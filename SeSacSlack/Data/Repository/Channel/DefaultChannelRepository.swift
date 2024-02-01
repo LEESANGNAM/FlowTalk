@@ -13,5 +13,8 @@ final class DefaultChannelRepository: ChannelRepository {
     func searchMyChannels(model: SearchMyChannelsRequestDTO) -> Observable<[SearchMyChannelsResponseDTO]> {
         return NetWorkManager.shared.request(type: [SearchMyChannelsResponseDTO].self, api: .searchMyChannels(model))
     }
+    func addChannel(channel: AddChannelRequestDTO) -> Observable<AddChannelResponseDTO> {
+        return NetWorkManager.shared.request(type: AddChannelResponseDTO.self, api: .addChannel(channel))
+    }
     
 }

@@ -53,29 +53,7 @@ class ChannelEditViewModel {
         
         input.doneButtonTapped
             .bind(with: self) { owner, _ in
-                let id = WorkSpaceManager.shared.id
-                let name = owner.nameText.value
-                let info = owner.infoText.value
-                let channel = AddChannelRequestDTO(workspace_id: id, name: name , description: info)
-                NetWorkManager.shared.request(type: AddChannelResponseDTO.self, api: .addChannel(channel))
-                    .subscribe(with: self) { owner, value in
-                        print("채널 생성 완료: ",value)
-                    } onError: { owner, error in
-                        if let commonError = error as? CommonErrorType {
-                            let code = commonError.code
-                            if let channelError = ChannelsErrorType(rawValue: code){
-                                print("채널에러:", channelError.message)
-                            }else {
-                                print("공용에러:",commonError.message)
-                            }
-                        }
-                    } onCompleted: { owner in
-                        print("채널생성 완료")
-                        owner.isSuccess.accept(true)
-                    } onDisposed: { _ in
-                        print("채널생성 디스포즈")
-                    }.disposed(by: owner.disposeBag)
-
+                owner.addChannel()
             }.disposed(by: disposeBag)
         
         
@@ -83,6 +61,32 @@ class ChannelEditViewModel {
             emptyValid: emptyValid,
             isSuccess: isSuccess,
             errormessage: errorMessage)
+    }
+    
+    private func addChannel() {
+        let id = WorkSpaceManager.shared.id
+        let name = nameText.value
+        let info = infoText.value
+        let channel = AddChannelRequestDTO(workspace_id: id, name: name , description: info)
+        
+        channelUseCase.addChannel(channel: channel)
+            .subscribe(with: self) { owner, value in
+                print("채널 생성 완료: ",value)
+            } onError: { owner, error in
+                if let commonError = error as? CommonErrorType {
+                    let code = commonError.code
+                    if let channelError = ChannelsErrorType(rawValue: code){
+                        print("채널에러:", channelError.message)
+                    }else {
+                        print("공용에러:",commonError.message)
+                    }
+                }
+            } onCompleted: { owner in
+                print("채널생성 완료")
+                owner.isSuccess.accept(true)
+            } onDisposed: { _ in
+                print("채널생성 디스포즈")
+            }.disposed(by: disposeBag)
     }
     
 }
