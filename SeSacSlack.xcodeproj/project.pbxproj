@@ -110,6 +110,7 @@
 		D6BC027E2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */; };
 		D6BC02802B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */; };
 		D6BC028A2B6A6E1900BE1633 /* ChannelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02892B6A6E1900BE1633 /* ChannelEditViewController.swift */; };
+		D6BC028C2B6BD08300BE1633 /* ChannelEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC028B2B6BD08300BE1633 /* ChannelEditViewModel.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -260,6 +261,7 @@
 		D6BC027D2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC027F2B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceChangeAdminRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC02892B6A6E1900BE1633 /* ChannelEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewController.swift; sourceTree = "<group>"; };
+		D6BC028B2B6BD08300BE1633 /* ChannelEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewModel.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -967,6 +969,7 @@
 		D6BC02852B6A6DE100BE1633 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC028B2B6BD08300BE1633 /* ChannelEditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1374,6 +1377,7 @@
 				D6BC025A2B63C91200BE1633 /* CustomAlertViewController.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D6C7A2382B6152980007102A /* WorkSpaceListViewModel.swift in Sources */,
+				D6BC028C2B6BD08300BE1633 /* ChannelEditViewModel.swift in Sources */,
 				D6BA71752B4FEEB900D3FD00 /* RefreshTokenResponseDTO.swift in Sources */,
 				D6BA71912B53DF0C00D3FD00 /* DefaultWorkSpaceRepository.swift in Sources */,
 				D616D29B2B4AAB750012CFC5 /* String+Extension.swift in Sources */,

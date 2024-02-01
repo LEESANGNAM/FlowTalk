@@ -57,11 +57,47 @@ class ChannelEditViewController: BaseViewController {
         }
     }
     
+    
+    let viewModel: ChannelEditViewModel
+    let disposeBag = DisposeBag()
+    init(viewModel: ChannelEditViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        bind()
     }
    
+    private func bind() {
+        let input = ChannelEditViewModel.Input(
+            nameTextFieldChanged: nameTextField.rx.text.orEmpty,
+            infoTextFieldChanged: infoTextField.rx.text.orEmpty,
+            doneButtonTapped: doneButton.rx.tap)
+        
+        let output = viewModel.transform(input: input)
+        
+        output.emptyValid
+            .bind(with: self) { owner, value in
+                owner.doneButton.isEnabled = value
+                owner.doneButton.backgroundColor = value ? Colors.brandGreen.color : Colors.brandInactive.color
+            }.disposed(by: disposeBag)
+        
+        output.errormessage
+            .bind(with: self) { owner, errorText in
+                owner.showToast(message: errorText)
+            }.disposed(by: disposeBag)
+        
+        output.isSuccess
+            .bind(with: self) { owner, value in
+                if value {
+                    print("생성 성공")
+                }
+            }.disposed(by: disposeBag)
+        
+    }
     
     private func setNavigationBar() {
         let backButtonItem = UIBarButtonItem(image: Icon.close.image , style: .done, target: self, action: #selector(backButtonTapped))

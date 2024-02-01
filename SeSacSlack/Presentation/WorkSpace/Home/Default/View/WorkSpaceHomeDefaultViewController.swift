@@ -328,7 +328,13 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         present(actionSheet, animated: true)
     }
     func showAddChannelView() {
-        let vc = ChannelEditViewController()
+        let vc = ChannelEditViewController(
+            viewModel: ChannelEditViewModel(
+                channelUseCase: DefaultChannelUseCase(
+                    channelRepository: DefaultChannelRepository()
+                )
+            )
+        )
         showPresentView(vc: vc)
     }
     func showAddmemberView() {
