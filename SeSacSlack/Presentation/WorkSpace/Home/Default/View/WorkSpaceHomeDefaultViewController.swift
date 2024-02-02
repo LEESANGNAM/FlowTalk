@@ -305,6 +305,17 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
                 print("팀원추가")
                 showAddmemberView()
             }
+        } else {
+            switch section {
+            case .channel:
+                print("채널클릭")
+                let channel = viewModel.getChannel(index: indexPath.row)
+                showChattingView(name: channel.name)
+            case .directmessage:
+                print("dm 클릭")
+            case .addMember:
+                print("팀원클릭")
+            }
         }
     }
     private func showActionSheet(addAction: @escaping () -> Void, searchAction: @escaping () -> Void) {
@@ -326,6 +337,13 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         actionArray.forEach { actionSheet.addAction($0) }
         
         present(actionSheet, animated: true)
+    }
+    func showChattingView(name: String) {
+        let vc = ChannelChattingViewController()
+        vc.chatname = "#" + name
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav,animated: true)
     }
     func showAddChannelView() {
         let vc = ChannelEditViewController(

@@ -37,6 +37,8 @@ enum Icon: String {
     case hashtag = "hashtag"
     case selecteHashtag = "selectHashtag"
     
+    //chevron
+    case chevronLeft = "chevronLeft"
     
     case noProfileA = "NoPhotoA"
     case noProfileB = "NoPhotoB"

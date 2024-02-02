@@ -114,6 +114,7 @@
 		D6BC028E2B6BE33C00BE1633 /* AddChannelResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC028D2B6BE33C00BE1633 /* AddChannelResponseDTO.swift */; };
 		D6BC02902B6BE41300BE1633 /* AddChannelRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC028F2B6BE41300BE1633 /* AddChannelRequestDTO.swift */; };
 		D6BC02922B6BE5DB00BE1633 /* ChannelsErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02912B6BE5DB00BE1633 /* ChannelsErrorType.swift */; };
+		D6BC02952B6D125900BE1633 /* ChannelChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -268,6 +269,7 @@
 		D6BC028D2B6BE33C00BE1633 /* AddChannelResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelResponseDTO.swift; sourceTree = "<group>"; };
 		D6BC028F2B6BE41300BE1633 /* AddChannelRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelRequestDTO.swift; sourceTree = "<group>"; };
 		D6BC02912B6BE5DB00BE1633 /* ChannelsErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsErrorType.swift; sourceTree = "<group>"; };
+		D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingViewController.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 		D6BC02812B6A63FD00BE1633 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02932B6D083900BE1633 /* Chatting */,
 				D6BC02832B6A660F00BE1633 /* Search */,
 				D6BC02822B6A641000BE1633 /* Edit */,
 			);
@@ -979,6 +982,14 @@
 				D6BC028B2B6BD08300BE1633 /* ChannelEditViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6BC02932B6D083900BE1633 /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */,
+			);
+			path = Chatting;
 			sourceTree = "<group>";
 		};
 		D6C7A22C2B6117990007102A /* Tabbar */ = {
@@ -1441,6 +1452,7 @@
 				D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */,
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
+				D6BC02952B6D125900BE1633 /* ChannelChattingViewController.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D6DCA3662B596F7B00236EDB /* SplashViewController.swift in Sources */,
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,

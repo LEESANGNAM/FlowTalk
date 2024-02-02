@@ -93,4 +93,8 @@ class WorkSpaceHomeDefaultViewModel {
         return dmData.value
     }
     
+    func getChannel(index: Int) -> SearchMyChannelsResponseDTO {
+        return channelData.value[index - 1]
+    }
+    
 }
