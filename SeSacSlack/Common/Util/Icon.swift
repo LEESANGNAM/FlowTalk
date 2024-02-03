@@ -33,7 +33,9 @@ enum Icon: String {
     case plus = "plus"
     case help = "help"
     case etc = "etc"
+    case send = "send"
     
+    // cell
     case hashtag = "hashtag"
     case selecteHashtag = "selectHashtag"
     
