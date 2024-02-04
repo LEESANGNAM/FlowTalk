@@ -116,6 +116,7 @@
 		D6BC02922B6BE5DB00BE1633 /* ChannelsErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02912B6BE5DB00BE1633 /* ChannelsErrorType.swift */; };
 		D6BC02952B6D125900BE1633 /* ChannelChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */; };
 		D6BC02972B6E44D100BE1633 /* ChattingInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02962B6E44D100BE1633 /* ChattingInputView.swift */; };
+		D6BC029A2B6E9F3A00BE1633 /* ChannelChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02992B6E9F3A00BE1633 /* ChannelChattingView.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -272,6 +273,7 @@
 		D6BC02912B6BE5DB00BE1633 /* ChannelsErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsErrorType.swift; sourceTree = "<group>"; };
 		D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingViewController.swift; sourceTree = "<group>"; };
 		D6BC02962B6E44D100BE1633 /* ChattingInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingInputView.swift; sourceTree = "<group>"; };
+		D6BC02992B6E9F3A00BE1633 /* ChannelChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingView.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -991,7 +993,6 @@
 			isa = PBXGroup;
 			children = (
 				D6BC02982B6E48C200BE1633 /* View */,
-				D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -999,6 +1000,8 @@
 		D6BC02982B6E48C200BE1633 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02992B6E9F3A00BE1633 /* ChannelChattingView.swift */,
+				D6BC02942B6D125900BE1633 /* ChannelChattingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1408,6 +1411,7 @@
 				D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */,
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
 				D6BC02902B6BE41300BE1633 /* AddChannelRequestDTO.swift in Sources */,
+				D6BC029A2B6E9F3A00BE1633 /* ChannelChattingView.swift in Sources */,
 				D6BC025A2B63C91200BE1633 /* CustomAlertViewController.swift in Sources */,
 				D654CA1D2B4435600054AD46 /* OnBoardingViewController.swift in Sources */,
 				D6C7A2382B6152980007102A /* WorkSpaceListViewModel.swift in Sources */,
