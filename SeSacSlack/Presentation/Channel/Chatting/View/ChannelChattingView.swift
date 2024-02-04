@@ -11,11 +11,14 @@ import UIKit
 class ChannelChattingView: BaseView {
     let chattingTableView = {
         let view = UITableView(frame: .zero)
-        view.register(UITableViewCell.self, forCellReuseIdentifier: "test")
+        view.register(ChannelChattingTableViewCell.self, forCellReuseIdentifier: ChannelChattingTableViewCell.identifier)
         view.backgroundColor = Colors.brandWhite.color
         view.keyboardDismissMode = .onDrag
         view.allowsSelection = false
         view.separatorStyle = .none
+        view.rowHeight = UITableView.automaticDimension
+        
+        view.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: -16)
         return view
     }()
     let chattingInputView =  {

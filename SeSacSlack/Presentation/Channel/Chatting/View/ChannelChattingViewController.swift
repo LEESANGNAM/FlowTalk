@@ -11,6 +11,45 @@ class ChannelChattingViewController: BaseViewController {
     var chatname = ""
     let mainView = ChannelChattingView()
     
+    let testChatData = [
+        "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
+        "컨퍼런스 사진 공유드려요!",
+    """
+    문래역 근처 맛집 추천 받습니다~
+    창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠..
+    맛잘알 계신가요?
+    """,
+    """
+    아니 그런데 이건 좀
+    이렇게 저렇게?
+    ㅋㅋ
+    """,
+        "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
+        "컨퍼런스 사진 공유드려요!",
+    """
+    문래역 근처 맛집 추천 받습니다~
+    창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠..
+    맛잘알 계신가요?
+    """,
+    """
+    아니 그런데 이건 좀
+    이렇게 저렇게?
+    ㅋㅋ
+    """,
+        "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
+        "컨퍼런스 사진 공유드려요!",
+    """
+    문래역 근처 맛집 추천 받습니다~
+    창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠..
+    맛잘알 계신가요?
+    """,
+    """
+    아니 그런데 이건 좀
+    이렇게 저렇게?
+    ㅋㅋ
+    """
+    ]
+    
     override func loadView() {
         view = mainView
     }
@@ -56,8 +95,10 @@ extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "test")
-        cell.textLabel?.text = "\(indexPath.row)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChannelChattingTableViewCell.identifier, for: indexPath) as? ChannelChattingTableViewCell else { return UITableViewCell()}
+        cell.layoutIfNeeded()
+        cell.nameLabel.text = "테스트유저 \(indexPath.row)"
+        cell.chattingLabel.text = testChatData[indexPath.row]
         return cell
     }
     
