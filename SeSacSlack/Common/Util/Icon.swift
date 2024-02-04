@@ -33,15 +33,20 @@ enum Icon: String {
     case plus = "plus"
     case help = "help"
     case etc = "etc"
-    case send = "send"
     
     // cell
     case hashtag = "hashtag"
     case selecteHashtag = "selectHashtag"
     
+    //chattingInput
+    case enabledSend = "enabledSend"
+    case send = "send"
+    case remove = "remove"
+    
     //chevron
     case chevronLeft = "chevronLeft"
     
+    //noprofile
     case noProfileA = "NoPhotoA"
     case noProfileB = "NoPhotoB"
     case noProfileC = "NoPhotoC"

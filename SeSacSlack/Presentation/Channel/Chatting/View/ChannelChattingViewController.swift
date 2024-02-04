@@ -20,6 +20,7 @@ class ChannelChattingViewController: BaseViewController {
         setNavigationBar()
         mainView.chattingInputView.plusButton.addTarget(self, action: #selector(test), for: .touchUpInside)
         setTableView()
+        setCollectionView()
     }
     @objc func test() {
         mainView.chattingInputView.toggleImageCollectionView()
@@ -42,6 +43,11 @@ class ChannelChattingViewController: BaseViewController {
         mainView.chattingTableView.delegate = self
         mainView.chattingTableView.dataSource = self
     }
+    
+    func setCollectionView() {
+        mainView.chattingInputView.ImageCollectionView.delegate = self
+        mainView.chattingInputView.ImageCollectionView.dataSource = self
+    }
 }
 
 extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -54,5 +60,20 @@ extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSou
         cell.textLabel?.text = "\(indexPath.row)"
         return cell
     }
+    
+}
+
+extension ChannelChattingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChannelChattingInputImageCell.identifier, for: indexPath) as? ChannelChattingInputImageCell else { return  UICollectionViewCell()}
+        cell.fileImageView.backgroundColor = .systemBlue
+        
+        return cell
+    }
+    
     
 }

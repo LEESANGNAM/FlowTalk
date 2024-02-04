@@ -17,13 +17,13 @@ class ChattingInputView: BaseView {
     
     let sendButton = {
         let view = UIButton()
-        view.setImage(Icon.send.image, for: .normal)
+        view.setImage(Icon.enabledSend.image, for: .normal)
         return view
     }()
     
     let chattingTextView = {
         let view = UITextView()
-        view.backgroundColor = Colors.brandGreen.color
+        view.backgroundColor = Colors.backgroundPrimary.color
         view.font = Font.body.fontWithLineHeight()
         return view
     }()
@@ -31,7 +31,7 @@ class ChattingInputView: BaseView {
     lazy var ImageCollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.ImageCollectionViewLayout())
         view.backgroundColor = Colors.backgroundPrimary.color
-        
+        view.register(ChannelChattingInputImageCell.self, forCellWithReuseIdentifier: ChannelChattingInputImageCell.identifier)
         return view
     }()
     
