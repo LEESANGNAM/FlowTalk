@@ -62,7 +62,9 @@ class WorkSpaceHomeDefaultViewModel {
        channelUseCase.searchMyChannels(model: SearchMyChannelsRequestDTO(id: id))
             .subscribe(with: self) { owner, value in
 //                print("채널 조회 :",value)
-                owner.channelData.accept(value)
+                var array = value
+                array.reverse()
+                owner.channelData.accept(array)
             } onError: { _, error in
 //                print("채널 조회 에러",error)
             } onCompleted: { _ in
