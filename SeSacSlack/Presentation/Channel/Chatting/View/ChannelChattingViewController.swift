@@ -82,6 +82,28 @@ class ChannelChattingViewController: BaseViewController {
         setCollectionView()
         setPHPicker()
         view.backgroundColor = Colors.brandWhite.color
+        bind()
+    }
+    private func bind(){
+        textViewBind()
+    }
+    private func textViewBind() {
+        mainView.chattingInputView.chattingTextView.rx
+            .didChange
+            .bind(with: self) { owner, _ in
+                let size = CGSize(width: owner.mainView.chattingInputView.chattingTextView.frame.width, height: .infinity)
+                let estimatedSize = owner.mainView.chattingInputView.chattingTextView.sizeThatFits(size)
+                print("텍스트뷰사이즈======",estimatedSize)
+                // 1줄 31.6
+                //2줄 47.3
+                //3줄 62.6
+                let isMaxHeight = estimatedSize.height >= 60
+                
+                guard isMaxHeight != owner.mainView.chattingInputView.chattingTextView.isScrollEnabled else { return }
+                owner.mainView.chattingInputView.chattingTextView.isScrollEnabled = isMaxHeight
+                owner.mainView.chattingInputView.chattingTextView.reloadInputViews()
+                owner.mainView.chattingInputView.chattingTextView.setNeedsUpdateConstraints()
+            }.disposed(by: disposeBag)
     }
     @objc func plusButtonTapped() {
 //        mainView.chattingInputView.toggleImageCollectionView()

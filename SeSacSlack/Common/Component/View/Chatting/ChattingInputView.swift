@@ -25,6 +25,7 @@ class ChattingInputView: BaseView {
         let view = UITextView()
         view.backgroundColor = Colors.backgroundPrimary.color
         view.font = Font.body.fontWithLineHeight()
+        view.isScrollEnabled = false
         return view
     }()
     
@@ -69,7 +70,7 @@ class ChattingInputView: BaseView {
         chattingTextView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.leading.equalTo(plusButton.snp.trailing).offset(8)
-            make.height.equalTo(50)
+            make.height.lessThanOrEqualTo(54)
             make.trailing.equalTo(sendButton.snp.leading).offset(-8)
             make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-8)
         }
