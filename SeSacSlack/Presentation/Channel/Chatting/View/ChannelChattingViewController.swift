@@ -50,6 +50,21 @@ class ChannelChattingViewController: BaseViewController {
     """
     ]
     
+    let testImageArray = [
+        [],
+        ["a","b","c","d"],
+        ["c","d","e"],
+        ["a"],
+        ["a","b"],
+        ["a","b"],
+        ["a","b","c","d"],
+        ["a","b"],
+        ["c","d","e"],
+        ["a","b","c","d","e"],
+        ["a","b"],
+        ["a","b"]
+    ]
+    
     override func loadView() {
         view = mainView
     }
@@ -92,14 +107,15 @@ class ChannelChattingViewController: BaseViewController {
 
 extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return testChatData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChannelChattingTableViewCell.identifier, for: indexPath) as? ChannelChattingTableViewCell else { return UITableViewCell()}
-        cell.layoutIfNeeded()
         cell.nameLabel.text = "테스트유저 \(indexPath.row)"
         cell.chattingLabel.text = testChatData[indexPath.row]
+        cell.setdata(test: testImageArray[indexPath.row])
+        cell.layoutIfNeeded()
         return cell
     }
     

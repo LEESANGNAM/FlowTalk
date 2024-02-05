@@ -54,9 +54,8 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
     }()
     
     let ImageView = {
-        let view = UIImageView()
+        let view = ChannelChattingCellImageView()
         view.clipsToBounds = true
-        view.backgroundColor = .systemBlue
         view.layer.cornerRadius = 12
         return view
     }() // 따로 빼야할듯
@@ -114,7 +113,7 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
         }
         
         ImageView.snp.makeConstraints { make in
-            make.height.equalTo(160)
+            make.height.equalTo(162)
             make.width.equalToSuperview()
         }
         
@@ -125,9 +124,27 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
         }
         
     }
+    func setdata(test: [String]) {
+        setHeight(count: test.count)
+        ImageView.setlayout(images: test)
+    }
     
-    
-    
-    
-    
+    private func setHeight(count: Int) {
+        ImageView.snp.removeConstraints()
+        switch count {
+        case 2,3:
+            ImageView.snp.remakeConstraints { make in
+                make.height.equalTo(80)
+                make.width.equalToSuperview()
+            }
+        case 1,4,5:
+            ImageView.snp.makeConstraints { make in
+                make.height.equalTo(162)
+                make.width.equalToSuperview()
+            }
+        default:
+            ImageView.isHidden = true
+        }
+    }
+        
 }
