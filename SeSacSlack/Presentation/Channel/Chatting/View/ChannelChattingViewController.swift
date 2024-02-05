@@ -60,6 +60,7 @@ class ChannelChattingViewController: BaseViewController {
         mainView.chattingInputView.plusButton.addTarget(self, action: #selector(test), for: .touchUpInside)
         setTableView()
         setCollectionView()
+        view.backgroundColor = Colors.brandWhite.color
     }
     @objc func test() {
         mainView.chattingInputView.toggleImageCollectionView()
