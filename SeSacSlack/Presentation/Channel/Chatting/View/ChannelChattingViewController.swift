@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import PhotosUI
+
 
 class ChannelChattingViewController: BaseViewController {
     var chatname = ""
     let mainView = ChannelChattingView()
-    
+    let disposeBag = DisposeBag()
+    var picker: PHPickerViewController!
     let testChatData = [
         "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
         "컨퍼런스 사진 공유드려요!",
@@ -72,13 +77,15 @@ class ChannelChattingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
-        mainView.chattingInputView.plusButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+        mainView.chattingInputView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         setTableView()
         setCollectionView()
+        setPHPicker()
         view.backgroundColor = Colors.brandWhite.color
     }
-    @objc func test() {
-        mainView.chattingInputView.toggleImageCollectionView()
+    @objc func plusButtonTapped() {
+//        mainView.chattingInputView.toggleImageCollectionView()
+        present(picker, animated: true)
     }
     
     private func setNavigationBar() {
@@ -103,6 +110,51 @@ class ChannelChattingViewController: BaseViewController {
         mainView.chattingInputView.ImageCollectionView.delegate = self
         mainView.chattingInputView.ImageCollectionView.dataSource = self
     }
+    var imagedataArray:[Data] = [] {
+        didSet {
+            if imagedataArray.count != 0{
+                DispatchQueue.main.async{
+                    self.mainView.chattingInputView.toggleImageCollectionView()
+                }
+            }
+            DispatchQueue.main.async{
+                self.mainView.chattingInputView.ImageCollectionView.reloadData()
+            }
+        }
+    }
+}
+
+extension ChannelChattingViewController: PHPickerViewControllerDelegate{
+    
+    private func setPHPicker(){
+        var phPickerConfiguration = PHPickerConfiguration()
+        phPickerConfiguration.filter = .images
+        phPickerConfiguration.selectionLimit = 5
+        picker = PHPickerViewController(configuration: phPickerConfiguration)
+        picker.delegate = self
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if results.isEmpty { return }
+        
+        //        let itemProvider = results.first?.itemProvider // 2
+        for (index, item) in results.enumerated() {
+            let itemProvider = item.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
+                itemProvider.loadObject(ofClass: UIImage.self) {[weak self] (image, error) in // 4
+                    DispatchQueue.global().async { [weak self] in
+                        guard let image = image as? UIImage else { return }
+                        guard let imageData = image.jpegData(compressionQuality: 0.001) else  { return }
+                        
+                        //                            self?.viewmodel.setImageData(imageData)
+                        self?.imagedataArray.append(imageData)
+                    }
+                }
+            }
+            
+        }
+        dismiss(animated: true)
+    }
 }
 
 extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -123,13 +175,13 @@ extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSou
 
 extension ChannelChattingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return imagedataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChannelChattingInputImageCell.identifier, for: indexPath) as? ChannelChattingInputImageCell else { return  UICollectionViewCell()}
         cell.fileImageView.backgroundColor = .systemBlue
-        
+        cell.fileImageView.image = UIImage(data: imagedataArray[indexPath.item])
         return cell
     }
     
