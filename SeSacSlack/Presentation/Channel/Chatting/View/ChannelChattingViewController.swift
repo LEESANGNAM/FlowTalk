@@ -17,6 +17,13 @@ class ChannelChattingViewController: BaseViewController {
     let disposeBag = DisposeBag()
     var picker: PHPickerViewController!
     private let textViewPlaceHolder = "메세지를 입력하세요"
+    let viewModel: ChannelChatiingViewModel
+    
+    init(viewModel: ChannelChatiingViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
     
     let testChatData = [
         "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
@@ -81,7 +88,6 @@ class ChannelChattingViewController: BaseViewController {
         setNavigationBar()
         mainView.chattingInputView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         setTableView()
-        setCollectionView()
         setPHPicker()
         setTextViewPlaceHolder()
         view.backgroundColor = Colors.brandWhite.color
@@ -89,6 +95,34 @@ class ChannelChattingViewController: BaseViewController {
     }
     private func bind(){
         textViewBind()
+        
+        let input = ChannelChatiingViewModel.Input(
+            chattingTextViewChange: mainView.chattingInputView.chattingTextView.rx.text.orEmpty
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.imageData
+            .bind(to: mainView.chattingInputView.ImageCollectionView.rx.items(
+                cellIdentifier: ChannelChattingInputImageCell.identifier,
+                cellType: ChannelChattingInputImageCell.self)){  index, data, cell in
+                    
+                    cell.fileImageView.image = UIImage(data: data)
+                    
+                    cell.removeButton.rx.tap
+                        .bind(with: self) { owner, _ in
+                            print("\(index) 번째 아이템 삭제")
+                        }.disposed(by: cell.disposeBag)
+                
+                }.disposed(by: disposeBag)
+        
+        output.hiddenImageCollectionView
+            .observe(on: MainScheduler.instance)
+            .bind(with: self, onNext: { owner, value in
+                owner.mainView.chattingInputView.ImageCollectionView.isHidden = value
+                owner.mainView.chattingInputView.showImageCollectionView()
+            })
+            .disposed(by: disposeBag)
+        
     }
     private func textViewBind() {
         
@@ -133,7 +167,6 @@ class ChannelChattingViewController: BaseViewController {
     }
     
     @objc func plusButtonTapped() {
-//        mainView.chattingInputView.toggleImageCollectionView()
         present(picker, animated: true)
     }
     
@@ -155,22 +188,7 @@ class ChannelChattingViewController: BaseViewController {
         mainView.chattingTableView.dataSource = self
     }
     
-    func setCollectionView() {
-        mainView.chattingInputView.ImageCollectionView.delegate = self
-        mainView.chattingInputView.ImageCollectionView.dataSource = self
-    }
-    var imagedataArray:[Data] = [] {
-        didSet {
-            if imagedataArray.count != 0{
-                DispatchQueue.main.async{
-                    self.mainView.chattingInputView.toggleImageCollectionView()
-                }
-            }
-            DispatchQueue.main.async{
-                self.mainView.chattingInputView.ImageCollectionView.reloadData()
-            }
-        }
-    }
+
 }
 
 extension ChannelChattingViewController: PHPickerViewControllerDelegate{
@@ -187,20 +205,27 @@ extension ChannelChattingViewController: PHPickerViewControllerDelegate{
         if results.isEmpty { return }
         
         //        let itemProvider = results.first?.itemProvider // 2
+        var imageDataArray:[Data] = []
+        var dispatchGroup = DispatchGroup()
+        
         for (index, item) in results.enumerated() {
+            
+            dispatchGroup.enter()
+            
             let itemProvider = item.itemProvider
             if itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
                 itemProvider.loadObject(ofClass: UIImage.self) {[weak self] (image, error) in // 4
-                    DispatchQueue.global().async { [weak self] in
-                        guard let image = image as? UIImage else { return }
-                        guard let imageData = image.jpegData(compressionQuality: 0.001) else  { return }
                         
-                        //                            self?.viewmodel.setImageData(imageData)
-                        self?.imagedataArray.append(imageData)
+                    guard let image = image as? UIImage else { return }
+                        
+                    guard let imageData = image.jpegData(compressionQuality: 0.001) else  { return }
+                        imageDataArray.append(imageData)
+                        dispatchGroup.leave()
                     }
                 }
             }
-            
+        dispatchGroup.notify(queue: .global()) { [weak self] in
+            self?.viewModel.setImageData(imageDataArray)
         }
         dismiss(animated: true)
     }
@@ -219,20 +244,5 @@ extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSou
         cell.layoutIfNeeded()
         return cell
     }
-    
-}
-
-extension ChannelChattingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagedataArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChannelChattingInputImageCell.identifier, for: indexPath) as? ChannelChattingInputImageCell else { return  UICollectionViewCell()}
-        cell.fileImageView.backgroundColor = .systemBlue
-        cell.fileImageView.image = UIImage(data: imagedataArray[indexPath.item])
-        return cell
-    }
-    
     
 }

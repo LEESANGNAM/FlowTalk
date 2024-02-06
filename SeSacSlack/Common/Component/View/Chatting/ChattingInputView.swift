@@ -85,25 +85,23 @@ class ChattingInputView: BaseView {
         ImageCollectionView.isHidden = true
     }
     
-    func toggleImageCollectionView() {
+    func showImageCollectionView() {
         if ImageCollectionView.isHidden {
-            ImageCollectionView.isHidden = false
             chattingTextView.snp.remakeConstraints { make in
                 make.top.equalToSuperview().offset(8)
                 make.leading.equalTo(plusButton.snp.trailing).offset(8)
-                make.height.equalTo(50)
+                make.height.lessThanOrEqualTo(54)
                 make.trailing.equalTo(sendButton.snp.leading).offset(-8)
-                make.bottom.equalTo(ImageCollectionView.snp.top).offset(-8)
+                make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-8)
             }
             
         } else {
-            ImageCollectionView.isHidden = true
             chattingTextView.snp.remakeConstraints { make in
                 make.top.equalToSuperview().offset(8)
                 make.leading.equalTo(plusButton.snp.trailing).offset(8)
-                make.height.equalTo(50)
+                make.height.lessThanOrEqualTo(54)
                 make.trailing.equalTo(sendButton.snp.leading).offset(-8)
-                make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-8)
+                make.bottom.equalTo(ImageCollectionView.snp.top).offset(-8)
             }
         }
         

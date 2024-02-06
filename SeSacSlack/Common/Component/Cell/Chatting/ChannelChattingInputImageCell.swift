@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ChannelChattingInputImageCell: BaseCollectionViewCell {
+    
+    var disposeBag = DisposeBag()
     
     let fileImageView = {
         let view = UIImageView()
@@ -21,6 +25,11 @@ class ChannelChattingInputImageCell: BaseCollectionViewCell {
         view.setImage(Icon.remove.image, for: .normal)
         return view
     }()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     override func setHierarchy() {
         contentView.addSubview(fileImageView)

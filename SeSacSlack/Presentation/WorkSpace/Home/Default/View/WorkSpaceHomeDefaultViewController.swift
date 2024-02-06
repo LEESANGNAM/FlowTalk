@@ -339,7 +339,7 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         present(actionSheet, animated: true)
     }
     func showChattingView(name: String) {
-        let vc = ChannelChattingViewController()
+        let vc = ChannelChattingViewController(viewModel: ChannelChatiingViewModel())
         vc.chatname = "#" + name
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
