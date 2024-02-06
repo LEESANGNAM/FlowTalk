@@ -120,6 +120,7 @@
 		D6BC029D2B6FCE5D00BE1633 /* ChannelChattingInputImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC029C2B6FCE5D00BE1633 /* ChannelChattingInputImageCell.swift */; };
 		D6BC02A02B6FE55700BE1633 /* ChannelChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC029F2B6FE55700BE1633 /* ChannelChattingTableViewCell.swift */; };
 		D6BC02A32B70FA9B00BE1633 /* ChannelChattingCellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02A22B70FA9B00BE1633 /* ChannelChattingCellImageView.swift */; };
+		D6BC02A62B724D9B00BE1633 /* ChannelChatiingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02A52B724D9B00BE1633 /* ChannelChatiingViewModel.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -280,6 +281,7 @@
 		D6BC029C2B6FCE5D00BE1633 /* ChannelChattingInputImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingInputImageCell.swift; sourceTree = "<group>"; };
 		D6BC029F2B6FE55700BE1633 /* ChannelChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingTableViewCell.swift; sourceTree = "<group>"; };
 		D6BC02A22B70FA9B00BE1633 /* ChannelChattingCellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingCellImageView.swift; sourceTree = "<group>"; };
+		D6BC02A52B724D9B00BE1633 /* ChannelChatiingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatiingViewModel.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -998,6 +1000,7 @@
 		D6BC02932B6D083900BE1633 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				D6BC02A42B71422600BE1633 /* ViewModel */,
 				D6BC02982B6E48C200BE1633 /* View */,
 			);
 			path = Chatting;
@@ -1028,6 +1031,14 @@
 				D6BC02A22B70FA9B00BE1633 /* ChannelChattingCellImageView.swift */,
 			);
 			path = Chatting;
+			sourceTree = "<group>";
+		};
+		D6BC02A42B71422600BE1633 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6BC02A52B724D9B00BE1633 /* ChannelChatiingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D6C7A22C2B6117990007102A /* Tabbar */ = {
@@ -1495,6 +1506,7 @@
 				D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */,
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
+				D6BC02A62B724D9B00BE1633 /* ChannelChatiingViewModel.swift in Sources */,
 				D6BC029D2B6FCE5D00BE1633 /* ChannelChattingInputImageCell.swift in Sources */,
 				D6BC02952B6D125900BE1633 /* ChannelChattingViewController.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,

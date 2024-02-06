@@ -16,6 +16,8 @@ class ChannelChattingViewController: BaseViewController {
     let mainView = ChannelChattingView()
     let disposeBag = DisposeBag()
     var picker: PHPickerViewController!
+    private let textViewPlaceHolder = "메세지를 입력하세요"
+    
     let testChatData = [
         "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
         "컨퍼런스 사진 공유드려요!",
@@ -81,6 +83,7 @@ class ChannelChattingViewController: BaseViewController {
         setTableView()
         setCollectionView()
         setPHPicker()
+        setTextViewPlaceHolder()
         view.backgroundColor = Colors.brandWhite.color
         bind()
     }
@@ -88,6 +91,25 @@ class ChannelChattingViewController: BaseViewController {
         textViewBind()
     }
     private func textViewBind() {
+        
+        mainView.chattingInputView.chattingTextView.rx
+            .didBeginEditing
+            .bind(with: self) { owner, _ in
+                if owner.mainView.chattingInputView.chattingTextView.text == owner.textViewPlaceHolder{
+                    owner.mainView.chattingInputView.chattingTextView.text = nil
+                    owner.mainView.chattingInputView.chattingTextView.textColor = Colors.textPrimary.color
+                }
+            }.disposed(by: disposeBag)
+        
+        mainView.chattingInputView.chattingTextView.rx
+            .didEndEditing
+            .bind(with: self) { owner, _ in
+                if owner.mainView.chattingInputView.chattingTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    owner.setTextViewPlaceHolder()
+                }
+            }.disposed(by: disposeBag)
+        
+        
         mainView.chattingInputView.chattingTextView.rx
             .didChange
             .bind(with: self) { owner, _ in
@@ -105,6 +127,11 @@ class ChannelChattingViewController: BaseViewController {
                 owner.mainView.chattingInputView.chattingTextView.setNeedsUpdateConstraints()
             }.disposed(by: disposeBag)
     }
+    private func setTextViewPlaceHolder() {
+        mainView.chattingInputView.chattingTextView.text = textViewPlaceHolder
+        mainView.chattingInputView.chattingTextView.textColor = Colors.textSecondary.color
+    }
+    
     @objc func plusButtonTapped() {
 //        mainView.chattingInputView.toggleImageCollectionView()
         present(picker, animated: true)
