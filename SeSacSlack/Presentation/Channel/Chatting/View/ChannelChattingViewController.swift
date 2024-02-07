@@ -16,7 +16,6 @@ class ChannelChattingViewController: BaseViewController {
     let mainView = ChannelChattingView()
     let disposeBag = DisposeBag()
     var picker: PHPickerViewController!
-    private let textViewPlaceHolder = "메세지를 입력하세요"
     let viewModel: ChannelChatiingViewModel
     
     init(viewModel: ChannelChatiingViewModel) {
@@ -97,7 +96,8 @@ class ChannelChattingViewController: BaseViewController {
         textViewBind()
         
         let input = ChannelChatiingViewModel.Input(
-            chattingTextViewChange: mainView.chattingInputView.chattingTextView.rx.text.orEmpty
+            chattingTextViewChange: mainView.chattingInputView.chattingTextView.rx.text.orEmpty,
+            sendButtonTapped: mainView.chattingInputView.sendButton.rx.tap
         )
         let output = viewModel.transform(input: input)
         
@@ -116,19 +116,54 @@ class ChannelChattingViewController: BaseViewController {
                 }.disposed(by: disposeBag)
         
         output.hiddenImageCollectionView
-            .bind(with: self, onNext: { owner, value in
+            .bind(with: self) { owner, value in
                 owner.mainView.chattingInputView.ImageCollectionView.isHidden = value
                 owner.mainView.chattingInputView.showImageCollectionView()
-            })
+            }
             .disposed(by: disposeBag)
         
-    }
-    private func textViewBind() {
+        output.sendValid
+            .bind(with: self) { owner, value in
+                owner.mainView.chattingInputView.sendButton.isEnabled = value
+                owner.mainView.chattingInputView.sendButton.setImage(value ? Icon.enabledSend.image : Icon.send.image , for: .normal)
+            }.disposed(by: disposeBag)
         
+    }
+   
+    
+    @objc func plusButtonTapped() {
+        present(picker, animated: true)
+    }
+    
+    private func setNavigationBar() {
+        let backButtonItem = UIBarButtonItem(image: Icon.chevronLeft.image , style: .done, target: self, action: #selector(backButtonTapped))
+        backButtonItem.tintColor = Colors.brandBlack.color
+        self.navigationItem.leftBarButtonItem = backButtonItem
+        self.navigationController?.navigationBar.shadowImage = nil
+        navigationItem.title = chatname
+        self.navigationController?.navigationBar.barTintColor = Colors.backgroundSecondar.color
+    }
+    
+    @objc func backButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func setTableView() {
+        mainView.chattingTableView.delegate = self
+        mainView.chattingTableView.dataSource = self
+    }
+    
+
+}
+
+
+// MARK: - 텍스트뷰
+extension ChannelChattingViewController {
+    private func textViewBind() {
         mainView.chattingInputView.chattingTextView.rx
             .didBeginEditing
             .bind(with: self) { owner, _ in
-                if owner.mainView.chattingInputView.chattingTextView.text == owner.textViewPlaceHolder{
+                if owner.mainView.chattingInputView.chattingTextView.text == owner.viewModel.getPlaceHolder(){
                     owner.mainView.chattingInputView.chattingTextView.text = nil
                     owner.mainView.chattingInputView.chattingTextView.textColor = Colors.textPrimary.color
                 }
@@ -161,33 +196,9 @@ class ChannelChattingViewController: BaseViewController {
             }.disposed(by: disposeBag)
     }
     private func setTextViewPlaceHolder() {
-        mainView.chattingInputView.chattingTextView.text = textViewPlaceHolder
+        mainView.chattingInputView.chattingTextView.text = viewModel.getPlaceHolder()
         mainView.chattingInputView.chattingTextView.textColor = Colors.textSecondary.color
     }
-    
-    @objc func plusButtonTapped() {
-        present(picker, animated: true)
-    }
-    
-    private func setNavigationBar() {
-        let backButtonItem = UIBarButtonItem(image: Icon.chevronLeft.image , style: .done, target: self, action: #selector(backButtonTapped))
-        backButtonItem.tintColor = Colors.brandBlack.color
-        self.navigationItem.leftBarButtonItem = backButtonItem
-        self.navigationController?.navigationBar.shadowImage = nil
-        navigationItem.title = chatname
-        self.navigationController?.navigationBar.barTintColor = Colors.backgroundSecondar.color
-    }
-    
-    @objc func backButtonTapped() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func setTableView() {
-        mainView.chattingTableView.delegate = self
-        mainView.chattingTableView.dataSource = self
-    }
-    
-
 }
 
 extension ChannelChattingViewController: PHPickerViewControllerDelegate{

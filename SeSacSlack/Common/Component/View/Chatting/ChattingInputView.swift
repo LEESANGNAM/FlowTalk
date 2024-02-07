@@ -17,7 +17,7 @@ class ChattingInputView: BaseView {
     
     let sendButton = {
         let view = UIButton()
-        view.setImage(Icon.enabledSend.image, for: .normal)
+//        view.setImage(Icon.enabledSend.image, for: .normal)
         return view
     }()
     
