@@ -50,4 +50,9 @@ extension ChannelChatiingViewModel {
         print("이미지 데이터 들어옴",data)
         imageData.accept(data)
     }
+    func deleteImageData(index: Int) {
+        var imageArray = imageData.value
+        imageArray.remove(at: index)
+        imageData.accept(imageArray)
+    }
 }

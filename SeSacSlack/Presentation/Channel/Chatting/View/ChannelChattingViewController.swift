@@ -110,13 +110,12 @@ class ChannelChattingViewController: BaseViewController {
                     
                     cell.removeButton.rx.tap
                         .bind(with: self) { owner, _ in
-                            print("\(index) 번째 아이템 삭제")
+                            owner.viewModel.deleteImageData(index: index)
                         }.disposed(by: cell.disposeBag)
                 
                 }.disposed(by: disposeBag)
         
         output.hiddenImageCollectionView
-            .observe(on: MainScheduler.instance)
             .bind(with: self, onNext: { owner, value in
                 owner.mainView.chattingInputView.ImageCollectionView.isHidden = value
                 owner.mainView.chattingInputView.showImageCollectionView()
@@ -208,13 +207,13 @@ extension ChannelChattingViewController: PHPickerViewControllerDelegate{
         var imageDataArray:[Data] = []
         var dispatchGroup = DispatchGroup()
         
-        for (index, item) in results.enumerated() {
+        for item in results {
             
             dispatchGroup.enter()
             
             let itemProvider = item.itemProvider
-            if itemProvider.canLoadObject(ofClass: UIImage.self) { // 3
-                itemProvider.loadObject(ofClass: UIImage.self) {[weak self] (image, error) in // 4
+            if itemProvider.canLoadObject(ofClass: UIImage.self) { // 3  UIImage로 로드가 된다면
+                itemProvider.loadObject(ofClass: UIImage.self) {[weak self] (image, error) in // 4  로드 핸들러로 UIImage를 생성해준다. 비동기 처리된다.
                         
                     guard let image = image as? UIImage else { return }
                         
@@ -224,7 +223,7 @@ extension ChannelChattingViewController: PHPickerViewControllerDelegate{
                     }
                 }
             }
-        dispatchGroup.notify(queue: .global()) { [weak self] in
+        dispatchGroup.notify(queue: .main) { [weak self] in 
             self?.viewModel.setImageData(imageDataArray)
         }
         dismiss(animated: true)
