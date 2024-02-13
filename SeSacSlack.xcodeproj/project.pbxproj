@@ -121,6 +121,8 @@
 		D6BC02A02B6FE55700BE1633 /* ChannelChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC029F2B6FE55700BE1633 /* ChannelChattingTableViewCell.swift */; };
 		D6BC02A32B70FA9B00BE1633 /* ChannelChattingCellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02A22B70FA9B00BE1633 /* ChannelChattingCellImageView.swift */; };
 		D6BC02A62B724D9B00BE1633 /* ChannelChatiingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02A52B724D9B00BE1633 /* ChannelChatiingViewModel.swift */; };
+		D6BC02A82B7B9F6700BE1633 /* MakeChattingRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02A72B7B9F6700BE1633 /* MakeChattingRequestDTO.swift */; };
+		D6BC02AA2B7BAFA900BE1633 /* MakeChattingResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BC02A92B7BAFA900BE1633 /* MakeChattingResponseDTO.swift */; };
 		D6C7A2292B600CFA0007102A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A2282B600CFA0007102A /* UIView+Extension.swift */; };
 		D6C7A22B2B602C2A0007102A /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */; };
 		D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7A22D2B6117A70007102A /* TabbarController.swift */; };
@@ -282,6 +284,8 @@
 		D6BC029F2B6FE55700BE1633 /* ChannelChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingTableViewCell.swift; sourceTree = "<group>"; };
 		D6BC02A22B70FA9B00BE1633 /* ChannelChattingCellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingCellImageView.swift; sourceTree = "<group>"; };
 		D6BC02A52B724D9B00BE1633 /* ChannelChatiingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatiingViewModel.swift; sourceTree = "<group>"; };
+		D6BC02A72B7B9F6700BE1633 /* MakeChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeChattingRequestDTO.swift; sourceTree = "<group>"; };
+		D6BC02A92B7BAFA900BE1633 /* MakeChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeChattingResponseDTO.swift; sourceTree = "<group>"; };
 		D6C7A2282B600CFA0007102A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D6C7A22A2B602C2A0007102A /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		D6C7A22D2B6117A70007102A /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -1174,6 +1178,7 @@
 			children = (
 				D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */,
 				D6BC028F2B6BE41300BE1633 /* AddChannelRequestDTO.swift */,
+				D6BC02A72B7B9F6700BE1633 /* MakeChattingRequestDTO.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1183,6 +1188,7 @@
 			children = (
 				D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */,
 				D6BC028D2B6BE33C00BE1633 /* AddChannelResponseDTO.swift */,
+				D6BC02A92B7BAFA900BE1633 /* MakeChattingResponseDTO.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1467,6 +1473,7 @@
 				D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
+				D6BC02A82B7B9F6700BE1633 /* MakeChattingRequestDTO.swift in Sources */,
 				D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D6BC02782B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift in Sources */,
@@ -1494,6 +1501,7 @@
 				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmptyResponseDTO.swift in Sources */,
 				D6BC027E2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift in Sources */,
+				D6BC02AA2B7BAFA900BE1633 /* MakeChattingResponseDTO.swift in Sources */,
 				D6BA71982B54014500D3FD00 /* WorkSpaceErrorType.swift in Sources */,
 				D654CA502B459FCA0054AD46 /* APIKey.swift in Sources */,
 				D654CA1B2B4435600054AD46 /* SceneDelegate.swift in Sources */,
