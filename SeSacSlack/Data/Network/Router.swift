@@ -36,7 +36,7 @@ enum Router: URLRequestConvertible {
     //MARK: - channel
     case searchMyChannels(SearchMyChannelsRequestDTO)
     case addChannel(AddChannelRequestDTO)
-    
+    case makeChannelChatting(MakeChattingRequestDTO)
     
     //MARK: - DM
     case searchMyDM(SearchMyWorkSpaceDMRequestDTO)
@@ -86,6 +86,8 @@ enum Router: URLRequestConvertible {
             return "/v1/workspaces/\(model.id)/channels/my"
         case .addChannel(let model):
             return "/v1/workspaces/\(model.workspace_id)/channels"
+        case .makeChannelChatting(let model):
+            return "/v1/workspaces/\(model.workspace_id)/channels/\(model.name)/chats"
         //MARK: - DM
         case .searchMyDM(let model):
             return "/v1/workspaces/\(model.id)/dms"
@@ -99,7 +101,7 @@ enum Router: URLRequestConvertible {
                 .searchMyInfo,
                 .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace, //workSpace
                 .addMemberWorkspace, .searchMembers, .workSpaceChangeAdmin,
-                .searchMyChannels, .addChannel, //channel
+                .searchMyChannels, .addChannel, .makeChannelChatting, //channel
                 .searchMyDM:
             return ["SesacKey": Router.key ]
         case .refresh:
@@ -136,7 +138,7 @@ enum Router: URLRequestConvertible {
         //MARK: - channel
         case .searchMyChannels:
             return .get
-        case .addChannel:
+        case .addChannel, .makeChannelChatting:
             return .post
         //MARK: - DM
         case .searchMyDM:
@@ -169,7 +171,7 @@ enum Router: URLRequestConvertible {
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMembers, .workSpaceChangeAdmin,
-                .searchMyChannels,
+                .searchMyChannels, .makeChannelChatting,
                 .searchMyDM:
             break
         }
@@ -208,7 +210,17 @@ extension Router {
             }
             multipart.append(image, withName: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
             return multipart
-            
+        case .makeChannelChatting(let makeChattingRequestDTO):
+            let multipart = MultipartFormData()
+            let content = makeChattingRequestDTO.content
+            let files = makeChattingRequestDTO.files
+            if let content {
+                multipart.append(content.data(using: .utf8)!, withName: "content")
+            }
+            for file in files {
+                multipart.append(file, withName: "files", fileName: "image.jpeg", mimeType: "image/jpeg")
+            }
+            return multipart
         default:
             return nil
         }

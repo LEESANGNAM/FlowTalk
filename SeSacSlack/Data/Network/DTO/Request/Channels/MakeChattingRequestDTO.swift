@@ -9,8 +9,8 @@ import Foundation
 
 struct MakeChattingRequestDTO: Encodable {
     let name: String
-    let id: Int
+    let workspace_id: Int
     
     let content: String?
-    let files: [Data]?
+    let files: [Data]
 }

@@ -54,6 +54,7 @@ class ChannelChatiingViewModel {
         input.sendButtonTapped
             .bind(with: self) { owner, _ in
                 print("채팅 전송!")
+                owner.test()
             }.disposed(by: disposeBag)
         
         
@@ -64,6 +65,40 @@ class ChannelChatiingViewModel {
         )
     }
     
+    func test() {
+        let text = getContentText()
+        
+        let model = MakeChattingRequestDTO(name: chatname, workspace_id: WorkSpaceManager.shared.id, content: text, files: imageData.value)
+        NetWorkManager.shared.request(type: MakeChattingResponseDTO.self, api: .makeChannelChatting(model))
+            .subscribe(with: self) { owner, value in
+                print("채팅 보내기 성공: ",value)
+            } onError: { owner, error in
+                if let commonError = error as? CommonErrorType {
+                    let code = commonError.code
+                    if let channelError = ChannelsErrorType(rawValue: code) {
+                        print("채널채팅 에러있음: ", channelError.message)
+                    } else {
+                        print("커먼에러 : ",commonError.message)
+                    }
+                } else {
+                    print("모르는 에러",error)
+                }
+            } onCompleted: { _ in
+                print("채널채팅 보내기 완료")
+            } onDisposed: { _ in
+                print("채널채팅보내기 디스포즈")
+            }.disposed(by: disposeBag)
+
+    }
+    func getContentText() -> String?{
+        if inputText.value == textViewPlaceHolder {
+            return nil
+        } else if inputText.value.isEmpty {
+            return nil
+        } else {
+            return inputText.value
+        }
+    }
 }
 
 
