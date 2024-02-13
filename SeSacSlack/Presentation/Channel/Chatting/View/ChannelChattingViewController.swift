@@ -12,7 +12,6 @@ import PhotosUI
 
 
 class ChannelChattingViewController: BaseViewController {
-    var chatname = ""
     let mainView = ChannelChattingView()
     let disposeBag = DisposeBag()
     var picker: PHPickerViewController!
@@ -140,7 +139,7 @@ class ChannelChattingViewController: BaseViewController {
         backButtonItem.tintColor = Colors.brandBlack.color
         self.navigationItem.leftBarButtonItem = backButtonItem
         self.navigationController?.navigationBar.shadowImage = nil
-        navigationItem.title = chatname
+        navigationItem.title = "#" + viewModel.chatname
         self.navigationController?.navigationBar.barTintColor = Colors.backgroundSecondar.color
     }
     

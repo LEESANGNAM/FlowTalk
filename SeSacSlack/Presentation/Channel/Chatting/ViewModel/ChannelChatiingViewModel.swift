@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class ChannelChatiingViewModel {
-    
+    var chatname = ""
     private let imageData = BehaviorRelay<[Data]>(value: [])
     private let inputText = BehaviorRelay(value: "")
     private let textViewPlaceHolder = "메세지를 입력하세요"
