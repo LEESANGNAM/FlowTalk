@@ -95,6 +95,7 @@ class ChannelChattingViewController: BaseViewController {
         textViewBind()
         
         let input = ChannelChatiingViewModel.Input(
+            viewDidAppearEvent: self.rx.viewDidAppear.map{ _ in },
             chattingTextViewChange: mainView.chattingInputView.chattingTextView.rx.text.orEmpty,
             sendButtonTapped: mainView.chattingInputView.sendButton.rx.tap
         )
