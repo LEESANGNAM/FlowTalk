@@ -15,6 +15,10 @@ class ChannelChatiingViewModel {
     private let inputText = BehaviorRelay(value: "")
     private let textViewPlaceHolder = "메세지를 입력하세요"
     let disposeBag = DisposeBag()
+    let chattingUseCase: ChannelChattingUseCase
+    init(chattingUseCase: ChannelChattingUseCase) {
+        self.chattingUseCase = chattingUseCase
+    }
     struct Input {
         let chattingTextViewChange: ControlProperty<String>
         let sendButtonTapped: ControlEvent<Void>
@@ -54,7 +58,7 @@ class ChannelChatiingViewModel {
         input.sendButtonTapped
             .bind(with: self) { owner, _ in
                 print("채팅 전송!")
-                owner.test()
+                owner.makeChatting()
             }.disposed(by: disposeBag)
         
         
@@ -65,11 +69,11 @@ class ChannelChatiingViewModel {
         )
     }
     
-    func test() {
+    func makeChatting() {
         let text = getContentText()
         
         let model = MakeChattingRequestDTO(name: chatname, workspace_id: WorkSpaceManager.shared.id, content: text, files: imageData.value)
-        NetWorkManager.shared.request(type: MakeChattingResponseDTO.self, api: .makeChannelChatting(model))
+        chattingUseCase.makeChannelChatting(model: model)
             .subscribe(with: self) { owner, value in
                 print("채팅 보내기 성공: ",value)
             } onError: { owner, error in

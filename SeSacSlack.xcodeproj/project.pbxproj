@@ -60,6 +60,9 @@
 		D69D464D2B5ED1490044C756 /* WorkspaceListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */; };
 		D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */; };
 		D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */; };
+		D6A5DCAE2B838BAE00328930 /* ChannelChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCAD2B838BAE00328930 /* ChannelChattingRepository.swift */; };
+		D6A5DCB02B838BF100328930 /* DefaultChannelChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCAF2B838BF100328930 /* DefaultChannelChattingRepository.swift */; };
+		D6A5DCB22B838EE000328930 /* ChannelChattingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -222,6 +225,9 @@
 		D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListEmptyView.swift; sourceTree = "<group>"; };
 		D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListViewController.swift; sourceTree = "<group>"; };
 		D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListView.swift; sourceTree = "<group>"; };
+		D6A5DCAD2B838BAE00328930 /* ChannelChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingRepository.swift; sourceTree = "<group>"; };
+		D6A5DCAF2B838BF100328930 /* DefaultChannelChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChannelChattingRepository.swift; sourceTree = "<group>"; };
+		D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingUseCase.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -749,6 +755,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		D6A5DCAB2B838B7800328930 /* ChannelChatting */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCAF2B838BF100328930 /* DefaultChannelChattingRepository.swift */,
+			);
+			path = ChannelChatting;
+			sourceTree = "<group>";
+		};
+		D6A5DCAC2B838B8B00328930 /* ChannelChatting */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCAD2B838BAE00328930 /* ChannelChattingRepository.swift */,
+			);
+			path = ChannelChatting;
+			sourceTree = "<group>";
+		};
 		D6BA71532B4E918200D3FD00 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1212,6 +1234,7 @@
 		D6DCA38B2B5D738900236EDB /* Channel */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCAC2B838B8B00328930 /* ChannelChatting */,
 				D6DCA38D2B5D741300236EDB /* ChannelRepository.swift */,
 			);
 			path = Channel;
@@ -1220,6 +1243,7 @@
 		D6DCA38C2B5D73FF00236EDB /* Channel */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCAB2B838B7800328930 /* ChannelChatting */,
 				D6DCA38F2B5D746E00236EDB /* DefaultChannelRepository.swift */,
 			);
 			path = Channel;
@@ -1229,6 +1253,7 @@
 			isa = PBXGroup;
 			children = (
 				D6DCA3922B5D74D900236EDB /* ChannelUseCase.swift */,
+				D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */,
 			);
 			path = Channel;
 			sourceTree = "<group>";
@@ -1488,6 +1513,7 @@
 				D6BA716B2B4EE3EA00D3FD00 /* EmailLoginViewController.swift in Sources */,
 				D6BC025C2B63F7F800BE1633 /* UIViewController+Extension.swift in Sources */,
 				D6BA71602B4EC53600D3FD00 /* AppleLoginResponseDTO.swift in Sources */,
+				D6A5DCB02B838BF100328930 /* DefaultChannelChattingRepository.swift in Sources */,
 				D6DCA3972B5D76AC00236EDB /* DMRepository.swift in Sources */,
 				D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */,
 				D616D26C2B48338D0012CFC5 /* SignUpViewController.swift in Sources */,
@@ -1499,6 +1525,7 @@
 				D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */,
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
 				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
+				D6A5DCB22B838EE000328930 /* ChannelChattingUseCase.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmptyResponseDTO.swift in Sources */,
 				D6BC027E2B699A2100BE1633 /* WorkSpaceChangeAdminResponseDTO.swift in Sources */,
 				D6BC02AA2B7BAFA900BE1633 /* MakeChattingResponseDTO.swift in Sources */,
@@ -1510,6 +1537,7 @@
 				D6DCA3992B5D76EE00236EDB /* DefaultDMRepository.swift in Sources */,
 				D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */,
 				D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */,
+				D6A5DCAE2B838BAE00328930 /* ChannelChattingRepository.swift in Sources */,
 				D6BC02802B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift in Sources */,
 				D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */,
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */,

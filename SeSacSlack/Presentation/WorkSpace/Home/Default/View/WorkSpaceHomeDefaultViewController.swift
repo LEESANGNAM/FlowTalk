@@ -339,7 +339,11 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         present(actionSheet, animated: true)
     }
     func showChattingView(name: String) {
-        let vm = ChannelChatiingViewModel()
+        let vm = ChannelChatiingViewModel(
+            chattingUseCase: DefaultChannelChattingUseCase(
+                channelChattingRepository: DefaultChannelChattingRepository()
+            )
+        )
         vm.chatname = name
         let vc = ChannelChattingViewController(viewModel: vm)
         let nav = UINavigationController(rootViewController: vc)
