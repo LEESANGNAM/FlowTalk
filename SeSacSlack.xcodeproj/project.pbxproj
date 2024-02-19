@@ -63,6 +63,8 @@
 		D6A5DCAE2B838BAE00328930 /* ChannelChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCAD2B838BAE00328930 /* ChannelChattingRepository.swift */; };
 		D6A5DCB02B838BF100328930 /* DefaultChannelChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCAF2B838BF100328930 /* DefaultChannelChattingRepository.swift */; };
 		D6A5DCB22B838EE000328930 /* ChannelChattingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */; };
+		D6A5DCB42B83A0D500328930 /* SearchChattingRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB32B83A0D500328930 /* SearchChattingRequestDTO.swift */; };
+		D6A5DCB62B83A21A00328930 /* SearchChattingResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -228,6 +230,8 @@
 		D6A5DCAD2B838BAE00328930 /* ChannelChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingRepository.swift; sourceTree = "<group>"; };
 		D6A5DCAF2B838BF100328930 /* DefaultChannelChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChannelChattingRepository.swift; sourceTree = "<group>"; };
 		D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingUseCase.swift; sourceTree = "<group>"; };
+		D6A5DCB32B83A0D500328930 /* SearchChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingRequestDTO.swift; sourceTree = "<group>"; };
+		D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingResponseDTO.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -1201,6 +1205,7 @@
 				D6DCA3762B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift */,
 				D6BC028F2B6BE41300BE1633 /* AddChannelRequestDTO.swift */,
 				D6BC02A72B7B9F6700BE1633 /* MakeChattingRequestDTO.swift */,
+				D6A5DCB32B83A0D500328930 /* SearchChattingRequestDTO.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1211,6 +1216,7 @@
 				D6DCA3792B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift */,
 				D6BC028D2B6BE33C00BE1633 /* AddChannelResponseDTO.swift */,
 				D6BC02A92B7BAFA900BE1633 /* MakeChattingResponseDTO.swift */,
+				D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1495,6 +1501,7 @@
 				D616D2722B48419B0012CFC5 /* CustomPlaceHolderTextField.swift in Sources */,
 				D6BC026F2B67D2EA00BE1633 /* AddMemberWorkSpaceRequestDTO.swift in Sources */,
 				D6BC027C2B694B9800BE1633 /* SearchMembersRequestDTO.swift in Sources */,
+				D6A5DCB42B83A0D500328930 /* SearchChattingRequestDTO.swift in Sources */,
 				D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
@@ -1551,6 +1558,7 @@
 				D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
+				D6A5DCB62B83A21A00328930 /* SearchChattingResponseDTO.swift in Sources */,
 				D6C7A2302B612E8A0007102A /* WorkSpaceListTableViewCell.swift in Sources */,
 				D654CA6D2B45B3A00054AD46 /* Color.swift in Sources */,
 				D6DCA37A2B59BFC000236EDB /* SearchMyChannelsResponseDTO.swift in Sources */,

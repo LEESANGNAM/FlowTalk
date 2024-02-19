@@ -37,7 +37,7 @@ enum Router: URLRequestConvertible {
     case searchMyChannels(SearchMyChannelsRequestDTO)
     case addChannel(AddChannelRequestDTO)
     case makeChannelChatting(MakeChattingRequestDTO)
-    
+    case searchChannelChatting(SearchChattingRequestDTO)
     //MARK: - DM
     case searchMyDM(SearchMyWorkSpaceDMRequestDTO)
     
@@ -88,6 +88,8 @@ enum Router: URLRequestConvertible {
             return "/v1/workspaces/\(model.workspace_id)/channels"
         case .makeChannelChatting(let model):
             return "/v1/workspaces/\(model.workspace_id)/channels/\(model.name)/chats"
+        case .searchChannelChatting(let model):
+            return "/v1/workspaces/\(model.workSpaceId)/channels/\(model.channelName)/chats"
         //MARK: - DM
         case .searchMyDM(let model):
             return "/v1/workspaces/\(model.id)/dms"
@@ -101,7 +103,7 @@ enum Router: URLRequestConvertible {
                 .searchMyInfo,
                 .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace, //workSpace
                 .addMemberWorkspace, .searchMembers, .workSpaceChangeAdmin,
-                .searchMyChannels, .addChannel, .makeChannelChatting, //channel
+                .searchMyChannels, .addChannel, .makeChannelChatting,.searchChannelChatting, //channel
                 .searchMyDM:
             return ["SesacKey": Router.key ]
         case .refresh:
@@ -136,7 +138,7 @@ enum Router: URLRequestConvertible {
             return .delete
             
         //MARK: - channel
-        case .searchMyChannels:
+        case .searchMyChannels,.searchChannelChatting:
             return .get
         case .addChannel, .makeChannelChatting:
             return .post
@@ -168,6 +170,8 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addMemberWorkSpaceRequestDTO, into: request)
         case .addChannel(let addChannelRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addChannelRequestDTO, into: request)
+        case .searchChannelChatting(let searchChattingRequestDTO):
+            request = try URLEncodedFormParameterEncoder(destination: .queryString).encode(searchChattingRequestDTO, into: request)
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMembers, .workSpaceChangeAdmin,
