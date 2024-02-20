@@ -57,8 +57,7 @@ class WorkSpaceChangeAdminTableViewCell: BaseTableViewCell {
         layoutIfNeeded()
         let size = profileImageView.frame.size
         if let profile = data.profileImage {
-            let urlString = APIKey.baseURL + "/v1" + profile
-            profileImageView.setImage(with: urlString, frameSize: size, placeHolder: "NoPhotoA")
+            profileImageView.setImage(with: profile, frameSize: size, placeHolder: "NoPhotoA")
         } else {
             profileImageView.image = Icon.noProfileA.image
         }

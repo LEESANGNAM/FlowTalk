@@ -95,7 +95,7 @@ class WorkSpaceListTableViewCell: BaseTableViewCell {
         layoutIfNeeded()
         let date = data.createDate
         let name = data.name
-        let urlString = APIKey.baseURL + "/v1" + data.thumbnail
+        let urlString = data.thumbnail
         let size = iconImageView.frame.size
         iconImageView.setImage(with: urlString, frameSize: size, placeHolder: "workspace")
         nameLabel.text = name

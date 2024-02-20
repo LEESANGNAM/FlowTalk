@@ -124,9 +124,32 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
         }
         
     }
-    func setdata(test: [String]) {
-        setHeight(count: test.count)
-        ImageView.setlayout(images: test)
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        chattingBackView.isHidden = false
+        ImageView.isHidden = false
+    }
+    func setdata(_ data: ChannelChattingModel ) {
+        layoutIfNeeded()
+        let files = data.files
+        setHeight(count: files.count)
+        ImageView.setDataView(images: files)
+        
+        nameLabel.text = data.username
+        
+        if let profile = data.userProfileImage {
+            profileImageView.setImage(with: profile, frameSize: profileImageView.frame.size, placeHolder: "NoPhotoA")
+        } else {
+            profileImageView.image = Icon.noProfileA.image
+        }
+        
+        if let chatting = data.content {
+            chattingLabel.text = chatting
+        } else {
+            chattingBackView.isHidden = true
+        }
+        
     }
     
     private func setHeight(count: Int) {

@@ -59,7 +59,7 @@ class WorkSpaceProfileView: BaseView {
     func setWorkspaceIcon(workspace: SearchWorkSpaceResponseDTO? = nil) {
         layoutIfNeeded()
         if let workspace {
-            let urlString = APIKey.baseURL + "/v1" + workspace.thumbnail
+            let urlString = workspace.thumbnail
             let imageSize = workSpaceImageView.frame.size
             workSpaceImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "workspace") { image in
                 WorkSpaceManager.shared.imageData = image?.jpegData(compressionQuality: 1.0)
@@ -73,8 +73,7 @@ class WorkSpaceProfileView: BaseView {
     }
     func setProfileIcon() {
         if let myinfo = MyInfoManager.shared.myinfo,
-           let imageBase = myinfo.profileImage {
-            let urlString = APIKey.baseURL + "/v1" + imageBase
+           let urlString = myinfo.profileImage {
             let imageSize = profileImageView.frame.size
             profileImageView.setImage(with: urlString, frameSize: imageSize, placeHolder: "person.fill")
         } else {

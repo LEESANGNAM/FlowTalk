@@ -45,7 +45,9 @@ class ChannelChattingCellImageView: BaseView {
 }
 
 extension ChannelChattingCellImageView {
-    func setlayout(images: [String]) {
+    func setDataView(images: [String]) {
+        
+        
         
         imageViewArray.forEach { $0.snp.removeConstraints() }
         
@@ -56,6 +58,10 @@ extension ChannelChattingCellImageView {
         case 4: set4Layout()
         case 5: set5Layout()
         default: return
+        }
+        
+        for i in 0..<images.count {
+            imageViewArray[i].setImage(with: images[i], frameSize: CGSize(width: 300, height: 300), placeHolder: "close")
         }
     }
     
