@@ -23,3 +23,16 @@ struct SearchChattingUser: Decodable {
     let nickname: String
     let profileImage: String?
 }
+
+extension SearchChattingResponseDTO {
+    func toDomain() -> ChannelChattingModel {
+        return ChannelChattingModel(
+            chat_id: chat_id,
+            content: content,
+            createdAt: createdAt,
+            files: files,
+            user_id: user.user_id,
+            username: user.nickname,
+            userProfileImage: user.profileImage)
+    }
+}
