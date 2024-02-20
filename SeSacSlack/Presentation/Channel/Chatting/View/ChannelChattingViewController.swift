@@ -22,61 +22,6 @@ class ChannelChattingViewController: BaseViewController {
         super.init()
     }
     
-    
-    let testChatData = [
-        "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
-        "컨퍼런스 사진 공유드려요!",
-    """
-    문래역 근처 맛집 추천 받습니다~
-    창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠..
-    맛잘알 계신가요?
-    """,
-    """
-    아니 그런데 이건 좀
-    이렇게 저렇게?
-    ㅋㅋ
-    """,
-        "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
-        "컨퍼런스 사진 공유드려요!",
-    """
-    문래역 근처 맛집 추천 받습니다~
-    창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠..
-    맛잘알 계신가요?
-    """,
-    """
-    아니 그런데 이건 좀
-    이렇게 저렇게?
-    ㅋㅋ
-    """,
-        "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?",
-        "컨퍼런스 사진 공유드려요!",
-    """
-    문래역 근처 맛집 추천 받습니다~
-    창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠..
-    맛잘알 계신가요?
-    """,
-    """
-    아니 그런데 이건 좀
-    이렇게 저렇게?
-    ㅋㅋ
-    """
-    ]
-    
-    let testImageArray = [
-        [],
-        ["a","b","c","d"],
-        ["c","d","e"],
-        ["a"],
-        ["a","b"],
-        ["a","b"],
-        ["a","b","c","d"],
-        ["a","b"],
-        ["c","d","e"],
-        ["a","b","c","d","e"],
-        ["a","b"],
-        ["a","b"]
-    ]
-    
     override func loadView() {
         view = mainView
     }
@@ -85,7 +30,6 @@ class ChannelChattingViewController: BaseViewController {
         super.viewDidLoad()
         setNavigationBar()
         mainView.chattingInputView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
-        setTableView()
         setPHPicker()
         setTextViewPlaceHolder()
         view.backgroundColor = Colors.brandWhite.color
@@ -128,6 +72,16 @@ class ChannelChattingViewController: BaseViewController {
                 owner.mainView.chattingInputView.sendButton.setImage(value ? Icon.enabledSend.image : Icon.send.image , for: .normal)
             }.disposed(by: disposeBag)
         
+        output.chatArray
+            .bind(with: self) { owner, _ in
+                owner.mainView.chattingTableView.reloadData()
+            }.disposed(by: disposeBag)
+        
+        output.chatArray
+            .bind(to: mainView.chattingTableView.rx.items(cellIdentifier: ChannelChattingTableViewCell.identifier, cellType: ChannelChattingTableViewCell.self)) { _, data, cell in
+                cell.setdata(data)
+            }.disposed(by: disposeBag)
+        
     }
    
     
@@ -146,11 +100,6 @@ class ChannelChattingViewController: BaseViewController {
     
     @objc func backButtonTapped() {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func setTableView() {
-        mainView.chattingTableView.delegate = self
-        mainView.chattingTableView.dataSource = self
     }
     
 
@@ -241,18 +190,3 @@ extension ChannelChattingViewController: PHPickerViewControllerDelegate{
     }
 }
 
-extension ChannelChattingViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testChatData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChannelChattingTableViewCell.identifier, for: indexPath) as? ChannelChattingTableViewCell else { return UITableViewCell()}
-        cell.nameLabel.text = "테스트유저 \(indexPath.row)"
-        cell.chattingLabel.text = testChatData[indexPath.row]
-        cell.setdata(test: testImageArray[indexPath.row])
-        cell.layoutIfNeeded()
-        return cell
-    }
-    
-}

@@ -14,6 +14,7 @@ class ChannelChatiingViewModel {
     private let imageData = BehaviorRelay<[Data]>(value: [])
     private let inputText = BehaviorRelay(value: "")
     private let textViewPlaceHolder = "메세지를 입력하세요"
+    let chatArray = BehaviorRelay<[ChannelChattingModel]>(value: [])
     let disposeBag = DisposeBag()
     let chattingUseCase: ChannelChattingUseCase
     init(chattingUseCase: ChannelChattingUseCase) {
@@ -29,6 +30,7 @@ class ChannelChatiingViewModel {
         let imageData: BehaviorRelay<[Data]>
         let hiddenImageCollectionView: BehaviorRelay<Bool>
         let sendValid: BehaviorRelay<Bool>
+        let chatArray: BehaviorRelay<[ChannelChattingModel]>
     }
     
     func transform(input: Input) -> Output {
@@ -67,7 +69,8 @@ class ChannelChatiingViewModel {
         return Output(
             imageData: imageData,
             hiddenImageCollectionView: hiddenImageCollectionView,
-            sendValid: sendValid
+            sendValid: sendValid,
+            chatArray: chatArray
         )
     }
     
@@ -102,8 +105,10 @@ class ChannelChatiingViewModel {
         NetWorkManager.shared.request(type: [SearchChattingResponseDTO].self, api: .searchChannelChatting(model))
             .subscribe(with: self) { owner, array in
                 for value in array {
-                    print("채널 채팅 조회 값:", value)
+                    print("채널 채팅 조회 값:", value.toDomain())
                 }
+                let chatData = array.map { $0.toDomain() }
+                owner.chatArray.accept(chatData)
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code

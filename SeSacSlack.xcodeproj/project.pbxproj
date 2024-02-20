@@ -65,6 +65,7 @@
 		D6A5DCB22B838EE000328930 /* ChannelChattingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */; };
 		D6A5DCB42B83A0D500328930 /* SearchChattingRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB32B83A0D500328930 /* SearchChattingRequestDTO.swift */; };
 		D6A5DCB62B83A21A00328930 /* SearchChattingResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */; };
+		D6A5DCBA2B84ED3B00328930 /* ChannelChattingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCB92B84ED3B00328930 /* ChannelChattingModel.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -232,6 +233,7 @@
 		D6A5DCB12B838EE000328930 /* ChannelChattingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingUseCase.swift; sourceTree = "<group>"; };
 		D6A5DCB32B83A0D500328930 /* SearchChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingRequestDTO.swift; sourceTree = "<group>"; };
 		D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingResponseDTO.swift; sourceTree = "<group>"; };
+		D6A5DCB92B84ED3B00328930 /* ChannelChattingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingModel.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 		D616D2892B48792C0012CFC5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCB72B84D82C00328930 /* Entity */,
 				D616D2922B487CFC0012CFC5 /* UseCase */,
 				D616D28A2B4879330012CFC5 /* RepositoryInterface */,
 			);
@@ -771,6 +774,22 @@
 			isa = PBXGroup;
 			children = (
 				D6A5DCAD2B838BAE00328930 /* ChannelChattingRepository.swift */,
+			);
+			path = ChannelChatting;
+			sourceTree = "<group>";
+		};
+		D6A5DCB72B84D82C00328930 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCB82B84ECDC00328930 /* ChannelChatting */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		D6A5DCB82B84ECDC00328930 /* ChannelChatting */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCB92B84ED3B00328930 /* ChannelChattingModel.swift */,
 			);
 			path = ChannelChatting;
 			sourceTree = "<group>";
@@ -1531,6 +1550,7 @@
 				D6BC02742B68CC2C00BE1633 /* WorkSpaceChangeAdminViewController.swift in Sources */,
 				D6BA71562B4E919B00D3FD00 /* DefaultLoginRepository.swift in Sources */,
 				D616D28D2B48797B0012CFC5 /* SignRepository.swift in Sources */,
+				D6A5DCBA2B84ED3B00328930 /* ChannelChattingModel.swift in Sources */,
 				D6BA715E2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift in Sources */,
 				D6A5DCB22B838EE000328930 /* ChannelChattingUseCase.swift in Sources */,
 				D616D2882B4864A60012CFC5 /* EmptyResponseDTO.swift in Sources */,
