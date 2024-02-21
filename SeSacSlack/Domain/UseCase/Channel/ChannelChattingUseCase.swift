@@ -11,6 +11,8 @@ import RxSwift
 protocol ChannelChattingUseCase: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[ChannelChattingModel]>
+    
+    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO)
 }
 
 
@@ -33,5 +35,12 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
         }
     }
     
+}
+
+extension DefaultChannelChattingUseCase {
+    
+    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO) {
+        channelChattingRepository.saveChannelChatting(workspaceId: workspaceId, chattingData: chattingData)
+    }
 }
 

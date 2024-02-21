@@ -341,7 +341,7 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
     func showChattingView(name: String) {
         let vm = ChannelChatiingViewModel(
             chattingUseCase: DefaultChannelChattingUseCase(
-                channelChattingRepository: DefaultChannelChattingRepository()
+                channelChattingRepository: DefaultChannelChattingRepository(chattingStorage: ChannelChattingStorage()!)
             )
         )
         vm.chatname = name

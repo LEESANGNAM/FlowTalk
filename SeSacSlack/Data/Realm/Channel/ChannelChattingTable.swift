@@ -11,8 +11,8 @@ import RealmSwift
 class ChannelChattingTable: Object {
     @Persisted(primaryKey: true) var chat_id: Int
     
-    @Persisted var channelTable: ChannelInfoTable
-    @Persisted var user: ChannelUserInfoTable
+    @Persisted var channelTable: ChannelInfoTable?
+    @Persisted var user: ChannelUserInfoTable?
     
     @Persisted var content: String?
     @Persisted var createdAt: String
@@ -38,9 +38,10 @@ extension ChannelChattingTable {
             content: content,
             createdAt: createdAt,
             files: images.map{$0},
-            user_id: user.user_id,
-            username: user.user_name,
-            userProfileImage: user.user_profile)
+            user_id: user?.user_id ?? -1,
+            username: user?.user_name ?? "",
+            userProfileImage: user?.user_profile ?? ""
+        )
     }
 }
 
@@ -51,6 +52,7 @@ class ChannelInfoTable: Object {
     @Persisted var channel_name: String
     
     convenience init(chatting: MakeChattingResponseDTO, workspace_id: Int) {
+        self.init()
         self.channel_id = chatting.channel_id
         self.workspace_id = workspace_id
         self.channel_name = chatting.channelName
@@ -65,6 +67,7 @@ class ChannelUserInfoTable: Object {
     @Persisted var user_profile: String?
     
     convenience init(user: MakeChattingUser) {
+        self.init()
         self.user_id = user.user_id
         self.user_name = user.nickname
         self.user_email = user.email

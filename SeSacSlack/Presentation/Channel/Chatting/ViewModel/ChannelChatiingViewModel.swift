@@ -81,6 +81,7 @@ class ChannelChatiingViewModel {
         chattingUseCase.makeChannelChatting(model: model)
             .subscribe(with: self) { owner, value in
 //                print("채팅 보내기 성공: ",value)
+                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value)
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code

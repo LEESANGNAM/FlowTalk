@@ -48,8 +48,8 @@ class ChannelChattingStorage: BaseStorage { //, ChannelChattingStorageProtocol {
                 }
                 
                 // 유저 채널 추가했으니까 이제 채팅 추가
-                let savedChannel = realm.object(ofType: ChannelInfoTable.self, forPrimaryKey: chattingData.channel_id)!
-                let savedUser = realm.object(ofType: ChannelUserInfoTable.self, forPrimaryKey: chattingData.user.user_id)!
+                guard let savedChannel = realm.object(ofType: ChannelInfoTable.self, forPrimaryKey: chattingData.channel_id) else { return }
+                guard let savedUser = realm.object(ofType: ChannelUserInfoTable.self, forPrimaryKey: chattingData.user.user_id) else { return }
                 // 위에서 추가해서 값 있음
                 let newChat = ChannelChattingTable(channelTable: savedChannel, user: savedUser, chatting: chattingData)
                 realm.add(newChat)
