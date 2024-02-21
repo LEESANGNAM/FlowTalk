@@ -10,6 +10,7 @@ import RxSwift
 
 protocol ChannelChattingUseCase: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
+    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[ChannelChattingModel]>
 }
 
 
@@ -24,6 +25,12 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
     
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO> {
         return channelChattingRepository.makeChannelChatting(model: model)
+    }
+    
+    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[ChannelChattingModel]> {
+        return channelChattingRepository.searchChannelChatting(model: model).flatMap { array in
+            Observable.just(array.map{ $0.toDomain()})
+        }
     }
     
 }

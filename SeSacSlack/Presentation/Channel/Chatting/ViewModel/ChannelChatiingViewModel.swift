@@ -40,7 +40,7 @@ class ChannelChatiingViewModel {
         
         input.viewDidAppearEvent
             .bind(with: self) { owner, _ in
-                owner.test()
+                owner.searchChatting()
                 print("채널 채팅 조회함")
             }.disposed(by: disposeBag)
         
@@ -99,16 +99,15 @@ class ChannelChatiingViewModel {
             }.disposed(by: disposeBag)
     }
     
-    func test() {
-        
+    func searchChatting() {
         let model = SearchChattingRequestDTO(cursor_date: "", workSpaceId: WorkSpaceManager.shared.id, channelName: chatname)
-        NetWorkManager.shared.request(type: [SearchChattingResponseDTO].self, api: .searchChannelChatting(model))
+        
+        chattingUseCase.searchChannelChatting(model: model)
             .subscribe(with: self) { owner, array in
                 for value in array {
-                    print("채널 채팅 조회 값:", value.toDomain())
+                    print("채널 채팅 조회 값 아마 엔티티로 날라옴:", value)
                 }
-                let chatData = array.map { $0.toDomain() }
-                owner.chatArray.accept(chatData)
+                owner.chatArray.accept(array)
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code

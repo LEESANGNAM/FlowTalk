@@ -10,4 +10,5 @@ import RxSwift
 
 protocol ChannelChattingRepository: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
+    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
 }
