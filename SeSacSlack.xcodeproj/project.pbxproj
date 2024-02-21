@@ -69,6 +69,8 @@
 		D6A5DCBE2B85EFCA00328930 /* ChannelChattingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCBD2B85EFCA00328930 /* ChannelChattingTable.swift */; };
 		D6A5DCC12B85F11300328930 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCC02B85F11300328930 /* Realm */; };
 		D6A5DCC32B85F11300328930 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCC22B85F11300328930 /* RealmSwift */; };
+		D6A5DCC82B8632B500328930 /* BaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCC72B8632B500328930 /* BaseStorage.swift */; };
+		D6A5DCCA2B86366F00328930 /* ChannelChattingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCC92B86366F00328930 /* ChannelChattingStorage.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -238,6 +240,8 @@
 		D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingResponseDTO.swift; sourceTree = "<group>"; };
 		D6A5DCB92B84ED3B00328930 /* ChannelChattingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingModel.swift; sourceTree = "<group>"; };
 		D6A5DCBD2B85EFCA00328930 /* ChannelChattingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingTable.swift; sourceTree = "<group>"; };
+		D6A5DCC72B8632B500328930 /* BaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStorage.swift; sourceTree = "<group>"; };
+		D6A5DCC92B86366F00328930 /* ChannelChattingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingStorage.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -804,6 +808,7 @@
 		D6A5DCBB2B85EFB300328930 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCC62B86328000328930 /* Base */,
 				D6A5DCBC2B85EFBC00328930 /* Channel */,
 			);
 			path = Realm;
@@ -813,8 +818,17 @@
 			isa = PBXGroup;
 			children = (
 				D6A5DCBD2B85EFCA00328930 /* ChannelChattingTable.swift */,
+				D6A5DCC92B86366F00328930 /* ChannelChattingStorage.swift */,
 			);
 			path = Channel;
+			sourceTree = "<group>";
+		};
+		D6A5DCC62B86328000328930 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCC72B8632B500328930 /* BaseStorage.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		D6BA71532B4E918200D3FD00 /* Login */ = {
@@ -1549,6 +1563,7 @@
 				D6BC027C2B694B9800BE1633 /* SearchMembersRequestDTO.swift in Sources */,
 				D6A5DCB42B83A0D500328930 /* SearchChattingRequestDTO.swift in Sources */,
 				D6BC025E2B6525A900BE1633 /* EditWorkSpaceRequestDTO.swift in Sources */,
+				D6A5DCC82B8632B500328930 /* BaseStorage.swift in Sources */,
 				D654CA7D2B46DB780054AD46 /* CustomBackgroundTitleWhiteLabelButton.swift in Sources */,
 				D654CA192B4435600054AD46 /* AppDelegate.swift in Sources */,
 				D6BC02A82B7B9F6700BE1633 /* MakeChattingRequestDTO.swift in Sources */,
@@ -1591,6 +1606,7 @@
 				D6DCA3992B5D76EE00236EDB /* DefaultDMRepository.swift in Sources */,
 				D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */,
 				D6DCA3612B591DE500236EDB /* MyInfoManager.swift in Sources */,
+				D6A5DCCA2B86366F00328930 /* ChannelChattingStorage.swift in Sources */,
 				D6A5DCAE2B838BAE00328930 /* ChannelChattingRepository.swift in Sources */,
 				D6BC02802B699A3D00BE1633 /* WorkSpaceChangeAdminRequestDTO.swift in Sources */,
 				D6DCA3632B591EFE00236EDB /* MyInfoResponseDTO.swift in Sources */,
