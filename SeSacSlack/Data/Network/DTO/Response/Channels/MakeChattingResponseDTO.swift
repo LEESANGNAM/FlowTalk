@@ -23,3 +23,23 @@ struct MakeChattingUser: Decodable {
     let nickname: String
     let profileImage: String?
 }
+
+
+extension MakeChattingResponseDTO {
+    func toDomain() -> SaveChannelChattingDTO {
+        SaveChannelChattingDTO(
+            channel_id: channel_id,
+            channelName: channelName,
+            chat_id: chat_id,
+            content: content,
+            createdAt: createdAt,
+            files: files,
+            user: SaveChattingUser(
+                user_id: user.user_id,
+                email: user.email,
+                nickname: user.nickname,
+                profileImage: user.profileImage
+            )
+        )
+    }
+}
