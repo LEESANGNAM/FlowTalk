@@ -310,7 +310,7 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
             case .channel:
                 print("채널클릭")
                 let channel = viewModel.getChannel(index: indexPath.row)
-                showChattingView(name: channel.name)
+                showChattingView(name: channel.name,id: channel.channel_id)
             case .directmessage:
                 print("dm 클릭")
             case .addMember:
@@ -338,11 +338,12 @@ extension WorkSpaceHomeDefaultViewController: UICollectionViewDelegate {
         
         present(actionSheet, animated: true)
     }
-    func showChattingView(name: String) {
+    func showChattingView(name: String,id: Int) {
         let vm = ChannelChatiingViewModel(
             chattingUseCase: DefaultChannelChattingUseCase(
                 channelChattingRepository: DefaultChannelChattingRepository(chattingStorage: ChannelChattingStorage()!)
-            )
+            ),
+            channelId: id
         )
         vm.chatname = name
         let vc = ChannelChattingViewController(viewModel: vm)

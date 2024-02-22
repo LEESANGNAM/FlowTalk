@@ -11,17 +11,20 @@ import RxCocoa
 
 class ChannelChatiingViewModel {
     var chatname = ""
+    var channelId: Int
     private let imageData = BehaviorRelay<[Data]>(value: [])
     private let inputText = BehaviorRelay(value: "")
     private let textViewPlaceHolder = "메세지를 입력하세요"
     let chatArray = BehaviorRelay<[ChannelChattingModel]>(value: [])
     let disposeBag = DisposeBag()
     let chattingUseCase: ChannelChattingUseCase
-    init(chattingUseCase: ChannelChattingUseCase) {
+    init(chattingUseCase: ChannelChattingUseCase,channelId: Int) {
         self.chattingUseCase = chattingUseCase
+        self.channelId = channelId
     }
     struct Input {
-        let viewDidAppearEvent: Observable<Void>
+        let viewWillAppearEvent: Observable<Void>
+        let viewDidDisappearEvent: Observable<Void>
         let chattingTextViewChange: ControlProperty<String>
         let sendButtonTapped: ControlEvent<Void>
     }
@@ -38,12 +41,18 @@ class ChannelChatiingViewModel {
         let hiddenImageCollectionView = BehaviorRelay(value: true)
         let sendValid = BehaviorRelay(value: false)
         
-        input.viewDidAppearEvent
+        input.viewWillAppearEvent
             .bind(with: self) { owner, _ in
                 owner.searchChatting()
                 print("채널 채팅 조회함")
+                owner.setSocket(channelId: owner.channelId)
+                owner.recive(channelId: owner.channelId)
             }.disposed(by: disposeBag)
         
+        input.viewDidDisappearEvent
+            .bind(with: self) { owner, _ in
+                owner.chattingUseCase.socketDisconnect()
+            }.disposed(by: disposeBag)
         
         input.chattingTextViewChange
             .bind(with: self) { owner, text in
@@ -81,7 +90,7 @@ class ChannelChatiingViewModel {
         chattingUseCase.makeChannelChatting(model: model)
             .subscribe(with: self) { owner, value in
 //                print("채팅 보내기 성공: ",value)
-                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value)
+                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value.toDomain())
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code
@@ -137,6 +146,37 @@ class ChannelChatiingViewModel {
         } else {
             return inputText.value
         }
+    }
+}
+
+extension ChannelChatiingViewModel {
+    private func setSocket(channelId: Int) {
+        chattingUseCase.socketConfig(channelId: channelId)
+        chattingUseCase.socketConnect()
+    }
+    func recive(channelId: Int) {
+        chattingUseCase.socketReceive(channelId: channelId)
+            .subscribe(with: self) { owner, newchat in
+                print("소켓통신중:",newchat)
+                var chatArray = owner.chatArray.value
+                chatArray.append(newchat)
+                owner.chatArray.accept(chatArray) // 화면에 추가  디비에도 저장해야함
+            } onError: { owner, error in
+                if let commonError = error as? CommonErrorType {
+                    let code = commonError.code
+                    if let channelError = ChannelsErrorType(rawValue: code) {
+                        print("채널채팅 에러있음: ", channelError.message)
+                    } else {
+                        print("커먼에러 : ",commonError.message)
+                    }
+                } else {
+                    print("모르는 에러",error)
+                }
+            } onCompleted: { _ in
+                print("소켓테스트완료")
+            } onDisposed: { _ in
+                print("소켓테스트 디스포즈")
+            }.disposed(by: disposeBag)
     }
 }
 
