@@ -12,7 +12,17 @@ protocol ChannelChattingUseCase: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[ChannelChattingModel]>
     
-    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO)
+    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO)
+    
+    //socket
+    //설정
+    func socketConfig(channelId: Int)
+    //열기
+    func socketConnect()
+    //받기
+    func socketReceive(channelId: Int) -> Observable<ChannelChattingModel>
+    //닫기
+    func socketDisconnect()
 }
 
 
@@ -39,8 +49,28 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
 
 extension DefaultChannelChattingUseCase {
     
-    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO) {
+    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO) {
         channelChattingRepository.saveChannelChatting(workspaceId: workspaceId, chattingData: chattingData)
     }
 }
 
+//MARK: - 소켓
+extension DefaultChannelChattingUseCase {
+    //설정
+    func socketConfig(channelId: Int) {
+        channelChattingRepository.socketConfig(channelId: channelId)
+    }
+    //받기
+    func socketReceive(channelId: Int) -> Observable<ChannelChattingModel> {
+        return channelChattingRepository.socketReceive(channelId: channelId).map { $0.toDomain() }
+    }
+    //연결
+    func socketConnect() {
+        channelChattingRepository.socketConnect()
+    }
+    //끊기
+    func socketDisconnect() {
+        channelChattingRepository.socketDisconnect()
+    }
+    
+}

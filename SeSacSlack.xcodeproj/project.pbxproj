@@ -71,6 +71,9 @@
 		D6A5DCC32B85F11300328930 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCC22B85F11300328930 /* RealmSwift */; };
 		D6A5DCC82B8632B500328930 /* BaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCC72B8632B500328930 /* BaseStorage.swift */; };
 		D6A5DCCA2B86366F00328930 /* ChannelChattingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCC92B86366F00328930 /* ChannelChattingStorage.swift */; };
+		D6A5DCCD2B87677E00328930 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCCC2B87677E00328930 /* SocketIO */; };
+		D6A5DCCF2B876AEB00328930 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCCE2B876AEB00328930 /* SocketIOManager.swift */; };
+		D6A5DCD22B876EBF00328930 /* SocketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD12B876EBF00328930 /* SocketRouter.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -242,6 +245,8 @@
 		D6A5DCBD2B85EFCA00328930 /* ChannelChattingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingTable.swift; sourceTree = "<group>"; };
 		D6A5DCC72B8632B500328930 /* BaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStorage.swift; sourceTree = "<group>"; };
 		D6A5DCC92B86366F00328930 /* ChannelChattingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingStorage.swift; sourceTree = "<group>"; };
+		D6A5DCCE2B876AEB00328930 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		D6A5DCD12B876EBF00328930 /* SocketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRouter.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -354,6 +359,7 @@
 				D654CA5F2B45A7A30054AD46 /* Alamofire in Frameworks */,
 				D6A5DCC12B85F11300328930 /* Realm in Frameworks */,
 				D654CA652B45A7BF0054AD46 /* Kingfisher in Frameworks */,
+				D6A5DCCD2B87677E00328930 /* SocketIO in Frameworks */,
 				D654CA5C2B45A7790054AD46 /* RxKakaoSDKUser in Frameworks */,
 				D654CA622B45A7AF0054AD46 /* Toast in Frameworks */,
 				D616D2A92B4C06860012CFC5 /* IQKeyboardManagerSwift in Frameworks */,
@@ -417,6 +423,7 @@
 		D616D2762B4854100012CFC5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCD02B876E6900328930 /* Socket */,
 				D616D2792B4856730012CFC5 /* DTO */,
 				D616D2842B4862E00012CFC5 /* Error */,
 				D616D2772B48546C0012CFC5 /* Router.swift */,
@@ -829,6 +836,15 @@
 				D6A5DCC72B8632B500328930 /* BaseStorage.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		D6A5DCD02B876E6900328930 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCCE2B876AEB00328930 /* SocketIOManager.swift */,
+				D6A5DCD12B876EBF00328930 /* SocketRouter.swift */,
+			);
+			path = Socket;
 			sourceTree = "<group>";
 		};
 		D6BA71532B4E918200D3FD00 /* Login */ = {
@@ -1374,6 +1390,7 @@
 				D616D2A82B4C06860012CFC5 /* IQKeyboardManagerSwift */,
 				D6A5DCC02B85F11300328930 /* Realm */,
 				D6A5DCC22B85F11300328930 /* RealmSwift */,
+				D6A5DCCC2B87677E00328930 /* SocketIO */,
 			);
 			productName = SeSacSlack;
 			productReference = D654CA152B4435600054AD46 /* SeSacSlack.app */;
@@ -1456,6 +1473,7 @@
 				D654CA662B45A7F90054AD46 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D616D2A72B4C06860012CFC5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D6A5DCBF2B85F11200328930 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D6A5DCCB2B87677E00328930 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = D654CA162B4435600054AD46 /* Products */;
 			projectDirPath = "";
@@ -1531,6 +1549,7 @@
 				D6DCA37E2B5A967E00236EDB /* WorkSpaceManager.swift in Sources */,
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D6BC02972B6E44D100BE1633 /* ChattingInputView.swift in Sources */,
+				D6A5DCD22B876EBF00328930 /* SocketRouter.swift in Sources */,
 				D6C7A2342B6145170007102A /* CustomFontColorLabel.swift in Sources */,
 				D6BC02A02B6FE55700BE1633 /* ChannelChattingTableViewCell.swift in Sources */,
 				D616D2A12B4BE2830012CFC5 /* UserDefaultsManager.swift in Sources */,
@@ -1637,6 +1656,7 @@
 				D6DCA3822B5A9B5F00236EDB /* SearchWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA36C2B5972E700236EDB /* RX+Extension.swift in Sources */,
 				D6BA71592B4E920E00D3FD00 /* LoginUseCase.swift in Sources */,
+				D6A5DCCF2B876AEB00328930 /* SocketIOManager.swift in Sources */,
 				D6BC02682B66A51700BE1633 /* AddMemberViewController.swift in Sources */,
 				D6DCA3702B59B11400236EDB /* WorkSpaceHomeDefaultViewModel.swift in Sources */,
 				D6BC02602B6525F300BE1633 /* EditWorkSpaceResponseDTO.swift in Sources */,
@@ -2058,6 +2078,14 @@
 				kind = branch;
 			};
 		};
+		D6A5DCCB2B87677E00328930 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2125,6 +2153,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D6A5DCBF2B85F11200328930 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		D6A5DCCC2B87677E00328930 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6A5DCCB2B87677E00328930 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

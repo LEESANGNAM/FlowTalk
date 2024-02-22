@@ -25,7 +25,26 @@ class DefaultChannelChattingRepository: ChannelChattingRepository {
 }
 
 extension DefaultChannelChattingRepository {
-    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO) {
+    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO) {
         chattingStorage.addChannelChatting(workspaceId: workspaceId, chattingData: chattingData)
+    }
+}
+
+// socket
+extension DefaultChannelChattingRepository {
+    func socketConfig(channelId: Int) {
+        SocketIOManager.shared.config(type: .channel(id: channelId))
+    }
+    
+    func socketReceive(channelId: Int) -> Observable<SearchChattingResponseDTO> {
+        return SocketIOManager.shared.receive(type: SearchChattingResponseDTO.self, api: .channel(id: channelId))
+    }
+    
+    func socketConnect() {
+        SocketIOManager.shared.connect()
+    }
+    
+    func socketDisconnect() {
+        SocketIOManager.shared.disconnect()
     }
 }
