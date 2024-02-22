@@ -18,7 +18,7 @@ class ChannelChattingTable: Object {
     @Persisted var createdAt: String
     @Persisted var images: List<String>
     
-    convenience init(channelTable: ChannelInfoTable, user: ChannelUserInfoTable, chatting: MakeChattingResponseDTO) {
+    convenience init(channelTable: ChannelInfoTable, user: ChannelUserInfoTable, chatting: SaveChannelChattingDTO) {
         self.init()
         self.chat_id = chatting.chat_id
         self.channelTable = channelTable
@@ -51,7 +51,7 @@ class ChannelInfoTable: Object {
     @Persisted var workspace_id: Int
     @Persisted var channel_name: String
     
-    convenience init(chatting: MakeChattingResponseDTO, workspace_id: Int) {
+    convenience init(chatting: SaveChannelChattingDTO, workspace_id: Int) {
         self.init()
         self.channel_id = chatting.channel_id
         self.workspace_id = workspace_id
@@ -66,7 +66,7 @@ class ChannelUserInfoTable: Object {
     @Persisted var user_email: String
     @Persisted var user_profile: String?
     
-    convenience init(user: MakeChattingUser) {
+    convenience init(user: SaveChattingUser) {
         self.init()
         self.user_id = user.user_id
         self.user_name = user.nickname

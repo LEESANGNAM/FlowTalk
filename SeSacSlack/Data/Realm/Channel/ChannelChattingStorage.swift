@@ -15,7 +15,7 @@ import RxSwift
 
 class ChannelChattingStorage: BaseStorage { //, ChannelChattingStorageProtocol {
     // 메세지보내기 성공모델 + 워크스페이스 정보
-    func addChannelChatting(workspaceId: Int ,chattingData: MakeChattingResponseDTO) {
+    func addChannelChatting(workspaceId: Int ,chattingData: SaveChannelChattingDTO) {
         
         // 채팅 중복인지 검사부터
         if let _ = realm.object(ofType: ChannelChattingTable.self, forPrimaryKey: chattingData.chat_id){
