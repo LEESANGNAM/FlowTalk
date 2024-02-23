@@ -28,6 +28,12 @@ extension DefaultChannelChattingRepository {
     func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO) {
         chattingStorage.addChannelChatting(workspaceId: workspaceId, chattingData: chattingData)
     }
+    
+    func saveChannelChattingArray(workspaceId:Int, chatArray: [SaveChannelChattingDTO]) {
+        chatArray.forEach { data in
+            chattingStorage.addChannelChatting(workspaceId: workspaceId, chattingData: data)
+        }
+    }
 }
 
 // socket

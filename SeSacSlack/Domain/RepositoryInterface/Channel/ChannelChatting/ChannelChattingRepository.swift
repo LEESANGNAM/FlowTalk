@@ -13,6 +13,7 @@ protocol ChannelChattingRepository: AnyObject {
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
     
     func saveChannelChatting(workspaceId: Int ,chattingData: SaveChannelChattingDTO)
+    func saveChannelChattingArray(workspaceId:Int, chatArray: [SaveChannelChattingDTO])
     
     //socket
     //설정

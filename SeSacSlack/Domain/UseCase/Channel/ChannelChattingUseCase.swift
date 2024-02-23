@@ -10,9 +10,10 @@ import RxSwift
 
 protocol ChannelChattingUseCase: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
-    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[ChannelChattingModel]>
+    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
     
-    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO)
+    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO)
+    func saveChannelChattingArray(workspaceId:Int, chatArray: [SearchChattingResponseDTO])
     
     //socket
     //설정
@@ -39,19 +40,22 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
         return channelChattingRepository.makeChannelChatting(model: model)
     }
     
-    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[ChannelChattingModel]> {
-        return channelChattingRepository.searchChannelChatting(model: model).flatMap { array in
-            Observable.just(array.map{ $0.toDomain()})
-        }
+    func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]> {
+        return channelChattingRepository.searchChannelChatting(model: model)
     }
     
 }
 
 extension DefaultChannelChattingUseCase {
     
-    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO) {
-        channelChattingRepository.saveChannelChatting(workspaceId: workspaceId, chattingData: chattingData)
+    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO) {
+        channelChattingRepository.saveChannelChatting(workspaceId: workspaceId, chattingData: chattingData.toDomain())
     }
+    func saveChannelChattingArray(workspaceId:Int, chatArray: [SearchChattingResponseDTO]) {
+        channelChattingRepository.saveChannelChattingArray(workspaceId: workspaceId, chatArray: chatArray.map { $0.toSave() })
+    }
+    
+    
 }
 
 //MARK: - 소켓

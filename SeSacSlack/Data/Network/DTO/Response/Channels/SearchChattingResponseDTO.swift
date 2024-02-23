@@ -35,4 +35,22 @@ extension SearchChattingResponseDTO {
             username: user.nickname,
             userProfileImage: user.profileImage)
     }
+    
+    func toSave() -> SaveChannelChattingDTO {
+       return SaveChannelChattingDTO(
+            channel_id: channel_id,
+            channelName: channelName,
+            chat_id: chat_id,
+            content: content,
+            createdAt: createdAt,
+            files: files,
+            user: SaveChattingUser(
+                user_id: user.user_id,
+                email: user.email,
+                nickname: user.nickname,
+                profileImage: user.profileImage
+            )
+        )
+    }
+    
 }

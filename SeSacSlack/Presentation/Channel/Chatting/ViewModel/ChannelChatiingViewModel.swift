@@ -83,6 +83,11 @@ class ChannelChatiingViewModel {
         )
     }
     
+    func loadChatting() {
+        
+    }
+    
+    
     func makeChatting() {
         let text = getContentText()
         
@@ -90,7 +95,7 @@ class ChannelChatiingViewModel {
         chattingUseCase.makeChannelChatting(model: model)
             .subscribe(with: self) { owner, value in
 //                print("채팅 보내기 성공: ",value)
-                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value.toDomain())
+                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value)
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code
@@ -117,7 +122,7 @@ class ChannelChatiingViewModel {
                 for value in array {
                     print("채널 채팅 조회 값 아마 엔티티로 날라옴:", value)
                 }
-                owner.chatArray.accept(array)
+                owner.chattingUseCase.saveChannelChattingArray(workspaceId:  WorkSpaceManager.shared.id, chatArray: array)
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code
