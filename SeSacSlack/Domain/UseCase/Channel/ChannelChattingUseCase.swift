@@ -10,9 +10,10 @@ import RxSwift
 
 protocol ChannelChattingUseCase: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
+    func checkChattingLastDate(channelId: Int) -> String?
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
     
-    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO)
+    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO)
     func saveChannelChattingArray(workspaceId:Int, chatArray: [SearchChattingResponseDTO])
     
     //socket
@@ -21,7 +22,7 @@ protocol ChannelChattingUseCase: AnyObject {
     //열기
     func socketConnect()
     //받기
-    func socketReceive(channelId: Int) -> Observable<ChannelChattingModel>
+    func socketReceive(channelId: Int) -> Observable<SearchChattingResponseDTO>
     //닫기
     func socketDisconnect()
 }
@@ -40,6 +41,10 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
         return channelChattingRepository.makeChannelChatting(model: model)
     }
     
+    func checkChattingLastDate(channelId: Int) -> String? {
+        return channelChattingRepository.checkChattingLastDate(channelId: channelId)
+    }
+    
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]> {
         return channelChattingRepository.searchChannelChatting(model: model)
     }
@@ -48,8 +53,8 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
 
 extension DefaultChannelChattingUseCase {
     
-    func saveChannelChatting(workspaceId: Int, chattingData: MakeChattingResponseDTO) {
-        channelChattingRepository.saveChannelChatting(workspaceId: workspaceId, chattingData: chattingData.toDomain())
+    func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO) {
+        channelChattingRepository.saveChannelChatting(workspaceId: workspaceId, chattingData: chattingData)
     }
     func saveChannelChattingArray(workspaceId:Int, chatArray: [SearchChattingResponseDTO]) {
         channelChattingRepository.saveChannelChattingArray(workspaceId: workspaceId, chatArray: chatArray.map { $0.toSave() })
@@ -65,8 +70,8 @@ extension DefaultChannelChattingUseCase {
         channelChattingRepository.socketConfig(channelId: channelId)
     }
     //받기
-    func socketReceive(channelId: Int) -> Observable<ChannelChattingModel> {
-        return channelChattingRepository.socketReceive(channelId: channelId).map { $0.toDomain() }
+    func socketReceive(channelId: Int) -> Observable<SearchChattingResponseDTO> {
+        return channelChattingRepository.socketReceive(channelId: channelId)
     }
     //연결
     func socketConnect() {

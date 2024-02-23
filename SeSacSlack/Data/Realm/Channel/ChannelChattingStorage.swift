@@ -10,7 +10,8 @@ import RealmSwift
 import RxSwift
 protocol ChannelChattingStorageProtocol: AnyObject {
     func addChannelChatting(workspaceId: Int ,chattingData: SaveChannelChattingDTO)
-    func readChannelChatting()
+    func checkChattingLastDate(channelId: Int) -> String?
+    func readChannelChatting(channelId: Int) -> Results<ChannelChattingTable>
 }
 
 class ChannelChattingStorage: BaseStorage, ChannelChattingStorageProtocol {
@@ -61,16 +62,17 @@ class ChannelChattingStorage: BaseStorage, ChannelChattingStorageProtocol {
     }
     
     // 마지막 날짜를 가져와서 -> 요청 하고  저장 후 모든 정보 가져오기
-    func checkChattingLaseDate(channelId: Int) -> String? {
+    func checkChattingLastDate(channelId: Int) -> String? {
         return realm.objects(ChannelChattingTable.self)
-            .filter("channelInfo.channel_id == %@",channelId)
+            .filter("channelTable.channel_id == %@",channelId)
             .sorted(byKeyPath: "createdAt", ascending: false)
             .first?.createdAt
     }
     
     
     // 여기서 먼저 디비 모든정보 가져오기
-    func readChannelChatting() {
-        
+    func readChannelChatting(channelId: Int) -> Results<ChannelChattingTable>{
+        return realm.objects(ChannelChattingTable.self)
+            .filter("channelTable.channel_id == %@",channelId)
     }
 }

@@ -10,10 +10,16 @@ import RxSwift
 
 protocol ChannelChattingRepository: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
+    
+    func checkChattingLastDate(channelId: Int) -> String?
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
     
+    
+    //저장
     func saveChannelChatting(workspaceId: Int ,chattingData: SaveChannelChattingDTO)
     func saveChannelChattingArray(workspaceId:Int, chatArray: [SaveChannelChattingDTO])
+    
+    
     
     //socket
     //설정

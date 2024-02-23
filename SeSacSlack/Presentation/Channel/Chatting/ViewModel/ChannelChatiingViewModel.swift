@@ -95,7 +95,7 @@ class ChannelChatiingViewModel {
         chattingUseCase.makeChannelChatting(model: model)
             .subscribe(with: self) { owner, value in
 //                print("채팅 보내기 성공: ",value)
-                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value)
+                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: value.toDomain())
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code
@@ -115,7 +115,9 @@ class ChannelChatiingViewModel {
     }
     
     func searchChatting() {
-        let model = SearchChattingRequestDTO(cursor_date: "", workSpaceId: WorkSpaceManager.shared.id, channelName: chatname)
+        let lastDate = chattingUseCase.checkChattingLastDate(channelId: channelId) ?? ""
+        print("마지막 채팅 날짜 체크: ",lastDate)
+        let model = SearchChattingRequestDTO(cursor_date: lastDate, workSpaceId: WorkSpaceManager.shared.id, channelName: chatname)
         
         chattingUseCase.searchChannelChatting(model: model)
             .subscribe(with: self) { owner, array in
@@ -164,8 +166,9 @@ extension ChannelChatiingViewModel {
             .subscribe(with: self) { owner, newchat in
                 print("소켓통신중:",newchat)
                 var chatArray = owner.chatArray.value
-                chatArray.append(newchat)
+                chatArray.append(newchat.toDomain())
                 owner.chatArray.accept(chatArray) // 화면에 추가  디비에도 저장해야함
+                owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: newchat.toSave()) // 디비저장
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code
