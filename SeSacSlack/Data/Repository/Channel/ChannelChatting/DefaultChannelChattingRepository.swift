@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 class DefaultChannelChattingRepository: ChannelChattingRepository {
     
@@ -27,8 +28,13 @@ class DefaultChannelChattingRepository: ChannelChattingRepository {
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]> {
         return NetWorkManager.shared.request(type: [SearchChattingResponseDTO].self, api: .searchChannelChatting(model))
     }
+    
+    func readChannelChatting(channelId: Int) -> [ChannelChattingTable] {
+        return chattingStorage.readChannelChatting(channelId: channelId)
+    }
 }
 
+// 저장
 extension DefaultChannelChattingRepository {
     func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO) {
         chattingStorage.addChannelChatting(workspaceId: workspaceId, chattingData: chattingData)

@@ -12,6 +12,7 @@ protocol ChannelChattingUseCase: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
     func checkChattingLastDate(channelId: Int) -> String?
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
+    func readChannelChatting(channelId: Int) -> Observable<[ChannelChattingModel]>
     
     func saveChannelChatting(workspaceId: Int, chattingData: SaveChannelChattingDTO)
     func saveChannelChattingArray(workspaceId:Int, chatArray: [SearchChattingResponseDTO])
@@ -47,6 +48,12 @@ final class DefaultChannelChattingUseCase: ChannelChattingUseCase {
     
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]> {
         return channelChattingRepository.searchChannelChatting(model: model)
+    }
+    
+    func readChannelChatting(channelId: Int) -> Observable<[ChannelChattingModel]> {
+        return Observable.just(
+                channelChattingRepository.readChannelChatting(channelId: channelId).map { $0.toDomain() }
+        )
     }
     
 }

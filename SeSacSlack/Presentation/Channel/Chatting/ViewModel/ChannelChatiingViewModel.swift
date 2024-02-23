@@ -15,6 +15,7 @@ class ChannelChatiingViewModel {
     private let imageData = BehaviorRelay<[Data]>(value: [])
     private let inputText = BehaviorRelay(value: "")
     private let textViewPlaceHolder = "메세지를 입력하세요"
+    private let sendSuccess =  BehaviorRelay<Bool>(value: false)
     let chatArray = BehaviorRelay<[ChannelChattingModel]>(value: [])
     let disposeBag = DisposeBag()
     let chattingUseCase: ChannelChattingUseCase
@@ -34,6 +35,7 @@ class ChannelChatiingViewModel {
         let hiddenImageCollectionView: BehaviorRelay<Bool>
         let sendValid: BehaviorRelay<Bool>
         let chatArray: BehaviorRelay<[ChannelChattingModel]>
+        let sendSuccess: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -45,8 +47,6 @@ class ChannelChatiingViewModel {
             .bind(with: self) { owner, _ in
                 owner.searchChatting()
                 print("채널 채팅 조회함")
-                owner.setSocket(channelId: owner.channelId)
-                owner.recive(channelId: owner.channelId)
             }.disposed(by: disposeBag)
         
         input.viewDidDisappearEvent
@@ -79,12 +79,9 @@ class ChannelChatiingViewModel {
             imageData: imageData,
             hiddenImageCollectionView: hiddenImageCollectionView,
             sendValid: sendValid,
-            chatArray: chatArray
+            chatArray: chatArray,
+            sendSuccess: sendSuccess
         )
-    }
-    
-    func loadChatting() {
-        
     }
     
     
@@ -107,10 +104,8 @@ class ChannelChatiingViewModel {
                 } else {
                     print("모르는 에러",error)
                 }
-            } onCompleted: { _ in
-                print("채널채팅 보내기 완료")
-            } onDisposed: { _ in
-                print("채널채팅보내기 디스포즈")
+            } onCompleted: { owner in
+                owner.sendSuccess.accept(true)
             }.disposed(by: disposeBag)
     }
     
@@ -136,10 +131,9 @@ class ChannelChatiingViewModel {
                 } else {
                     print("모르는 에러",error)
                 }
-            }  onCompleted: { _ in
-                print("채널채팅조회  완료")
-            } onDisposed: { _ in
-                print("채널채팅조회 디스포즈")
+            }  onCompleted: { owner in
+                print("채널채팅조회  완료")// 채팅 조회 완료후 데이터 불러오기
+                owner.readData()
             }.disposed(by: disposeBag)
 
     }
@@ -157,11 +151,20 @@ class ChannelChatiingViewModel {
 }
 
 extension ChannelChatiingViewModel {
-    private func setSocket(channelId: Int) {
+    private func readData() {
+        chattingUseCase.readChannelChatting(channelId: channelId)
+            .subscribe(with: self) { owner, chatArray in
+                owner.chatArray.accept(chatArray) // 채팅 내역을 전부 가져와서
+            } onCompleted: { owner in // 완료 되면 소켓연결
+                owner.setSocket()
+                owner.recive()
+            }.disposed(by: disposeBag)
+    }
+    private func setSocket() {
         chattingUseCase.socketConfig(channelId: channelId)
         chattingUseCase.socketConnect()
     }
-    func recive(channelId: Int) {
+    func recive() {
         chattingUseCase.socketReceive(channelId: channelId)
             .subscribe(with: self) { owner, newchat in
                 print("소켓통신중:",newchat)
@@ -180,10 +183,6 @@ extension ChannelChatiingViewModel {
                 } else {
                     print("모르는 에러",error)
                 }
-            } onCompleted: { _ in
-                print("소켓테스트완료")
-            } onDisposed: { _ in
-                print("소켓테스트 디스포즈")
             }.disposed(by: disposeBag)
     }
 }
@@ -194,10 +193,18 @@ extension ChannelChatiingViewModel {
         print("이미지 데이터 들어옴",data)
         imageData.accept(data)
     }
+    func deleteAll() {
+        imageData.accept([])
+        inputText.accept("")
+        sendSuccess.accept(false)
+    }
     func deleteImageData(index: Int) {
         var imageArray = imageData.value
         imageArray.remove(at: index)
         imageData.accept(imageArray)
+    }
+    func getDataCount() -> Int {
+        return chatArray.value.count
     }
     func getPlaceHolder() -> String {
         return textViewPlaceHolder

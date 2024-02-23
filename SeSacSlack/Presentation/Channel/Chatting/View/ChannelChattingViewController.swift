@@ -83,8 +83,28 @@ class ChannelChattingViewController: BaseViewController {
                 cell.setdata(data)
             }.disposed(by: disposeBag)
         
+        output.sendSuccess
+            .bind(with: self) { owner, value in
+                if value {
+                    owner.viewModel.deleteAll()
+                    owner.mainView.chattingInputView.chattingTextView.text = ""
+                    owner.tableViewBottomScroll()
+                }
+            }.disposed(by: disposeBag)
+        
     }
-   
+    private func tableViewBottomScroll() {
+            let indexPath = IndexPath(
+                row: self.viewModel.getDataCount() - 1,
+                section: 0
+            )
+            self.mainView.chattingTableView
+            .scrollToRow(
+                at: indexPath,
+                at: .bottom,
+                animated: false
+            )
+        }
     
     @objc func plusButtonTapped() {
         present(picker, animated: true)

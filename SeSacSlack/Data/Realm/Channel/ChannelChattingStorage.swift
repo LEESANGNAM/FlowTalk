@@ -11,7 +11,7 @@ import RxSwift
 protocol ChannelChattingStorageProtocol: AnyObject {
     func addChannelChatting(workspaceId: Int ,chattingData: SaveChannelChattingDTO)
     func checkChattingLastDate(channelId: Int) -> String?
-    func readChannelChatting(channelId: Int) -> Results<ChannelChattingTable>
+    func readChannelChatting(channelId: Int) -> [ChannelChattingTable]
 }
 
 class ChannelChattingStorage: BaseStorage, ChannelChattingStorageProtocol {
@@ -71,8 +71,8 @@ class ChannelChattingStorage: BaseStorage, ChannelChattingStorageProtocol {
     
     
     // 여기서 먼저 디비 모든정보 가져오기
-    func readChannelChatting(channelId: Int) -> Results<ChannelChattingTable>{
-        return realm.objects(ChannelChattingTable.self)
-            .filter("channelTable.channel_id == %@",channelId)
+    func readChannelChatting(channelId: Int) -> [ChannelChattingTable]{
+        return Array(realm.objects(ChannelChattingTable.self)
+            .filter("channelTable.channel_id == %@",channelId))
     }
 }

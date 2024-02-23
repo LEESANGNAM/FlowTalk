@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 protocol ChannelChattingRepository: AnyObject {
     func makeChannelChatting(model: MakeChattingRequestDTO) -> Observable<MakeChattingResponseDTO>
@@ -14,6 +15,7 @@ protocol ChannelChattingRepository: AnyObject {
     func checkChattingLastDate(channelId: Int) -> String?
     func searchChannelChatting(model: SearchChattingRequestDTO) -> Observable<[SearchChattingResponseDTO]>
     
+    func readChannelChatting(channelId: Int) -> [ChannelChattingTable]
     
     //저장
     func saveChannelChatting(workspaceId: Int ,chattingData: SaveChannelChattingDTO)
