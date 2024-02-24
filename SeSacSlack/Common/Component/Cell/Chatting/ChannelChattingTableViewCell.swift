@@ -34,7 +34,7 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
         return view
     }()
     
-  
+    
     let chattingBackView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -149,7 +149,8 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
         } else {
             chattingBackView.isHidden = true
         }
-        
+     
+        dateLabel.text = data.createdAt.toDate()?.formattedDateStringTodayTime()
     }
     
     private func setHeight(count: Int) {
@@ -169,5 +170,5 @@ class ChannelChattingTableViewCell: BaseTableViewCell {
             ImageView.isHidden = true
         }
     }
-        
+    
 }
