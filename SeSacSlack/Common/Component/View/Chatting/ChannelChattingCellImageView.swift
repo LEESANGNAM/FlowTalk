@@ -35,11 +35,11 @@ class ChannelChattingCellImageView: BaseView {
     
     override func setHierarchy() {
         imageViewArray.forEach { addSubview($0)}
-        imageViewArray[0].backgroundColor = .systemBlue
-        imageViewArray[1].backgroundColor = .systemOrange
-        imageViewArray[2].backgroundColor = .systemRed
-        imageViewArray[3].backgroundColor = .systemYellow
-        imageViewArray[4].backgroundColor = .systemBrown
+        imageViewArray[0].backgroundColor = .systemGray5
+        imageViewArray[1].backgroundColor = .systemGray5
+        imageViewArray[2].backgroundColor = .systemGray5
+        imageViewArray[3].backgroundColor = .systemGray5
+        imageViewArray[4].backgroundColor = .systemGray5
     }
     
 }
