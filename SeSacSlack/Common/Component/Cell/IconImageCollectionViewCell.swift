@@ -99,10 +99,12 @@ class IconImageCollectionViewCell: BaseCollectionViewCell {
             countButton.isHidden = false
             countButton.setTitle("\(count)", for: .normal)
             titleLabel.textColor = Colors.textPrimary.color
+            titleLabel.font = Font.bodyBold.fontWithLineHeight()
             iconImageView.tintColor = Colors.textPrimary.color
         } else {
             countButton.isHidden = true
             titleLabel.textColor = Colors.textSecondary.color
+            titleLabel.font = Font.body.fontWithLineHeight()
             iconImageView.tintColor = Colors.textSecondary.color
         }
     }
