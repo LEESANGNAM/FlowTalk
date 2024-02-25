@@ -63,12 +63,13 @@ class IconImageCollectionViewCell: BaseCollectionViewCell {
         countButton.isHidden = true
     }
     
-    func setupchnnal(title: String){
+    func setupchnnal(data: homeDefaultListItem){
         iconImageView.image = Icon.hashtag.image
-        titleLabel.text = title
+        titleLabel.text = data.title
+        setupChatCount(data.unreadCount)
     }
     
-    func setupDM(image: UIImage?,title: String){
+    func setupDM(image: UIImage?,data: homeDefaultListItem){
         if let image {
             iconImageView.image = image
         } else {
@@ -76,7 +77,7 @@ class IconImageCollectionViewCell: BaseCollectionViewCell {
             iconImageView.backgroundColor = Colors.brandGreen.color
             iconImageView.tintColor = Colors.brandWhite.color
         }
-        titleLabel.text = title
+        titleLabel.text = data.title
         iconImageView.layer.cornerRadius = 4
         iconImageView.clipsToBounds = true
         iconImageView.snp.updateConstraints { make in
@@ -93,12 +94,16 @@ class IconImageCollectionViewCell: BaseCollectionViewCell {
             make.size.equalTo(18)
         }
     }
-    func setupChatCount(_ count: Int?){
-        if let count {
+    func setupChatCount(_ count: Int){
+        if count != 0 {
             countButton.isHidden = false
             countButton.setTitle("\(count)", for: .normal)
+            titleLabel.textColor = Colors.textPrimary.color
+            iconImageView.tintColor = Colors.textPrimary.color
         } else {
             countButton.isHidden = true
+            titleLabel.textColor = Colors.textSecondary.color
+            iconImageView.tintColor = Colors.textSecondary.color
         }
     }
     
