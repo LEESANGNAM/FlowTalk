@@ -13,6 +13,7 @@ import RxCocoa
 protocol ChannelUseCase: AnyObject {
     func searchMyChannels(model: SearchMyChannelsRequestDTO) -> Observable<[SearchMyChannelsResponseDTO]>
     func addChannel(channel: AddChannelRequestDTO) -> Observable<AddChannelResponseDTO>
+    func unreadCount(model: UnreadChannelChattingRequestDTO) -> Observable<UnreadChannelChattingResponseDTO>
 }
 
 final class DefaultChannelUseCase: ChannelUseCase {
@@ -28,5 +29,8 @@ final class DefaultChannelUseCase: ChannelUseCase {
 
     func addChannel(channel: AddChannelRequestDTO) -> Observable<AddChannelResponseDTO> {
         return channelRepository.addChannel(channel: channel)
+    }
+    func unreadCount(model: UnreadChannelChattingRequestDTO) -> Observable<UnreadChannelChattingResponseDTO> {
+        return channelRepository.unreadCount(model: model)
     }
 }

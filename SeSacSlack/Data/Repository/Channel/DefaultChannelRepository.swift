@@ -16,5 +16,7 @@ final class DefaultChannelRepository: ChannelRepository {
     func addChannel(channel: AddChannelRequestDTO) -> Observable<AddChannelResponseDTO> {
         return NetWorkManager.shared.request(type: AddChannelResponseDTO.self, api: .addChannel(channel))
     }
-    
+    func unreadCount(model: UnreadChannelChattingRequestDTO) -> Observable<UnreadChannelChattingResponseDTO> {
+        return NetWorkManager.shared.request(type: UnreadChannelChattingResponseDTO.self, api: .unreadChannelChatting(model))
+    }
 }
