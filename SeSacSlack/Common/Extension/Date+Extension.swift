@@ -14,6 +14,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func toAPIString() -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+           return dateFormatter.string(from: self)
+       }
+    
     func formattedDateStringTodayTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
