@@ -74,6 +74,8 @@
 		D6A5DCCD2B87677E00328930 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCCC2B87677E00328930 /* SocketIO */; };
 		D6A5DCCF2B876AEB00328930 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCCE2B876AEB00328930 /* SocketIOManager.swift */; };
 		D6A5DCD22B876EBF00328930 /* SocketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD12B876EBF00328930 /* SocketRouter.swift */; };
+		D6A5DCD42B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD32B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift */; };
+		D6A5DCD62B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -247,6 +249,8 @@
 		D6A5DCC92B86366F00328930 /* ChannelChattingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingStorage.swift; sourceTree = "<group>"; };
 		D6A5DCCE2B876AEB00328930 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		D6A5DCD12B876EBF00328930 /* SocketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRouter.swift; sourceTree = "<group>"; };
+		D6A5DCD32B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingResponseDTO.swift; sourceTree = "<group>"; };
+		D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -1278,6 +1282,7 @@
 				D6BC028F2B6BE41300BE1633 /* AddChannelRequestDTO.swift */,
 				D6BC02A72B7B9F6700BE1633 /* MakeChattingRequestDTO.swift */,
 				D6A5DCB32B83A0D500328930 /* SearchChattingRequestDTO.swift */,
+				D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1289,6 +1294,7 @@
 				D6BC028D2B6BE33C00BE1633 /* AddChannelResponseDTO.swift */,
 				D6BC02A92B7BAFA900BE1633 /* MakeChattingResponseDTO.swift */,
 				D6A5DCB52B83A21A00328930 /* SearchChattingResponseDTO.swift */,
+				D6A5DCD32B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1530,6 +1536,7 @@
 				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71872B53D82400D3FD00 /* WorkSpaceEditViewModel.swift in Sources */,
+				D6A5DCD42B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift in Sources */,
 				D6DCA38E2B5D741300236EDB /* ChannelRepository.swift in Sources */,
 				D6BA71792B500F6200D3FD00 /* LoginSignUpErrorType.swift in Sources */,
 				D6DCA35E2B584E0200236EDB /* SearchWorkSpacesResponseDTO.swift in Sources */,
@@ -1633,6 +1640,7 @@
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
 				D6BC02A62B724D9B00BE1633 /* ChannelChatiingViewModel.swift in Sources */,
 				D6BC029D2B6FCE5D00BE1633 /* ChannelChattingInputImageCell.swift in Sources */,
+				D6A5DCD62B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift in Sources */,
 				D6BC02952B6D125900BE1633 /* ChannelChattingViewController.swift in Sources */,
 				D616D26E2B4833E00012CFC5 /* BaseView.swift in Sources */,
 				D6DCA3662B596F7B00236EDB /* SplashViewController.swift in Sources */,

@@ -3,4 +3,69 @@
    uuid = "3179463C-F969-44A7-A1BA-7C04BD42C170"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F92D6512-3086-43F9-9430-53DF11AA2E66"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeSacSlack/Presentation/WorkSpace/Home/Default/View/WorkSpaceHomeDefaultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "applyInitialSnapshots()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F92D6512-3086-43F9-9430-53DF11AA2E66 - ce8fdcaf32a3221a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeSacSlack.WorkSpaceHomeDefaultViewController.applyInitialSnapshots() -&gt; ()"
+                  moduleName = "SeSacSlack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isangnam/Documents/iOS/SeSac/SeSacSlack/SeSacSlack/Presentation/WorkSpace/Home/Default/View/WorkSpaceHomeDefaultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "F92D6512-3086-43F9-9430-53DF11AA2E66 - 5b8abfa422dca34c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UICollectionView, Foundation.IndexPath, SeSacSlack.homeDefaultListItem) -&gt; Swift.Optional&lt;__C.UICollectionViewCell&gt; in SeSacSlack.WorkSpaceHomeDefaultViewController.configureDataSource() -&gt; ()"
+                  moduleName = "SeSacSlack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isangnam/Documents/iOS/SeSac/SeSacSlack/SeSacSlack/Presentation/WorkSpace/Home/Default/View/WorkSpaceHomeDefaultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  uuid = "F92D6512-3086-43F9-9430-53DF11AA2E66 - ce8fdcaf32a32354"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeSacSlack.WorkSpaceHomeDefaultViewController.applyInitialSnapshots() -&gt; ()"
+                  moduleName = "SeSacSlack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isangnam/Documents/iOS/SeSac/SeSacSlack/SeSacSlack/Presentation/WorkSpace/Home/Default/View/WorkSpaceHomeDefaultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

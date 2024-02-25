@@ -31,20 +31,11 @@ class WorkSpaceHomeDefaultViewController: BaseViewController {
         }
     }
     
-    struct Item: Hashable {
-        let title: String?
-        let hasChildren: Bool
-        init( title: String? = nil, hasChildren: Bool = false) {
-            self.title = title
-            self.hasChildren = hasChildren
-        }
-        private let identifier = UUID()
-    }
     
     let workSpaceNaviBar = WorkSpaceProfileView()
     
     var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    var dataSource: UICollectionViewDiffableDataSource<Section, homeDefaultListItem>!
     
     let disposeBag = DisposeBag()
     let viewModel: WorkSpaceHomeDefaultViewModel
@@ -58,7 +49,6 @@ class WorkSpaceHomeDefaultViewController: BaseViewController {
         super.viewDidLoad()
         configureHierarchy()
         configureDataSource()
-        applyInitialSnapshots()
         setUpBackgroundColors()
         bind()
         let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePan(_:)))
@@ -85,16 +75,11 @@ class WorkSpaceHomeDefaultViewController: BaseViewController {
         let input = WorkSpaceHomeDefaultViewModel.Input(viewWillAppear: self.rx.viewWillAppear.map { _ in})
         let output = viewModel.transform(input: input)
         
-        output.channelData
-            .bind(with: self, onNext: { owner, _ in
+        output.homeListData
+            .bind(with: self) { owner, array in
+                if array.isEmpty { return }
                 owner.applyInitialSnapshots()
-            }).disposed(by: disposeBag)
-        
-            
-        output.dmData
-            .bind(with: self, onNext: { owner, _ in
-                owner.applyInitialSnapshots()
-            }).disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
         output.workspace
             .bind(with: self) { owner, workspace in
@@ -187,26 +172,23 @@ extension WorkSpaceHomeDefaultViewController {
         }
     }
     
-    func createOutlineCellRegistration() -> UICollectionView.CellRegistration<IconImageCollectionViewCell, String> {
-        return UICollectionView.CellRegistration<IconImageCollectionViewCell, String> { (cell, indexPath, text) in
+    func createOutlineCellRegistration() -> UICollectionView.CellRegistration<IconImageCollectionViewCell, homeDefaultListItem> {
+        return UICollectionView.CellRegistration<IconImageCollectionViewCell, homeDefaultListItem> { (cell, indexPath, homeDefaultListItem) in
             if let section = Section(rawValue: indexPath.section){
                 switch section {
                 case .channel:
-                    cell.setupchnnal(title: text)
-                    cell.setupChatCount(2)
+                    cell.setupchnnal(data: homeDefaultListItem)
                     break
                 case .directmessage:
-                    cell.setupDM(image: nil, title: text)
-                    cell.setupChatCount(5)
+                    cell.setupDM(image: nil, data: homeDefaultListItem)
                     break
                 case .addMember:
                     break
                 }
                 let itemCount = self.collectionView.numberOfItems(inSection: indexPath.section)
-//                print("\(indexPath.section)섹션 아이템 갯수 ",itemCount)
                 if indexPath.item == itemCount - 1 {
-                    cell.setupLast(title: text)
-                    cell.setupChatCount(nil)
+                    cell.setupLast(title: homeDefaultListItem.title)
+                    cell.setupChatCount(0)
                 }
             }
         }
@@ -220,15 +202,15 @@ extension WorkSpaceHomeDefaultViewController {
         let outlineCellRegistration = createOutlineCellRegistration()
         
         // data source
-        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) {
-            (collectionView, indexPath, item) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, homeDefaultListItem>(collectionView: collectionView) {
+            (collectionView, indexPath, homeDefaultListItem) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknown section") }
             switch section {
             case .channel,.addMember,.directmessage:
-                if item.hasChildren {
-                    return collectionView.dequeueConfiguredReusableCell(using: outlineHeaderCellRegistration, for: indexPath, item: item.title!)
+                if homeDefaultListItem.hasChildren {
+                    return collectionView.dequeueConfiguredReusableCell(using: outlineHeaderCellRegistration, for: indexPath, item: homeDefaultListItem.title)
                 } else {
-                    return collectionView.dequeueConfiguredReusableCell(using: outlineCellRegistration, for: indexPath, item: item.title!)
+                    return collectionView.dequeueConfiguredReusableCell(using: outlineCellRegistration, for: indexPath, item: homeDefaultListItem)
                 }
             }
         }
@@ -238,32 +220,32 @@ extension WorkSpaceHomeDefaultViewController {
     func applyInitialSnapshots() {
         // set the order for our sections
         let sections = Section.allCases
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, homeDefaultListItem>()
         snapshot.appendSections(sections)
         dataSource.apply(snapshot, animatingDifferences: false)
         
         for category in sections {
             //  outlines
-            var outlineSnapshot = NSDiffableDataSourceSectionSnapshot<Item>()
+            var outlineSnapshot = NSDiffableDataSourceSectionSnapshot<homeDefaultListItem>()
             
-            var rootItem: Item
+            var rootItem: homeDefaultListItem
             if case Section.addMember = category {
-                rootItem = Item(title: String(describing: category.title), hasChildren: false)
+                rootItem = homeDefaultListItem(title: String(describing: category.title), hasChildren: false)
             } else {
-                rootItem = Item(title: String(describing: category.title), hasChildren: true)
+                rootItem = homeDefaultListItem(title: String(describing: category.title), hasChildren: true)
             }
             outlineSnapshot.append([rootItem])
             
-            var outlineItems: [Item]
+            var outlineItems: [homeDefaultListItem]
             switch category {
             case .channel:
-                outlineItems = viewModel.getchannelArray().map { Item(title:$0.name) }
-                outlineItems.append(Item(title: "채널추가"))
+                outlineItems = viewModel.getchannelArray()
+                outlineItems.append(homeDefaultListItem(title: "채널추가"))
             case .directmessage:
-                outlineItems = viewModel.getdmArray().map { Item(title:$0.user.nickname) }
-                outlineItems.append(Item(title: "새 메시지 시작"))
+                outlineItems = viewModel.getdmArray()
+                outlineItems.append(homeDefaultListItem(title: "새 메시지 시작"))
             case .addMember:
-                outlineItems = Array(arrayLiteral: Item(title: "팀원추가"))
+                outlineItems = Array(arrayLiteral: homeDefaultListItem(title: "팀원추가"))
             }
             outlineSnapshot.append(outlineItems, to: rootItem)
             dataSource.apply(outlineSnapshot, to: category, animatingDifferences: false)
