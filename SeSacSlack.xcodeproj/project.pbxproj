@@ -76,6 +76,11 @@
 		D6A5DCD22B876EBF00328930 /* SocketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD12B876EBF00328930 /* SocketRouter.swift */; };
 		D6A5DCD42B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD32B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift */; };
 		D6A5DCD62B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */; };
+		D6A5DCD82B8C707D00328930 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A5DCD72B8C707C00328930 /* GoogleService-Info.plist */; };
+		D6A5DCDB2B8C721100328930 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCDA2B8C721100328930 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D6A5DCDD2B8C721100328930 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCDC2B8C721100328930 /* FirebaseInAppMessaging-Beta */; };
+		D6A5DCDF2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCDE2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta */; };
+		D6A5DCE12B8C721100328930 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCE02B8C721100328930 /* FirebaseMessaging */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -251,6 +256,7 @@
 		D6A5DCD12B876EBF00328930 /* SocketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRouter.swift; sourceTree = "<group>"; };
 		D6A5DCD32B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingResponseDTO.swift; sourceTree = "<group>"; };
 		D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingRequestDTO.swift; sourceTree = "<group>"; };
+		D6A5DCD72B8C707C00328930 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -354,7 +360,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A5DCE12B8C721100328930 /* FirebaseMessaging in Frameworks */,
 				D654CA682B45A7F90054AD46 /* RxCocoa in Frameworks */,
+				D6A5DCDF2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				D6A5DCDB2B8C721100328930 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D654CA5A2B45A7790054AD46 /* RxKakaoSDKCommon in Frameworks */,
 				D654CA6A2B45A7F90054AD46 /* RxSwift in Frameworks */,
 				D6A5DCC32B85F11300328930 /* RealmSwift in Frameworks */,
@@ -364,6 +373,7 @@
 				D6A5DCC12B85F11300328930 /* Realm in Frameworks */,
 				D654CA652B45A7BF0054AD46 /* Kingfisher in Frameworks */,
 				D6A5DCCD2B87677E00328930 /* SocketIO in Frameworks */,
+				D6A5DCDD2B8C721100328930 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				D654CA5C2B45A7790054AD46 /* RxKakaoSDKUser in Frameworks */,
 				D654CA622B45A7AF0054AD46 /* Toast in Frameworks */,
 				D616D2A92B4C06860012CFC5 /* IQKeyboardManagerSwift in Frameworks */,
@@ -636,6 +646,7 @@
 				D654CA232B4435610054AD46 /* LaunchScreen.storyboard */,
 				D654CA262B4435610054AD46 /* Info.plist */,
 				D654CA4C2B459A910054AD46 /* .gitIgnore */,
+				D6A5DCD72B8C707C00328930 /* GoogleService-Info.plist */,
 				D654CA4E2B459FC00054AD46 /* Config.xcconfig */,
 				D654CA4F2B459FCA0054AD46 /* APIKey.swift */,
 			);
@@ -1397,6 +1408,10 @@
 				D6A5DCC02B85F11300328930 /* Realm */,
 				D6A5DCC22B85F11300328930 /* RealmSwift */,
 				D6A5DCCC2B87677E00328930 /* SocketIO */,
+				D6A5DCDA2B8C721100328930 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				D6A5DCDC2B8C721100328930 /* FirebaseInAppMessaging-Beta */,
+				D6A5DCDE2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta */,
+				D6A5DCE02B8C721100328930 /* FirebaseMessaging */,
 			);
 			productName = SeSacSlack;
 			productReference = D654CA152B4435600054AD46 /* SeSacSlack.app */;
@@ -1480,6 +1495,7 @@
 				D616D2A72B4C06860012CFC5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D6A5DCBF2B85F11200328930 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D6A5DCCB2B87677E00328930 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D654CA162B4435600054AD46 /* Products */;
 			projectDirPath = "";
@@ -1499,6 +1515,7 @@
 			files = (
 				D654CA252B4435610054AD46 /* LaunchScreen.storyboard in Resources */,
 				D654CA782B46CC0F0054AD46 /* SF-Pro.ttf in Resources */,
+				D6A5DCD82B8C707D00328930 /* GoogleService-Info.plist in Resources */,
 				D654CA222B4435610054AD46 /* Assets.xcassets in Resources */,
 				D654CA4D2B459A910054AD46 /* .gitIgnore in Resources */,
 			);
@@ -2094,6 +2111,14 @@
 				kind = branch;
 			};
 		};
+		D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.21.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2166,6 +2191,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D6A5DCCB2B87677E00328930 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
 			productName = SocketIO;
+		};
+		D6A5DCDA2B8C721100328930 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D6A5DCDC2B8C721100328930 /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		D6A5DCDE2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessagingSwift-Beta";
+		};
+		D6A5DCE02B8C721100328930 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
