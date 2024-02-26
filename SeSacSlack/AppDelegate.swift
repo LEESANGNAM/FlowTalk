@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import RxKakaoSDKCommon
 import RxKakaoSDKAuth
 import KakaoSDKAuth
+import RxSwift
 
 import FirebaseCore
 import FirebaseMessaging
@@ -18,7 +19,7 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    private let disposeBag = DisposeBag()
     // kakao
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if (AuthApi.isKakaoTalkLoginUrl(url)) {
@@ -92,6 +93,18 @@ extension AppDelegate: MessagingDelegate {
             if let error {
                 print("Error fetching FCM registration token: \(error)")
             } else if let token {
+                // 여기서 로그인 돼어있으면 토큰 보내기
+                UserDefaultsManager.deviceToken = token
+                if UserDefaultsManager.isLogin {
+                    print("로그인 되어있음")
+                    NetWorkManager.shared.request(type: EmptyResponseDTO.self, api: .saveDeviceToken(DeviceTokenRequestDTO(deviceToken: token)))
+                        .subscribe(with: self) { owner, _ in
+                            print("디바이스 토큰 전송완료")
+                        } onError: { _ , error in
+                            print("디바이스 토큰 전송 error")
+                        }.disposed(by: self.disposeBag)
+
+                }
                 print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                 print("토큰 여기있어요~~~~~~~~~~:",token)
                 print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")

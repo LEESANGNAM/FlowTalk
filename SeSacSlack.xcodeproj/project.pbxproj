@@ -81,6 +81,7 @@
 		D6A5DCDD2B8C721100328930 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCDC2B8C721100328930 /* FirebaseInAppMessaging-Beta */; };
 		D6A5DCDF2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCDE2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta */; };
 		D6A5DCE12B8C721100328930 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCE02B8C721100328930 /* FirebaseMessaging */; };
+		D6A5DCE32B8CD11200328930 /* DeviceTokenRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCE22B8CD11200328930 /* DeviceTokenRequestDTO.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -257,6 +258,7 @@
 		D6A5DCD32B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingResponseDTO.swift; sourceTree = "<group>"; };
 		D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingRequestDTO.swift; sourceTree = "<group>"; };
 		D6A5DCD72B8C707C00328930 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6A5DCE22B8CD11200328930 /* DeviceTokenRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTokenRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -1252,6 +1254,7 @@
 				D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */,
 				D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */,
 				D6BA716E2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift */,
+				D6A5DCE22B8CD11200328930 /* DeviceTokenRequestDTO.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1613,6 +1616,7 @@
 				D616D29F2B4B1F4E0012CFC5 /* SignUpResponseDTO.swift in Sources */,
 				D654CA6F2B45C1390054AD46 /* Font.swift in Sources */,
 				D6BC02782B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift in Sources */,
+				D6A5DCE32B8CD11200328930 /* DeviceTokenRequestDTO.swift in Sources */,
 				D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D6BC026D2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift in Sources */,

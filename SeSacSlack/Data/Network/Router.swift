@@ -20,6 +20,7 @@ enum Router: URLRequestConvertible {
     case refresh
     
     case searchMyInfo
+    case saveDeviceToken(DeviceTokenRequestDTO)
     
     //MARK: - workspace
     case addWorkSpace(AddWorkSpaceRequestDTO)
@@ -64,7 +65,8 @@ enum Router: URLRequestConvertible {
             return "/v1/auth/refresh"
         case .searchMyInfo:
             return "/v1/users/my"
-            
+        case .saveDeviceToken:
+            return "/v1/users/deviceToken"
         //MARK: - workspace
         case .addWorkSpace, .searchWorkSpaces:
             return "/v1/workspaces"
@@ -104,7 +106,7 @@ enum Router: URLRequestConvertible {
     var header: HTTPHeaders {
         switch self {
         case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
-                .searchMyInfo,
+                .searchMyInfo,.saveDeviceToken,
                 .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace, //workSpace
                 .addMemberWorkspace, .searchMembers, .workSpaceChangeAdmin,
                 .searchMyChannels, .addChannel, .makeChannelChatting,.searchChannelChatting,
@@ -129,7 +131,8 @@ enum Router: URLRequestConvertible {
             
         case .refresh, .searchMyInfo:
             return .get
-        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin:
+        case .emailValid, .signUp, .kakaoLogin, .appleLogin, .emailLogin,
+                .saveDeviceToken:
             return .post
             
         //MARK: - workspace
@@ -171,14 +174,19 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(appleLoginRequestDTO, into: request)
         case .emailLogin(let emailLoginRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(emailLoginRequestDTO, into: request)
+        case .saveDeviceToken(let deviceTokenRequestDTO):
+            request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(deviceTokenRequestDTO, into: request)
+            
         case .addMemberWorkspace(let addMemberWorkSpaceRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addMemberWorkSpaceRequestDTO, into: request)
+            
         case .addChannel(let addChannelRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(addChannelRequestDTO, into: request)
         case .searchChannelChatting(let searchChattingRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .queryString).encode(searchChattingRequestDTO, into: request)
         case .unreadChannelChatting(let unreadChannelChattingRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .queryString).encode(unreadChannelChattingRequestDTO, into: request)
+            
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMembers, .workSpaceChangeAdmin,

@@ -9,16 +9,24 @@ import Foundation
 struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "isLogin", defaultValue: false)
     static var isLogin
+    
     @UserDefaultsWrapper(key: "token", defaultValue: "")
     static var token
+    
     @UserDefaultsWrapper(key: "refreshToken", defaultValue: "")
     static var refresh
+    
     @UserDefaultsWrapper(key: "id", defaultValue: 0)
     static var id
+    
     @UserDefaultsWrapper(key: "nickname", defaultValue: "")
     static var nickname
+    
     @UserDefaultsWrapper(key: "workSpaceId", defaultValue: 0)
     static var workSpaceId
+    
+    @UserDefaultsWrapper(key: "deviceToken",defaultValue: "")
+    static var deviceToken
     
     static func saveUserDefaults(id: Int = 0, nickname: String = "" , token: String = "", refresh: String = "") {
         UserDefaultsManager.isLogin = true
