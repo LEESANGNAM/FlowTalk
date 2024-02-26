@@ -16,10 +16,13 @@ class TabbarController: UITabBarController {
                     channelRepository: DefaultChannelRepository())
             )
         )
+    let DmVC = DMViewController()
+    let searchVC = ChannelSeachViewController()
+    let settingVc = SettingViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [HomeVC]
+        viewControllers = [HomeVC,DmVC,searchVC,settingVc]
         setupTabbar()
     }
     
@@ -32,6 +35,9 @@ class TabbarController: UITabBarController {
     
     private func setupTabbarItem(){
         HomeVC.tabBarItem = UITabBarItem(title: "홈", image: Icon.home.image, tag: 0)
+        DmVC.tabBarItem = UITabBarItem(title: "DM", image: Icon.dm.image, tag: 1)
+        searchVC.tabBarItem = UITabBarItem(title: "검색", image: Icon.search.image, tag: 2)
+        settingVc.tabBarItem = UITabBarItem(title: "설정", image: Icon.setting.image, tag: 3)
     }
     
     

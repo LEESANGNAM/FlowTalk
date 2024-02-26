@@ -82,6 +82,9 @@
 		D6A5DCDF2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCDE2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta */; };
 		D6A5DCE12B8C721100328930 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D6A5DCE02B8C721100328930 /* FirebaseMessaging */; };
 		D6A5DCE32B8CD11200328930 /* DeviceTokenRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCE22B8CD11200328930 /* DeviceTokenRequestDTO.swift */; };
+		D6A5DCE52B8CE02500328930 /* ChannelSeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCE42B8CE02500328930 /* ChannelSeachViewController.swift */; };
+		D6A5DCE82B8CE49700328930 /* DMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCE72B8CE49700328930 /* DMViewController.swift */; };
+		D6A5DCEB2B8CE4EA00328930 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5DCEA2B8CE4EA00328930 /* SettingViewController.swift */; };
 		D6BA714A2B4C583600D3FD00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */; };
 		D6BA714C2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */; };
 		D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */; };
@@ -259,6 +262,9 @@
 		D6A5DCD52B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadChannelChattingRequestDTO.swift; sourceTree = "<group>"; };
 		D6A5DCD72B8C707C00328930 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6A5DCE22B8CD11200328930 /* DeviceTokenRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTokenRequestDTO.swift; sourceTree = "<group>"; };
+		D6A5DCE42B8CE02500328930 /* ChannelSeachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSeachViewController.swift; sourceTree = "<group>"; };
+		D6A5DCE72B8CE49700328930 /* DMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMViewController.swift; sourceTree = "<group>"; };
+		D6A5DCEA2B8CE4EA00328930 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D6BA71492B4C583600D3FD00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D6BA714B2B4D835700D3FD00 /* KakaoLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA714D2B4D838D00D3FD00 /* KakaoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponseDTO.swift; sourceTree = "<group>"; };
@@ -567,6 +573,8 @@
 		D616D2962B487F9F0012CFC5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCE92B8CE4DD00328930 /* Setting */,
+				D6A5DCE62B8CE10800328930 /* DM */,
 				D6BC02812B6A63FD00BE1633 /* Channel */,
 				D616D2A22B4BE5500012CFC5 /* WorkSpace */,
 				D6DCA3642B596F4F00236EDB /* Splash */,
@@ -864,6 +872,22 @@
 			path = Socket;
 			sourceTree = "<group>";
 		};
+		D6A5DCE62B8CE10800328930 /* DM */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCE72B8CE49700328930 /* DMViewController.swift */,
+			);
+			path = DM;
+			sourceTree = "<group>";
+		};
+		D6A5DCE92B8CE4DD00328930 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5DCEA2B8CE4EA00328930 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		D6BA71532B4E918200D3FD00 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1096,6 +1120,7 @@
 		D6BC02832B6A660F00BE1633 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				D6A5DCE42B8CE02500328930 /* ChannelSeachViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1554,6 +1579,7 @@
 				D6DCA3772B59BF7200236EDB /* SearchMyChannelsRequestDTO.swift in Sources */,
 				D654CA872B470D450054AD46 /* SNSLoginButton.swift in Sources */,
 				D6DCA35A2B57D97700236EDB /* IconImageCollectionViewCell.swift in Sources */,
+				D6A5DCE82B8CE49700328930 /* DMViewController.swift in Sources */,
 				D616D2AB2B4C09FF0012CFC5 /* SignUpTextFieldType.swift in Sources */,
 				D6BA71872B53D82400D3FD00 /* WorkSpaceEditViewModel.swift in Sources */,
 				D6A5DCD42B8B798F00328930 /* UnreadChannelChattingResponseDTO.swift in Sources */,
@@ -1591,6 +1617,7 @@
 				D616D2782B48546C0012CFC5 /* Router.swift in Sources */,
 				D6C7A22E2B6117A70007102A /* TabbarController.swift in Sources */,
 				D6BA714E2B4D838D00D3FD00 /* KakaoResponseDTO.swift in Sources */,
+				D6A5DCEB2B8CE4EA00328930 /* SettingViewController.swift in Sources */,
 				D6BC02902B6BE41300BE1633 /* AddChannelRequestDTO.swift in Sources */,
 				D6BC029A2B6E9F3A00BE1633 /* ChannelChattingView.swift in Sources */,
 				D6BC025A2B63C91200BE1633 /* CustomAlertViewController.swift in Sources */,
@@ -1668,6 +1695,7 @@
 				D616D2A62B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift in Sources */,
 				D6BA71892B53D91A00D3FD00 /* AddWorkSpaceRequestDTO.swift in Sources */,
 				D654CA752B46C2110054AD46 /* Icon.swift in Sources */,
+				D6A5DCE52B8CE02500328930 /* ChannelSeachViewController.swift in Sources */,
 				D616D2952B487D2E0012CFC5 /* SignUseCase.swift in Sources */,
 				D6A5DCB62B83A21A00328930 /* SearchChattingResponseDTO.swift in Sources */,
 				D6C7A2302B612E8A0007102A /* WorkSpaceListTableViewCell.swift in Sources */,
