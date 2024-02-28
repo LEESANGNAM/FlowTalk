@@ -158,6 +158,7 @@ extension ChannelChatiingViewModel {
             } onCompleted: { owner in // 완료 되면 소켓연결
                 owner.setSocket()
                 owner.recive()
+                owner.sendSuccess.accept(true)
             }.disposed(by: disposeBag)
     }
     private func setSocket() {
@@ -172,6 +173,7 @@ extension ChannelChatiingViewModel {
                 chatArray.append(newchat.toDomain())
                 owner.chatArray.accept(chatArray) // 화면에 추가  디비에도 저장해야함
                 owner.chattingUseCase.saveChannelChatting(workspaceId: WorkSpaceManager.shared.id, chattingData: newchat.toSave()) // 디비저장
+                owner.sendSuccess.accept(true)
             } onError: { owner, error in
                 if let commonError = error as? CommonErrorType {
                     let code = commonError.code

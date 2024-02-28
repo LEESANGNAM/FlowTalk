@@ -73,10 +73,6 @@ class ChannelChattingViewController: BaseViewController {
                 owner.mainView.chattingInputView.sendButton.setImage(value ? Icon.enabledSend.image : Icon.send.image , for: .normal)
             }.disposed(by: disposeBag)
         
-        output.chatArray
-            .bind(with: self) { owner, _ in
-                owner.mainView.chattingTableView.reloadData()
-            }.disposed(by: disposeBag)
         
         output.chatArray
             .bind(to: mainView.chattingTableView.rx.items(cellIdentifier: ChannelChattingTableViewCell.identifier, cellType: ChannelChattingTableViewCell.self)) { _, data, cell in
