@@ -51,6 +51,23 @@ class WorkSpaceHomeDefaultViewController: BaseViewController {
         configureDataSource()
         setUpBackgroundColors()
         bind()
+        setPanGesture()
+        setProfileTapGesture()
+    }
+    
+    private func setProfileTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileTapped))
+        workSpaceNaviBar.profileImageView.isUserInteractionEnabled = true
+        workSpaceNaviBar.profileImageView.addGestureRecognizer(tapGesture)
+    }
+    @objc private func profileTapped() {
+        let vc = UINavigationController(rootViewController: CoinViewController())
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
+    private func setPanGesture() {
         let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePan(_:)))
         edgePanGesture.edges = .left
         view.addGestureRecognizer(edgePanGesture)
