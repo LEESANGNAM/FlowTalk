@@ -98,11 +98,25 @@ class PortOneViewController: BaseViewController {
         NetWorkManager.shared.request(type: PurchaseCoinValidResponseDTO.self, api: .purchaseCoinValid(model))
             .subscribe(with: self) { owner, value in
                 print("결제 완료 리스폰스 : ",value)
+                owner.addSuccess(data: value)
             } onError: { owner, error in
                 print("결제완료 에러있어요")
             }.disposed(by: disposeBag)
     }
     
+    
+    private let completeSubject = PublishSubject<PurchaseCoinValidResponseDTO>()
+    
+    //완료 동작
+    private func addSuccess(data: PurchaseCoinValidResponseDTO) {
+        completeSubject.onNext(data)
+        navigationController?.popViewController(animated: true)
+    }
+
+    // 외부 구독용
+    func completeObservable() -> Observable<PurchaseCoinValidResponseDTO> {
+        return completeSubject.asObservable()
+    }
     
     
 }

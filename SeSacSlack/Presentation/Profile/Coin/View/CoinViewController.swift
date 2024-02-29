@@ -40,7 +40,7 @@ class CoinViewController: BaseViewController {
     
     let viewModel = CoinViewModel()
     let disposeBag = DisposeBag()
-    
+    var coin = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -55,16 +55,13 @@ class CoinViewController: BaseViewController {
             .bind(with: self) { owner, _ in
                 owner.collecionView.reloadData()
             }.disposed(by: disposeBag)
-//            .bind(to: collecionView.rx.items(cellIdentifier: CoinCollectionViewCell.identifier, cellType: CoinCollectionViewCell.self)) { index, data, cell in
-//                cell.showCoinCount(section: index)
-//                if index == 0 {
-//                    cell.titleLabel.text = cell.icon + "현재 보유한 코인"
-//                    cell.coinCountLabel.text = "300개"
-//                }
-//                cell.setData(data: data)
-//            }.disposed(by: disposeBag)
+        
+        MyInfoManager.shared.coin
+            .bind(with: self) { owner, value in
+                owner.coin = value
+                owner.collecionView.reloadData()
+            }.disposed(by: disposeBag)
     }
-    
     
     
     private func setNavigationBar() {
@@ -97,7 +94,7 @@ extension CoinViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.showCoinCount(section: indexPath.section)
         if indexPath.section == 0 {
             cell.titleLabel.text = cell.icon + "현재 보유한 코인"
-            cell.coinCountLabel.text = "300개"
+            cell.coinCountLabel.text = "\(coin)개"
         } else {
             cell.priceButton.tag = indexPath.row
             cell.priceButton.addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
@@ -110,6 +107,12 @@ extension CoinViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func priceButtonTapped(_ sender: UIButton) {
         let data = viewModel.getitem(index: sender.tag)
         let vc = PortOneViewController(item: data)
+        
+        vc.completeObservable()
+            .bind(with: self) { owner, value in
+                MyInfoManager.shared.fetch()
+                owner.showToast(message: "\(value.sesacCoin) Coin 이 결제 되었습니다.")
+            }.disposed(by: vc.disposeBag)
         navigationController?.pushViewController(vc, animated: true)
     }
     
