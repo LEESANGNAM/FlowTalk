@@ -99,10 +99,18 @@ extension CoinViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.titleLabel.text = cell.icon + "현재 보유한 코인"
             cell.coinCountLabel.text = "300개"
         } else {
+            cell.priceButton.tag = indexPath.row
+            cell.priceButton.addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
             let data = viewModel.getitem(index: indexPath.row)
             cell.setData(data: data)
         }
         return cell
+    }
+    
+    @objc func priceButtonTapped(_ sender: UIButton) {
+        let data = viewModel.getitem(index: sender.tag)
+        let vc = PortOneViewController(item: data)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
