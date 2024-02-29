@@ -45,6 +45,9 @@ enum Router: URLRequestConvertible {
     case searchMyDM(SearchMyWorkSpaceDMRequestDTO)
     
     
+    //MARK: - Coin
+    case coinStoreList
+    
     private var baseURL: URL {
         return URL(string: APIKey.baseURL)!
     }
@@ -99,6 +102,11 @@ enum Router: URLRequestConvertible {
         //MARK: - DM
         case .searchMyDM(let model):
             return "/v1/workspaces/\(model.id)/dms"
+            
+        //MARK: - coin
+        case .coinStoreList:
+            return "/v1/store/item/list"
+            
         }
     }
     
@@ -111,7 +119,8 @@ enum Router: URLRequestConvertible {
                 .addMemberWorkspace, .searchMembers, .workSpaceChangeAdmin,
                 .searchMyChannels, .addChannel, .makeChannelChatting,.searchChannelChatting,
                 .unreadChannelChatting, //channel
-                .searchMyDM:
+                .searchMyDM,
+                .coinStoreList:
             return ["SesacKey": Router.key ]
         case .refresh:
             return [
@@ -153,6 +162,9 @@ enum Router: URLRequestConvertible {
         //MARK: - DM
         case .searchMyDM:
             return .get
+        //MARK: - coin
+        case .coinStoreList:
+            return .get
         }
     }
     
@@ -191,7 +203,8 @@ enum Router: URLRequestConvertible {
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,
                 .searchMembers, .workSpaceChangeAdmin,
                 .searchMyChannels, .makeChannelChatting,
-                .searchMyDM:
+                .searchMyDM,
+                .coinStoreList:
             break
         }
         return request

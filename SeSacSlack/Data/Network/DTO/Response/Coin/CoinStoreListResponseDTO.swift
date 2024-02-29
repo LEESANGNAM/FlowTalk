@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CoinStoreListResponseDTO: Decodable {
+    let item: String
+    let amount: String
+}
