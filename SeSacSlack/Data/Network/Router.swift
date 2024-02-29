@@ -47,6 +47,7 @@ enum Router: URLRequestConvertible {
     
     //MARK: - Coin
     case coinStoreList
+    case purchaseCoinValid(PurchaseCoinValidRequestDTO)
     
     private var baseURL: URL {
         return URL(string: APIKey.baseURL)!
@@ -106,6 +107,8 @@ enum Router: URLRequestConvertible {
         //MARK: - coin
         case .coinStoreList:
             return "/v1/store/item/list"
+        case .purchaseCoinValid(let model):
+            return "/v1/store/pay/validation"
             
         }
     }
@@ -120,7 +123,7 @@ enum Router: URLRequestConvertible {
                 .searchMyChannels, .addChannel, .makeChannelChatting,.searchChannelChatting,
                 .unreadChannelChatting, //channel
                 .searchMyDM,
-                .coinStoreList:
+                .coinStoreList,.purchaseCoinValid:
             return ["SesacKey": Router.key ]
         case .refresh:
             return [
@@ -165,6 +168,8 @@ enum Router: URLRequestConvertible {
         //MARK: - coin
         case .coinStoreList:
             return .get
+        case .purchaseCoinValid:
+            return .post
         }
     }
     
@@ -198,6 +203,9 @@ enum Router: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder(destination: .queryString).encode(searchChattingRequestDTO, into: request)
         case .unreadChannelChatting(let unreadChannelChattingRequestDTO):
             request = try URLEncodedFormParameterEncoder(destination: .queryString).encode(unreadChannelChattingRequestDTO, into: request)
+        
+        case .purchaseCoinValid(let purchaseCoinValidRequestDTO):
+            request = try URLEncodedFormParameterEncoder(destination: .httpBody).encode(purchaseCoinValidRequestDTO, into: request)
             
         case .refresh, .searchMyInfo,
                 .addWorkSpace, .searchWorkSpaces, .searchWorkspace, .exitWorkSpace, .editWorkSpace, .deleteWorkSpace,

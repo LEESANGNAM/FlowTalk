@@ -62,6 +62,10 @@
 		D696BC2B2B90944C00DA335E /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696BC2A2B90944C00DA335E /* CoinCollectionViewCell.swift */; };
 		D696BC2F2B90B61C00DA335E /* CoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696BC2E2B90B61C00DA335E /* CoinViewModel.swift */; };
 		D696BC322B90B6CB00DA335E /* CoinStoreListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696BC312B90B6CB00DA335E /* CoinStoreListResponseDTO.swift */; };
+		D696BC362B90C8C400DA335E /* iamport-ios in Frameworks */ = {isa = PBXBuildFile; productRef = D696BC352B90C8C400DA335E /* iamport-ios */; };
+		D696BC3A2B90CABD00DA335E /* PortOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696BC392B90CABD00DA335E /* PortOneViewController.swift */; };
+		D696BC3C2B90E18F00DA335E /* PurchaseCoinValidResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696BC3B2B90E18F00DA335E /* PurchaseCoinValidResponseDTO.swift */; };
+		D696BC3E2B90E1AE00DA335E /* PurchaseCoinValidRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696BC3D2B90E1AE00DA335E /* PurchaseCoinValidRequestDTO.swift */; };
 		D69D464D2B5ED1490044C756 /* WorkspaceListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */; };
 		D69D464F2B5FD8300044C756 /* WorkSpaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */; };
 		D69D46512B5FD8D20044C756 /* WorkSpaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */; };
@@ -254,6 +258,9 @@
 		D696BC2A2B90944C00DA335E /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
 		D696BC2E2B90B61C00DA335E /* CoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModel.swift; sourceTree = "<group>"; };
 		D696BC312B90B6CB00DA335E /* CoinStoreListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinStoreListResponseDTO.swift; sourceTree = "<group>"; };
+		D696BC392B90CABD00DA335E /* PortOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortOneViewController.swift; sourceTree = "<group>"; };
+		D696BC3B2B90E18F00DA335E /* PurchaseCoinValidResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCoinValidResponseDTO.swift; sourceTree = "<group>"; };
+		D696BC3D2B90E1AE00DA335E /* PurchaseCoinValidRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCoinValidRequestDTO.swift; sourceTree = "<group>"; };
 		D69D464C2B5ED1490044C756 /* WorkspaceListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListEmptyView.swift; sourceTree = "<group>"; };
 		D69D464E2B5FD8300044C756 /* WorkSpaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListViewController.swift; sourceTree = "<group>"; };
 		D69D46502B5FD8D20044C756 /* WorkSpaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceListView.swift; sourceTree = "<group>"; };
@@ -394,6 +401,7 @@
 				D6A5DCDD2B8C721100328930 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				D654CA5C2B45A7790054AD46 /* RxKakaoSDKUser in Frameworks */,
 				D654CA622B45A7AF0054AD46 /* Toast in Frameworks */,
+				D696BC362B90C8C400DA335E /* iamport-ios in Frameworks */,
 				D616D2A92B4C06860012CFC5 /* IQKeyboardManagerSwift in Frameworks */,
 				D654CA562B45A7790054AD46 /* RxKakaoSDK in Frameworks */,
 			);
@@ -803,6 +811,7 @@
 		D696BC252B9088A700DA335E /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				D696BC382B90CAA900DA335E /* PortOne */,
 				D696BC2D2B90B60D00DA335E /* ViewModel */,
 				D696BC2C2B90B60800DA335E /* View */,
 			);
@@ -829,6 +838,7 @@
 			isa = PBXGroup;
 			children = (
 				D696BC312B90B6CB00DA335E /* CoinStoreListResponseDTO.swift */,
+				D696BC3B2B90E18F00DA335E /* PurchaseCoinValidResponseDTO.swift */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -836,8 +846,17 @@
 		D696BC332B90B75800DA335E /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				D696BC3D2B90E1AE00DA335E /* PurchaseCoinValidRequestDTO.swift */,
 			);
 			path = Coin;
+			sourceTree = "<group>";
+		};
+		D696BC382B90CAA900DA335E /* PortOne */ = {
+			isa = PBXGroup;
+			children = (
+				D696BC392B90CABD00DA335E /* PortOneViewController.swift */,
+			);
+			path = PortOne;
 			sourceTree = "<group>";
 		};
 		D69D46492B5ED1190044C756 /* List */ = {
@@ -1503,6 +1522,7 @@
 				D6A5DCDC2B8C721100328930 /* FirebaseInAppMessaging-Beta */,
 				D6A5DCDE2B8C721100328930 /* FirebaseInAppMessagingSwift-Beta */,
 				D6A5DCE02B8C721100328930 /* FirebaseMessaging */,
+				D696BC352B90C8C400DA335E /* iamport-ios */,
 			);
 			productName = SeSacSlack;
 			productReference = D654CA152B4435600054AD46 /* SeSacSlack.app */;
@@ -1587,6 +1607,7 @@
 				D6A5DCBF2B85F11200328930 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D6A5DCCB2B87677E00328930 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 				D6A5DCD92B8C721100328930 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D696BC342B90C8C400DA335E /* XCRemoteSwiftPackageReference "iamport-ios" */,
 			);
 			productRefGroup = D654CA162B4435600054AD46 /* Products */;
 			projectDirPath = "";
@@ -1666,6 +1687,7 @@
 				D6BA716D2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift in Sources */,
 				D6BC02972B6E44D100BE1633 /* ChattingInputView.swift in Sources */,
 				D6A5DCD22B876EBF00328930 /* SocketRouter.swift in Sources */,
+				D696BC3A2B90CABD00DA335E /* PortOneViewController.swift in Sources */,
 				D6C7A2342B6145170007102A /* CustomFontColorLabel.swift in Sources */,
 				D6BC02A02B6FE55700BE1633 /* ChannelChattingTableViewCell.swift in Sources */,
 				D696BC2B2B90944C00DA335E /* CoinCollectionViewCell.swift in Sources */,
@@ -1710,6 +1732,7 @@
 				D6BC02782B6947BF00BE1633 /* WorkSpaceChangeAdminViewModel.swift in Sources */,
 				D6A5DCE32B8CD11200328930 /* DeviceTokenRequestDTO.swift in Sources */,
 				D6DCA3862B5D2F9600236EDB /* SearchMyWorkSpaceDMRequestDTO.swift in Sources */,
+				D696BC3C2B90E18F00DA335E /* PurchaseCoinValidResponseDTO.swift in Sources */,
 				D616D2992B487FF10012CFC5 /* SignUpViewModel.swift in Sources */,
 				D6BC026D2B67CE8100BE1633 /* AddMemberWorkSpaceResponseDTO.swift in Sources */,
 				D6DCA3932B5D74D900236EDB /* ChannelUseCase.swift in Sources */,
@@ -1754,6 +1777,7 @@
 				D6BA719D2B5448F100D3FD00 /* WorkSpaceHomeDefaultViewController.swift in Sources */,
 				D6BA716F2B4EFDCB00D3FD00 /* EmailLoginRequestDTO.swift in Sources */,
 				D6BC02A62B724D9B00BE1633 /* ChannelChatiingViewModel.swift in Sources */,
+				D696BC3E2B90E1AE00DA335E /* PurchaseCoinValidRequestDTO.swift in Sources */,
 				D6BC029D2B6FCE5D00BE1633 /* ChannelChattingInputImageCell.swift in Sources */,
 				D6A5DCD62B8B79BC00328930 /* UnreadChannelChattingRequestDTO.swift in Sources */,
 				D6BC02952B6D125900BE1633 /* ChannelChattingViewController.swift in Sources */,
@@ -2199,6 +2223,14 @@
 				minimumVersion = 6.6.0;
 			};
 		};
+		D696BC342B90C8C400DA335E /* XCRemoteSwiftPackageReference "iamport-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iamport/iamport-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 		D6A5DCBF2B85F11200328930 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -2280,6 +2312,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D654CA662B45A7F90054AD46 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		D696BC352B90C8C400DA335E /* iamport-ios */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D696BC342B90C8C400DA335E /* XCRemoteSwiftPackageReference "iamport-ios" */;
+			productName = "iamport-ios";
 		};
 		D6A5DCC02B85F11300328930 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

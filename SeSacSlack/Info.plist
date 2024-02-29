@@ -10,6 +10,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>${KAKAO_NATIVE_APP_KEY}</string>
+				<string>sesac</string>
 			</array>
 		</dict>
 	</array>
@@ -19,6 +20,11 @@
 	<array>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+		<string>kb-acp</string>
+		<string>kb-auth</string>
+		<string>payco</string>
+		<string>nhappcardansimclick</string>
+		<string>supertoss</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
