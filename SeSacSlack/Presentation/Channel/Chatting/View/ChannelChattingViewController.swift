@@ -90,6 +90,7 @@ class ChannelChattingViewController: BaseViewController {
         
     }
     private func tableViewBottomScroll() {
+        if self.viewModel.getDataCount() == 0 { return }
             let indexPath = IndexPath(
                 row: self.viewModel.getDataCount() - 1,
                 section: 0
