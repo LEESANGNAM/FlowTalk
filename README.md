@@ -1,5 +1,5 @@
 
-# SClooset
+# SeSacSlack
 
 ### 실행화면
 <p>
