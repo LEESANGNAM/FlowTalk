@@ -54,7 +54,6 @@
 <img src = "https://github.com/LEESANGNAM/SeSacSlack/assets/61412496/82d6e1e0-1e5a-43f6-83c6-f5e2139d286c" width="22%"/>  
 <!-- [12 새싹코인샵_결제완료] -->
 <img src = "https://github.com/LEESANGNAM/SeSacSlack/assets/61412496/65dbdf6d-1f86-4823-b48f-33fafe5eb948" width="22%"/>  
-
 </p>
 
 
@@ -70,9 +69,29 @@
 ## 기술스택
 + MVVM,RXSwift
 + UIKit,SnapKit, AutoLayout
++ Diffable DataSource, Compositional Layout
 + Kingfisher, Alamofire, Realm
 + Firebase Cloud Messaging, iamPort, KakaoOpenSDK,SoketIO
 
 ## 기능소개
+
+### 회원가입,로그인
++ **RXKakaoSDK(카카오)** 와 **AuthenticationServices(애플)** 를 통해 SNS 로그인 제공
++ 이메일 유효성검사 api 를 통해 사용가능한 이메일인지 확인 후 회원가입 진행
+
+
+### 워크스페이스
++ **DiffableDataSource** 를 활용한 **Expandable** 기능 구현
++ **UIViewControllerAnimatedTransitioning** 를 이용해 **SideMenu** 구현
+
+### 채팅
++ **MultipartForm/Data** 을 이용해 여러장의 이미지 포함 채팅 업로드
++ **Realm** 을 활용해 과거 채팅내역을 저장하여 네트워크 통신 최소화
++ **SocketIO**를 활용해 양방향 실시간 채팅 기능
++ **Firebase Cloud Messaging(FCM)** 을 이용해 **Push Notification** 수신
+
+### PG결제
++ **Iamport** 를 활용해 신용카드 결제 구현 및 영수증 검증
+
 
 ## 트러블슈팅
