@@ -95,3 +95,83 @@
 
 
 ## 트러블슈팅
+
+### 사이드 메뉴 구현
++ **UIViewControllerAnimatedTransitioning** 를 이용해 화면 전환 애니메이션을 커스텀 했다.
+~~~ swift 
+class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    var isPresenting: Bool = false
+    // 동작시간
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.7
+    }
+    // 동작 정의
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let toViewController = transitionContext.viewController(forKey: .to),
+              let fromViewController = transitionContext.viewController(forKey: .from) else {
+            return
+        }
+
+        let containerView = transitionContext.containerView
+
+        if isPresenting {
+            // Add the 'to' view controller's view to the container view
+            let targetWidth = fromViewController.view.frame.width
+            toViewController.view.frame = CGRect(x: targetWidth * -1, y: 0, width: targetWidth, height: fromViewController.view.frame.height)
+                containerView.addSubview(toViewController.view)
+
+            // Animate the 'to' view controller's view sliding in from left to right
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+                toViewController.view.frame.origin.x = 0
+                toViewController.view.backgroundColor = toViewController.view.backgroundColor?.withAlphaComponent(0.5)
+            }, completion: { _ in
+                transitionContext.completeTransition(true)
+            })
+        } else {
+            // Animate the 'from' view controller's view sliding out from right to left
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+                fromViewController.view.frame.origin.x = -containerView.frame.width
+                fromViewController.view.backgroundColor = fromViewController.view.backgroundColor?.withAlphaComponent(0.0)
+            }, completion: { _ in
+                transitionContext.completeTransition(true)
+            })
+        }
+    }
+}
+~~~
+
+### 홈 화면에서의 네트워크 통신 비동기 
++ 홈화면에서 채널 목록 및 안읽은 메세지 요청을 했으나, 요청이 비동기로 동작해 완료 시점에 따라 데이터의 목록이 바뀌는 문제 발생
++ DispatchGroup 를 이용해 모든 작업이 완료되었을때 데이터를 넘겨주도록 구현
+
+~~~ swift
+ private func fetchUnreadCount(_ channelData: [SearchMyChannelsResponseDTO], _ dmData: [SearchMyWorkSpaceDMResponseDTO]) {
+     var tempchannelArray: [homeDefaultListItem] = Array(repeating: homeDefaultListItem(), count: channelData.count)
+      let group = DispatchGroup()
+
+       for (index, item) in channelData.enumerated() {
+            
+            group.enter()
+            let LastDate = channelChattingStorage?.checkChattingLastDate(channelId: item.channel_id)
+            let model = UnreadChannelChattingRequestDTO(
+                workspace_id: workID,
+                channelName: item.name,
+                after: LastDate ?? ""
+            )
+            channelUseCase.unreadCount(model: model)
+                .subscribe(with: self) { owner, unreadChatting in
+                    let homeModel = homeDefaultListItem(
+                        title: item.name,unreadCount: unreadChatting.count
+                    )
+                    if index < tempchannelArray.count {
+                        tempchannelArray[index] = homeModel
+                    }
+                    group.leave()
+                }.disposed(by: disposeBag)
+        }
+        group.notify(queue: .main) {
+            homeListArray.append(tempchannelArray)
+            self.homeListData.accept(homeListArray)
+        }
+ }
+~~~

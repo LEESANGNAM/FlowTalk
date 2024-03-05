@@ -10,11 +10,11 @@ import UIKit
 
 class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresenting: Bool = false
-
+    // 동작시간
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.7
     }
-
+    // 동작 정의
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let toViewController = transitionContext.viewController(forKey: .to),
               let fromViewController = transitionContext.viewController(forKey: .from) else {
