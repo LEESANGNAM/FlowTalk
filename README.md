@@ -1,5 +1,5 @@
 
-# SeSacSlack
+# FlowTalk
 
 ### 실행화면
 <p>
@@ -145,7 +145,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
 + DispatchGroup 를 이용해 모든 작업이 완료되었을때 데이터를 넘겨주도록 구현
 
 ~~~ swift
- private func fetchUnreadCount(_ channelData: [SearchMyChannelsResponseDTO], _ dmData: [SearchMyWorkSpaceDMResponseDTO]) {
+ private func fetchUnreadCount(_ channelData: [SearchMyChannelsResponseDTO]) {
      var tempchannelArray: [homeDefaultListItem] = Array(repeating: homeDefaultListItem(), count: channelData.count)
       let group = DispatchGroup()
 
