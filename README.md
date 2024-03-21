@@ -4,9 +4,9 @@
 ### 실행화면
 <p>
 <!-- [1 온보딩화면] -->
-<img src = "https://github.com/LEESANGNAM/SeSacSlack/assets/61412496/376242c1-30db-431c-abfa-efffb02e5e86" width="22%"/>  
+<img src = "https://github.com/LEESANGNAM/FlowTalk/assets/61412496/128be5b3-8b24-4d62-8cf3-f5a45296308d" width="22%"/>  
 <!-- [2 로그인모달]  -->
-<img src = "https://github.com/LEESANGNAM/SeSacSlack/assets/61412496/5c9dd1e3-71f6-45a8-ac5c-3c889e955890" width="22%"/>  
+<img src = "https://github.com/LEESANGNAM/FlowTalk/assets/61412496/81b70c25-f51c-4c0f-b70b-8859d290f255" width="22%"/>  
 <!-- [3 이메일로그인]  -->
 <img src = "https://github.com/LEESANGNAM/SeSacSlack/assets/61412496/1e20ad6d-675c-46e5-8bb4-4f398bececf6" width="22%"/>  
 <!-- [5 회원가입중복체크]  -->
