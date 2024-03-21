@@ -64,6 +64,21 @@
                   endingLineNumber = "235"
                   offsetFromSymbolStart = "468">
                </Location>
+               <Location
+                  uuid = "F92D6512-3086-43F9-9430-53DF11AA2E66 - ce8fdcaf32a32312"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeSacSlack.WorkSpaceHomeDefaultViewController.applyInitialSnapshots() -&gt; ()"
+                  moduleName = "SeSacSlack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isangnam/Documents/iOS/SeSac/SeSacSlack/SeSacSlack/Presentation/WorkSpace/Home/Default/View/WorkSpaceHomeDefaultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "668">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

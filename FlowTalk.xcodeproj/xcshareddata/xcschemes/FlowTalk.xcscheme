@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D654CA142B4435600054AD46"
-               BuildableName = "SeSacSlack.app"
-               BlueprintName = "SeSacSlack"
-               ReferencedContainer = "container:SeSacSlack.xcodeproj">
+               BuildableName = "FlowTalk.app"
+               BlueprintName = "FlowTalk"
+               ReferencedContainer = "container:FlowTalk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D654CA2A2B4435610054AD46"
-               BuildableName = "SeSacSlackTests.xctest"
-               BlueprintName = "SeSacSlackTests"
-               ReferencedContainer = "container:SeSacSlack.xcodeproj">
+               BuildableName = "FlowTalkTests.xctest"
+               BlueprintName = "FlowTalkTests"
+               ReferencedContainer = "container:FlowTalk.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,9 +46,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D654CA342B4435610054AD46"
-               BuildableName = "SeSacSlackUITests.xctest"
-               BlueprintName = "SeSacSlackUITests"
-               ReferencedContainer = "container:SeSacSlack.xcodeproj">
+               BuildableName = "FlowTalkUITests.xctest"
+               BlueprintName = "FlowTalkUITests"
+               ReferencedContainer = "container:FlowTalk.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D654CA142B4435600054AD46"
-            BuildableName = "SeSacSlack.app"
-            BlueprintName = "SeSacSlack"
-            ReferencedContainer = "container:SeSacSlack.xcodeproj">
+            BuildableName = "FlowTalk.app"
+            BlueprintName = "FlowTalk"
+            ReferencedContainer = "container:FlowTalk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D654CA142B4435600054AD46"
-            BuildableName = "SeSacSlack.app"
-            BlueprintName = "SeSacSlack"
-            ReferencedContainer = "container:SeSacSlack.xcodeproj">
+            BuildableName = "FlowTalk.app"
+            BlueprintName = "FlowTalk"
+            ReferencedContainer = "container:FlowTalk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -10,7 +10,7 @@ import SnapKit
 class OnBoardingViewController: BaseViewController {
     let startButton = CustomBackgroundTitleButton(title: "시작하기", color: Colors.brandGreen.color)
     let titleLabel = {
-        let view = CustomFontColorLabel(text: "새싹톡을 사용하면 어디서나 \n 팀을 모을 수 있습니다.", font: Font.title1.fontWithLineHeight())
+        let view = CustomFontColorLabel(text: "FlowTalk을 사용하면 어디서나 \n 팀을 모을 수 있습니다.", font: Font.title1.fontWithLineHeight())
         view.numberOfLines = 0
         return view
     }()

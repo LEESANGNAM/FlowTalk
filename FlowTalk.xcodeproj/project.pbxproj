@@ -229,16 +229,16 @@
 		D616D2A02B4BE2830012CFC5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D616D2A52B4BE59F0012CFC5 /* WorkSpaceInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceInitViewController.swift; sourceTree = "<group>"; };
 		D616D2AA2B4C09FF0012CFC5 /* SignUpTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldType.swift; sourceTree = "<group>"; };
-		D654CA152B4435600054AD46 /* SeSacSlack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacSlack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D654CA152B4435600054AD46 /* FlowTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA182B4435600054AD46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654CA1A2B4435600054AD46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D654CA1C2B4435600054AD46 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		D654CA212B4435610054AD46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D654CA242B4435610054AD46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D654CA262B4435610054AD46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D654CA2B2B4435610054AD46 /* SeSacSlackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeSacSlackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D654CA2B2B4435610054AD46 /* FlowTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA2F2B4435610054AD46 /* SeSacSlackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacSlackTests.swift; sourceTree = "<group>"; };
-		D654CA352B4435610054AD46 /* SeSacSlackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeSacSlackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D654CA352B4435610054AD46 /* FlowTalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowTalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654CA392B4435610054AD46 /* SeSacSlackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacSlackUITests.swift; sourceTree = "<group>"; };
 		D654CA3B2B4435610054AD46 /* SeSacSlackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacSlackUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D654CA4C2B459A910054AD46 /* .gitIgnore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitIgnore; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 		D6BA715B2B4EC11D00D3FD00 /* WorkSpaceHomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceHomeEmptyViewController.swift; sourceTree = "<group>"; };
 		D6BA715D2B4EC4B300D3FD00 /* AppleLoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestDTO.swift; sourceTree = "<group>"; };
 		D6BA715F2B4EC53600D3FD00 /* AppleLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginResponseDTO.swift; sourceTree = "<group>"; };
-		D6BA71612B4ED7E400D3FD00 /* SeSacSlack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSacSlack.entitlements; sourceTree = "<group>"; };
+		D6BA71612B4ED7E400D3FD00 /* FlowTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlowTalk.entitlements; sourceTree = "<group>"; };
 		D6BA71682B4EE3DF00D3FD00 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		D6BA716A2B4EE3EA00D3FD00 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		D6BA716C2B4EEF2200D3FD00 /* LoginErrorTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorTextFieldType.swift; sourceTree = "<group>"; };
@@ -646,7 +646,7 @@
 		D654CA0C2B4435600054AD46 = {
 			isa = PBXGroup;
 			children = (
-				D654CA172B4435600054AD46 /* SeSacSlack */,
+				D654CA172B4435600054AD46 /* FlowTalk */,
 				D654CA2E2B4435610054AD46 /* SeSacSlackTests */,
 				D654CA382B4435610054AD46 /* SeSacSlackUITests */,
 				D654CA162B4435600054AD46 /* Products */,
@@ -656,17 +656,17 @@
 		D654CA162B4435600054AD46 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D654CA152B4435600054AD46 /* SeSacSlack.app */,
-				D654CA2B2B4435610054AD46 /* SeSacSlackTests.xctest */,
-				D654CA352B4435610054AD46 /* SeSacSlackUITests.xctest */,
+				D654CA152B4435600054AD46 /* FlowTalk.app */,
+				D654CA2B2B4435610054AD46 /* FlowTalkTests.xctest */,
+				D654CA352B4435610054AD46 /* FlowTalkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D654CA172B4435600054AD46 /* SeSacSlack */ = {
+		D654CA172B4435600054AD46 /* FlowTalk */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA71612B4ED7E400D3FD00 /* SeSacSlack.entitlements */,
+				D6BA71612B4ED7E400D3FD00 /* FlowTalk.entitlements */,
 				D616D2962B487F9F0012CFC5 /* Presentation */,
 				D616D2892B48792C0012CFC5 /* Domain */,
 				D616D2752B4854000012CFC5 /* Data */,
@@ -681,7 +681,7 @@
 				D654CA4E2B459FC00054AD46 /* Config.xcconfig */,
 				D654CA4F2B459FCA0054AD46 /* APIKey.swift */,
 			);
-			path = SeSacSlack;
+			path = FlowTalk;
 			sourceTree = "<group>";
 		};
 		D654CA2E2B4435610054AD46 /* SeSacSlackTests */ = {
@@ -1490,9 +1490,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D654CA142B4435600054AD46 /* SeSacSlack */ = {
+		D654CA142B4435600054AD46 /* FlowTalk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D654CA3F2B4435610054AD46 /* Build configuration list for PBXNativeTarget "SeSacSlack" */;
+			buildConfigurationList = D654CA3F2B4435610054AD46 /* Build configuration list for PBXNativeTarget "FlowTalk" */;
 			buildPhases = (
 				D654CA112B4435600054AD46 /* Sources */,
 				D654CA122B4435600054AD46 /* Frameworks */,
@@ -1502,7 +1502,7 @@
 			);
 			dependencies = (
 			);
-			name = SeSacSlack;
+			name = FlowTalk;
 			packageProductDependencies = (
 				D654CA522B45A6B00054AD46 /* SnapKit */,
 				D654CA552B45A7790054AD46 /* RxKakaoSDK */,
@@ -1525,12 +1525,12 @@
 				D696BC352B90C8C400DA335E /* iamport-ios */,
 			);
 			productName = SeSacSlack;
-			productReference = D654CA152B4435600054AD46 /* SeSacSlack.app */;
+			productReference = D654CA152B4435600054AD46 /* FlowTalk.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D654CA2A2B4435610054AD46 /* SeSacSlackTests */ = {
+		D654CA2A2B4435610054AD46 /* FlowTalkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D654CA422B4435610054AD46 /* Build configuration list for PBXNativeTarget "SeSacSlackTests" */;
+			buildConfigurationList = D654CA422B4435610054AD46 /* Build configuration list for PBXNativeTarget "FlowTalkTests" */;
 			buildPhases = (
 				D654CA272B4435610054AD46 /* Sources */,
 				D654CA282B4435610054AD46 /* Frameworks */,
@@ -1541,14 +1541,14 @@
 			dependencies = (
 				D654CA2D2B4435610054AD46 /* PBXTargetDependency */,
 			);
-			name = SeSacSlackTests;
+			name = FlowTalkTests;
 			productName = SeSacSlackTests;
-			productReference = D654CA2B2B4435610054AD46 /* SeSacSlackTests.xctest */;
+			productReference = D654CA2B2B4435610054AD46 /* FlowTalkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D654CA342B4435610054AD46 /* SeSacSlackUITests */ = {
+		D654CA342B4435610054AD46 /* FlowTalkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D654CA452B4435610054AD46 /* Build configuration list for PBXNativeTarget "SeSacSlackUITests" */;
+			buildConfigurationList = D654CA452B4435610054AD46 /* Build configuration list for PBXNativeTarget "FlowTalkUITests" */;
 			buildPhases = (
 				D654CA312B4435610054AD46 /* Sources */,
 				D654CA322B4435610054AD46 /* Frameworks */,
@@ -1559,9 +1559,9 @@
 			dependencies = (
 				D654CA372B4435610054AD46 /* PBXTargetDependency */,
 			);
-			name = SeSacSlackUITests;
+			name = FlowTalkUITests;
 			productName = SeSacSlackUITests;
-			productReference = D654CA352B4435610054AD46 /* SeSacSlackUITests.xctest */;
+			productReference = D654CA352B4435610054AD46 /* FlowTalkUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1587,7 +1587,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D654CA102B4435600054AD46 /* Build configuration list for PBXProject "SeSacSlack" */;
+			buildConfigurationList = D654CA102B4435600054AD46 /* Build configuration list for PBXProject "FlowTalk" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1613,9 +1613,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D654CA142B4435600054AD46 /* SeSacSlack */,
-				D654CA2A2B4435610054AD46 /* SeSacSlackTests */,
-				D654CA342B4435610054AD46 /* SeSacSlackUITests */,
+				D654CA142B4435600054AD46 /* FlowTalk */,
+				D654CA2A2B4435610054AD46 /* FlowTalkTests */,
+				D654CA342B4435610054AD46 /* FlowTalkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1834,12 +1834,12 @@
 /* Begin PBXTargetDependency section */
 		D654CA2D2B4435610054AD46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D654CA142B4435600054AD46 /* SeSacSlack */;
+			target = D654CA142B4435600054AD46 /* FlowTalk */;
 			targetProxy = D654CA2C2B4435610054AD46 /* PBXContainerItemProxy */;
 		};
 		D654CA372B4435610054AD46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D654CA142B4435600054AD46 /* SeSacSlack */;
+			target = D654CA142B4435600054AD46 /* FlowTalk */;
 			targetProxy = D654CA362B4435610054AD46 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1983,13 +1983,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SeSacSlack/SeSacSlack.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FlowTalk/FlowTalk.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y7C6A3W353;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SeSacSlack/Info.plist;
+				INFOPLIST_FILE = FlowTalk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -2001,7 +2001,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sangnam.SeSacSlack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sangnam.FlowTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2019,13 +2019,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SeSacSlack/SeSacSlack.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FlowTalk/FlowTalk.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y7C6A3W353;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SeSacSlack/Info.plist;
+				INFOPLIST_FILE = FlowTalk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -2037,7 +2037,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sangnam.SeSacSlack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sangnam.FlowTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2065,7 +2065,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeSacSlack.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeSacSlack";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlowTalk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlowTalk";
 			};
 			name = Debug;
 		};
@@ -2085,7 +2085,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeSacSlack.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeSacSlack";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlowTalk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlowTalk";
 			};
 			name = Release;
 		};
@@ -2128,7 +2128,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D654CA102B4435600054AD46 /* Build configuration list for PBXProject "SeSacSlack" */ = {
+		D654CA102B4435600054AD46 /* Build configuration list for PBXProject "FlowTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D654CA3D2B4435610054AD46 /* Debug */,
@@ -2137,7 +2137,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D654CA3F2B4435610054AD46 /* Build configuration list for PBXNativeTarget "SeSacSlack" */ = {
+		D654CA3F2B4435610054AD46 /* Build configuration list for PBXNativeTarget "FlowTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D654CA402B4435610054AD46 /* Debug */,
@@ -2146,7 +2146,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D654CA422B4435610054AD46 /* Build configuration list for PBXNativeTarget "SeSacSlackTests" */ = {
+		D654CA422B4435610054AD46 /* Build configuration list for PBXNativeTarget "FlowTalkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D654CA432B4435610054AD46 /* Debug */,
@@ -2155,7 +2155,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D654CA452B4435610054AD46 /* Build configuration list for PBXNativeTarget "SeSacSlackUITests" */ = {
+		D654CA452B4435610054AD46 /* Build configuration list for PBXNativeTarget "FlowTalkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D654CA462B4435610054AD46 /* Debug */,
